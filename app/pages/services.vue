@@ -1,7 +1,5 @@
 <template>
   <div>
-    <NavigationMenu />
-
     <div style="padding-top: 100px">
       <section class="section">
         <h1 class="section-title">Preus i paquets</h1>
@@ -268,12 +266,9 @@
         </div>
       </section>
     </div>
-
-    <AppFooter />
   </div>
 </template>
 
 <script setup>
-import NavigationMenu from "~/components/NavigationMenu.vue";
-import AppFooter from "~/components/AppFooter.vue";
+
 </script>
