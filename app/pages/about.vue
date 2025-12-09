@@ -1,18 +1,18 @@
 <template>
   <div>
     <div class="content-wrapper">
-      <section class="section">
+      <section class="about-header">
         <h1 class="section-title">Sobre mi</h1>
         <p class="section-subtitle">
           Una mica sobre mi i la meva trajectòria en el món de la música.
         </p>
       </section>
 
-      <section class="section">
+      <section class="about-paragraph">
         <p
           v-for="(text, index) in aboutParagraphs"
           :key="index"
-          class="section-subtitle"
+          class="section-subtitle separated-paragraph"
         >
           {{ text }}
         </p>
@@ -38,9 +38,16 @@ const aboutParagraphs = [
   padding-top: 100px;
 }
 
-.section {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+.about-header {
+  padding: 6rem 2rem 1rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.about-paragraph {
+  padding: 1rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .section-subtitle {
@@ -48,5 +55,9 @@ const aboutParagraphs = [
   font-size: 1.2rem;
   color: var(--text-secondary);
   margin-bottom: 0rem;
+}
+
+.separated-paragraph {
+  margin-top: 2rem;
 }
 </style>
