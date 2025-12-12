@@ -8,61 +8,21 @@
 
       <!-- Mixing & Mastering -->
       <div class="pricing-grid">
-        <div
+        <PricingCard
           v-for="(pack, i) in mixingPackages"
           :key="i"
-          class="pricing-card"
-          :class="{ featured: pack.featured }"
-        >
-          <div v-if="pack.badge" class="badge-popular">{{ pack.badge }}</div>
-
-          <h3>{{ pack.title }}</h3>
-
-          <div class="price">
-            {{ pack.price }}<span class="price-unit">{{ pack.unit }}</span>
-          </div>
-
-          <ul class="pricing-features">
-            <li v-for="(feature, j) in pack.features" :key="j">
-              {{ feature }}
-            </li>
-          </ul>
-
-          <NuxtLink
-            :to="pack.link"
-            class="btn"
-            :class="pack.featured ? 'btn-primary' : 'btn-secondary'"
-          >
-            {{ pack.button }}
-          </NuxtLink>
-        </div>
+          v-bind="pack"
+        />
       </div>
 
       <!-- Production -->
       <h2 class="section-title section-title-margin">Producció i Gravació</h2>
-
       <div class="pricing-grid">
-        <div
+        <PricingCard
           v-for="(pack, i) in productionPackages"
           :key="i"
-          class="pricing-card"
-        >
-          <h3>{{ pack.title }}</h3>
-
-          <div class="price">
-            {{ pack.price }}<span class="price-unit">{{ pack.unit }}</span>
-          </div>
-
-          <ul class="pricing-features">
-            <li v-for="(feature, j) in pack.features" :key="j">
-              {{ feature }}
-            </li>
-          </ul>
-
-          <NuxtLink :to="pack.link" class="btn btn-secondary btn-full">
-            {{ pack.button }}
-          </NuxtLink>
-        </div>
+          v-bind="pack"
+        />
       </div>
 
       <!-- Volume Discounts -->
@@ -82,6 +42,8 @@
 </template>
 
 <script setup>
+import PricingCard from "~/components/PricingCard.vue";
+
 const mixingPackages = [
   {
     title: "Mescla",
@@ -184,76 +146,23 @@ const productionPackages = [
 .page-wrapper {
   padding-top: 100px;
 }
-
 .section {
   text-align: center;
 }
-
 .section-subtitle {
   font-size: 1.2rem;
   color: var(--text-secondary);
   margin-bottom: 4rem;
 }
-
 .section-title-margin {
   margin-top: 5rem;
 }
-
-/* Pricing Grid */
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-bottom: 4rem;
 }
-
-/* Cards */
-.pricing-card {
-  background: var(--card-bg);
-  padding: 2rem;
-  border-radius: 20px;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.featured {
-  border: 2px solid var(--accent);
-}
-
-.badge-popular {
-  background: var(--accent);
-  color: white;
-  padding: 0.5rem;
-  border-radius: 20px;
-  margin-bottom: 1rem;
-  font-weight: bold;
-}
-
-.price {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.price-unit {
-  font-size: 1rem;
-  color: var(--text-secondary);
-}
-
-.pricing-features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.5rem 0;
-  line-height: 1.7;
-}
-
-/* Buttons */
-.btn-full {
-  width: 100%;
-  margin-top: 1.5rem;
-}
-
-/* Volume Discounts Box */
 .volume-discounts {
   background: var(--card-bg);
   padding: 3rem;
@@ -262,12 +171,10 @@ const productionPackages = [
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 .volume-discounts h3 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
-
 .volume-discounts p {
   color: var(--text-secondary);
   margin-bottom: 2rem;
