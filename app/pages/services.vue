@@ -1,36 +1,68 @@
 <template>
   <div class="page-wrapper">
     <section class="section">
-      <h1 class="section-title">Preus i paquets</h1>
+      <h1 class="section-title">Serveis i preus</h1>
       <p class="section-subtitle">
-        Trieu el paquet que millor s'adapti a les vostres necessitats
+        Estudi professional de mescla, producció i gravació. Treball híbrid,
+        sala tractada i flux de treball d’alt nivell.
       </p>
 
-      <!-- Mixing & Mastering -->
+      <!-- MIXING -->
+      <h2 class="section-title section-title-margin">Mescla</h2>
       <div class="pricing-grid">
         <PricingCard
           v-for="(pack, i) in mixingPackages"
-          :key="i"
+          :key="'mix-' + i"
           v-bind="pack"
         />
       </div>
 
-      <!-- Production -->
-      <h2 class="section-title section-title-margin">Producció i Gravació</h2>
+      <!-- TRACKING -->
+      <h2 class="section-title section-title-margin">Gravació i tracking</h2>
+      <div class="pricing-grid">
+        <PricingCard
+          v-for="(pack, i) in trackingPackages"
+          :key="'track-' + i"
+          v-bind="pack"
+        />
+      </div>
+
+      <!-- PRODUCTION -->
+      <h2 class="section-title section-title-margin">Producció musical</h2>
       <div class="pricing-grid">
         <PricingCard
           v-for="(pack, i) in productionPackages"
-          :key="i"
+          :key="'prod-' + i"
           v-bind="pack"
         />
       </div>
 
-      <!-- Volume Discounts -->
+      <!-- EDITING -->
+      <h2 class="section-title section-title-margin">Edició</h2>
+      <div class="pricing-grid">
+        <PricingCard
+          v-for="(pack, i) in editingPackages"
+          :key="'edit-' + i"
+          v-bind="pack"
+        />
+      </div>
+
+      <!-- PRO SERVICES -->
+      <h2 class="section-title section-title-margin">Serveis professionals</h2>
+      <div class="pricing-grid">
+        <PricingCard
+          v-for="(pack, i) in proServicePackages"
+          :key="'pro-' + i"
+          v-bind="pack"
+        />
+      </div>
+
+      <!-- VOLUME DISCOUNTS -->
       <div class="volume-discounts">
         <h3>Descomptes per volum</h3>
         <p>
           ✓ 10% de descompte a partir de 5 cançons<br >
-          ✓ 15% de descompte a partir de 10 cançons (EP/Àlbum)<br >
+          ✓ 15% de descompte a partir de 10 cançons (EP / Àlbum)<br >
           ✓ Pressupost personalitzat per projectes grans
         </p>
         <NuxtLink to="/contact" class="btn btn-primary">
@@ -44,100 +76,266 @@
 <script setup>
 import PricingCard from "~/components/PricingCard.vue";
 
+/* =======================
+   MIXING
+======================= */
+
 const mixingPackages = [
   {
-    title: "Mescla",
-    price: "80€",
+    title: "Mescla bàsica",
+    price: "75€",
     unit: "/cançó",
     features: [
-      "Mescla professional",
-      "Fins a 50 pistes",
-      "3 revisions incloses",
-      "Stems finals",
-      "Lliurament en 5-7 dies",
+      "Mescla professional ITB",
+      "Fins a 40 pistes",
+      "Automatitzacions bàsiques",
+      "2 revisions incloses",
+      "Lliurament en 4–6 dies",
     ],
     link: "/contact",
     button: "Contractar",
-    featured: false,
   },
   {
-    title: "Mescla + Mastering",
-    price: "120€",
+    title: "Mescla híbrida",
+    price: "95€",
     unit: "/cançó",
     features: [
-      "Tot el paquet de mescla",
-      "Mastering professional",
-      "5 revisions totals",
-      "Formats optimitzats per streaming",
-      "DDP per vinils/CD",
-      "Lliurament en 7 dies",
+      "Mescla híbrida analògica (Silver Bullet + SSL)",
+      "Fins a 60 pistes",
+      "Automatitzacions completes",
+      "3 revisions incloses",
+      "Mix final + instrumental",
+      "Lliurament en 5–7 dies",
     ],
     link: "/contact",
     button: "Contractar",
     featured: true,
-    badge: "MÉS POPULAR",
+    badge: "SERVEI PRINCIPAL",
   },
   {
-    title: "Només Mastering",
-    price: "50€",
+    title: "Mescla avançada",
+    price: "120€",
     unit: "/cançó",
     features: [
-      "Mastering professional",
-      "2 revisions incloses",
-      "Formats per streaming i físic",
-      "Anàlisi de qualitat",
-      "Lliurament en 3-5 dies",
+      "Mescla híbrida analògica (Silver Bullet + SSL)",
+      "Sessions complexes (+60 pistes)",
+      "Automatitzacions completes",
+      "3 revisions incloses",
+      "Lliurament en 7–10 dies",
     ],
     link: "/contact",
     button: "Contractar",
-    featured: false,
   },
 ];
 
-const productionPackages = [
+/* =======================
+   TRACKING
+======================= */
+
+const trackingPackages = [
   {
-    title: "Hora d'Estudi",
+    title: "Gravació d’instruments",
     price: "40€",
     unit: "/hora",
     features: [
-      "Gravació professional",
-      "Enginy de so inclòs",
-      "Tot l'equipament disponible",
-      "Instruments de l'estudi",
-      "Edició bàsica",
+      "Instruments elèctrics, acústics i overdubs",
+      "Suhr Reactive Load",
+      "Captura DI + amp",
+      "Enginyer inclòs",
+      "Edició inclosa",
     ],
     link: "/contact",
     button: "Reservar",
   },
   {
-    title: "Dia Complet",
-    price: "280€",
+    title: "Dia complet d’estudi",
+    price: "300€",
     unit: "/8h",
     features: [
-      "8 hores d'estudi",
-      "Tot inclòs",
-      "Pauses flexibles",
-      "Gravació multi-instrument",
-      "Edició avançada",
-      "Estalvieu 40€",
+      "8 hores de gravació",
+      "Tot l’equip disponible",
+      "Enginyer inclòs",
+      "Edició inclosa",
+      "Estalvi respecte hores soltes",
+    ],
+    link: "/contact",
+    button: "Reservar",
+    featured: true,
+    badge: "RECOMANAT",
+  },
+  {
+    title: "Gravació vocal",
+    price: "50€",
+    unit: "/hora",
+    features: [
+      "UAD Sphere DLX (microfonia modelada)",
+      "Sala completament tractada",
+      "Direcció vocal i coaching",
+      "Enginyer inclòs",
+      "Edició inclosa",
     ],
     link: "/contact",
     button: "Reservar",
   },
+];
+
+/* =======================
+   PRODUCTION
+======================= */
+
+const productionPackages = [
   {
-    title: "Producció Completa",
+    title: "Beat Making / Bases",
+    price: "Des de 150€",
+    unit: "/cançó",
+    features: [
+      "Producció original adaptada a l’artista",
+      "Llicència inclosa",
+      "Revisions segons acord",
+      "Compatible amb vocals o instrumentals existents",
+    ],
+    link: "/contact",
+    button: "Demanar pressupost",
+  },
+  {
+    title: "Producció / Coproducció completa",
     price: "A mida",
     unit: "",
     features: [
       "Preproducció i arranjaments",
-      "Gravació completa",
-      "Producció musical",
-      "Mescla i mastering",
-      "Assessorament continu",
-      "Sessions il·limitades",
+      "Sound design i selecció sonora",
+      "Producció musical completa",
+      "Direcció artística",
+      "Mescla inclosa",
     ],
     link: "/contact",
     button: "Demanar pressupost",
+    featured: true,
+    badge: "SERVEI PRINCIPAL",
+  },
+  {
+    title: "Sound Design / Patches personalitzats",
+    price: "Des de 100€",
+    unit: "/patch",
+    features: [
+      "Disseny sonor per sintetitzadors i samplers",
+      "Creació de kits originals i textures úniques",
+      "Optimitzat per produccions i live",
+      "Consultoria sobre implementació en DAW",
+    ],
+    link: "/contact",
+    button: "Demanar pressupost",
+  },
+  {
+    title: "Rearranjament / Adaptació",
+    price: "A mida",
+    unit: "",
+    features: [
+      "Transformació de la cançó segons estil desitjat",
+      "Optimització per streaming, directes o sync",
+      "Afegit d’instruments o elements originals",
+      "Edició final de pistes inclosa",
+    ],
+    link: "/contact",
+    button: "Demanar pressupost",
+  },
+  {
+    title: "Producció per Sync / Continguts multimèdia",
+    price: "A mida",
+    unit: "",
+    features: [
+      "Creació de pistes per anuncis, jocs o pel·lícules",
+      "Formats adaptats a projectes audiovisuals",
+      "Direcció artística i adaptació a brief",
+      "Entrega de stems optimitzats",
+    ],
+    link: "/contact",
+    button: "Demanar pressupost",
+  },
+  {
+    title: "Coproducció remota",
+    price: "A mida",
+    unit: "",
+    features: [
+      "Sessions online en temps real amb qualitat analògica",
+      "Edició i mescla inclosa",
+      "Assessorament sobre estructures i arranjaments",
+      "Compatible amb qualsevol DAW",
+    ],
+    link: "/contact",
+    button: "Demanar pressupost",
+  },
+];
+
+/* =======================
+   EDITING
+======================= */
+
+const editingPackages = [
+  {
+    title: "Edició i afinació vocal",
+    price: "40€",
+    unit: "/cançó",
+    features: ["Comping", "Timing", "Afinació transparent", "Resultat natural"],
+    link: "/contact",
+    button: "Contractar",
+  },
+  {
+    title: "Preparació de sessions",
+    price: "30€",
+    unit: "/projecte",
+    features: [
+      "Organització Pro Tools",
+      "Neteja i ruteig",
+      "Preparació òptima per mescla",
+    ],
+    link: "/contact",
+    button: "Contractar",
+  },
+];
+
+/* =======================
+   PRO SERVICES
+======================= */
+
+const proServicePackages = [
+  {
+    title: "Mix bus processing extern",
+    price: "40€",
+    unit: "/cançó",
+    features: [
+      "Processament analògic del mix bus",
+      "Silver Bullet + SSL Bus+",
+      "Sense alterar balances",
+      "Ideal per mixers ITB",
+    ],
+    link: "/contact",
+    button: "Contractar",
+  },
+  {
+    title: "Assessorament tècnic / estudi",
+    price: "50€",
+    unit: "/hora",
+    features: [
+      "Flux de treball",
+      "Equipament",
+      "Plugins",
+      "Optimització d’estudi",
+    ],
+    link: "/contact",
+    button: "Reservar",
+  },
+  {
+    title: "Mix coaching",
+    price: "40€",
+    unit: "/hora",
+    features: [
+      "Feedback tècnic i artístic",
+      "Revisió de mescles",
+      "Ideal per productors",
+    ],
+    link: "/contact",
+    button: "Reservar",
   },
 ];
 </script>
@@ -159,7 +357,8 @@ const productionPackages = [
 }
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
+
   gap: 2rem;
   margin-bottom: 4rem;
 }

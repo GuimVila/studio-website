@@ -24,6 +24,7 @@
     "dayjs": "^1.11.19",
     "eslint": "^9.39.1",
     "fuse.js": "^7.1.0",
+    "motion-v": "^1.7.4",
     "nuxt": "^4.2.1",
     "remark-reading-time": "^2.0.2",
     "typescript": "^5.9.3",

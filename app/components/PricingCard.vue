@@ -14,7 +14,7 @@
 
     <NuxtLink
       :to="link"
-      class="btn"
+      class="btn btn-margin-top"
       :class="featured ? 'btn-primary' : 'btn-secondary'"
     >
       {{ button }}
@@ -36,7 +36,6 @@ defineProps({
   featured: { type: Boolean, default: false },
 });
 
-// Ref per a animació d’entrada
 const cardRef = ref(null);
 
 onMounted(() => {
@@ -61,26 +60,41 @@ onMounted(() => {
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
 
+  display: flex;
+  flex-direction: column;
+
   /* Animació d’entrada */
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s ease-out;
+  transform: translateY(20px) scale(1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.5s ease;
 }
 
-/* Quan és visible: fade + slide */
+.btn-margin-top {
+  margin-top: auto;
+}
+
+/* Visible */
 .pricing-card.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
-/* Hover: s’agranda */
+/* Hover */
 .pricing-card:hover {
-  transform: scale(1.03);
+  transform: translateY(0) scale(1.03);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 }
 
-.featured {
+/* Featured = hover permanent */
+.pricing-card.featured {
+  transform: translateY(0) scale(1.03);
   border: 2px solid var(--accent);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+/* Evita doble escala */
+.pricing-card.featured:hover {
+  transform: translateY(0) scale(1.03);
 }
 
 .badge-popular {
