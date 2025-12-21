@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 
+/* TODO canviar color */
+
 :root {
   --primary: #1a1a1a;
   --secondary: #2d2d2d;

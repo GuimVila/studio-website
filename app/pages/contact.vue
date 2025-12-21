@@ -1,7 +1,5 @@
 <template>
   <div>
-    <NavigationMenu :menu-open="menuOpen" @toggle-menu="toggleMenu" />
-
     <div style="padding-top: 100px">
       <section class="section">
         <h1 class="section-title">Contacta amb nosaltres</h1>
@@ -129,7 +127,7 @@
             >
               <div style="font-size: 3rem; margin-bottom: 1rem">📧</div>
               <h3 style="margin-bottom: 0.5rem">Email</h3>
-              <p style="color: var(--text-secondary)">info@studiopro.cat</p>
+              <p style="color: var(--text-secondary)">info@guillemvila.cat</p>
             </div>
 
             <div
@@ -143,7 +141,7 @@
             >
               <div style="font-size: 3rem; margin-bottom: 1rem">📱</div>
               <h3 style="margin-bottom: 0.5rem">Telèfon</h3>
-              <p style="color: var(--text-secondary)">+34 600 123 456</p>
+              <p style="color: var(--text-secondary)">+34 682 463 081</p>
             </div>
 
             <div
@@ -157,23 +155,18 @@
             >
               <div style="font-size: 3rem; margin-bottom: 1rem">📍</div>
               <h3 style="margin-bottom: 0.5rem">Ubicació</h3>
-              <p style="color: var(--text-secondary)">Barcelona, Catalunya</p>
+              <p style="color: var(--text-secondary)">Riells i Viabrea, El Baix Montseny</p>
             </div>
           </div>
         </div>
       </section>
     </div>
-
-    <AppFooter />
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import NavigationMenu from "~/components/NavigationMenu.vue";
-import AppFooter from "~/components/AppFooter.vue";
 
-const menuOpen = ref(false);
 const isSubmitting = ref(false);
 const submitMessage = ref("");
 const submitSuccess = ref(false);
@@ -185,10 +178,6 @@ const formData = ref({
   service: "",
   message: "",
 });
-
-function toggleMenu() {
-  menuOpen.value = !menuOpen.value;
-}
 
 async function submitForm() {
   if (isSubmitting.value) return;

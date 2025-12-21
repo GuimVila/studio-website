@@ -1,16 +1,11 @@
 <template>
   <div>
     <NuxtRouteAnnouncer />
-    <NavigationMenu />
-    <NuxtPage />
-    <AppFooter />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
-
-<script setup>
-import NavigationMenu from "~/components/NavigationMenu.vue";
-import AppFooter from "~/components/AppFooter.vue";
-</script>
 
 <style>
 .page-enter-active,

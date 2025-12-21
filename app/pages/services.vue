@@ -18,7 +18,8 @@
       </div>
 
       <!-- TRACKING -->
-      <h2 class="section-title section-title-margin">Gravació i tracking</h2>
+      <h2 class="section-title section-title-margin">Gravació --
+      </h2>
       <div class="pricing-grid">
         <PricingCard
           v-for="(pack, i) in trackingPackages"
@@ -48,7 +49,7 @@
       </div>
 
       <!-- PRO SERVICES -->
-      <h2 class="section-title section-title-margin">Serveis professionals</h2>
+      <h2 class="section-title section-title-margin">Altres serveis</h2>
       <div class="pricing-grid">
         <PricingCard
           v-for="(pack, i) in proServicePackages"
@@ -185,14 +186,14 @@ const trackingPackages = [
 
 const productionPackages = [
   {
-    title: "Beat Making / Bases",
-    price: "Des de 150€",
-    unit: "/cançó",
+    title: "Sound Design",
+    price: "Des de 100€",
+    unit: "/patch",
     features: [
-      "Producció original adaptada a l’artista",
-      "Llicència inclosa",
-      "Revisions segons acord",
-      "Compatible amb vocals o instrumentals existents",
+      "Disseny sonor per sintetitzadors i samplers",
+      "Creació de kits originals i textures úniques",
+      "Optimitzat per produccions i live",
+      "Consultoria sobre implementació en DAW",
     ],
     link: "/contact",
     button: "Demanar pressupost",
@@ -214,53 +215,14 @@ const productionPackages = [
     badge: "SERVEI PRINCIPAL",
   },
   {
-    title: "Sound Design / Patches personalitzats",
-    price: "Des de 100€",
-    unit: "/patch",
+    title: "Beat Making",
+    price: "Des de 150€",
+    unit: "/cançó",
     features: [
-      "Disseny sonor per sintetitzadors i samplers",
-      "Creació de kits originals i textures úniques",
-      "Optimitzat per produccions i live",
-      "Consultoria sobre implementació en DAW",
-    ],
-    link: "/contact",
-    button: "Demanar pressupost",
-  },
-  {
-    title: "Rearranjament / Adaptació",
-    price: "A mida",
-    unit: "",
-    features: [
-      "Transformació de la cançó segons estil desitjat",
-      "Optimització per streaming, directes o sync",
-      "Afegit d’instruments o elements originals",
-      "Edició final de pistes inclosa",
-    ],
-    link: "/contact",
-    button: "Demanar pressupost",
-  },
-  {
-    title: "Producció per Sync / Continguts multimèdia",
-    price: "A mida",
-    unit: "",
-    features: [
-      "Creació de pistes per anuncis, jocs o pel·lícules",
-      "Formats adaptats a projectes audiovisuals",
-      "Direcció artística i adaptació a brief",
-      "Entrega de stems optimitzats",
-    ],
-    link: "/contact",
-    button: "Demanar pressupost",
-  },
-  {
-    title: "Coproducció remota",
-    price: "A mida",
-    unit: "",
-    features: [
-      "Sessions online en temps real amb qualitat analògica",
-      "Edició i mescla inclosa",
-      "Assessorament sobre estructures i arranjaments",
-      "Compatible amb qualsevol DAW",
+      "Producció original adaptada a l’artista",
+      "Llicència inclosa",
+      "Revisions segons acord",
+      "Compatible amb vocals o instrumentals existents",
     ],
     link: "/contact",
     button: "Demanar pressupost",
@@ -273,21 +235,43 @@ const productionPackages = [
 
 const editingPackages = [
   {
-    title: "Edició i afinació vocal",
-    price: "40€",
-    unit: "/cançó",
-    features: ["Comping", "Timing", "Afinació transparent", "Resultat natural"],
-    link: "/contact",
-    button: "Contractar",
-  },
-  {
     title: "Preparació de sessions",
     price: "30€",
     unit: "/projecte",
     features: [
-      "Organització Pro Tools",
-      "Neteja i ruteig",
-      "Preparació òptima per mescla",
+      "Organització de sessions a Pro Tools",
+      "Neteja de pistes i silencis",
+      "Ruteig i etiquetatge correcte",
+      "Preparació òptima per mescla o enviament",
+    ],
+    link: "/contact",
+    button: "Contractar",
+  },
+  {
+    title: "Edició completa pre-mescla",
+    price: "70€",
+    unit: "/cançó",
+    features: [
+      "Comping vocal i instrumental",
+      "Correcció de timing musical",
+      "Afinació vocal transparent",
+      "Edició musical amb criteri artístic",
+      "Session ready per mescla professional",
+    ],
+    link: "/contact",
+    button: "Contractar",
+    featured: true,
+    badge: "MÉS DEMANAT",
+  },
+  {
+    title: "Edició i afinació vocal",
+    price: "40€",
+    unit: "/cançó",
+    features: [
+      "Comping vocal",
+      "Correcció de timing",
+      "Afinació natural i transparent",
+      "Respecte total pel caràcter de la veu",
     ],
     link: "/contact",
     button: "Contractar",
@@ -300,27 +284,55 @@ const editingPackages = [
 
 const proServicePackages = [
   {
-    title: "Mix bus processing extern",
-    price: "40€",
-    unit: "/cançó",
+    title: "Reamp de guitarres i baixos",
+    price: "35€",
+    unit: "/pista",
     features: [
-      "Processament analògic del mix bus",
-      "Silver Bullet + SSL Bus+",
-      "Sense alterar balances",
-      "Ideal per mixers ITB",
+      "Reamp amb amplificació real",
+      "Captura DI + amp",
+      "Fender Blues Jr III / Suhr Reactive Load",
+      "Integració directa a la teva sessió",
     ],
     link: "/contact",
     button: "Contractar",
   },
   {
-    title: "Assessorament tècnic / estudi",
+    title: "Mix bus processing extern",
+    price: "40€",
+    unit: "/cançó",
+    features: [
+      "Processament analògic del mix bus",
+      "Silver Bullet MK2 + SSL Bus+",
+      "Sense alterar balances",
+      "Ideal per mixers ITB",
+    ],
+    link: "/contact",
+    button: "Contractar",
+    featured: true,
+    badge: "MÉS SOL·LICITAT",
+  },
+  {
+    title: "Processament analògic de pistes",
+    price: "30€",
+    unit: "/stem o pista",
+    features: [
+      "Color analògic amb Silver Bullet",
+      "Tape79 Mojo Module",
+      "Ideal per drums, bass, synths o vocals",
+      "Entrega alineada i fase-correcta",
+    ],
+    link: "/contact",
+    button: "Contractar",
+  },
+  {
+    title: "Assessorament tècnic",
     price: "50€",
     unit: "/hora",
     features: [
-      "Flux de treball",
-      "Equipament",
-      "Plugins",
-      "Optimització d’estudi",
+      "Flux de treball professional",
+      "Equipament i routing",
+      "Plugins i gestió de sessions",
+      "Optimització d’estudi i acústica",
     ],
     link: "/contact",
     button: "Reservar",
@@ -331,8 +343,22 @@ const proServicePackages = [
     unit: "/hora",
     features: [
       "Feedback tècnic i artístic",
-      "Revisió de mescles",
-      "Ideal per productors",
+      "Revisió de mescles reals",
+      "Orientat a productors i mixers",
+      "Sessió 1 a 1",
+    ],
+    link: "/contact",
+    button: "Reservar",
+  },
+  {
+    title: "Listening session professional",
+    price: "30€",
+    unit: "/hora",
+    features: [
+      "Escolta crítica en sala tractada",
+      "Adam Audio A7V calibrats (Sonarworks)",
+      "Feedback honest i constructiu",
+      "Ideal abans de publicar o enviar a mescla",
     ],
     link: "/contact",
     button: "Reservar",

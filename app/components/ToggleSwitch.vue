@@ -1,55 +1,60 @@
 <template>
   <button
-    :class="['toggle-container', isOn ? 'start' : 'end']"
+    :class="['toggle-container', isOn ? 'on' : 'off']"
+    :aria-label="isOn ? 'Dark mode enabled' : 'Light mode enabled'"
     @click="toggleSwitch"
   >
-    <motion.div
-      :data-state="isOn"
-      class="toggle-handle"
-      layout
-      :transition="{
-        type: 'spring',
-        visualDuration: 0.2,
-        bounce: 0.2,
-      }"
-    />
+    <div class="toggle-handle" />
   </button>
 </template>
 
 <script setup>
-import { motion } from "motion-v";
 import { ref } from "vue";
 
 const isOn = ref(false);
 
+const emit = defineEmits(["toggle"]);
+
 const toggleSwitch = () => {
   isOn.value = !isOn.value;
+  emit("toggle", isOn.value);
 };
 </script>
 
 <style scoped>
 .toggle-container {
-  width: 100px;
-  height: 50px;
-  background-color: var(--hue-3-transparent);
+  width: 45px;
+  height: 23px;
+  background-color: #2d2d2d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50px;
   cursor: pointer;
   display: flex;
-  padding: 10px;
+  padding: 3px;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  position: relative;
 }
 
-.toggle-container.start {
+.toggle-container.on {
+  background-color: #ff6b35;
+  border-color: #ff6b35;
+}
+
+.toggle-container.off {
   justify-content: flex-start;
 }
 
-.toggle-container.end {
+.toggle-container.on {
   justify-content: flex-end;
 }
 
 .toggle-handle {
-  width: 50px;
-  height: 50px;
-  background-color: #9911ff;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
   border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 </style>
