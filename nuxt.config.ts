@@ -3,16 +3,12 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
   },
+
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+
   css: ['~/assets/css/main.css'],
 
-  runtimeConfig: {
-    public: {
-      supabaseUrl: process.env.NUXT_SUPABASE_URL || '',
-      supabaseKey: process.env.NUXT_SUPABASE_ANON_KEY || ''
-    }
-  },
   modules: [
     '@nuxt/hints',
     '@nuxt/eslint',
@@ -22,5 +18,12 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/test-utils',
     'motion-v/nuxt',
-  ]
+    '@nuxtjs/supabase'
+  ],
+
+  supabase: {
+    url: process.env.NUXT_SUPABASE_URL,
+    key: process.env.NUXT_SUPABASE_ANON_KEY,
+    redirect: false
+  }
 })

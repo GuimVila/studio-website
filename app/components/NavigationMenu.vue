@@ -20,9 +20,9 @@
           <NuxtLink to="/portfolio" class="nav-link">Portfoli</NuxtLink>
         </li>
         <li><NuxtLink to="/music" class="nav-link">Música</NuxtLink></li>
-        <li><NuxtLink to="/contact" class="nav-link">Contacte</NuxtLink></li>
         <li><NuxtLink to="/resources" class="nav-link">Recursos</NuxtLink></li>
         <li><NuxtLink to="/subscribe" class="nav-link">Subscriu-te</NuxtLink></li>
+        <li><NuxtLink to="/contact" class="nav-link">Contacte</NuxtLink></li>
       </ul>
       <div class="user-actions">
         <ToggleSwitch />

@@ -18,7 +18,7 @@
       </div>
 
       <!-- TRACKING -->
-      <h2 class="section-title section-title-margin">Gravació --
+      <h2 class="section-title section-title-margin">Gravació
       </h2>
       <div class="pricing-grid">
         <PricingCard

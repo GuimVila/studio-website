@@ -16,15 +16,46 @@
         </p>
       </section>
 
-      <div class="subscribe-form">
-        <input type="email" placeholder="Introdueix el teu correu electrònic" >
-        <button>Subscriu-te</button>
-      </div>
+      <form class="subscribe-form" @submit.prevent="subscribe('page')">
+        <input
+          v-model="email"
+          type="email"
+          required
+          placeholder="Introdueix el teu correu electrònic"
+        >
+        <input
+          v-model="honeypot"
+          type="text"
+          tabindex="-1"
+          autocomplete="off"
+          class="hp-field"
+        >
+
+        <button :disabled="isSubmitting">
+          {{ isSubmitting ? "Enviant..." : "Subscriu-te" }}
+        </button>
+      </form>
+
+      <p
+        v-if="submitMessage"
+        :style="{
+          textAlign: 'center',
+          marginTop: '1rem',
+          color: submitSuccess ? '#4ade80' : '#ef4444',
+        }"
+      >
+        {{ submitMessage }}
+      </p>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useNewsletter } from "~/composables/useNewsletter";
+
+const { email, isSubmitting, submitMessage, submitSuccess, subscribe } =
+  useNewsletter();
+</script>
 
 <style scoped>
 .subscribe-form {
@@ -53,5 +84,12 @@
 }
 .subscribe-form button:hover {
   background: darken(var(--accent), 10%);
+}
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
 }
 </style>

@@ -18,7 +18,7 @@
     "@nuxt/test-utils": "^3.20.1",
     "@nuxt/ui": "^4.2.1",
     "@nuxtjs/seo": "^3.2.2",
-    "@nuxtjs/supabase": "^2.0.1",
+    "@nuxtjs/supabase": "^2.0.3",
     "@unhead/vue": "^2.0.19",
     "better-sqlite3": "^12.4.6",
     "dayjs": "^1.11.19",

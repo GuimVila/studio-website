@@ -38,9 +38,9 @@ const services = [
   },
   {
     icon: "🎓",
-    title: "Blog",
+    title: "Recursos",
     description:
-      "Consells, tutorials i recursos per a músics i productors que volen millorar les seves habilitats.",
+      "Recursos per a músics i productors que volen millorar les seves habilitats.",
   },
 ];
 </script>
