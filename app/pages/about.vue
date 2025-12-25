@@ -60,4 +60,14 @@ const aboutParagraphs = [
 .separated-paragraph {
   margin-top: 2rem;
 }
+
+h1 {
+  text-align: center;
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-weight: 900;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #ffffff 0%, #ff6b35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 </style>

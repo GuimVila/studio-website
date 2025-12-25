@@ -25,10 +25,25 @@ const images = [
 </script>
 
 <style scoped>
+.page-wrapper {
+  padding-top: 100px;
+}
+.section {
+  text-align: center;
+}
 .section-subtitle {
   font-size: 1.2rem;
   color: var(--text-secondary);
   margin-bottom: 4rem;
   text-align: center;
+}
+h1 {
+  text-align: center;
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-weight: 900;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #ffffff 0%, #ff6b35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 </style>
