@@ -18,8 +18,7 @@
       </div>
 
       <!-- TRACKING -->
-      <h2 class="section-title section-title-margin">Gravació
-      </h2>
+      <h2 class="section-title section-title-margin">Gravació</h2>
       <div class="pricing-grid">
         <PricingCard
           v-for="(pack, i) in trackingPackages"
@@ -381,6 +380,18 @@ const proServicePackages = [
 .section-title-margin {
   margin-top: 5rem;
 }
+
+h1,
+h2 {
+  text-align: center;
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-weight: 900;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #ffffff 0%, #ff6b35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

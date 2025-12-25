@@ -8,10 +8,8 @@ serve(async (req) => {
   const siteUrl = Deno.env.get("SITE_URL") ?? "http://localhost:3000";
 
   if (!token) {
-    return Response.redirect(
-      `${siteUrl}/subscribe/error`,
-      302
-    );
+    console.error("No token provided");
+    return Response.redirect(`${siteUrl}/subscribe/error`, 302);
   }
 
   const supabase = createClient(
@@ -33,14 +31,8 @@ serve(async (req) => {
     .single();
 
   if (error || !data) {
-    return Response.redirect(
-      `${siteUrl}/subscribe/error`,
-      302
-    );
+    return Response.redirect(`${siteUrl}/subscribe/error`, 302);
   }
 
-  return Response.redirect(
-    `${siteUrl}/subscribe/confirmed`,
-    302
-  );
+  return Response.redirect(`${siteUrl}/subscribe/confirmed`, 302);
 });

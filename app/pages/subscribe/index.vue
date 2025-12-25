@@ -16,7 +16,7 @@
         </p>
       </section>
 
-      <form class="subscribe-form" @submit.prevent="subscribe('page')">
+      <form class="subscribe-form" @submit.prevent="subscribe">
         <input
           v-model="email"
           type="email"
@@ -53,8 +53,14 @@
 <script setup>
 import { useNewsletter } from "~/composables/useNewsletter";
 
-const { email, isSubmitting, submitMessage, submitSuccess, subscribe } =
-  useNewsletter();
+const {
+  email,
+  honeypot,
+  isSubmitting,
+  message: submitMessage,
+  success: submitSuccess,
+  subscribe,
+} = useNewsletter();
 </script>
 
 <style scoped>
@@ -91,5 +97,15 @@ const { email, isSubmitting, submitMessage, submitSuccess, subscribe } =
   left: -9999px;
   opacity: 0;
   pointer-events: none;
+}
+
+h1 {
+  text-align: center;
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-weight: 900;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #ffffff 0%, #ff6b35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 </style>

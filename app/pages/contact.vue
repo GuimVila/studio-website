@@ -151,6 +151,7 @@ const { formData, isSubmitting, submitMessage, submitSuccess, submitForm } =
   font-size: 1rem;
   font-family: inherit;
 }
+
 textarea {
   min-height: 120px;
   resize: vertical;
@@ -197,5 +198,15 @@ textarea {
   left: -9999px;
   opacity: 0;
   pointer-events: none;
+}
+
+h1 {
+  text-align: center;
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-weight: 900;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #ffffff 0%, #ff6b35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 </style>
