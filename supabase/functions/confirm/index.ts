@@ -5,9 +5,11 @@ serve(async (req) => {
   const url = new URL(req.url);
   const token = url.searchParams.get("token");
 
+  const siteUrl = Deno.env.get("SITE_URL") ?? "http://localhost:3000";
+
   if (!token) {
     return Response.redirect(
-      "https://guillemvila.com/subscribe/error",
+      `${siteUrl}/subscribe/error`,
       302
     );
   }
@@ -26,19 +28,19 @@ serve(async (req) => {
     })
     .eq("confirmation_token", token)
     .eq("is_confirmed", false)
-    // .gt("confirmation_expires_at", new Date().toISOString())
+    .gt("confirmation_expires_at", new Date().toISOString())
     .select()
     .single();
 
   if (error || !data) {
     return Response.redirect(
-      "https://guillemvila.com/subscribe/error",
+      `${siteUrl}/subscribe/error`,
       302
     );
   }
 
   return Response.redirect(
-    "https://guillemvila.com/subscribe/confirmed",
+    `${siteUrl}/subscribe/confirmed`,
     302
   );
 });
