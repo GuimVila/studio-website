@@ -16,7 +16,7 @@
         </p>
       </section>
 
-      <form class="subscribe-form" @submit.prevent="subscribe('page')">
+      <form class="subscribe-form" @submit.prevent="subscribe">
         <input
           v-model="email"
           type="email"
@@ -53,8 +53,14 @@
 <script setup>
 import { useNewsletter } from "~/composables/useNewsletter";
 
-const { email, isSubmitting, submitMessage, submitSuccess, subscribe } =
-  useNewsletter();
+const {
+  email,
+  honeypot,
+  isSubmitting,
+  message: submitMessage,
+  success: submitSuccess,
+  subscribe,
+} = useNewsletter();
 </script>
 
 <style scoped>

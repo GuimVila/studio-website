@@ -41,9 +41,18 @@ export function useNewsletter() {
 
     const supabase = useSupabaseClient();
 
+
+    const expiresAt = new Date(
+      Date.now() + 24 * 60 * 60 * 1000
+    ).toISOString();
+
     const { error } = await supabase
       .from("newsletter_subscribers")
-      .insert({ email: cleanEmail });
+      .insert({
+        email: cleanEmail,
+        confirmation_expires_at: expiresAt,
+        is_confirmed: false,
+      });
 
     if (error) {
       // UX silenciosa (duplicats inclosos)

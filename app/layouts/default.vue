@@ -24,5 +24,6 @@ import AppFooter from "~/components/AppFooter.vue";
 
 .main {
   flex: 1;
+  min-height: 100vh;
 }
 </style>
