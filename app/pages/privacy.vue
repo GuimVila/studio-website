@@ -3,51 +3,71 @@
     <section class="section">
       <div class="container">
         <h1 class="section-title">Política de Privacitat</h1>
+
+        <h2>Responsable del tractament</h2>
         <p>
-          Aquesta Política de Privacitat descriu com recopilem, utilitzem i
-          protegim la informació personal dels usuaris del nostre lloc web.
+          El responsable del tractament de les dades personals és Guillem Vila,
+          artista, productor musical i enginyer de so. Pots contactar a través
+          del correu electrònic: contacte@guillemvila.com
+        </p>
+
+        <h2>Base legal del tractament</h2>
+        <p>
+          La base legal per al tractament de les dades personals és el
+          consentiment explícit de l’usuari, atorgat mitjançant els formularis
+          disponibles en aquest lloc web. L’usuari pot retirar el consentiment
+          en qualsevol moment.
+        </p>
+
+        <h2>Conservació de les dades</h2>
+        <p>
+          Les dades personals es conservaran mentre existeixi una relació amb
+          l’usuari o fins que aquest sol·liciti la seva supressió.
         </p>
 
         <h2>1. Informació que recopilem</h2>
         <ul>
-          <li>Nom i correu electrònic quan subscriviu la newsletter.</li>
-          <li>Dades de navegació (cookies, IP, preferències).</li>
+          <li>Correu electrònic quan l’usuari es subscriu a la newsletter.</li>
+          <li>Nom, cognoms i correu electrònic quan l'usuari omple el formulari de contacte.</li>
+          <li>Dades de navegació (cookies, adreça IP, preferències).</li>
           <li>
-            Comentaris o missatges enviats a través del formulari de contacte.
+            Informació enviada voluntàriament mitjançant formularis de contacte.
           </li>
         </ul>
 
         <h2>2. Ús de la informació</h2>
         <ul>
-          <li>Enviar novetats, ofertes i tutorials a la newsletter.</li>
-          <li>Millorar la nostra pàgina web i serveis.</li>
-          <li>Respondre a consultes i demandes dels usuaris.</li>
+          <li>Enviar comunicacions relacionades amb la newsletter.</li>
+          <li>Millorar el funcionament i contingut del lloc web.</li>
+          <li>Respondre a consultes o sol·licituds dels usuaris.</li>
         </ul>
 
         <h2>3. Protecció de dades</h2>
         <p>
-          Implementem mesures tècniques i organitzatives per protegir la
-          informació personal contra accessos no autoritzats, alteracions o
-          divulgacions.
+          S’apliquen mesures tècniques i organitzatives adequades per garantir la
+          seguretat de les dades personals i evitar accessos no autoritzats,
+          pèrdua o divulgació.
         </p>
 
-        <h2>4. Compartir informació</h2>
+        <h2>4. Comunicació de dades a tercers</h2>
         <p>
-          No compartim la informació personal amb tercers sense el consentiment
-          explícit de l'usuari, excepte per obligacions legals.
+          Les dades personals no es comunicaran a tercers, excepte quan sigui
+          necessari per obligació legal o amb el consentiment previ de
+          l’usuari.
         </p>
 
-        <h2>5. Drets de l'usuari</h2>
+        <h2>5. Drets de l’usuari</h2>
         <ul>
-          <li>Accedir, corregir o eliminar les seves dades personals.</li>
+          <li>Accedir a les seves dades personals.</li>
+          <li>Sol·licitar la rectificació o supressió de les dades.</li>
+          <li>Oposar-se o limitar el tractament de les dades.</li>
           <li>Donar-se de baixa de la newsletter en qualsevol moment.</li>
-          <li>Contactar-nos per qualsevol consulta sobre privacitat.</li>
         </ul>
 
-        <h2>6. Canvis en la política</h2>
+        <h2>6. Canvis en la política de privacitat</h2>
         <p>
-          Podem actualitzar aquesta política periòdicament. Es recomana
-          revisar-la regularment.
+          Aquesta política pot actualitzar-se periòdicament. Es recomana
+          revisar-la de manera regular per estar informat de possibles canvis.
         </p>
       </div>
     </section>
@@ -55,7 +75,17 @@
 </template>
 
 <script setup>
-// Cap script específic necessari
+useHead({
+  title:
+    "Política de Privacitat | Guillem Vila · Artista, productor musical i enginyer de so",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Consulta la política de privacitat de la meva web i descobreix com es gestionen i protegeixen les dades personals dels usuaris d’aquest lloc web.",
+    },
+  ],
+});
 </script>
 
 <style scoped>

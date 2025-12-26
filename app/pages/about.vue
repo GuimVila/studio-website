@@ -33,12 +33,12 @@ const aboutParagraphs = [
 ];
 
 useHead({
-  title: "Sobre mi | Guillem Vila · Productor musical, artista i enginyer de so",
+  title: "Sobre mi | Guillem Vila · Artista, productor musical i enginyer de so",
   meta: [
     {
       name: "description",
       content:
-        "Em dic Guillem Vila i sóc productor musical i enginyer de so. Tinc experiència en gravació, mescla i producció per a artistes i projectes professionals.",
+        "Em dic Guillem Vila i sóc artista, productor musical i enginyer de so. Tinc experiència en gravació, mescla i producció per a artistes i projectes professionals.",
     },
   ],
 });

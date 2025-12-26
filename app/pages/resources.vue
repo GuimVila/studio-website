@@ -40,6 +40,17 @@ import TutorialCard from "~/components/TutorialCard.vue";
 import { useTutorials } from "~/composables/useTutorials.js";
 
 const { selectedCategory, categories, filteredTutorials } = useTutorials();
+
+useHead({
+  title: "Recursos | Guillem Vila · Producció musical i educació en música",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Comparteixo recursos educatius en producció, mescla, harmonia, teoria musical, gravació i d'altres, per ajudar artistes i productors a millorar les seves habilitats i projectes musicals.",
+    },
+  ],
+});
 </script>
 <style scoped>
 .page {

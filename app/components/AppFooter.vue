@@ -8,7 +8,7 @@
             <img
               key="logo"
               src="/assets/images/logo-web_blanc.png"
-              alt="Logo de Guillem Vila - Estudi de so i producció musical"
+              alt="Logo de Guillem Vila - Estudi de so i producció musical de Riells i Viabrea, Girona"
               class="logo-image"
             >
             <h3 class="brand-name">Guillem Vila</h3>
@@ -109,6 +109,7 @@
         </p>
         <div class="footer-legal">
           <a href="privacy">Política de Privacitat</a>
+          <a href="cookies">Política de Cookies</a>
           <a href="terms">Termes i Condicions</a>
         </div>
       </div>
