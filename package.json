@@ -30,5 +30,8 @@
     "typescript": "^5.9.3",
     "vue": "^3.5.25",
     "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "@nuxtjs/sitemap": "^7.5.0"
   }
 }

@@ -5,7 +5,12 @@
         <!-- Brand & Social -->
         <div class="footer-section">
           <div class="brand">
-            <BrandIcon class="brand-icon" />
+            <img
+              key="logo"
+              src="/assets/images/logo-web_blanc.png"
+              alt="Logo de Guillem Vila - Estudi de so i producció musical"
+              class="logo-image"
+            >
             <h3 class="brand-name">Guillem Vila</h3>
           </div>
           <p class="brand-description">
@@ -60,15 +65,39 @@
             Subscriu-te per rebre les últimes novetats, tutorials i ofertes
             especials.
           </p>
-          <form class="newsletter-form" @submit.prevent="handleSubmit">
+          <form class="newsletter-form" @submit.prevent="subscribe">
             <input
               v-model="email"
               type="email"
-              placeholder="El teu correu"
+              placeholder="Correu electrònic"
               required
               class="newsletter-input"
             >
-            <button type="submit" class="newsletter-button">Subscriu-te</button>
+            <input
+              v-model="honeypot"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+              class="hp-field"
+            >
+            <button
+              type="submit"
+              class="newsletter-button"
+              :disabled="isSubmitting"
+            >
+              {{ isSubmitting ? "Enviant..." : "Subscriu-te" }}
+            </button>
+            <p
+              v-if="message"
+              :style="{
+                marginTop: '0.75rem',
+                fontSize: '0.9rem',
+                color: success ? '#4ade80' : '#ef4444',
+                textAlign: 'center',
+              }"
+            >
+              {{ message }}
+            </p>
           </form>
         </div>
       </div>
@@ -92,10 +121,9 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { useNewsletter } from "~/composables/useNewsletter";
 
 import {
-  BrandIcon,
   InstagramIcon,
   YoutubeIcon,
   TikTokIcon,
@@ -105,19 +133,14 @@ import {
   EmailIcon,
 } from "~/components/icons";
 
-const email = ref("");
-
-const handleSubmit = () => {
-  console.log("Newsletter subscription:", email.value);
-  alert("Gràcies per subscriure't!");
-  email.value = "";
-};
+const { email, honeypot, isSubmitting, message, success, subscribe } =
+  useNewsletter();
 
 // Socials i serveis
 const socialLinks = [
   {
     name: "Instagram",
-    href: "https://instagram.com/elteuperfil",
+    href: "https://instagram.com/guim.vila",
     icon: InstagramIcon,
   },
   {
@@ -138,6 +161,14 @@ const socialLinks = [
 ];
 
 const services = ["Producció Musical", "Edició", "Gravació", "Mescla"];
+
+watch(message, (val) => {
+  if (!val) return;
+
+  setTimeout(() => {
+    message.value = "";
+  }, 4000);
+});
 </script>
 
 <style scoped>
@@ -165,12 +196,8 @@ const services = ["Producció Musical", "Edició", "Gravació", "Mescla"];
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-}
-.footer-contact-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.5rem;
+  align-items: center; /* BASE COMUNA */
+  text-align: center;
 }
 
 /* Brand */
@@ -179,6 +206,11 @@ const services = ["Producció Musical", "Edició", "Gravació", "Mescla"];
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 0.5rem;
+}
+
+.logo-image {
+  height: 40px;
+  margin-right: 10px;
 }
 .brand-icon {
   width: 48px;
@@ -203,6 +235,11 @@ const services = ["Producció Musical", "Edició", "Gravació", "Mescla"];
   color: #b0b0b0;
   line-height: 1.6;
   margin: 0;
+}
+
+.brand-description:hover {
+  color: white;
+  transition: color 0.3s ease;
 }
 
 /* Social Links */
@@ -243,11 +280,17 @@ const services = ["Producció Musical", "Edició", "Gravació", "Mescla"];
 /* Footer Links */
 .footer-links {
   list-style: none;
+  color: #b0b0b0;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
+}
+
+.footer-links li:hover {
+  color: white;
+  transition: color 0.3s ease;
 }
 
 /* Contact */
@@ -283,12 +326,18 @@ const services = ["Producció Musical", "Edició", "Gravació", "Mescla"];
   color: white;
 }
 
-/* Newsletter */
+/* ne */
 .newsletter-text {
   color: #b0b0b0;
   line-height: 1.6;
   margin: 0 0 1rem 0;
 }
+
+.newsletter-text:hover {
+  color: white;
+  transition: color 0.3s ease;
+}
+
 .newsletter-form {
   display: flex;
   flex-direction: column;
@@ -331,6 +380,15 @@ const services = ["Producció Musical", "Edició", "Gravació", "Mescla"];
 }
 .newsletter-button:active {
   transform: translateY(0);
+}
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Footer Bottom */
