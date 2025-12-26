@@ -19,7 +19,18 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+useHead({
+  title: "Música | Guillem Vila · Artista, productor musical i enginyer de so",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Escolta la meva música i projectes destacats com a artista. Descobreix les meves creacions musicals i col·laboracions professionals.",
+    },
+  ],
+});
+</script>
 
 <style scoped>
 h1 {

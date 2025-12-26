@@ -22,6 +22,17 @@ const images = [
   { src: "/assets/images/studio-5.jpg", alt: "Detall equipament" },
   { src: "/assets/images/studio-6.jpg", alt: "Sessió de mescla" },
 ];
+
+useHead({
+  title: "Galeria | Guillem Vila · Artista, productor musical i enginyer de so",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Galeria. Fotografies de l’estudi, sessions de gravació i concerts, mostrant el treball creatiu i professional en música i so.",
+    },
+  ],
+});
 </script>
 
 <style scoped>

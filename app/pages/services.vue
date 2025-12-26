@@ -363,6 +363,17 @@ const proServicePackages = [
     button: "Reservar",
   },
 ];
+
+useHead({
+  title: "Serveis | Guillem Vila · Productor musical, artista i enginyer de so",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Ofereixo serveis professionals de producció musical, gravació, edició, mescla i d'altres. Treballo per fer realitat projectes musicals amb qualitat i creativitat.",
+    },
+  ],
+});
 </script>
 
 <style scoped>

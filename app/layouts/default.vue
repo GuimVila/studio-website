@@ -7,12 +7,16 @@
     </main>
 
     <AppFooter />
+    <ClientOnly>
+      <CookieBanner />
+    </ClientOnly>
   </div>
 </template>
 
 <script setup>
 import NavigationMenu from "~/components/NavigationMenu.vue";
 import AppFooter from "~/components/AppFooter.vue";
+import CookieBanner from "~/components/CookieBanner.vue";
 </script>
 
 <style>

@@ -18,11 +18,11 @@ export function useTutorials() {
     const categories: string[] = [
         "Tots",
         "Producció",
+        "Gravació",
+        "Edició",
         "Mescla",
-        "Mastering",
-        "Guitarra",
-        "Baix",
-        "Teoria",
+        "Harmonia",
+        "Llenguatge Musical",
     ];
 
     const tutorials = ref<Tutorial[]>([

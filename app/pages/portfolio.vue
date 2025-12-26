@@ -18,7 +18,18 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+useHead({
+  title: "Portfoli | Guillem Vila · Artista, productor musical i enginyer de so",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Descobreix el meu portfoli. Mostra de projectes, col·laboracions i treballs destacats com a productor musical i enginyer de so.",
+    },
+  ],
+});
+</script>
 
 <style scoped>
 h1 {

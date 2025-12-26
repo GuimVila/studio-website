@@ -56,7 +56,16 @@
 </template>
 
 <script setup>
-// Cap script necessari
+useHead({
+  title: "Terms and Conditions | Guillem Vila · Artista, productor musical i enginyer de so",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Consulta els termes i condicions d'aquesta pàgina web. Informació clara sobre l’ús del lloc web, serveis, drets i responsabilitats dels usuaris i clients.",
+    },
+  ],
+});
 </script>
 
 <style scoped>

@@ -1,2 +1,6 @@
 User-Agent: *
-Disallow:
+Allow: /
+Disallow: /subscribe/error
+Disallow: /subscribe/success
+
+Sitemap: https://guillemvila.com/sitemap.xml

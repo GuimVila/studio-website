@@ -112,6 +112,17 @@ import { useContactForm } from "~/composables/useContactForm";
 
 const { formData, isSubmitting, submitMessage, submitSuccess, submitForm } =
   useContactForm();
+
+useHead({
+  title: "Contacte | Guillem Vila · Artista, productor musical i enginyer de so",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Contacta amb mi per col·laboracions, projectes musicals o serveis de gravació, mescla, edició i producció professional.",
+    },
+  ],
+});
 </script>
 
 <style scoped>
