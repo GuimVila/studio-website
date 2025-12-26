@@ -31,6 +31,17 @@ const aboutParagraphs = [
 
   `Com a artista, busco crear un llenguatge propi que combina influències diverses, com Jacob Collier, Billie Eilish, Bob Dylan, John Mayer, Bon Iver i la cançó catalana. M’interessa una mirada minimalista i una música on tècnica i emoció conviuen, amb l’honestedat artística i l’expressió personal com a valors centrals. Aquesta web és l’espai on mostro totes aquestes facetes: músic, productor, enginyer i docent, amb la música com a eix central del meu treball i la meva passió.`,
 ];
+
+useHead({
+  title: "Sobre mi | Guillem Vila · Productor musical, artista i enginyer de so",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Em dic Guillem Vila i sóc productor musical i enginyer de so. Tinc experiència en gravació, mescla i producció per a artistes i projectes professionals.",
+    },
+  ],
+});
 </script>
 
 <style scoped>

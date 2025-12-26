@@ -18,12 +18,17 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/test-utils',
     'motion-v/nuxt',
-    '@nuxtjs/supabase'
+    '@nuxtjs/supabase',
+    "@nuxtjs/sitemap"
   ],
 
   supabase: {
     url: process.env.NUXT_SUPABASE_URL,
     key: process.env.NUXT_SUPABASE_ANON_KEY,
     redirect: false
-  }
+  },
+
+  sitemap: {
+    hostname: "https://guillemvila.com",
+  },
 })
