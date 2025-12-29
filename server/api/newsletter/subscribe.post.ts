@@ -33,18 +33,40 @@ export default defineEventHandler(async (event) => {
   if (error) return { ok: true };
 
   const resend = new Resend(process.env.RESEND_API_KEY);
-  const confirmLink = `${process.env.NUXT_SITE_URL}/subscribe/confirm?token=${token}`;
+  const confirmLink = `${process.env.NUXT_SITE_URL}/subscribe/confirmed?token=${token}`;
 
-  await resend.emails.send({
-    from: process.env.NEWSLETTER_FROM!,
+  if (!process.env.NEWSLETTER_FROM) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: "NEWSLETTER_FROM environment variable is not set",
+    });
+  }
+
+  const { data, error: resendError } = await resend.emails.send({
+    from: process.env.NEWSLETTER_FROM as string,
     to: email,
     subject: "Confirma la teva subscripció",
     html: `
-      <p>Confirma la teva subscripció fent clic aquí:</p>
-      <p><a href="${confirmLink}">Confirmar subscripció</a></p>
-      <p>Si no has estat tu, ignora aquest correu.</p>
-    `,
+    <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; line-height:1.5;">
+      <h2>Confirma la teva subscripció</h2>
+      <p>Fes clic al botó per confirmar:</p>
+      <p>
+        <a href="${confirmLink}" style="display:inline-block;padding:12px 16px;border-radius:10px;background:#ff6b35;color:#fff;text-decoration:none;font-weight:600;">
+          Confirmar subscripció
+        </a>
+      </p>
+      <p style="color:#666;font-size:14px;">Si no has estat tu, ignora aquest correu.</p>
+    </div>
+  `,
   });
 
-  return { ok: true };
+  if (resendError) {
+    console.error("[resend send error]", resendError);
+    throw createError({
+      statusCode: 500,
+      statusMessage: "Resend failed to send email",
+    });
+  }
+
+  console.log("[resend send ok]", data);
 });
