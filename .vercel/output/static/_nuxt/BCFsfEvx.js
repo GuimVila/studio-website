@@ -1,0 +1,1 @@
+import{c as o}from"./B_NerVd7.js";import{f as e,q as i}from"./DB7M4-of.js";const[n]=o("ConfigProvider");function f(t){const r=n({dir:e("ltr")});return i(()=>t?.value||r.dir?.value||"ltr")}export{f as u};

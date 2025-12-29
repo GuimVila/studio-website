@@ -1,0 +1,1 @@
+import{t as s}from"./BAzb7taQ.js";import{y as n,q as c,c as l,o as p,z as u,n as m}from"./DB7M4-of.js";const d={base:""},_={__name:"ProseTbody",props:{class:{type:null,required:!1}},setup(e){const o=e,t=n(),a=c(()=>s({extend:s(d),...t.ui?.prose?.tbody||{}}));return(r,i)=>(p(),l("tbody",{class:m(a.value({class:o.class}))},[u(r.$slots,"default")],2))}};export{_ as default};

@@ -28,6 +28,15 @@
             >
               <component :is="social.icon" />
             </a>
+            <a
+              href="https://wa.me/34682463081"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="WhatsApp"
+            >
+              <WhatsAppIcon />
+            </a>
           </div>
         </div>
 
@@ -161,7 +170,13 @@ const socialLinks = [
   },
 ];
 
-const services = ["Producció Musical", "Edició", "Gravació", "Mescla", "Disseny de So"];
+const services = [
+  "Producció Musical",
+  "Edició",
+  "Gravació",
+  "Mescla",
+  "Disseny de So",
+];
 
 watch(message, (val) => {
   if (!val) return;
@@ -196,7 +211,7 @@ watch(message, (val) => {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  align-items: center; 
+  align-items: center;
 }
 
 /* Brand */
