@@ -1,1 +1,0 @@
-import{_ as t,c as o,a as s,o as c}from"./DB7M4-of.js";const a={},n={class:"section"};function r(l,e){return c(),o("section",n,[...e[0]||(e[0]=[s("h1",{class:"section-title"},"Enllaç no vàlid",-1),s("p",{class:"section-subtitle"}," Aquest enllaç de confirmació no és vàlid o ja ha caducat. ",-1)])])}const d=t(a,[["render",r]]);export{d as default};

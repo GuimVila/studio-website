@@ -413,7 +413,7 @@ const _routes = [
   {
     name: "contact",
     path: "/contact",
-    component: () => import('./contact-CulmxdnK.mjs')
+    component: () => import('./contact-74b-ocSI.mjs')
   },
   {
     name: "cookies",
@@ -428,7 +428,7 @@ const _routes = [
   {
     name: "privacy",
     path: "/privacy",
-    component: () => import('./privacy-guXfMIaO.mjs')
+    component: () => import('./privacy-DbhKGOr1.mjs')
   },
   {
     name: "services",
@@ -1599,7 +1599,7 @@ const plugins = [
   prerender_server_sqIxOBipVr4FbVMA9kqWL0wT8FPop6sKAXLVfifsJzk
 ];
 const layouts = {
-  default: defineAsyncComponent(() => import('./default-AhCgE15D.mjs').then((m) => m.default || m))
+  default: defineAsyncComponent(() => import('./default-CZPRUcq5.mjs').then((m) => m.default || m))
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",

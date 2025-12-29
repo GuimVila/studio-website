@@ -1,1 +1,0 @@
-import{_ as e,c as t,a as c,o}from"./DB7M4-of.js";const a={},r={class:"section"};function n(i,s){return o(),t("section",r,[...s[0]||(s[0]=[c("h1",{class:"section-title"},"Subscripció confirmada",-1),c("p",{class:"section-subtitle"}," Gràcies! La teva subscripció s’ha confirmat correctament. ",-1)])])}const l=e(a,[["render",n]]);export{l as default};
