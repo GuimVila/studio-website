@@ -21,6 +21,7 @@ export function useTutorials() {
         "Gravació",
         "Edició",
         "Mescla",
+        "Disseny de So",
         "Harmonia",
         "Llenguatge Musical",
     ];

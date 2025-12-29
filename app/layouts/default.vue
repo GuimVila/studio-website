@@ -10,6 +10,7 @@
     <ClientOnly>
       <CookieBanner />
     </ClientOnly>
+    <AnalyticsLoader />
   </div>
 </template>
 
@@ -17,6 +18,7 @@
 import NavigationMenu from "~/components/NavigationMenu.vue";
 import AppFooter from "~/components/AppFooter.vue";
 import CookieBanner from "~/components/CookieBanner.vue";
+import AnalyticsLoader from "~/components/AnalyticsLoader.vue";
 </script>
 
 <style>

@@ -1,16 +1,13 @@
 <template>
-  <div v-if="consent === null" class="cookie-banner">
+  <div v-if="isUnset" class="cookie-banner">
     <p class="cookie-text">
-      Utilitzem cookies per millorar l’experiència i analitzar l’ús del lloc web.
+      Utilitzem cookies per millorar l’experiència i analitzar l’ús del lloc
+      web.
     </p>
 
     <div class="cookie-actions">
-      <button class="btn-reject" @click="reject">
-        Rebutjar
-      </button>
-      <button class="btn-accept" @click="accept">
-        Acceptar
-      </button>
+      <button class="btn-reject" @click="reject">Rebutjar</button>
+      <button class="btn-accept" @click="accept">Acceptar</button>
     </div>
   </div>
 </template>
@@ -18,7 +15,7 @@
 <script setup>
 import { useCookieConsent } from "~/composables/useCookieConsent";
 
-const { consent, accept, reject } = useCookieConsent();
+const { isUnset, accept, reject } = useCookieConsent();
 </script>
 
 <style scoped>
