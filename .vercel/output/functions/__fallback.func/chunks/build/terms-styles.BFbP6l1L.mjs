@@ -1,8 +1,0 @@
-const terms_vue_vue_type_style_index_0_scoped_37f76e69_lang = "h1[data-v-37f76e69]{background:linear-gradient(135deg,#fff,#ff6b35);-webkit-background-clip:text;font-size:clamp(2.5rem,5vw,3rem);font-weight:900;margin-bottom:3rem;text-align:center;-webkit-text-fill-color:transparent}h2[data-v-37f76e69]{color:var(--text);font-size:1.5rem;margin-top:2rem}h2[data-v-37f76e69],li[data-v-37f76e69],p[data-v-37f76e69]{margin-bottom:1rem}li[data-v-37f76e69],p[data-v-37f76e69]{color:var(--text-secondary);line-height:1.8}ul[data-v-37f76e69]{list-style:disc;padding-left:1.5rem}";
-
-const termsStyles_BFbP6l1L = [
-  terms_vue_vue_type_style_index_0_scoped_37f76e69_lang
-];
-
-export { termsStyles_BFbP6l1L as default };
-//# sourceMappingURL=terms-styles.BFbP6l1L.mjs.map
