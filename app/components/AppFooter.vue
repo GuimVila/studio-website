@@ -161,7 +161,7 @@ const socialLinks = [
   },
 ];
 
-const services = ["Producció Musical", "Edició", "Gravació", "Mescla"];
+const services = ["Producció Musical", "Edició", "Gravació", "Mescla", "Disseny de So"];
 
 watch(message, (val) => {
   if (!val) return;
@@ -173,7 +173,6 @@ watch(message, (val) => {
 </script>
 
 <style scoped>
-/* Mantinc tots els estils originals de la versió elegant */
 .footer {
   background: linear-gradient(to bottom, #1a1a1a 0%, #0a0a0a 100%);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -197,8 +196,7 @@ watch(message, (val) => {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  align-items: center; /* BASE COMUNA */
-  text-align: center;
+  align-items: center; 
 }
 
 /* Brand */
