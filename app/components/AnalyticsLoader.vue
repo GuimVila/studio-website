@@ -8,7 +8,7 @@
 import { watch } from "vue";
 import { useCookieConsent } from "../composables/useCookieConsent";
 
-const { isAccepted } = useCookieConsent();
+const { consent } = useCookieConsent();
 
 const loadPlausible = () => {
   if (document.getElementById("plausible-script")) return;
@@ -24,11 +24,9 @@ const loadPlausible = () => {
 };
 
 watch(
-  isAccepted,
-  (accepted) => {
-    if (accepted) {
-      loadPlausible();
-    }
+  consent,
+  (value) => {
+    if (value === "accepted") loadPlausible();
   },
   { immediate: true }
 );
