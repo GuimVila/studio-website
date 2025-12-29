@@ -1,0 +1,1 @@
+import{t as s}from"./BAzb7taQ.js";import{y as n,q as c,c as p,o as l,z as m,n as u}from"./DB7M4-of.js";const i={base:""},g={__name:"ProseEm",props:{class:{type:String,required:!1}},setup(e){const a=e,o=n(),t=c(()=>s({extend:s(i),...o.ui?.prose?.em||{}}));return(r,f)=>(l(),p("em",{class:u(t.value({class:a.class}))},[m(r.$slots,"default")],2))}};export{g as default};

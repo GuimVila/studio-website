@@ -8,7 +8,7 @@
         <p>
           El responsable del tractament de les dades personals és Guillem Vila,
           artista, productor musical i enginyer de so. Pots contactar a través
-          del correu electrònic: contacte@guillemvila.com
+          del correu electrònic: info@guillemvila.com
         </p>
 
         <h2>Base legal del tractament</h2>

@@ -86,21 +86,25 @@
         </form>
 
         <div class="contact-cards">
-          <div class="card">
+          <a href="mailto:info@guillemvila.com" class="card">
             <div class="card-icon">📧</div>
             <h3>Email</h3>
-            <p>info@guillemvila.cat</p>
-          </div>
-          <div class="card">
+            <p>info@guillemvila.com</p>
+          </a>
+          <a href="tel:+34682463081" class="card">
             <div class="card-icon">📱</div>
             <h3>Telèfon</h3>
             <p>+34 682 463 081</p>
-          </div>
-          <div class="card">
+          </a>
+          <a
+            href="https://www.google.com/maps/place/Riells+i+Viabrea,+El+Baix+Montseny"
+            target="_blank"
+            class="card"
+          >
             <div class="card-icon">📍</div>
             <h3>Ubicació</h3>
             <p>Riells i Viabrea, El Baix Montseny</p>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -114,7 +118,8 @@ const { formData, isSubmitting, submitMessage, submitSuccess, submitForm } =
   useContactForm();
 
 useHead({
-  title: "Contacte | Guillem Vila · Artista, productor musical i enginyer de so",
+  title:
+    "Contacte | Guillem Vila · Artista, productor musical i enginyer de so",
   meta: [
     {
       name: "description",
@@ -182,7 +187,7 @@ textarea {
 }
 .contact-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
   gap: 2rem;
   margin-top: 4rem;
 }
