@@ -28,6 +28,7 @@
     "fuse.js": "^7.1.0",
     "motion-v": "^1.7.4",
     "nuxt": "^4.2.1",
+    "react": "^19.2.3",
     "remark-reading-time": "^2.0.2",
     "resend": "^6.6.0",
     "typescript": "^5.9.3",
