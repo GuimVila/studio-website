@@ -19,6 +19,8 @@
     "@nuxt/ui": "^4.2.1",
     "@nuxtjs/seo": "^3.2.2",
     "@nuxtjs/supabase": "^2.0.3",
+    "@react-email/components": "^1.0.3",
+    "@react-email/render": "^2.0.1",
     "@unhead/vue": "^2.0.19",
     "better-sqlite3": "^12.4.6",
     "dayjs": "^1.11.19",
