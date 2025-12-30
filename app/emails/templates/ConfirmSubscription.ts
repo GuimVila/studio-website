@@ -17,7 +17,6 @@ type Props = {
 };
 
 export default function ConfirmSubscription({ confirmUrl, siteName }: Props) {
-
   return React.createElement(
     Html,
     null,
@@ -37,13 +36,12 @@ export default function ConfirmSubscription({ confirmUrl, siteName }: Props) {
         React.createElement(
           Text,
           { style: styles.p },
-          "Gràcies per subscriure’t a la meva Newsletter.",
-          "."
+          "Gràcies per subscriure’t a la meva Newsletter."
         ),
         React.createElement(
           Text,
           { style: styles.p },
-          "Fes clic al següent botó per completar la teva subscripció i estar al dia de les últimes novetats.",
+          "Fes clic al següent botó per completar la teva subscripció i estar al dia de les últimes novetats."
         ),
         React.createElement(
           Button,
