@@ -14,39 +14,41 @@ import {
 type Props = {
   confirmUrl: string;
   siteName?: string;
+  title?: string;
+  previewText?: string;
+  introText?: string;
+  buttonText?: string;
 };
 
-export default function ConfirmSubscription({ confirmUrl, siteName }: Props) {
+export default function ConfirmSubscription({
+  confirmUrl,
+  siteName,
+  title = "Confirma la teva subscripció",
+  previewText = "Confirma la teva subscripció",
+  introText,
+  buttonText = "Confirmar subscripció",
+}: Props) {
+  const brand = siteName ?? "Newsletter";
+  const intro =
+    introText ?? `Gràcies per subscriure’t a la meva Newsletter. Fes clic per confirmar.`;
+
   return React.createElement(
     Html,
     null,
     React.createElement(Head, null),
-    React.createElement(Preview, null, "Confirma la teva subscripció"),
+    React.createElement(Preview, null, previewText),
     React.createElement(
       Body,
       { style: styles.body },
       React.createElement(
         Container,
         { style: styles.container },
-        React.createElement(
-          Heading,
-          { style: styles.h1 },
-          "Confirma la teva subscripció"
-        ),
-        React.createElement(
-          Text,
-          { style: styles.p },
-          "Gràcies per subscriure’t a la meva Newsletter."
-        ),
-        React.createElement(
-          Text,
-          { style: styles.p },
-          "Fes clic al següent botó per completar la teva subscripció i estar al dia de les últimes novetats."
-        ),
+        React.createElement(Heading, { style: styles.h1 }, title),
+        React.createElement(Text, { style: styles.p }, intro),
         React.createElement(
           Button,
           { href: confirmUrl, style: styles.button },
-          "Confirmar subscripció"
+          buttonText
         ),
         React.createElement(Hr, { style: styles.hr }),
         React.createElement(

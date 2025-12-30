@@ -55,51 +55,57 @@ const uuidRegex =
 
 type ConfirmBody = { token?: unknown };
 
-export default defineEventHandler(async (event) => {
+type ConfirmResponse =
+  | { ok: true }
+  | { ok: false; reason: "invalid" | "expired" | "config" | "error" };
+
+export default defineEventHandler(async (event): Promise<ConfirmResponse> => {
   const body = await readBody<ConfirmBody>(event);
   const token = body?.token;
 
   if (typeof token !== "string" || !uuidRegex.test(token)) {
-    return { ok: false };
+    return { ok: false, reason: "invalid" };
   }
 
   const supabaseUrl = process.env.NUXT_SUPABASE_URL;
-  const serviceRoleKey =
-    process.env.SUPABASE_SERVICE_ROLE_KEY ??
-    process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   if (!supabaseUrl || !serviceRoleKey) {
     console.error("[newsletter confirm] Missing Supabase env vars");
-    return { ok: false };
+    return { ok: false, reason: "config" };
   }
 
   const supabase = createClient<Database>(supabaseUrl, serviceRoleKey, {
     auth: { persistSession: false },
   });
 
+  // Busquem el registre pendent per token
   const { data, error } = await supabase
     .from("newsletter_subscribers")
     .select("id, confirmation_expires_at, is_confirmed")
     .eq("confirmation_token", token)
-    .single();
+    .maybeSingle();
 
   if (error || !data) {
     console.error("[newsletter confirm] token invalid", error);
-    return { ok: false };
+    return { ok: false, reason: "invalid" };
   }
 
+  // Idempotent: si ja confirmat, ok
   if (data.is_confirmed === true) {
     return { ok: true };
   }
 
+  // Expirat
   if (
     data.confirmation_expires_at &&
     new Date(data.confirmation_expires_at).getTime() < Date.now()
   ) {
     console.warn("[newsletter confirm] token expired");
-    return { ok: false };
+    return { ok: false, reason: "expired" };
   }
 
+  // Confirmem
   const { error: updateError } = await supabase
     .from("newsletter_subscribers")
     .update({
@@ -107,11 +113,11 @@ export default defineEventHandler(async (event) => {
       confirmed_at: new Date().toISOString(),
       confirmation_expires_at: null,
     })
-    .eq("confirmation_token", token);
+    .eq("id", data.id);
 
   if (updateError) {
     console.error("[newsletter confirm] update failed", updateError);
-    return { ok: false };
+    return { ok: false, reason: "error" };
   }
 
   return { ok: true };

@@ -16,6 +16,17 @@ function isSubscribeResponse(value: unknown): value is SubscribeResponse {
   return typeof value.ok === "boolean";
 }
 
+const LAST_EMAIL_KEY = "newsletter:lastEmail";
+
+function saveLastEmail(email: string) {
+  if (import.meta.server) return;
+  try {
+    localStorage.setItem(LAST_EMAIL_KEY, email);
+  } catch {
+    // ignore (private mode, quota, etc.)
+  }
+}
+
 export function useNewsletter() {
   const email = ref("");
   const honeypot = ref("");
@@ -26,7 +37,7 @@ export function useNewsletter() {
   async function subscribe() {
     if (isSubmitting.value) return;
 
-    // Honeypot (bots)
+    // Honeypot (bots) → UX silenciosa
     if (honeypot.value) {
       success.value = true;
       message.value = "Revisa el teu correu per confirmar la subscripció.";
@@ -59,18 +70,21 @@ export function useNewsletter() {
         },
       });
 
-      // UX silenciosa: sempre “ok”
+      // UX silenciosa: sempre "ok"
       if (isSubscribeResponse(res) && res.ok) {
+        saveLastEmail(cleanEmail); // 🔐 PAS 6
         success.value = true;
         message.value = "Revisa el teu correu per confirmar la subscripció.";
         email.value = "";
         honeypot.value = "";
       } else {
+        saveLastEmail(cleanEmail); // 🔐 també aquí
         success.value = true;
         message.value = "Revisa el teu correu per confirmar la subscripció.";
       }
     } catch (e) {
       console.error("[newsletter subscribe fetch error]", e);
+      saveLastEmail(cleanEmail); // 🔐 també en error
       success.value = true;
       message.value = "Revisa el teu correu per confirmar la subscripció.";
     } finally {
