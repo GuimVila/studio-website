@@ -13,9 +13,11 @@
             >
             <h3 class="brand-name">Guillem Vila</h3>
           </div>
+
           <p class="brand-description">
             Estudi de so professional i producció musical.
           </p>
+
           <div class="social-links">
             <a
               v-for="social in socialLinks"
@@ -28,6 +30,7 @@
             >
               <component :is="social.icon" />
             </a>
+
             <a
               href="https://wa.me/34682463081"
               target="_blank"
@@ -53,13 +56,20 @@
           <h4 class="footer-title">Contacte</h4>
           <ul class="footer-contact">
             <li class="contact-item">
-              <LocationIcon class="contact-icon" />
-              Riells i Viabrea, El Baix Montseny
+              <a
+                href="https://www.google.com/maps/place/Riells+i+Viabrea,+El+Baix+Montseny/@41.749,2.6105,12z/data=!3m1!4b1!4m6!3m5!1s0x12a4a5f5f5f5f5f5:0x5f5f5f5f5f5f5f5!8m2!3d41.749!4d2.6105!16s%2Fg%2F11c1f1f1f1"
+                target="_blank"
+              >
+                <LocationIcon class="contact-icon" /> Riells i Viabrea, El Baix
+                Montseny</a
+              >
             </li>
+
             <li class="contact-item">
               <PhoneIcon class="contact-icon" />
               <a href="tel:+34682463081">+34 682 463 081</a>
             </li>
+
             <li class="contact-item">
               <EmailIcon class="contact-icon" />
               <a href="mailto:info@guillemvila.com">info@guillemvila.com</a>
@@ -74,6 +84,7 @@
             Subscriu-te per rebre les últimes novetats, tutorials i ofertes
             especials.
           </p>
+
           <form class="newsletter-form" @submit.prevent="subscribe">
             <input
               v-model="email"
@@ -96,6 +107,7 @@
             >
               {{ isSubmitting ? "Enviant..." : "Subscriu-te" }}
             </button>
+
             <p
               v-if="message"
               :style="{
@@ -116,10 +128,11 @@
         <p class="copyright">
           &copy; 2025 Guillem Vila. Tots els drets reservats.
         </p>
+
         <div class="footer-legal">
-          <a href="privacy">Política de Privacitat</a>
-          <a href="cookies">Política de Cookies</a>
-          <a href="terms">Termes i Condicions</a>
+          <NuxtLink to="/privacy">Política de Privacitat</NuxtLink>
+          <NuxtLink to="/cookies">Política de Cookies</NuxtLink>
+          <NuxtLink to="/terms">Termes i Condicions</NuxtLink>
         </div>
       </div>
 
@@ -156,17 +169,17 @@ const socialLinks = [
   },
   {
     name: "YouTube",
-    href: "https://youtube.com/elteuperfil",
+    href: "https://youtube.com/@guillemvila",
     icon: YoutubeIcon,
   },
   {
     name: "TikTok",
-    href: "https://www.tiktok.com/@elteuperfil",
+    href: "https://tiktok.com/@guim_vila",
     icon: TikTokIcon,
   },
   {
     name: "Facebook",
-    href: "https://facebook.com/elteuperfil",
+    href: "https://facebook.com/people/Guillem-Vila/pfbid027xnU2TyCpKQp5khQA9cBnoj9hVmSSbFSnW1iYyzLJQWmRUhQq1CryT12Sv4gVVeCl/",
     icon: FacebookIcon,
   },
 ];
@@ -341,7 +354,7 @@ watch(message, (val) => {
   color: white;
 }
 
-/* ne */
+/* Newsletter */
 .newsletter-text {
   color: #b0b0b0;
   line-height: 1.6;
@@ -421,12 +434,14 @@ watch(message, (val) => {
   gap: 1.5rem;
   font-size: 0.9rem;
 }
-.footer-legal a {
+
+/* NuxtLink (scoped) */
+.footer-legal :deep(a) {
   color: #b0b0b0;
   text-decoration: none;
   transition: color 0.3s ease;
 }
-.footer-legal a:hover {
+.footer-legal :deep(a:hover) {
   color: #ff6b35;
 }
 

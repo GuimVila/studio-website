@@ -4,50 +4,59 @@
       <div class="container">
         <h1 class="section-title">Termes i Condicions</h1>
         <p>
-          Aquests termes i condicions regulen l'ús del nostre lloc web i
-          serveis. En accedir-hi, accepteu aquestes condicions.
+          Aquests termes i condicions regulen l’ús d’aquest lloc web. En
+          accedir-hi i navegar-hi, l’usuari accepta aquestes condicions.
         </p>
 
         <h2>1. Ús del lloc web</h2>
         <ul>
-          <li>El lloc web és només per a ús informatiu i professional.</li>
+          <li>El lloc web té finalitat informativa i professional.</li>
           <li>
-            No es permet copiar, distribuir o modificar el contingut sense
-            autorització.
-          </li>
-          <li>
-            Els usuaris es comprometen a utilitzar el lloc de manera
-            responsable.
+            L’usuari es compromet a utilitzar el lloc de manera lícita,
+            responsable i sense causar danys a tercers ni al funcionament del
+            servei.
           </li>
         </ul>
 
         <h2>2. Propietat intel·lectual</h2>
         <p>
-          Tots els drets de contingut, disseny, imatges i material audiovisual
-          pertanyen a Guillem Vila o els seus col·laboradors.
+          Els continguts, dissenys, imatges i material audiovisual d’aquest lloc
+          web són titularitat de Guillem Vila o dels seus col·laboradors, i
+          estan protegits per la normativa de propietat intel·lectual. No es
+          permet la reproducció, distribució o transformació sense autorització.
         </p>
 
         <h2>3. Limitació de responsabilitat</h2>
         <p>
-          No ens fem responsables de danys directes o indirectes derivats de
-          l'ús del lloc web o contingut.
+          Es procura mantenir la informació actualitzada i el servei operatiu,
+          però no es garanteix la disponibilitat ininterrompuda ni l’absència
+          d’errors. No s’assumeix responsabilitat per danys derivats de l’ús del
+          lloc web, en la mesura permesa per la llei.
         </p>
 
         <h2>4. Enllaços a tercers</h2>
         <p>
-          El lloc pot contenir enllaços a pàgines externes. No garantim la seva
-          precisió ni responsabilitat sobre aquests continguts.
+          El lloc pot contenir enllaços a pàgines externes. No es controla ni es
+          garanteix el seu contingut, exactitud o polítiques, i no s’assumeix
+          cap responsabilitat per aquests webs de tercers.
         </p>
 
         <h2>5. Modificacions dels termes</h2>
         <p>
-          Podem actualitzar aquests termes en qualsevol moment. L'ús continuat
-          del lloc implica acceptació dels canvis.
+          Es poden actualitzar aquests termes en qualsevol moment. L’ús
+          continuat del lloc implica acceptació dels canvis.
         </p>
 
-        <h2>6. Contacte</h2>
+        <h2>6. Legislació aplicable i jurisdicció</h2>
         <p>
-          Per qualsevol dubte sobre aquests termes, podeu contactar-me a
+          Aquests termes es regeixen per la legislació espanyola. En cas de
+          disputa, les parts se sotmetran als jutjats i tribunals que resultin
+          competents segons la normativa aplicable.
+        </p>
+
+        <h2>7. Contacte</h2>
+        <p>
+          Per qualsevol dubte sobre aquests termes, pots contactar-me a
           <a href="mailto:info@guillemvila.com">info@guillemvila.com</a>.
         </p>
       </div>
@@ -57,12 +66,13 @@
 
 <script setup>
 useHead({
-  title: "Terms and Conditions | Guillem Vila · Artista, productor musical i enginyer de so",
+  title:
+    "Termes i Condicions | Guillem Vila · Artista, productor musical i enginyer de so",
   meta: [
     {
       name: "description",
       content:
-        "Consulta els termes i condicions d'aquesta pàgina web. Informació clara sobre l’ús del lloc web, serveis, drets i responsabilitats dels usuaris i clients.",
+        "Consulta els termes i condicions del lloc web de Guillem Vila: ús del lloc, propietat intel·lectual, responsabilitat, enllaços a tercers i legislació aplicable.",
     },
   ],
 });
@@ -96,5 +106,10 @@ li {
 ul {
   padding-left: 1.5rem;
   list-style: disc;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
 }
 </style>

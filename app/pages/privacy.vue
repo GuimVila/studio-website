@@ -6,68 +6,122 @@
 
         <h2>Responsable del tractament</h2>
         <p>
-          El responsable del tractament de les dades personals és Guillem Vila,
-          artista, productor musical i enginyer de so. Pots contactar a través
-          del correu electrònic: info@guillemvila.com
+          El responsable del tractament de les dades personals és Guillem Vila.
+          Pots contactar a través del correu electrònic:
+          <a href="mailto:info@guillemvila.com">info@guillemvila.com</a>.
         </p>
 
-        <h2>Base legal del tractament</h2>
-        <p>
-          La base legal per al tractament de les dades personals és el
-          consentiment explícit de l’usuari, atorgat mitjançant els formularis
-          disponibles en aquest lloc web. L’usuari pot retirar el consentiment
-          en qualsevol moment.
-        </p>
-
-        <h2>Conservació de les dades</h2>
-        <p>
-          Les dades personals es conservaran mentre existeixi una relació amb
-          l’usuari o fins que aquest sol·liciti la seva supressió.
-        </p>
-
-        <h2>1. Informació que recopilem</h2>
+        <h2>Quines dades tractem</h2>
         <ul>
-          <li>Correu electrònic quan l’usuari es subscriu a la newsletter.</li>
-          <li>Nom, cognoms i correu electrònic quan l'usuari omple el formulari de contacte.</li>
-          <li>Dades de navegació (cookies, adreça IP, preferències).</li>
           <li>
-            Informació enviada voluntàriament mitjançant formularis de contacte.
+            <strong>Newsletter:</strong> correu electrònic (i, si escau,
+            metadades tècniques mínimes necessàries per al funcionament del
+            servei).
+          </li>
+          <li>
+            <strong>Formulari de contacte:</strong> nom i cognoms (si s’indica),
+            correu electrònic i el contingut del missatge.
+          </li>
+          <li>
+            <strong>Dades de navegació:</strong> informació agregada i
+            estadística del trànsit (analítica).
           </li>
         </ul>
 
-        <h2>2. Ús de la informació</h2>
+        <h2>Finalitats i base jurídica</h2>
         <ul>
-          <li>Enviar comunicacions relacionades amb la newsletter.</li>
-          <li>Millorar el funcionament i contingut del lloc web.</li>
-          <li>Respondre a consultes o sol·licituds dels usuaris.</li>
+          <li>
+            <strong>Gestionar la subscripció a la newsletter</strong> (alta,
+            confirmació double opt-in i enviaments): <em>consentiment</em>.
+          </li>
+          <li>
+            <strong>Respondre consultes</strong> a través del formulari de
+            contacte: <em>consentiment</em> i/o
+            <em>mesures precontractuals</em> (si escau).
+          </li>
+          <li>
+            <strong>Analitzar l’ús del web</strong> per millorar contingut i
+            rendiment: <em>interès legítim</em> quan l’analítica és agregada i
+            sense identificació personal.
+          </li>
         </ul>
-
-        <h2>3. Protecció de dades</h2>
         <p>
-          S’apliquen mesures tècniques i organitzatives adequades per garantir la
-          seguretat de les dades personals i evitar accessos no autoritzats,
-          pèrdua o divulgació.
+          Pots retirar el consentiment en qualsevol moment. La retirada del
+          consentiment no afecta la licitud del tractament basat en el
+          consentiment previ.
         </p>
 
-        <h2>4. Comunicació de dades a tercers</h2>
-        <p>
-          Les dades personals no es comunicaran a tercers, excepte quan sigui
-          necessari per obligació legal o amb el consentiment previ de
-          l’usuari.
-        </p>
-
-        <h2>5. Drets de l’usuari</h2>
+        <h2>Conservació de les dades</h2>
         <ul>
-          <li>Accedir a les seves dades personals.</li>
-          <li>Sol·licitar la rectificació o supressió de les dades.</li>
-          <li>Oposar-se o limitar el tractament de les dades.</li>
-          <li>Donar-se de baixa de la newsletter en qualsevol moment.</li>
+          <li>
+            <strong>Newsletter:</strong> mentre la subscripció estigui activa o
+            fins que l’usuari sol·liciti la baixa/supressió.
+          </li>
+          <li>
+            <strong>Contacte:</strong> el temps necessari per gestionar la
+            consulta i, posteriorment, durant un període raonable per a
+            seguiment o fins que se’n sol·liciti la supressió.
+          </li>
+          <li>
+            <strong>Registres tècnics (logs):</strong> durant el temps necessari
+            per seguretat i diagnòstic d’incidències.
+          </li>
         </ul>
 
-        <h2>6. Canvis en la política de privacitat</h2>
+        <h2>Encàrrecs de tractament i proveïdors</h2>
+        <p>
+          Per prestar el servei, podem utilitzar proveïdors que actuen com a
+          encarregats del tractament, per exemple:
+        </p>
+        <ul>
+          <li>
+            <strong>Vercel</strong> (allotjament i infraestructura del web).
+          </li>
+          <li>
+            <strong>Supabase</strong> (base de dades i serveis associats).
+          </li>
+          <li><strong>Resend</strong> (enviament de correus electrònics).</li>
+          <li><strong>Plausible Analytics</strong> (analítica web).</li>
+        </ul>
+
+        <h2>Transferències internacionals</h2>
+        <p>
+          Alguns proveïdors poden tractar dades fora de l’Espai Econòmic
+          Europeu. En aquests casos, s’apliquen garanties adequades, com ara
+          clàusules contractuals tipus o mecanismes equivalents previstos per la
+          normativa.
+        </p>
+
+        <h2>Drets de les persones usuàries</h2>
+        <p>
+          Pots exercir els teus drets de protecció de dades contactant-nos a
+          <a href="mailto:info@guillemvila.com">info@guillemvila.com</a>.
+        </p>
+        <ul>
+          <li>Dret d’accés.</li>
+          <li>Dret de rectificació.</li>
+          <li>Dret de supressió (“dret a l’oblit”).</li>
+          <li>Dret d’oposició.</li>
+          <li>Dret a la limitació del tractament.</li>
+          <li>Dret a la portabilitat de les dades.</li>
+        </ul>
+        <p>
+          També tens dret a presentar una reclamació davant l’autoritat de
+          control competent (a Espanya, l’AEPD) si consideres que s’ha vulnerat
+          la normativa.
+        </p>
+
+        <h2>Baixa de la newsletter</h2>
+        <p>
+          Pots donar-te de baixa en qualsevol moment mitjançant l’enllaç de
+          baixa inclòs als correus de la newsletter o escrivint a
+          <a href="mailto:info@guillemvila.com">info@guillemvila.com</a>.
+        </p>
+
+        <h2>Canvis en la política de privacitat</h2>
         <p>
           Aquesta política pot actualitzar-se periòdicament. Es recomana
-          revisar-la de manera regular per estar informat de possibles canvis.
+          revisar-la regularment per estar informat de possibles canvis.
         </p>
       </div>
     </section>
@@ -82,7 +136,7 @@ useHead({
     {
       name: "description",
       content:
-        "Consulta la política de privacitat de la meva web i descobreix com es gestionen i protegeixen les dades personals dels usuaris d’aquest lloc web.",
+        "Política de privacitat de Guillem Vila: dades tractades, finalitats, base jurídica, conservació, proveïdors, drets de les persones usuàries i baixa de la newsletter.",
     },
   ],
 });
@@ -116,5 +170,10 @@ li {
 ul {
   padding-left: 1.5rem;
   list-style: disc;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
 }
 </style>
