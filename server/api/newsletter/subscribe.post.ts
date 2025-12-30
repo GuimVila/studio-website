@@ -1,72 +1,112 @@
 import { Resend } from "resend";
-import { serverSupabaseClient } from "#supabase/server";
+import { createClient } from "@supabase/supabase-js";
 import { randomUUID } from "crypto";
 
-export default defineEventHandler(async (event) => {
-  const body = await readBody<{ email?: string; honeypot?: string }>(event);
+type SubscribeBody = { email?: string; honeypot?: string };
 
-  // Honeypot
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
+}
+
+export default defineEventHandler(async (event) => {
+  const body = await readBody<SubscribeBody>(event);
+
+  // Honeypot (bots)
   if (body?.honeypot) return { ok: true };
 
   const email = (body?.email || "").trim().toLowerCase();
-  if (!email)
+  if (!email) {
     throw createError({ statusCode: 400, statusMessage: "Missing email" });
+  }
 
-  const supabase = await serverSupabaseClient(event);
+  const supabaseUrl = process.env.NUXT_SUPABASE_URL;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!supabaseUrl || !serviceRoleKey) {
+    console.error("[newsletter subscribe] Missing Supabase env vars");
+    // UX silenciosa, però en realitat això és config trencada
+    return { ok: true };
+  }
+
+  const supabase = createClient(supabaseUrl, serviceRoleKey, {
+    auth: { persistSession: false },
+  });
 
   // Token + expiració
   const token = randomUUID();
   const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
 
-  // Inserta o actualitza “pending”
-  const { error } = await supabase.from("newsletter_subscribers").upsert(
-    {
-      email,
-      confirm_token: token,
-      confirmation_expires_at: expiresAt,
-      is_confirmed: false,
-    },
-    { onConflict: "email" }
-  );
+  // Upsert pending (per email)
+  const { error: dbError } = await supabase
+    .from("newsletter_subscribers")
+    .upsert(
+      {
+        email,
+        confirmation_token: token,
+        confirmation_expires_at: expiresAt,
+        is_confirmed: false,
+        confirmed_at: null,
+        unsubscribed_at: null,
+      },
+      { onConflict: "email" }
+    );
 
-  // UX silenciosa
-  if (error) return { ok: true };
+  if (dbError) {
+    console.error("[newsletter subscribe] supabase upsert error:", dbError);
+    return { ok: true };
+  }
 
-  const resend = new Resend(process.env.RESEND_API_KEY);
-  const confirmLink = `${process.env.NUXT_SITE_URL}/subscribe/confirmed?token=${token}`;
+  const resendKey = process.env.RESEND_API_KEY;
+  const from = process.env.NEWSLETTER_FROM;
 
-  if (!process.env.NEWSLETTER_FROM) {
+  // Si vols aprofitar les env vars que ja tens:
+  // NEWSLETTER_CONFIRM_URL = "https://guillemvila.com/subscribe/confirmed"
+  const confirmBase =
+    process.env.NEWSLETTER_CONFIRM_URL || process.env.NUXT_SITE_URL
+      ? `${process.env.NUXT_SITE_URL}/subscribe/confirmed`
+      : "";
+
+  if (!resendKey) {
+    console.error("[newsletter subscribe] Missing RESEND_API_KEY env var");
     throw createError({
       statusCode: 500,
-      statusMessage: "NEWSLETTER_FROM environment variable is not set",
+      statusMessage: "Email not configured",
+    });
+  }
+  if (!from) {
+    console.error("[newsletter subscribe] Missing NEWSLETTER_FROM env var");
+    throw createError({
+      statusCode: 500,
+      statusMessage: "Email not configured",
     });
   }
 
-  const { data, error: resendError } = await resend.emails.send({
-    from: process.env.NEWSLETTER_FROM as string,
+  const confirmLink = `${confirmBase}?token=${token}`;
+  if (!confirmBase) {
+    console.error(
+      "[newsletter subscribe] Missing NEWSLETTER_CONFIRM_URL and NUXT_SITE_URL env vars"
+    );
+    throw createError({
+      statusCode: 500,
+      statusMessage: "Site URL not configured",
+    });
+  }
+
+  const resend = new Resend(resendKey);
+  const result = await resend.emails.send({
+    from,
     to: email,
     subject: "Confirma la teva subscripció",
     html: `
-    <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; line-height:1.5;">
-      <h2>Confirma la teva subscripció</h2>
-      <p>Fes clic al botó per confirmar:</p>
-      <p>
-        <a href="${confirmLink}" style="display:inline-block;padding:12px 16px;border-radius:10px;background:#ff6b35;color:#fff;text-decoration:none;font-weight:600;">
-          Confirmar subscripció
-        </a>
-      </p>
-      <p style="color:#666;font-size:14px;">Si no has estat tu, ignora aquest correu.</p>
-    </div>
-  `,
+      <p>Confirma la teva subscripció fent clic aquí:</p>
+      <p><a href="${confirmLink}">Confirmar subscripció</a></p>
+      <p>Si no has estat tu, ignora aquest correu.</p>
+    `,
   });
 
-  if (resendError) {
-    console.error("[resend send error]", resendError);
-    throw createError({
-      statusCode: 500,
-      statusMessage: "Resend failed to send email",
-    });
+  if (isRecord(result) && "error" in result && result.error) {
+    console.error("[newsletter subscribe] resend error:", result.error);
+    throw createError({ statusCode: 500, statusMessage: "Email send failed" });
   }
 
-  console.log("[resend send ok]", data);
+  return { ok: true };
 });

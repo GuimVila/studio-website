@@ -2,6 +2,20 @@ import { ref } from "vue";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+type SubscribeResponse = {
+  ok: boolean;
+  error?: string;
+};
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
+}
+
+function isSubscribeResponse(value: unknown): value is SubscribeResponse {
+  if (!isRecord(value)) return false;
+  return typeof value.ok === "boolean";
+}
+
 export function useNewsletter() {
   const email = ref("");
   const honeypot = ref("");
@@ -37,8 +51,7 @@ export function useNewsletter() {
     message.value = "";
 
     try {
-      // IMPORTANT: ja NO fem supabase client-side
-      const res = await $fetch("/api/newsletter/subscribe", {
+      const res = await $fetch<SubscribeResponse>("/api/newsletter/subscribe", {
         method: "POST",
         body: {
           email: cleanEmail,
@@ -47,7 +60,7 @@ export function useNewsletter() {
       });
 
       // UX silenciosa: sempre “ok”
-      if (res?.ok) {
+      if (isSubscribeResponse(res) && res.ok) {
         success.value = true;
         message.value = "Revisa el teu correu per confirmar la subscripció.";
         email.value = "";
@@ -58,7 +71,6 @@ export function useNewsletter() {
       }
     } catch (e) {
       console.error("[newsletter subscribe fetch error]", e);
-      // No donem pistes a bots / no “trenquem” UX
       success.value = true;
       message.value = "Revisa el teu correu per confirmar la subscripció.";
     } finally {
