@@ -17,7 +17,6 @@ type Props = {
 };
 
 export default function ConfirmSubscription({ confirmUrl, siteName }: Props) {
-  const brand = siteName ?? "Newsletter";
 
   return React.createElement(
     Html,
@@ -38,14 +37,13 @@ export default function ConfirmSubscription({ confirmUrl, siteName }: Props) {
         React.createElement(
           Text,
           { style: styles.p },
-          "Gràcies per subscriure’t a ",
-          React.createElement("strong", null, brand),
+          "Gràcies per subscriure’t a la meva Newsletter.",
           "."
         ),
         React.createElement(
           Text,
           { style: styles.p },
-          "Fes clic al botó per confirmar que vols rebre els correus."
+          "Fes clic al següent botó per completar la teva subscripció i estar al dia de les últimes novetats.",
         ),
         React.createElement(
           Button,
