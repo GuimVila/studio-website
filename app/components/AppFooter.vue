@@ -141,6 +141,7 @@ import {
   LocationIcon,
   PhoneIcon,
   EmailIcon,
+  WhatsAppIcon,
 } from "~/components/icons";
 
 const { email, honeypot, isSubmitting, message, success, subscribe } =

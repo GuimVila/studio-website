@@ -5,3 +5,4 @@ export { default as FacebookIcon } from "./FacebookIcon.vue";
 export { default as LocationIcon } from "./LocationIcon.vue";
 export { default as PhoneIcon } from "./PhoneIcon.vue";
 export { default as EmailIcon } from "./EmailIcon.vue";
+export { default as WhatsAppIcon } from "./WhatsAppIcon.vue";
