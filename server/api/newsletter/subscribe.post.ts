@@ -1,6 +1,8 @@
 import { Resend } from "resend";
 import { createClient } from "@supabase/supabase-js";
 import { randomUUID } from "crypto";
+import { render } from "@react-email/render";
+import ConfirmSubscription from "~/emails/templates/ConfirmSubscription";
 
 type SubscribeBody = { email?: string; honeypot?: string };
 
@@ -58,12 +60,12 @@ export default defineEventHandler(async (event) => {
   const resendKey = process.env.RESEND_API_KEY;
   const from = process.env.NEWSLETTER_FROM;
 
-  // Si vols aprofitar les env vars que ja tens:
-  // NEWSLETTER_CONFIRM_URL = "https://guillemvila.com/subscribe/confirmed"
+  // Preferim NEWSLETTER_CONFIRM_URL si existeix; si no, fem fallback a NUXT_SITE_URL
   const confirmBase =
-    process.env.NEWSLETTER_CONFIRM_URL || process.env.NUXT_SITE_URL
+    process.env.NEWSLETTER_CONFIRM_URL ??
+    (process.env.NUXT_SITE_URL
       ? `${process.env.NUXT_SITE_URL}/subscribe/confirmed`
-      : "";
+      : "");
 
   if (!resendKey) {
     console.error("[newsletter subscribe] Missing RESEND_API_KEY env var");
@@ -79,8 +81,6 @@ export default defineEventHandler(async (event) => {
       statusMessage: "Email not configured",
     });
   }
-
-  const confirmLink = `${confirmBase}?token=${token}`;
   if (!confirmBase) {
     console.error(
       "[newsletter subscribe] Missing NEWSLETTER_CONFIRM_URL and NUXT_SITE_URL env vars"
@@ -91,18 +91,26 @@ export default defineEventHandler(async (event) => {
     });
   }
 
+  const confirmLink = `${confirmBase}?token=${token}`;
+
+  const siteName = process.env.NUXT_SITE_NAME || "Guillem Vila";
+
+  const html = await render(
+    ConfirmSubscription({
+      confirmUrl: confirmLink,
+      siteName,
+    })
+  );
+
   const resend = new Resend(resendKey);
   const result = await resend.emails.send({
     from,
     to: email,
     subject: "Confirma la teva subscripció",
-    html: `
-      <p>Confirma la teva subscripció fent clic aquí:</p>
-      <p><a href="${confirmLink}">Confirmar subscripció</a></p>
-      <p>Si no has estat tu, ignora aquest correu.</p>
-    `,
+    html,
   });
 
+  // Resend acostuma a retornar { data, error }
   if (isRecord(result) && "error" in result && result.error) {
     console.error("[newsletter subscribe] resend error:", result.error);
     throw createError({ statusCode: 500, statusMessage: "Email send failed" });
