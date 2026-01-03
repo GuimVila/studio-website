@@ -4,7 +4,7 @@
       <div class="logo">
         <img
           key="logo"
-          src="/assets/images/logo-web_blanc.png"
+          src="/images/logo-web_blanc.png"
           alt="Logo"
           class="logo-image"
         >

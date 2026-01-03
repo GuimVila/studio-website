@@ -6,9 +6,9 @@
       <ServiceCard
         v-for="(item, index) in services"
         :key="index"
-        :icon="item.icon"
         :title="item.title"
         :description="item.description"
+        :image="item.image"
       />
     </div>
   </section>
@@ -19,28 +19,28 @@ import ServiceCard from "~/components/ServiceCard.vue";
 
 const services = [
   {
-    icon: "🎛️",
-    title: "Producció Professional",
+    title: "Producció",
     description:
       "Des de la preproducció fins al producte final, t'acompanyo en cada pas del procés creatiu.",
+    image: "/images/services/produccio.png",
   },
   {
-    icon: "🎚️",
-    title: "Mescla i Mastering",
+    title: "Mescla",
     description:
-      "Equipament 'boutique' d'última generació i espai acustitzat per aconseguir el millor so possible.",
+      "Equipament boutique i criteri tècnic per aconseguir un so competitiu i coherent.",
+    image: "/images/services/mescla.png",
   },
   {
-    icon: "🎸",
     title: "Gravació",
     description:
-      "Estudi complet dissenyat per a gravacions de veu i instruments per pistes.",
+      "Estudi acustitzat i flux de treball pensat per capturar interpretacions reals.",
+    image: "/images/services/gravacio.png",
   },
   {
-    icon: "🎓",
     title: "Recursos",
     description:
-      "Recursos per a músics i productors que volen millorar les seves habilitats.",
+      "Recursos i contingut per a músics i productors que volen créixer amb criteri.",
+    image: "/images/services/recursos.png",
   },
 ];
 </script>

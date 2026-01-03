@@ -15,12 +15,11 @@
 import GalleryGrid from "~/components/GalleryGrid.vue";
 
 const images = [
-  { src: "/assets/images/studio-1.jpg", alt: "Sala principal de control" },
-  { src: "/assets/images/studio-2.jpg", alt: "Rack analògic" },
-  { src: "/assets/images/studio-3.jpg", alt: "Sessió de gravació" },
-  { src: "/assets/images/studio-4.jpg", alt: "Zona de producció" },
-  { src: "/assets/images/studio-5.jpg", alt: "Detall equipament" },
-  { src: "/assets/images/studio-6.jpg", alt: "Sessió de mescla" },
+  { src: "/images/foto4_galeria.jpg", alt: "Sala principal de control" },
+  { src: "/images/foto8_galeria.jpg", alt: "Rack analògic" },
+  { src: "/images/foto3_galeria.jpg", alt: "Instruments" },
+  { src: "/images/foto1_galeria.jpg", alt: "Detall equipament" },
+  { src: "/images/foto7_galeria.jpg", alt: "Tractament acústic" },
 ];
 
 useHead({
@@ -53,7 +52,7 @@ h1 {
   font-size: clamp(2.5rem, 5vw, 3rem);
   font-weight: 900;
   margin-bottom: 3rem;
-  background: linear-gradient(135deg, #ffffff 0%, #ff6b35 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #d08a3f 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

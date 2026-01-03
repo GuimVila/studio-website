@@ -9,7 +9,9 @@
 :root {
   --primary: #1a1a1a;
   --secondary: #2d2d2d;
-  --accent: #ff6b35;
+  --accent: #d08a3f;
+  --accent-light: #e3a85f;
+  --accent-dark: #a96f2e;
   --text: #ffffff;
   --text-secondary: #b0b0b0;
   --background: #0a0a0a;
@@ -17,7 +19,9 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", sans-serif;
   background-color: var(--background);
   color: var(--text);
   line-height: 1.6;
@@ -41,9 +45,9 @@ a {
 }
 
 .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .nav-container {
@@ -91,19 +95,32 @@ a {
 }
 
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 50%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 107, 53, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(255, 107, 53, 0.05) 0%,
+      transparent 50%
+    );
   animation: pulse 8s ease-in-out infinite;
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .hero-content {
@@ -117,7 +134,7 @@ a {
   font-weight: 900;
   margin-bottom: 1.5rem;
   line-height: 1.1;
-  background: linear-gradient(135deg, #ffffff 0%, #ff6b35 100%);
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -202,7 +219,7 @@ a {
 }
 
 .service-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -290,7 +307,7 @@ a {
 }
 
 .pricing-features li::before {
-  content: '✓';
+  content: "✓";
   color: var(--accent);
   font-weight: bold;
   margin-right: 1rem;

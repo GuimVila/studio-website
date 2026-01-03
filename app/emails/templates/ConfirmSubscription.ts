@@ -99,7 +99,7 @@ const styles: Record<string, Record<string, string>> = {
   },
   button: {
     display: "inline-block",
-    backgroundColor: "#ff6b35",
+    backgroundColor: "#D08A3F",
     color: "#0b1220",
     padding: "12px 18px",
     borderRadius: "10px",

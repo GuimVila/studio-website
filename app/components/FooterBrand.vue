@@ -49,12 +49,12 @@ defineProps({
   align-items: center;
   justify-content: center;
   color: white;
-  background: linear-gradient(135deg, #ff6b35 0%, #ff8c61 100%);
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent));
 }
 .brand-name {
   font-size: 1.5rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #fff 0%, #ff6b35 100%);
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
@@ -82,8 +82,8 @@ defineProps({
   transition: all 0.3s ease;
 }
 .social-link:hover {
-  background: #ff6b35;
-  border-color: #ff6b35;
+  background: #d08a3f;
+  border-color: #d08a3f;
   color: white;
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
