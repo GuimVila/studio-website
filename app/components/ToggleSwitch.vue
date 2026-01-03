@@ -37,8 +37,8 @@ const toggleSwitch = () => {
 }
 
 .toggle-container.on {
-  background-color: #ff6b35;
-  border-color: #ff6b35;
+  background-color: #D08A3F;
+  border-color: #D08A3F;
 }
 
 .toggle-container.off {

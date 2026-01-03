@@ -17,7 +17,7 @@ useHead({
     {
       name: "description",
       content:
-        "Em dic Guillem Vila i sóc artista, productor musical i enginyer de so. Ofereix serveis professionals de gravació, mescla, producció musical i col·laboracions creatives per projectes artístics i musicals.",
+        "Em dic Guillem Vila i sóc artista, productor musical i enginyer de so. Ofereixo serveis professionals de gravació, mescla, producció musical i col·laboracions creatives per projectes artístics i musicals.",
     },
   ],
 });

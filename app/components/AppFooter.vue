@@ -7,7 +7,7 @@
           <div class="brand">
             <img
               key="logo"
-              src="/assets/images/logo-web_blanc.png"
+              src="/images/logo-web_blanc.png"
               alt="Logo de Guillem Vila - Estudi de so i producció musical de Riells i Viabrea, Girona"
               class="logo-image"
             >
@@ -244,7 +244,7 @@ watch(message, (val) => {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ff6b35 0%, #ff8c61 100%);
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -253,7 +253,7 @@ watch(message, (val) => {
 .brand-name {
   font-size: 1.5rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #ffffff 0%, #ff6b35 100%);
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -290,8 +290,8 @@ watch(message, (val) => {
   text-decoration: none;
 }
 .social-link:hover {
-  background-color: #ff6b35;
-  border-color: #ff6b35;
+  background-color: #d08a3f;
+  border-color: #d08a3f;
   color: white;
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
@@ -341,7 +341,7 @@ watch(message, (val) => {
   color: white;
 }
 .contact-item .contact-icon {
-  color: #ff6b35;
+  color: #d08a3f;
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -387,14 +387,19 @@ watch(message, (val) => {
 }
 .newsletter-input:focus {
   outline: none;
-  border-color: #ff6b35;
+  border-color: #d08a3f;
   box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
 }
 .newsletter-button {
   width: 100%;
   padding: 0.875rem 1.5rem;
   border-radius: 10px;
-  background: linear-gradient(135deg, #ff6b35 0%, #ff8c61 100%);
+  background: linear-gradient(
+    135deg,
+    var(--accent-dark) 0%,
+    var(--accent) 45%,
+    var(--accent-light) 100%
+  );
   color: white;
   font-weight: 600;
   font-size: 1rem;
@@ -404,7 +409,7 @@ watch(message, (val) => {
 }
 .newsletter-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.5);
+  box-shadow: 0 8px 20px rgba(208, 138, 63, 0.18);
 }
 .newsletter-button:active {
   transform: translateY(0);
@@ -442,7 +447,7 @@ watch(message, (val) => {
   transition: color 0.3s ease;
 }
 .footer-legal :deep(a:hover) {
-  color: #ff6b35;
+  color: #d08a3f;
 }
 
 /* Background Glow */
@@ -451,7 +456,7 @@ watch(message, (val) => {
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  background: #ff6b35;
+  background: #d08a3f;
   filter: blur(120px);
   opacity: 0.15;
   pointer-events: none;

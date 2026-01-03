@@ -66,7 +66,7 @@ const { isUnset, accept, reject } = useCookieConsent();
 }
 
 .btn-accept {
-  background: linear-gradient(135deg, #ff6b35 0%, #ff8c61 100%);
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent));
   border: none;
   color: white;
   padding: 0.5rem 1.25rem;
