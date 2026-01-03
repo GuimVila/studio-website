@@ -1,20 +1,12 @@
 <template>
-  <div>
-    <div style="padding-top: 100px">
-      <section class="section">
-        <h1 class="section-title">Subscriu-te</h1>
-        <p
-          style="
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-          "
-        >
-          Subscriu-te al meu butlletí per rebre les últimes novetats, tutorials
-          i ofertes especials directament al teu correu electrònic.
-        </p>
-      </section>
+  <div class="page-wrapper">
+    <section class="section">
+      <h1 class="section-title heading-accent">Subscriu-te</h1>
+
+      <p class="section-subtitle">
+        Subscriu-te al meu butlletí per rebre les últimes novetats, tutorials i
+        ofertes especials directament al teu correu electrònic.
+      </p>
 
       <form class="subscribe-form" @submit.prevent="subscribe">
         <input
@@ -22,7 +14,9 @@
           type="email"
           required
           placeholder="Introdueix el teu correu electrònic"
+          class="subscribe-input"
         >
+
         <input
           v-model="honeypot"
           type="text"
@@ -31,22 +25,19 @@
           class="hp-field"
         >
 
-        <button :disabled="isSubmitting">
+        <button type="submit" class="btn btn-primary" :disabled="isSubmitting">
           {{ isSubmitting ? "Enviant..." : "Subscriu-te" }}
         </button>
       </form>
 
       <p
         v-if="submitMessage"
-        :style="{
-          textAlign: 'center',
-          marginTop: '1rem',
-          color: submitSuccess ? '#4ade80' : '#ef4444',
-        }"
+        class="submit-message"
+        :class="submitSuccess ? 'success' : 'error'"
       >
         {{ submitMessage }}
       </p>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -64,48 +55,66 @@ const {
 </script>
 
 <style scoped>
+.page-wrapper {
+  padding-top: 100px;
+}
+
+.section {
+  text-align: center;
+}
+
+/* Form */
 .subscribe-form {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-top: 2rem;
-}
-.subscribe-form input {
-  padding: 0.8rem 1.2rem;
-  font-size: 1rem;
-  border: 1px solid var(--text-secondary);
-  border-radius: 5px;
-  width: 300px;
-  background: var(--secondary);
-  color: var(--text);
-}
-.subscribe-form button {
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  background: var(--accent);
-  color: var(--text);
-  cursor: pointer;
-}
-.subscribe-form button:hover {
-  background: darken(var(--accent), 10%);
+  flex-wrap: wrap;
 }
 
+.subscribe-input {
+  padding: 0.85rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  width: 320px;
+  background: var(--secondary);
+  color: var(--text);
+  border: 1px solid var(--border);
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.subscribe-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.subscribe-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(208, 138, 63, 0.18);
+}
+
+/* Result message */
+.submit-message {
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+}
+
+.submit-message.success {
+  color: #4ade80;
+}
+
+.submit-message.error {
+  color: #ef4444;
+}
+
+/* Honeypot */
 .hp-field {
   position: absolute;
   left: -9999px;
   opacity: 0;
   pointer-events: none;
-}
-
-h1 {
-  text-align: center;
-  font-size: clamp(2.5rem, 5vw, 3rem);
-  font-weight: 900;
-  margin-bottom: 3rem;
-  background: linear-gradient(135deg, #ffffff 0%, #d08a3f 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 </style>

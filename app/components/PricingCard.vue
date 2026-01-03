@@ -54,19 +54,23 @@ onMounted(() => {
 
 <style scoped>
 .pricing-card {
-  background: var(--card-bg);
+  background: var(--surface);
   padding: 2rem;
   border-radius: 20px;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
 
   display: flex;
   flex-direction: column;
 
   /* Animació d’entrada */
   opacity: 0;
-  transform: translateY(20px) scale(1);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.5s ease;
+  transform: translateY(20px);
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease,
+    opacity 0.55s ease;
 }
 
 .btn-margin-top {
@@ -76,45 +80,47 @@ onMounted(() => {
 /* Visible */
 .pricing-card.visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 
 /* Hover */
 .pricing-card:hover {
-  transform: translateY(0) scale(1.03);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow-2);
+  border-color: var(--border-strong);
 }
 
-/* Featured = hover permanent */
+/* Featured */
 .pricing-card.featured {
-  transform: translateY(0) scale(1.03);
-  border: 2px solid var(--accent);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  border: 2px solid rgba(208, 138, 63, 0.55);
+  box-shadow: var(--accent-shadow-1);
 }
 
-/* Evita doble escala */
 .pricing-card.featured:hover {
-  transform: translateY(0) scale(1.03);
+  box-shadow: var(--accent-shadow-2);
+  border-color: var(--accent);
 }
 
 .badge-popular {
   background: var(--accent);
-  color: white;
-  padding: 0.5rem;
-  border-radius: 20px;
+  color: #fff;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
   margin-bottom: 1rem;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 0.95rem;
 }
 
 .price {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 800;
   margin-bottom: 1rem;
+  color: var(--accent);
 }
 
 .price-unit {
   font-size: 1rem;
   color: var(--text-secondary);
+  margin-left: 0.25rem;
 }
 
 .pricing-features {
@@ -122,5 +128,6 @@ onMounted(() => {
   padding: 0;
   margin: 0 0 1.5rem 0;
   line-height: 1.7;
+  color: var(--text-secondary);
 }
 </style>

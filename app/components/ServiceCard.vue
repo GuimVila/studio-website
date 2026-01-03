@@ -21,10 +21,10 @@ defineProps({
 
 <style scoped>
 .service-card {
-  background: var(--card-bg);
+  background: var(--surface);
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
   transition:
     transform 0.35s ease,
     box-shadow 0.35s ease,
@@ -35,8 +35,8 @@ defineProps({
 
 .service-card:hover {
   transform: translateY(-8px);
-  border-color: var(--accent);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  border-color: rgba(208, 138, 63, 0.55);
+  box-shadow: var(--shadow-2);
 }
 
 /* Imatge */

@@ -13,7 +13,7 @@ defineProps({ title: { type: String, required: true } });
 .footer-title {
   font-size: 1.125rem;
   font-weight: 700;
-  color: white;
+  color: var(--text);
   margin: 0 0 1rem 0;
 }
 </style>

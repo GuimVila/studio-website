@@ -26,8 +26,8 @@ const { isUnset, accept, reject } = useCookieConsent();
   transform: translateX(-50%);
   max-width: 900px;
   width: calc(100% - 3rem);
-  background: #1a1a1a;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -35,11 +35,11 @@ const { isUnset, accept, reject } = useCookieConsent();
   align-items: center;
   gap: 1.5rem;
   z-index: 9999;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: var(--shadow-2);
 }
 
 .cookie-text {
-  color: #b0b0b0;
+  color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.4;
   margin: 0;
@@ -50,10 +50,11 @@ const { isUnset, accept, reject } = useCookieConsent();
   gap: 0.75rem;
 }
 
+/* Reject */
 .btn-reject {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #b0b0b0;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
   padding: 0.5rem 1rem;
   border-radius: 8px;
   cursor: pointer;
@@ -61,14 +62,15 @@ const { isUnset, accept, reject } = useCookieConsent();
 }
 
 .btn-reject:hover {
-  color: white;
-  border-color: white;
+  color: var(--text);
+  border-color: var(--border-strong);
 }
 
+/* Accept */
 .btn-accept {
   background: linear-gradient(90deg, var(--accent-dark), var(--accent));
   border: none;
-  color: white;
+  color: #fff;
   padding: 0.5rem 1.25rem;
   border-radius: 8px;
   cursor: pointer;
@@ -77,7 +79,7 @@ const { isUnset, accept, reject } = useCookieConsent();
 }
 
 .btn-accept:hover {
-  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+  box-shadow: var(--accent-shadow-1);
 }
 
 @media (max-width: 640px) {

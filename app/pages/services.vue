@@ -1,7 +1,7 @@
 <template>
   <div class="page-wrapper">
     <section class="section">
-      <h1 class="section-title">Serveis i preus</h1>
+      <h1 class="section-title heading-accent">Serveis i preus</h1>
       <p class="section-subtitle">
         Estudi professional de mescla, producció i gravació. Treball híbrid,
         sala tractada i flux de treball d’alt nivell.
@@ -380,48 +380,37 @@ useHead({
 .page-wrapper {
   padding-top: 100px;
 }
-.section {
-  text-align: center;
-}
-.section-subtitle {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  margin-bottom: 4rem;
-}
+
 .section-title-margin {
   margin-top: 5rem;
 }
 
-h1,
-h2 {
-  text-align: center;
-  font-size: clamp(2.5rem, 5vw, 3rem);
-  font-weight: 900;
-  margin-bottom: 3rem;
-  background: linear-gradient(135deg, #ffffff 0%, #d08a3f 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.section-title.section-title-margin {
+  opacity: 0.9;
 }
 
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
   gap: 2rem;
   margin-bottom: 4rem;
 }
+
 .volume-discounts {
-  background: var(--card-bg);
+  background: var(--surface);
   padding: 3rem;
   border-radius: 20px;
   margin-top: 5rem;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-1);
 }
+
 .volume-discounts h3 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
+
 .volume-discounts p {
   color: var(--text-secondary);
   margin-bottom: 2rem;

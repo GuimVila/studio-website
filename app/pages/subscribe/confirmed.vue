@@ -1,46 +1,42 @@
 <template>
-  <div style="padding-top: 100px">
+  <div class="page">
     <section class="section">
       <h1 class="section-title">Confirmació de subscripció</h1>
 
-      <p
-        style="
-          text-align: center;
-          font-size: 1.2rem;
-          color: var(--text-secondary);
-          margin-bottom: 2rem;
-        "
-      >
-        <span v-if="status === 'loading'">
-          Estem confirmant la teva subscripció...
-        </span>
+      <!-- Estat -->
+      <div class="status-text">
+        <p class="status-message" :class="`status-${status}`">
+          <span v-if="status === 'loading'">
+            Estem confirmant la teva subscripció...
+          </span>
 
-        <span v-else-if="status === 'success'">
-          Perfecte. Ja estàs subscrit a la newsletter.
-        </span>
+          <span v-else-if="status === 'success'">
+            Perfecte. Ja estàs subscrit a la newsletter.
+          </span>
 
-        <span v-else-if="status === 'missing'">
-          Falta el token de confirmació. Si no has rebut el correu, pots
-          reenviar-lo a continuació.
-        </span>
+          <span v-else-if="status === 'missing'">
+            Falta el token de confirmació. Si no has rebut el correu, pots
+            reenviar-lo a continuació.
+          </span>
 
-        <span v-else-if="status === 'expired'">
-          Aquest enllaç de confirmació ha caducat. Pots reenviar el correu de
-          confirmació.
-        </span>
+          <span v-else-if="status === 'expired'">
+            Aquest enllaç de confirmació ha caducat. Pots reenviar el correu de
+            confirmació.
+          </span>
 
-        <span v-else-if="status === 'invalid'">
-          Aquest enllaç de confirmació no és vàlid. Si no has rebut el correu,
-          pots reenviar-lo a continuació.
-        </span>
+          <span v-else-if="status === 'invalid'">
+            Aquest enllaç de confirmació no és vàlid. Si no has rebut el correu,
+            pots reenviar-lo a continuació.
+          </span>
 
-        <span v-else>
-          Hi ha hagut un error confirmant la subscripció. Si no has rebut el
-          correu, pots reenviar-lo a continuació.
-        </span>
-      </p>
+          <span v-else>
+            Hi ha hagut un error confirmant la subscripció. Si no has rebut el
+            correu, pots reenviar-lo a continuació.
+          </span>
+        </p>
+      </div>
 
-      <!-- Reenviar confirmació (només quan NO és success) -->
+      <!-- Reenviar confirmació -->
       <div v-if="status !== 'success'" class="resend-wrap">
         <div class="resend-card">
           <h2 class="resend-title">No has rebut el correu?</h2>
@@ -78,8 +74,9 @@
         </div>
       </div>
 
-      <div style="display: flex; justify-content: center; margin-top: 24px">
-        <NuxtLink class="btn" to="/">Tornar a l'inici</NuxtLink>
+      <!-- Back -->
+      <div class="back-wrap">
+        <NuxtLink class="btn btn-secondary" to="/"> Tornar a l'inici </NuxtLink>
       </div>
     </section>
   </div>
@@ -176,58 +173,69 @@ async function resend() {
 </script>
 
 <style scoped>
-.btn {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 8px;
-  background: var(--accent);
-  color: var(--text);
-  text-decoration: none;
-}
-.btn:hover {
-  filter: brightness(1.05);
+.page {
+  padding-top: 120px;
+  padding-bottom: 4rem;
 }
 
+/* Estat */
+.status-text {
+  max-width: 680px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.status-message {
+  text-align: center;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.status-success {
+  color: #4ade80;
+}
+
+/* Reenviar */
 .resend-wrap {
   display: flex;
   justify-content: center;
-  margin-top: 12px;
 }
 
 .resend-card {
   width: min(520px, 100%);
-  background: var(--secondary);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: var(--shadow-1);
 }
 
 .resend-title {
-  margin: 0 0 6px 0;
+  margin: 0 0 0.5rem 0;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 800;
 }
 
 .resend-subtitle {
-  margin: 0 0 14px 0;
+  margin: 0 0 1.5rem 0;
   text-align: center;
   color: var(--text-secondary);
+  font-size: 1rem;
 }
 
 .resend-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.75rem;
 }
 
 .resend-input {
   width: 100%;
   padding: 0.9rem 1rem;
   border-radius: 10px;
-  background: #2d2d2d;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--secondary);
+  border: 1px solid var(--border);
   color: var(--text);
   font-size: 1rem;
   font-family: inherit;
@@ -237,24 +245,41 @@ async function resend() {
   width: 100%;
   padding: 0.9rem 1.2rem;
   border-radius: 10px;
-  background: var(--accent);
-  color: var(--text);
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+  color: white;
   font-weight: 700;
   border: none;
   cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
+
+.resend-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--accent-shadow-1);
+}
+
 .resend-button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
 
 .resend-message {
-  margin: 6px 0 0 0;
+  margin-top: 0.5rem;
   text-align: center;
   font-size: 0.95rem;
   color: #4ade80;
 }
 
+/* Back */
+.back-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+/* Honeypot */
 .hp-field {
   position: absolute;
   left: -9999px;

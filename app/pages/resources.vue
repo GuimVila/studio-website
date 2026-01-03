@@ -1,11 +1,13 @@
 <template>
-  <div class="page">
+  <div class="page-wrapper">
     <section class="section">
-      <h1 class="section-title">Recursos</h1>
-      <p class="section-intro">
+      <h1 class="section-title heading-accent">Recursos</h1>
+
+      <p class="section-subtitle">
         Aprèn producció, mescla, disseny de so i més amb els recursos que
         trobaràs a continuació.
       </p>
+
       <!-- Categories -->
       <div class="categories">
         <button
@@ -21,6 +23,7 @@
           {{ cat }}
         </button>
       </div>
+
       <!-- Tutorials Grid -->
       <div class="tutorials-grid">
         <TutorialCard
@@ -29,15 +32,17 @@
           v-bind="tutorial"
         />
       </div>
+
       <div v-if="filteredTutorials.length === 0" class="empty-state">
-        <p>No hi ha tutorials disponibles en aquesta category.</p>
+        <p>No hi ha tutorials disponibles en aquesta categoria.</p>
       </div>
     </section>
   </div>
 </template>
+
 <script setup>
 import TutorialCard from "~/components/TutorialCard.vue";
-import { useTutorials } from "~/composables/useTutorials.js";
+import { useTutorials } from "~/composables/useTutorials";
 
 const { selectedCategory, categories, filteredTutorials } = useTutorials();
 
@@ -52,41 +57,34 @@ useHead({
   ],
 });
 </script>
+
 <style scoped>
-.page {
+.page-wrapper {
   padding-top: 100px;
 }
-.section-intro {
+
+.section {
   text-align: center;
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
 }
 
-h1 {
-  text-align: center;
-  font-size: clamp(2.5rem, 5vw, 3rem);
-  font-weight: 900;
-  margin-bottom: 3rem;
-  background: linear-gradient(135deg, #ffffff 0%, #d08a3f 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 .categories {
   display: flex;
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 3rem;
+  margin: 3rem 0;
 }
+
 .category-btn {
   padding: 0.7rem 1.5rem;
 }
+
 .empty-state {
   text-align: center;
-  padding: 4rem;
+  padding: 4rem 2rem;
   color: var(--text-secondary);
 }
+
 .empty-state p {
   font-size: 1.2rem;
 }

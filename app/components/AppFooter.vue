@@ -203,8 +203,12 @@ watch(message, (val) => {
 
 <style scoped>
 .footer {
-  background: linear-gradient(to bottom, #1a1a1a 0%, #0a0a0a 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    to bottom,
+    var(--surface-2) 0%,
+    var(--background) 100%
+  );
+  border-top: 1px solid var(--border);
   position: relative;
   overflow: hidden;
 }
@@ -260,13 +264,13 @@ watch(message, (val) => {
   margin: 0;
 }
 .brand-description {
-  color: #b0b0b0;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
 }
 
 .brand-description:hover {
-  color: white;
+  color: var(--text);
   transition: color 0.3s ease;
 }
 
@@ -280,19 +284,19 @@ watch(message, (val) => {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: #2d2d2d;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: var(--secondary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #b0b0b0;
   transition: all 0.3s ease;
   text-decoration: none;
 }
 .social-link:hover {
-  background-color: #d08a3f;
-  border-color: #d08a3f;
-  color: white;
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
 }
@@ -301,7 +305,6 @@ watch(message, (val) => {
 .footer-title {
   font-size: 1.125rem;
   font-weight: 700;
-  color: white;
   margin: 0 0 1rem 0;
 }
 
@@ -375,20 +378,20 @@ watch(message, (val) => {
   width: 100%;
   padding: 0.875rem 1rem;
   border-radius: 10px;
-  background-color: #2d2d2d;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
+  background-color: var(--secondary);
+  border: 1px solid var(--border);
+  color: var(--text);
   font-size: 1rem;
   font-family: inherit;
   transition: all 0.3s ease;
 }
 .newsletter-input::placeholder {
-  color: #b0b0b0;
+  color: var(--text-secondary);
 }
 .newsletter-input:focus {
   outline: none;
-  border-color: #d08a3f;
-  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(208, 138, 63, 0.18);
 }
 .newsletter-button {
   width: 100%;
@@ -456,7 +459,7 @@ watch(message, (val) => {
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  background: #d08a3f;
+  background: var(--accent);
   filter: blur(120px);
   opacity: 0.15;
   pointer-events: none;
@@ -471,6 +474,13 @@ watch(message, (val) => {
   right: -100px;
   animation-delay: 1s;
 }
+
+.h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
 @keyframes pulse {
   0%,
   100% {

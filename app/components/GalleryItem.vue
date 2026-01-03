@@ -18,11 +18,13 @@ defineProps({
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  background: var(--card-bg);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface);
+  border: 1px solid var(--border);
   transition:
     transform 0.4s ease,
-    box-shadow 0.4s ease;
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+  /* aspect-ratio: 4 / 3; */
 }
 
 .gallery-item img {
@@ -34,18 +36,24 @@ defineProps({
 
 .gallery-item:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 50px rgba(255, 107, 53, 0.25);
+  border-color: rgba(208, 138, 63, 0.55);
+  box-shadow: var(--accent-shadow-1);
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.8));
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 45%,
+    var(--overlay-1) 100%
+  );
+
   display: flex;
   align-items: flex-end;
-  padding: 1.5rem;
+  padding: 1.25rem;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.35s ease;
 }
 
 .gallery-item:hover .overlay {
@@ -53,8 +61,7 @@ defineProps({
 }
 
 .overlay span {
-  color: white;
-  font-weight: 600;
-  font-size: 1.1rem;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 </style>

@@ -2,7 +2,7 @@
   <div>
     <section class="section">
       <div class="container">
-        <h1 class="section-title">Política de Privacitat</h1>
+        <h1 class="section-title heading-accent">Política de Privacitat</h1>
 
         <h2>Responsable del tractament</h2>
         <p>
@@ -144,18 +144,10 @@ useHead({
 
 <style scoped>
 h1 {
-  text-align: center;
-  font-size: clamp(2.5rem, 5vw, 3rem);
-  font-weight: 900;
   margin-bottom: 3rem;
-  background: linear-gradient(135deg, #ffffff 0%, #d08a3f 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 h2 {
-  color: var(--text);
-  font-size: 1.5rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
@@ -165,11 +157,12 @@ li {
   color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 ul {
   padding-left: 1.5rem;
-  list-style: disc;
+  list-style: none;
 }
 
 a {

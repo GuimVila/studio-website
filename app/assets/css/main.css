@@ -4,18 +4,79 @@
   box-sizing: border-box;
 }
 
-/* TODO canviar color */
+.layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  padding-top: 88px;
+}
+
+/* =========================
+   THEME TOKENS
+   - Dark és el default
+   - Light s'activa amb: <html data-theme="light">
+   ========================= */
 
 :root {
-  --primary: #1a1a1a;
-  --secondary: #2d2d2d;
+  /* Accent (shared) */
   --accent: #d08a3f;
   --accent-light: #e3a85f;
   --accent-dark: #a96f2e;
+
+  /* Dark theme (default) */
+  --background: #0a0a0a;
+  --surface: #141414;
+  --surface-2: #1a1a1a;
+  --secondary: #2d2d2d;
+
   --text: #ffffff;
   --text-secondary: #b0b0b0;
-  --background: #0a0a0a;
-  --card-bg: #1a1a1a;
+
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --header-bg: rgba(10, 10, 10, 0.92);
+
+  /* ✅ IMPORTANT: necessaris per AppHero.vue */
+  --overlay-1: rgba(10, 10, 10, 0.78);
+  --overlay-2: rgba(10, 10, 10, 0.55);
+
+  /* Shadows */
+  --shadow-1: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-2: 0 20px 50px rgba(0, 0, 0, 0.45);
+
+  /* Accent shadows */
+  --accent-shadow-1: 0 10px 30px rgba(208, 138, 63, 0.28);
+  --accent-shadow-2: 0 15px 45px rgba(208, 138, 63, 0.38);
+}
+
+/* Light theme */
+:root[data-theme="light"] {
+  --background: #f6f4f1;
+  --surface: #ffffff;
+  --surface-2: #fbfaf8;
+  --secondary: #ece7df;
+
+  --text: #141414;
+  --text-secondary: rgba(20, 20, 20, 0.7);
+
+  --border: rgba(20, 20, 20, 0.1);
+  --border-strong: rgba(20, 20, 20, 0.16);
+
+  --header-bg: rgba(246, 244, 241, 0.85);
+
+  /* ✅ IMPORTANT: necessaris per AppHero.vue en light */
+  --overlay-1: rgba(246, 244, 241, 0.7);
+  --overlay-2: rgba(246, 244, 241, 0.5);
+
+  --shadow-1: 0 12px 28px rgba(20, 20, 20, 0.1);
+  --shadow-2: 0 22px 52px rgba(20, 20, 20, 0.14);
+
+  --accent-shadow-1: 0 10px 26px rgba(208, 138, 63, 0.2);
+  --accent-shadow-2: 0 14px 38px rgba(208, 138, 63, 0.28);
 }
 
 body {
@@ -33,15 +94,80 @@ a {
   color: inherit;
 }
 
-/* Header / Navigation */
+/* =========================
+   Typography hierarchy
+   ========================= */
+
+h1,
+.h1 {
+  font-size: clamp(2.8rem, 6vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+h2,
+.h2 {
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+h3,
+.h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* =========================
+   Header / Navigation
+   ========================= */
+
+/* ✅ IMPORTANT: unifico .logo (abans estava duplicada i es trepitjava)
+   - .logo: només layout (flex)
+   - .logo p: tipografia i color (accent)
+*/
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-image {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo p {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
 .header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(10, 10, 10, 0.95);
+  background: var(--header-bg);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--border);
+}
+
+.heading-accent {
+  background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .container {
@@ -59,11 +185,9 @@ a {
   align-items: center;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--accent);
-}
+/* ❌ ABANS tenies una segona definició de .logo aquí que trepitjava el layout.
+   La retiro perquè no rebenti el header. Si vols estil del text, ja és a .logo p.
+*/
 
 .nav-menu {
   display: flex;
@@ -81,7 +205,10 @@ a {
   color: var(--accent);
 }
 
-/* Hero Section */
+/* =========================
+   Hero Section
+   ========================= */
+
 .hero {
   min-height: 100vh;
   display: flex;
@@ -91,24 +218,27 @@ a {
   padding: 2rem;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  background: linear-gradient(
+    135deg,
+    var(--background) 0%,
+    var(--surface-2) 100%
+  );
 }
 
 .hero::before {
   content: "";
   position: absolute;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background:
     radial-gradient(
       circle at 20% 50%,
-      rgba(255, 107, 53, 0.1) 0%,
-      transparent 50%
+      rgba(208, 138, 63, 0.14) 0%,
+      transparent 55%
     ),
     radial-gradient(
       circle at 80% 50%,
-      rgba(255, 107, 53, 0.05) 0%,
-      transparent 50%
+      rgba(208, 138, 63, 0.08) 0%,
+      transparent 55%
     );
   animation: pulse 8s ease-in-out infinite;
 }
@@ -116,7 +246,7 @@ a {
 @keyframes pulse {
   0%,
   100% {
-    opacity: 0.5;
+    opacity: 0.55;
   }
   50% {
     opacity: 1;
@@ -165,14 +295,14 @@ a {
 }
 
 .btn-primary {
-  background: var(--accent);
-  color: white;
-  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+  color: #fff;
+  box-shadow: var(--accent-shadow-1);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+  box-shadow: var(--accent-shadow-2);
 }
 
 .btn-secondary {
@@ -186,21 +316,35 @@ a {
   transform: translateY(-3px);
 }
 
-/* Sections */
+/* =========================
+   Sections
+   ========================= */
+
 .section {
   padding: 6rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .section-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
   margin-bottom: 3rem;
   text-align: center;
 }
 
-/* Services Grid */
+.section {
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 4rem;
+}
+
+/* =========================
+   Services Grid
+   ========================= */
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -209,10 +353,10 @@ a {
 }
 
 .service-card {
-  background: var(--card-bg);
+  background: var(--surface);
   padding: 2.5rem;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
@@ -225,7 +369,7 @@ a {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent), #ff8c61);
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent-light));
   transform: scaleX(0);
   transition: transform 0.4s ease;
 }
@@ -236,8 +380,8 @@ a {
 
 .service-card:hover {
   transform: translateY(-10px);
-  border-color: var(--accent);
-  box-shadow: 0 20px 50px rgba(255, 107, 53, 0.2);
+  border-color: rgba(208, 138, 63, 0.55);
+  box-shadow: var(--shadow-2);
 }
 
 .service-icon {
@@ -255,7 +399,10 @@ a {
   line-height: 1.8;
 }
 
-/* Pricing */
+/* =========================
+   Pricing
+   ========================= */
+
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -264,22 +411,23 @@ a {
 }
 
 .pricing-card {
-  background: var(--card-bg);
+  background: var(--surface);
   padding: 3rem 2rem;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
   text-align: center;
   transition: all 0.4s ease;
 }
 
 .pricing-card.featured {
-  border-color: var(--accent);
+  border-color: rgba(208, 138, 63, 0.55);
   transform: scale(1.05);
-  box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+  box-shadow: var(--accent-shadow-1);
 }
 
 .pricing-card:hover {
   transform: translateY(-10px);
+  box-shadow: var(--shadow-2);
 }
 
 .pricing-card h3 {
@@ -303,7 +451,7 @@ a {
 .pricing-features li {
   padding: 0.8rem 0;
   color: var(--text-secondary);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--border);
 }
 
 .pricing-features li::before {
@@ -313,17 +461,20 @@ a {
   margin-right: 1rem;
 }
 
-/* Contact Form */
+/* =========================
+   Contact Form
+   ========================= */
+
 .contact-container {
   max-width: 800px;
   margin: 0 auto;
 }
 
 .contact-form {
-  background: var(--card-bg);
+  background: var(--surface);
   padding: 3rem;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
 }
 
 .form-group {
@@ -341,18 +492,21 @@ a {
   width: 100%;
   padding: 1rem;
   background: var(--secondary);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
   border-radius: 10px;
   color: var(--text);
   font-size: 1rem;
   font-family: inherit;
-  transition: border-color 0.3s;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--accent);
+  border-color: rgba(208, 138, 63, 0.65);
+  box-shadow: 0 0 0 3px rgba(208, 138, 63, 0.18);
 }
 
 .form-group textarea {
@@ -360,7 +514,10 @@ a {
   min-height: 150px;
 }
 
-/* School/Blog Section */
+/* =========================
+   School/Blog Section
+   ========================= */
+
 .tutorials-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -369,23 +526,23 @@ a {
 }
 
 .tutorial-card {
-  background: var(--card-bg);
+  background: var(--surface);
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
   transition: all 0.4s ease;
   cursor: pointer;
 }
 
 .tutorial-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 50px rgba(255, 107, 53, 0.2);
+  box-shadow: var(--shadow-2);
 }
 
 .tutorial-thumbnail {
   width: 100%;
   height: 200px;
-  background: linear-gradient(135deg, var(--secondary), var(--accent));
+  background: linear-gradient(135deg, var(--secondary), var(--accent-dark));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -399,10 +556,11 @@ a {
 .tutorial-category {
   display: inline-block;
   padding: 0.3rem 1rem;
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
   border-radius: 20px;
   font-size: 0.85rem;
   margin-bottom: 1rem;
+  color: #fff;
 }
 
 .tutorial-card h3 {
@@ -422,16 +580,22 @@ a {
   color: var(--text-secondary);
 }
 
-/* Footer */
+/* =========================
+   Footer
+   ========================= */
+
 .footer {
-  background: var(--primary);
+  background: var(--surface-2);
   padding: 3rem 2rem;
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border);
   margin-top: 4rem;
 }
 
-/* Mobile menu toggle */
+/* =========================
+   Mobile menu toggle
+   ========================= */
+
 .mobile-toggle {
   display: none;
   background: none;
@@ -441,17 +605,25 @@ a {
   cursor: pointer;
 }
 
-/* Responsive */
+/* =========================
+   Responsive
+   ========================= */
+
 @media (max-width: 768px) {
+  .main {
+    padding-top: 80px;
+  }
+
   .nav-menu {
     position: fixed;
     top: 80px;
     left: -100%;
     width: 100%;
     flex-direction: column;
-    background: rgba(10, 10, 10, 0.98);
+    background: var(--header-bg);
     padding: 2rem;
     transition: left 0.3s ease;
+    border-bottom: 1px solid var(--border);
   }
 
   .nav-menu.active {

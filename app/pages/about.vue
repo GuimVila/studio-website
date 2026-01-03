@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="page-wrapper">
     <div class="content-wrapper">
       <section class="about-header">
-        <h1 class="section-title">Sobre mi</h1>
+        <h1 class="section-title heading-accent">Sobre mi</h1>
         <p class="section-subtitle">
           Una mica sobre mi i la meva trajectòria en el món de la música
         </p>
@@ -23,7 +23,7 @@
 
 <script setup>
 const aboutParagraphs = [
-  `Sóc Guillem Vila, músic, productor i enginyer de so nascut a Arenys de Mar. Durant els meus primers anys en el món de la música, em vaig dedicar a la formació constant entre el Taller de Músics i l'AULA del Liceu i al treball de camp en estudis i projectes locals. Vaig ser lletrista i compositor dels dos primers discos del grup de rock Exceso, compartint escenari amb grups com La Fuga, Poncho K, Burning, Siniestro Toal o Reincidentes.`,
+  `Sóc Guillem Vila, músic, productor i enginyer de so nascut a Arenys de Mar. Durant els meus primers anys en el món de la música, em vaig dedicar a la formació constant entre el Taller de Músics i l'AULA del Liceu i al treball de camp en estudis i projectes locals. Vaig ser lletrista i compositor dels dos primers discos del grup de rock Exceso, compartint escenari amb grups com La Fuga, Poncho K, Burning, Siniestro Total o Reincidentes.`,
 
   `Al llarg de la segona fase de la meva formació, vaig cursar el Bachelor en Professional Music al Berklee College of Music (Boston), amb mencions en Music Production & Engineering i Performance, complementat amb el minor en Music Technology & Innovation a València. A Boston, vaig tenir l’oportunitat d’aprendre de professors com Sean McLaughlin, Lyle Brewer, Colin Sapp, Dave Fiuczynski, Scott DeOgburn i Steve Rochinsky, experiència que em va donar eines per combinar rigor tècnic i expressió artística de manera efectiva.`,
 
@@ -33,7 +33,8 @@ const aboutParagraphs = [
 ];
 
 useHead({
-  title: "Sobre mi | Guillem Vila · Artista, productor musical i enginyer de so",
+  title:
+    "Sobre mi | Guillem Vila · Artista, productor musical i enginyer de so",
   meta: [
     {
       name: "description",
@@ -45,7 +46,7 @@ useHead({
 </script>
 
 <style scoped>
-.content-wrapper {
+.page-wrapper {
   padding-top: 100px;
 }
 
@@ -53,32 +54,17 @@ useHead({
   padding: 6rem 2rem 1rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .about-paragraph {
   padding: 1rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
-}
-
-.section-subtitle {
   text-align: center;
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  margin-bottom: 0rem;
 }
 
 .separated-paragraph {
   margin-top: 2rem;
-}
-
-h1 {
-  text-align: center;
-  font-size: clamp(2.5rem, 5vw, 3rem);
-  font-weight: 900;
-  margin-bottom: 3rem;
-  background: linear-gradient(135deg, #ffffff 0%, #d08a3f 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 </style>

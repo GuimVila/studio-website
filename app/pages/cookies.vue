@@ -2,7 +2,7 @@
   <div>
     <section class="section">
       <div class="container">
-        <h1 class="section-title">Política de Cookies</h1>
+        <h1 class="section-title heading-accent">Política de Cookies</h1>
 
         <p>
           Aquesta pàgina explica què són les cookies, quines s’utilitzen en
@@ -73,26 +73,12 @@ useHead({
 </script>
 
 <style scoped>
-h1 {
-  text-align: center;
-  font-size: clamp(2.5rem, 5vw, 3rem);
-  font-weight: 900;
-  margin-bottom: 3rem;
-  background: linear-gradient(135deg, #ffffff 0%, #d08a3f 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 h2 {
-  color: var(--text);
-  font-size: 1.5rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
 h3 {
-  color: var(--text);
-  font-size: 1.2rem;
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
 }

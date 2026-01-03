@@ -41,6 +41,7 @@ defineProps({
   gap: 0.75rem;
   margin-bottom: 0.5rem;
 }
+
 .brand-icon {
   width: 48px;
   height: 48px;
@@ -48,9 +49,10 @@ defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #fff;
   background: linear-gradient(90deg, var(--accent-dark), var(--accent));
 }
+
 .brand-name {
   font-size: 1.5rem;
   font-weight: 700;
@@ -59,33 +61,37 @@ defineProps({
   -webkit-text-fill-color: transparent;
   margin: 0;
 }
+
 .brand-description {
-  color: #b0b0b0;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
 }
+
 .social-links {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
 }
+
 .social-link {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #2d2d2d;
+  background: var(--secondary);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #b0b0b0;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
   transition: all 0.3s ease;
 }
+
 .social-link:hover {
-  background: #d08a3f;
-  border-color: #d08a3f;
-  color: white;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+  box-shadow: var(--accent-shadow-1);
 }
 </style>

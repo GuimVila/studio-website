@@ -21,15 +21,3 @@ import CookieBanner from "~/components/CookieBanner.vue";
 import AnalyticsLoader from "~/components/AnalyticsLoader.vue";
 </script>
 
-<style>
-.layout {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.main {
-  flex: 1;
-  min-height: 100vh;
-}
-</style>

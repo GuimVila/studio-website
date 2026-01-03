@@ -4,14 +4,14 @@
     <div class="hero-content hero-content--bg">
       <h1>Dona vida a la teva música</h1>
       <p>
-        Producció, mescla, i gravació professional. El teu so, portat
-        a la perfecció.
+        Producció, mescla, i gravació professional. El teu so, portat a la
+        perfecció.
       </p>
       <div class="cta-buttons">
-        <NuxtLink to="/contact" class="btn btn-primary">Comença ara</NuxtLink>
-        <NuxtLink to="/services" class="btn btn-secondary"
-          >Els meus serveis</NuxtLink
-        >
+        <NuxtLink to="/contact" class="btn btn-primary"> Comença ara </NuxtLink>
+        <NuxtLink to="/services" class="btn btn-secondary">
+          Els meus serveis
+        </NuxtLink>
       </div>
     </div>
   </section>
@@ -29,7 +29,8 @@
   background-repeat: no-repeat;
   background-position: center 35%;
   background-color: var(--background);
-  margin-top: 11rem;
+  margin-top: calc(var(--header-height, 88px) + 1rem);
+  position: relative;
 }
 
 .hero.hero--bg::before {
@@ -42,14 +43,14 @@
   background:
     radial-gradient(
       1200px 600px at 25% 40%,
-      rgba(0, 0, 0, 0.35),
+      rgba(208, 138, 63, 0.12),
       transparent 60%
     ),
     linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.72) 0%,
-      rgba(0, 0, 0, 0.35) 55%,
-      rgba(0, 0, 0, 0.1) 100%
+      var(--overlay-1) 0%,
+      var(--overlay-2) 55%,
+      rgba(0, 0, 0, 0.05) 100%
     );
 }
 
@@ -72,7 +73,6 @@
   color: var(--text);
 }
 
-/* P: ajust fi, respectant colors de la teva paleta */
 .hero.hero--bg .hero-content.hero-content--bg p {
   margin: 0 0 1.8rem 0;
   color: var(--text-secondary);
@@ -80,7 +80,7 @@
   line-height: 1.6;
 }
 
-/* Responsive: en mòbil sol quedar millor centrat */
+/* Responsive */
 @media (max-width: 768px) {
   .hero.hero--bg {
     padding: 2.5rem 1.25rem;
@@ -94,9 +94,9 @@
   .hero.hero--bg .hero-overlay {
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.7) 0%,
-      rgba(0, 0, 0, 0.4) 60%,
-      rgba(0, 0, 0, 0.15) 100%
+      var(--overlay-1) 0%,
+      var(--overlay-2) 60%,
+      rgba(0, 0, 0, 0.08) 100%
     );
   }
 

@@ -9,16 +9,34 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+const isOn = ref(true);
 
-const isOn = ref(false);
+function applyTheme(isDark) {
+  const theme = isDark ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+}
 
-const emit = defineEmits(["toggle"]);
-
-const toggleSwitch = () => {
+function toggleSwitch() {
   isOn.value = !isOn.value;
-  emit("toggle", isOn.value);
-};
+  applyTheme(isOn.value);
+}
+
+onMounted(() => {
+  const saved = localStorage.getItem("theme");
+  if (saved === "dark" || saved === "light") {
+    isOn.value = saved === "dark";
+    applyTheme(isOn.value);
+    return;
+  }
+
+  const prefersDark = window.matchMedia?.(
+    "(prefers-color-scheme: dark)"
+  )?.matches;
+  isOn.value = !!prefersDark;
+  applyTheme(isOn.value);
+});
 </script>
 
 <style scoped>
@@ -37,8 +55,8 @@ const toggleSwitch = () => {
 }
 
 .toggle-container.on {
-  background-color: #D08A3F;
-  border-color: #D08A3F;
+  background-color: #d08a3f;
+  border-color: #d08a3f;
 }
 
 .toggle-container.off {
