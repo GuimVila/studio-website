@@ -4,13 +4,13 @@
     <div class="hero-content hero-content--bg">
       <h1>Dona vida a la teva música</h1>
       <p>
-        Producció, mescla, mastering i gravació professional. El teu so, portat
+        Producció, mescla, i gravació professional. El teu so, portat
         a la perfecció.
       </p>
       <div class="cta-buttons">
         <NuxtLink to="/contact" class="btn btn-primary">Comença ara</NuxtLink>
         <NuxtLink to="/services" class="btn btn-secondary"
-          >Els nostres serveis</NuxtLink
+          >Els meus serveis</NuxtLink
         >
       </div>
     </div>

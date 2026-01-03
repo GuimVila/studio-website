@@ -15,7 +15,7 @@
           </div>
 
           <p class="brand-description">
-            Estudi de so professional i producció musical.
+            Estudi de so professional i producció musical
           </p>
 
           <div class="social-links">
@@ -60,7 +60,7 @@
                 href="https://www.google.com/maps/place/Riells+i+Viabrea,+El+Baix+Montseny/@41.749,2.6105,12z/data=!3m1!4b1!4m6!3m5!1s0x12a4a5f5f5f5f5f5:0x5f5f5f5f5f5f5f5!8m2!3d41.749!4d2.6105!16s%2Fg%2F11c1f1f1f1"
                 target="_blank"
               >
-                <LocationIcon class="contact-icon" /> Riells i Viabrea, El Baix
+                <LocationIcon class="contact-icon" /> Riells i Viabrea, el Baix
                 Montseny</a
               >
             </li>
@@ -82,7 +82,7 @@
           <h4 class="footer-title">Newsletter</h4>
           <p class="newsletter-text">
             Subscriu-te per rebre les últimes novetats, tutorials i ofertes
-            especials.
+            especials
           </p>
 
           <form class="newsletter-form" @submit.prevent="subscribe">
@@ -185,11 +185,11 @@ const socialLinks = [
 ];
 
 const services = [
-  "Producció Musical",
+  "Producció musical",
   "Edició",
   "Gravació",
   "Mescla",
-  "Disseny de So",
+  "Disseny de so",
 ];
 
 watch(message, (val) => {

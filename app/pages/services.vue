@@ -63,7 +63,7 @@
         <p>
           ✓ 10% de descompte a partir de 5 cançons<br >
           ✓ 15% de descompte a partir de 10 cançons (EP / Àlbum)<br >
-          ✓ Pressupost personalitzat per projectes grans
+          ✓ Pressupost personalitzat per a projectes grans
         </p>
         <NuxtLink to="/contact" class="btn btn-primary">
           Demanar pressupost
@@ -189,7 +189,7 @@ const productionPackages = [
     price: "Des de 100€",
     unit: "/patch",
     features: [
-      "Disseny sonor per sintetitzadors i samplers",
+      "Disseny sonor per a sintetitzadors i samplers",
       "Creació de kits originals i textures úniques",
       "Optimitzat per produccions i live",
       "Consultoria sobre implementació en DAW",
@@ -241,7 +241,7 @@ const editingPackages = [
       "Organització de sessions a Pro Tools",
       "Neteja de pistes i silencis",
       "Ruteig i etiquetatge correcte",
-      "Preparació òptima per mescla o enviament",
+      "Preparació òptima per a mescla o enviament",
     ],
     link: "/contact",
     button: "Contractar",
@@ -255,7 +255,7 @@ const editingPackages = [
       "Correcció de timing musical",
       "Afinació vocal transparent",
       "Edició musical amb criteri artístic",
-      "Session ready per mescla professional",
+      "Session ready per a mescla professional",
     ],
     link: "/contact",
     button: "Contractar",
@@ -317,8 +317,8 @@ const proServicePackages = [
     features: [
       "Color analògic amb Silver Bullet",
       "Tape79 Mojo Module",
-      "Ideal per drums, bass, synths o vocals",
-      "Entrega alineada i fase-correcta",
+      "Ideal per a bateries, baixos, sintetitzadors o veus",
+      "Entrega alineada i phased-aligned",
     ],
     link: "/contact",
     button: "Contractar",

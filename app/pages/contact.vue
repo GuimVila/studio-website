@@ -103,7 +103,7 @@
           >
             <div class="card-icon">📍</div>
             <h3>Ubicació</h3>
-            <p>Riells i Viabrea, El Baix Montseny</p>
+            <p>Riells i Viabrea, el Baix Montseny</p>
           </a>
         </div>
       </div>

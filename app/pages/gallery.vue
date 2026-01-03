@@ -3,7 +3,7 @@
     <section class="section">
       <h1 class="section-title">Galeria</h1>
       <p class="section-subtitle">
-        Una mostra visual de l'estudi, equipament i sessions de treball.
+        Una mostra visual de l'estudi. Equipaments i sessions de treball.
       </p>
 
       <GalleryGrid :images="images" />

@@ -21,9 +21,9 @@ export function useTutorials() {
         "Gravació",
         "Edició",
         "Mescla",
-        "Disseny de So",
+        "Disseny de so",
         "Harmonia",
-        "Llenguatge Musical",
+        "Llenguatge musical",
     ];
 
     const tutorials = ref<Tutorial[]>([
