@@ -26,6 +26,19 @@ export default defineNuxtConfig({
     "@nuxtjs/sitemap",
   ],
 
+  image: {
+    format: ["avif", "webp", "jpeg"],
+    quality: 70,
+    screens: {
+      xs: 480,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+    },
+  },
+
   supabase: {
     url: process.env.NUXT_SUPABASE_URL,
     key: process.env.NUXT_SUPABASE_ANON_KEY,

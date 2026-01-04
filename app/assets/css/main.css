@@ -69,8 +69,8 @@
   --header-bg: rgba(246, 244, 241, 0.85);
 
   /* ✅ IMPORTANT: necessaris per AppHero.vue en light */
-  --overlay-1: rgba(246, 244, 241, 0.7);
-  --overlay-2: rgba(246, 244, 241, 0.5);
+  --overlay-1: rgba(0, 0, 0, 0.25);
+  --overlay-2: rgba(0, 0, 0, 0.05);
 
   --shadow-1: 0 12px 28px rgba(20, 20, 20, 0.1);
   --shadow-2: 0 22px 52px rgba(20, 20, 20, 0.14);

@@ -1,7 +1,14 @@
 <template>
   <div class="service-card">
     <div class="service-image">
-      <img :src="image" :alt="title" loading="lazy" >
+      <NuxtImg
+        :src="image"
+        :alt="title"
+        loading="lazy"
+        sizes="(max-width: 768px) 100vw, 33vw"
+        width="800"
+        height="450"
+      />
     </div>
 
     <div class="service-content">
@@ -51,9 +58,10 @@ defineProps({
   object-fit: cover;
   display: block;
   transition: transform 0.6s ease;
+  border-radius: 20px;
 }
 
-.service-card:hover .service-image img {
+.service-card:hover {
   transform: scale(1.05);
 }
 

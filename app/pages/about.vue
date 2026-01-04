@@ -51,14 +51,14 @@ useHead({
 }
 
 .about-header {
-  padding: 6rem 2rem 1rem 2rem;
+  padding: 6rem 2rem 0rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
   text-align: center;
 }
 
 .about-paragraph {
-  padding: 1rem 2rem;
+  padding: 0rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
   text-align: center;
