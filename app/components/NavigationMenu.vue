@@ -3,10 +3,14 @@
     <nav class="nav-container">
       <div class="logo">
         <img
-          key="logo"
           src="/images/logo-web_blanc.png"
-          alt="Logo"
-          class="logo-image"
+          alt="Logo dark"
+          class="logo-image logo-dark"
+        >
+        <img
+          src="/images/logo-web-negre2.png"
+          alt="Logo light"
+          class="logo-image logo-light"
         >
         <p>Guillem Vila</p>
       </div>
@@ -63,3 +67,23 @@ function toggleMenu() {
   menuOpen.value = !menuOpen.value;
 }
 </script>
+
+<style scoped>
+/* Per defecte: dark mode */
+.logo-light {
+  display: none;
+}
+
+.logo-dark {
+  display: block;
+}
+
+/* Light mode */
+:root[data-theme="light"] .logo-dark {
+  display: none;
+}
+
+:root[data-theme="light"] .logo-light {
+  display: block;
+}
+</style>

@@ -1,6 +1,13 @@
 <template>
   <div class="gallery-item">
-    <img :src="image.src" :alt="image.alt" >
+    <NuxtImg
+      :src="image.src"
+      :alt="image.alt"
+      loading="lazy"
+      sizes="(max-width: 768px) 100vw, 33vw"
+      width="1200"
+      height="900"
+    />
     <div class="overlay">
       <span>{{ image.alt }}</span>
     </div>

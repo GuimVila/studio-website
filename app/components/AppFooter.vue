@@ -6,10 +6,14 @@
         <div class="footer-section">
           <div class="brand">
             <img
-              key="logo"
               src="/images/logo-web_blanc.png"
-              alt="Logo de Guillem Vila - Estudi de so i producció musical de Riells i Viabrea, Girona"
-              class="logo-image"
+              alt="Logo dark de Guillem Vila"
+              class="logo-image logo-dark"
+            >
+            <img
+              src="/images/logo-web-negre2.png"
+              alt="Logo light de Guillem Vila"
+              class="logo-image logo-light"
             >
             <h3 class="brand-name">Guillem Vila</h3>
           </div>
@@ -479,6 +483,26 @@ watch(message, (val) => {
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--text);
+}
+
+/* ===== LOGO THEME SWITCH ===== */
+
+/* Default: dark mode */
+.logo-light {
+  display: none;
+}
+
+.logo-dark {
+  display: block;
+}
+
+/* Light theme */
+:root[data-theme="light"] .logo-dark {
+  display: none;
+}
+
+:root[data-theme="light"] .logo-light {
+  display: block;
 }
 
 @keyframes pulse {
