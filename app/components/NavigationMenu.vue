@@ -16,7 +16,7 @@
       </div>
       <button class="mobile-toggle" @click="toggleMenu">☰</button>
       <ul class="nav-menu" :class="{ active: menuOpen }">
-        <li><NuxtLink to="/" class="nav-link">Inici</NuxtLink></li>
+        <li><NuxtLink to="/" class="nav-link" @click="menuOpen = false">Inici</NuxtLink></li>
         <li>
           <NuxtLink to="/gallery" class="nav-link" @click="menuOpen = false"
             >Galeria</NuxtLink
