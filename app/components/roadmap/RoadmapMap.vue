@@ -1,47 +1,58 @@
 <template>
-  <div class="mapWrap">
-    <div ref="scroller" class="scroller">
-      <div
-        class="stage"
-        :style="{
-          width: stageW + 'px',
-          height: stageH + 'px',
-          transform: 'scale(' + zoom + ')',
-        }"
+  <div class="map-shell">
+    <div class="overlay">
+      <button class="chip" type="button" @click="fitToScreen">Fit</button>
+      <button
+        class="chip"
+        type="button"
+        :disabled="!highlightId"
+        @click="scrollToNode(highlightId)"
       >
-        <!-- Edges -->
-        <svg class="edges" :width="stageW" :height="stageH">
-          <line
-            v-for="(e, i) in edges"
-            :key="i"
-            :x1="posById.get(e.from)?.x || 0"
-            :y1="posById.get(e.from)?.y || 0"
-            :x2="posById.get(e.to)?.x || 0"
-            :y2="posById.get(e.to)?.y || 0"
+        Center
+      </button>
+      <div class="chip stat">
+        <span class="muted">Zoom</span>
+        <strong>{{ Math.round(zoomLocal * 100) }}%</strong>
+      </div>
+    </div>
+
+    <div ref="viewportRef" class="viewport">
+      <div ref="canvasRef" class="canvas" :style="canvasStyle">
+        <svg
+          class="edges"
+          :width="canvasW"
+          :height="canvasH"
+          :viewBox="`0 0 ${canvasW} ${canvasH}`"
+          preserveAspectRatio="xMinYMin meet"
+          aria-hidden="true"
+        >
+          <path
+            v-for="e in renderedEdges"
+            :key="e.key"
+            :d="e.d"
             class="edge"
-            :class="{ highlighted: isEdgeHighlighted(e.from, e.to) }"
-            :style="{ opacity: edgeOpacity(e.from, e.to) }"
+            :class="{ highlighted: e.highlighted }"
+            vector-effect="non-scaling-stroke"
           />
         </svg>
 
-        <!-- Nodes -->
         <button
-          v-for="n in filteredNodes"
+          v-for="n in renderedNodes"
           :key="n.id"
           class="node"
           type="button"
-          :class="nodeClasses(n)"
+          :class="nodeClass(n)"
           :style="nodeStyle(n)"
-          @click="emit('select', n.id)"
+          @click="$emit('select', n.id)"
         >
-          <div class="nodeTop">
-            <span class="nodeId">{{ n.id }}</span>
-            <span v-if="isCompleted(n.id)" class="check">✓</span>
-          </div>
-          <div class="nodeTitle">{{ n.title }}</div>
-          <div class="nodeMeta">
+          <div class="node-id">{{ n.id }}</div>
+          <div class="node-title">{{ n.title }}</div>
+          <div class="node-meta">
             <span class="pill">{{ n.category }}</span>
-            <span class="pill">Lv {{ n.level }}</span>
+            <span v-if="n.module" class="pill">{{ n.module }}</span>
+            <span v-if="Number.isFinite(n.level)" class="pill"
+              >L{{ n.level }}</span
+            >
           </div>
         </button>
       </div>
@@ -50,313 +61,357 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, nextTick } from "vue";
+import { computed, ref, watch } from "vue";
 
 const props = defineProps({
   nodes: { type: Array, required: true },
+
   zoom: { type: Number, default: 1 },
 
   search: { type: String, default: "" },
   category: { type: String, default: "" },
   hideLocked: { type: Boolean, default: false },
 
-  // Focus pack
-  focusIds: { type: [Array, Object], default: null }, // Array<string> | Set<string> | null
-  highlightEdges: { type: [Array, Object], default: null }, // Array<[from,to]> | Set<string> | null
-  highlightId: { type: String, default: null }, // nextId
-  nextSeq: { type: Number, default: null }, // for zone fade
+  focusIds: { type: Array, default: null }, // string[] | null
+  highlightEdges: { type: Array, default: null }, // [from,to][] | null
 
-  // Progress functions
+  highlightId: { type: [String, null], default: null },
+  nextSeq: { type: [Number, null], default: null },
+
   isCompleted: { type: Function, required: true },
   canUnlock: { type: Function, required: true },
 });
 
-const emit = defineEmits(["select"]);
+const emit = defineEmits(["select", "update:zoom"]);
 
-function norm(id) {
-  return String(id).trim().toUpperCase();
-}
+const viewportRef = ref(null);
+const canvasRef = ref(null);
 
-/** Convert focusIds prop to a Set<string> (normalized) */
-const focusSet = computed(() => {
-  const f = props.focusIds;
-  if (!f) return null;
-
-  // Already a Set?
-  if (typeof f?.has === "function") {
-    const s = new Set();
-    for (const x of f) s.add(norm(x));
-    return s;
+// zoom local (sync with parent)
+const zoomLocal = ref(Number.isFinite(props.zoom) ? props.zoom : 1);
+watch(
+  () => props.zoom,
+  (v) => {
+    if (Number.isFinite(v)) zoomLocal.value = v;
   }
-
-  // Array
-  if (Array.isArray(f)) {
-    const s = new Set();
-    for (const x of f) s.add(norm(x));
-    return s;
-  }
-
-  return null;
-});
-
-/** Normalize highlightEdges into Set<string> key "FROM->TO" */
-const highlightSet = computed(() => {
-  const h = props.highlightEdges;
-  if (!h) return null;
-
-  // Set already?
-  if (typeof h?.has === "function") {
-    const s = new Set();
-    for (const key of h) s.add(String(key));
-    return s;
-  }
-
-  // Array of pairs
-  if (Array.isArray(h)) {
-    const s = new Set();
-    for (const pair of h) {
-      if (!pair || pair.length < 2) continue;
-      const from = norm(pair[0]);
-      const to = norm(pair[1]);
-      s.add(`${from}->${to}`);
-    }
-    return s;
-  }
-
-  return null;
-});
-
-function isEdgeHighlighted(from, to) {
-  const s = highlightSet.value;
-  if (!s) return false;
-  return s.has(`${norm(from)}->${norm(to)}`);
-}
-
-function matchesSearch(n, q) {
-  if (!q) return true;
-  const hay = [
-    n.id,
-    n.title,
-    n.module,
-    n.category,
-    n.tags,
-    String(n.level ?? ""),
-    String(n.seq ?? ""),
-  ]
-    .filter(Boolean)
-    .join(" ")
-    .toLowerCase();
-  return hay.includes(q.toLowerCase().trim());
-}
-
-const filteredNodes = computed(() => {
-  const q = props.search?.trim() || "";
-  const cat = props.category?.trim() || "";
-
-  return (props.nodes || []).filter((n) => {
-    if (cat && n.category !== cat) return false;
-    if (!matchesSearch(n, q)) return false;
-
-    // Focus mode: keep only focus set if provided
-    if (focusSet.value && !focusSet.value.has(norm(n.id))) return false;
-
-    // Hide locked
-    if (props.hideLocked && !props.canUnlock(n) && !props.isCompleted(n.id)) {
-      return false;
-    }
-
-    return true;
-  });
-});
-
-/** Build edges from prereqIds among *all nodes* (not only filtered), so layout stays stable. */
-const edges = computed(() => {
-  const list = [];
-  const byId = new Map((props.nodes || []).map((n) => [norm(n.id), n]));
-  for (const n of props.nodes || []) {
-    for (const p of n.prereqIds || []) {
-      if (!byId.has(norm(p))) continue;
-      list.push({ from: norm(p), to: norm(n.id) });
-    }
-  }
-  return list;
-});
-
-/** Simple deterministic layout: place nodes along seq (x) and category (y lanes). */
-const categories = computed(() =>
-  Array.from(new Set((props.nodes || []).map((n) => n.category))).sort()
 );
 
-const laneByCategory = computed(() => {
-  const m = new Map();
-  categories.value.forEach((c, i) => m.set(c, i));
-  return m;
+function normId(id) {
+  return String(id || "")
+    .trim()
+    .toUpperCase();
+}
+
+const focusSet = computed(() => {
+  if (!props.focusIds) return null;
+  const s = new Set();
+  for (const id of props.focusIds) s.add(normId(id));
+  return s;
 });
 
-const seqRange = computed(() => {
-  let min = Infinity;
-  let max = -Infinity;
-  for (const n of props.nodes || []) {
-    const s = Number.isFinite(n.seq) ? n.seq : 0;
-    min = Math.min(min, s);
-    max = Math.max(max, s);
+function matchesFilters(n) {
+  if (!n) return false;
+
+  if (props.category && String(n.category) !== String(props.category))
+    return false;
+
+  const q = String(props.search || "")
+    .trim()
+    .toLowerCase();
+  if (q) {
+    const hay = [n.id, n.title, n.module, n.category, n.tags]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+    if (!hay.includes(q)) return false;
   }
-  if (!Number.isFinite(min)) min = 0;
-  if (!Number.isFinite(max)) max = 0;
-  return { min, max };
+
+  if (props.hideLocked) {
+    const ok = props.canUnlock(n) || props.isCompleted(n.id);
+    if (!ok) return false;
+  }
+
+  if (focusSet.value && !focusSet.value.has(normId(n.id))) return false;
+
+  return true;
+}
+
+const visibleNodes = computed(() => (props.nodes || []).filter(matchesFilters));
+
+// --- layout (simple, deterministic)
+const NODE_W = 260;
+const NODE_H = 120;
+const GAP_X = 140;
+const GAP_Y = 200;
+const PAD = 140;
+
+const laneOrder = computed(() => {
+  const set = new Set((props.nodes || []).map((n) => String(n.category || "")));
+  return Array.from(set)
+    .filter(Boolean)
+    .sort((a, b) => a.localeCompare(b));
 });
 
-const stageW = computed(() => {
-  const { min, max } = seqRange.value;
-  const span = Math.max(1, max - min);
-  return 420 + span * 10; // tune spacing
-});
-
-const stageH = computed(() => {
-  const lanes = Math.max(1, categories.value.length);
-  return 220 + lanes * 220;
-});
+function laneIndex(category) {
+  const i = laneOrder.value.indexOf(String(category || ""));
+  return i >= 0 ? i : 0;
+}
 
 function nodePos(n) {
-  const { min } = seqRange.value;
-  const seq = Number.isFinite(n.seq) ? n.seq : min;
-  const lane = laneByCategory.value.get(n.category) ?? 0;
+  const seq = Number.isFinite(n.seq) ? Number(n.seq) : 999999;
+  const lvl = Number.isFinite(n.level) ? Number(n.level) : 1;
 
-  const x = 140 + (seq - min) * 10; // x spacing per seq
-  const y = 120 + lane * 220; // lane height
+  const x = PAD + (seq - 1) * (NODE_W + GAP_X);
+  const y = PAD + laneIndex(n.category) * GAP_Y + (Math.max(1, lvl) - 1) * 36;
+
   return { x, y };
 }
 
-/** Map id -> position for edges */
-const posById = computed(() => {
-  const m = new Map();
-  for (const n of props.nodes || []) {
-    const p = nodePos(n);
-    m.set(norm(n.id), p);
+const bounds = computed(() => {
+  const nodes = visibleNodes.value;
+  if (!nodes.length) return { minX: 0, minY: 0, w: 1200, h: 800 };
+
+  let minX = Infinity,
+    minY = Infinity,
+    maxX = -Infinity,
+    maxY = -Infinity;
+
+  for (const n of nodes) {
+    const { x, y } = nodePos(n);
+    minX = Math.min(minX, x);
+    minY = Math.min(minY, y);
+    maxX = Math.max(maxX, x + NODE_W);
+    maxY = Math.max(maxY, y + NODE_H);
   }
-  return m;
+
+  minX = Math.max(0, minX - PAD);
+  minY = Math.max(0, minY - PAD);
+  maxX = maxX + PAD;
+  maxY = maxY + PAD;
+
+  return { minX, minY, w: maxX - minX, h: maxY - minY };
 });
 
-function nodeOpacity(n) {
-  // Focus mode: nodes outside focus should not exist (filtered out),
-  // but keep gentle fading based on nextSeq if provided.
-  let opacity = 1;
+const canvasW = computed(() => Math.max(1, Math.ceil(bounds.value.w)));
+const canvasH = computed(() => Math.max(1, Math.ceil(bounds.value.h)));
 
-  // Zone fade based on distance in seq from nextSeq
-  if (props.nextSeq != null && Number.isFinite(props.nextSeq)) {
-    const d = Math.abs((Number(n.seq) || 0) - props.nextSeq);
-    if (d > 70) opacity *= 0.2;
-    else if (d > 45) opacity *= 0.35;
-    else if (d > 25) opacity *= 0.55;
-    else opacity *= 1;
+const canvasStyle = computed(() => ({
+  width: `${canvasW.value}px`,
+  height: `${canvasH.value}px`,
+  "--zoom": String(zoomLocal.value),
+}));
+
+const renderedNodes = computed(() => {
+  const { minX, minY } = bounds.value;
+  return visibleNodes.value.map((n) => {
+    const p = nodePos(n);
+    return { ...n, _x: p.x - minX, _y: p.y - minY };
+  });
+});
+
+// --- edges
+function edgeKey(a, b) {
+  return `${normId(a)}->${normId(b)}`;
+}
+
+const highlightEdgeSet = computed(() => {
+  if (!props.highlightEdges) return null;
+  const s = new Set();
+  for (const pair of props.highlightEdges) {
+    if (!pair || pair.length < 2) continue;
+    s.add(edgeKey(pair[0], pair[1]));
+  }
+  return s;
+});
+
+function bezierPath(x1, y1, x2, y2) {
+  const dx = Math.max(60, Math.min(480, Math.abs(x2 - x1) * 0.6));
+  const c1x = x1 + dx;
+  const c1y = y1;
+  const c2x = x2 - dx;
+  const c2y = y2;
+  return `M ${x1} ${y1} C ${c1x} ${c1y}, ${c2x} ${c2y}, ${x2} ${y2}`;
+}
+
+const renderedEdges = computed(() => {
+  const index = new Map(renderedNodes.value.map((n) => [normId(n.id), n]));
+  const out = [];
+
+  for (const n of renderedNodes.value) {
+    const toId = normId(n.id);
+    const prereqs = Array.isArray(n.prereqIds) ? n.prereqIds : [];
+
+    for (const rawP of prereqs) {
+      const fromId = normId(rawP);
+      const from = index.get(fromId);
+      if (!from) continue;
+
+      const x1 = from._x + NODE_W;
+      const y1 = from._y + NODE_H * 0.5;
+      const x2 = n._x;
+      const y2 = n._y + NODE_H * 0.5;
+
+      const key = edgeKey(fromId, toId);
+      const highlighted = highlightEdgeSet.value
+        ? highlightEdgeSet.value.has(key)
+        : false;
+
+      out.push({ key, highlighted, d: bezierPath(x1, y1, x2, y2) });
+    }
   }
 
-  return opacity;
-}
+  return out;
+});
 
+// --- node visuals
 function nodeStyle(n) {
-  const { x, y } = nodePos(n);
-  return {
-    left: `${x}px`,
-    top: `${y}px`,
-    opacity: String(nodeOpacity(n)),
-  };
+  let opacity = 1;
+  if (
+    props.nextSeq != null &&
+    Number.isFinite(props.nextSeq) &&
+    Number.isFinite(n.seq)
+  ) {
+    const d = Math.abs(Number(n.seq) - Number(props.nextSeq));
+    if (d > 70) opacity = 0.2;
+    else if (d > 45) opacity = 0.35;
+    else if (d > 25) opacity = 0.55;
+  }
+
+  return { left: `${n._x}px`, top: `${n._y}px`, opacity: String(opacity) };
 }
 
-function nodeClasses(n) {
+function nodeClass(n) {
   const completed = props.isCompleted(n.id);
   const unlockable = props.canUnlock(n);
-  const highlighted = props.highlightId && norm(props.highlightId) === norm(n.id);
-
-  return {
-    completed,
-    locked: !unlockable && !completed,
-    unlockable,
-    highlighted,
-  };
+  const locked = !completed && !unlockable;
+  const highlighted =
+    props.highlightId && normId(n.id) === normId(props.highlightId);
+  return { completed, locked, highlighted };
 }
 
-/** Edge opacity can also follow focus/zone fade */
-function edgeOpacity(from, to) {
-  // If focus mode active: only show edges where both endpoints are in focus
-  if (focusSet.value) {
-    if (!focusSet.value.has(norm(from)) || !focusSet.value.has(norm(to))) return 0;
-  }
-
-  // Zone fade: approximate using 'to' node seq distance
-  if (props.nextSeq != null && Number.isFinite(props.nextSeq)) {
-    const toNode = (props.nodes || []).find((n) => norm(n.id) === norm(to));
-    const seq = Number.isFinite(toNode?.seq) ? toNode.seq : 0;
-    const d = Math.abs(seq - props.nextSeq);
-    if (d > 70) return 0.15;
-    if (d > 45) return 0.25;
-    if (d > 25) return 0.45;
-  }
-
-  return 0.55;
+// --- UX
+function clampZoom(z) {
+  const v = Number(z);
+  if (!Number.isFinite(v)) return 1;
+  return Math.min(2, Math.max(0.2, v));
 }
 
-/** Expose scrollToNode to parent */
-const scroller = ref(null);
+function fitToScreen() {
+  const viewport = viewportRef.value;
+  if (!viewport) return;
 
-/** @param {string} id */
-function scrollToNode(id) {
-  const el = scroller.value;
-  if (!el) return;
+  const vw = viewport.clientWidth;
+  const vh = viewport.clientHeight;
 
-  const p = posById.value.get(norm(id));
-  if (!p) return;
+  const z = Math.min(vw / canvasW.value, vh / canvasH.value) * 0.92;
+  const next = clampZoom(z);
 
-  // Center node in viewport (taking zoom into account)
-  const targetLeft = p.x * props.zoom - el.clientWidth / 2;
-  const targetTop = p.y * props.zoom - el.clientHeight / 2;
+  zoomLocal.value = next;
+  emit("update:zoom", next);
 
-  el.scrollTo({
-    left: Math.max(0, targetLeft),
-    top: Math.max(0, targetTop),
-    behavior: "smooth",
+  requestAnimationFrame(() => {
+    viewport.scrollLeft = Math.max(0, (canvasW.value * next - vw) / 2);
+    viewport.scrollTop = Math.max(0, (canvasH.value * next - vh) / 2);
   });
 }
 
-defineExpose({ scrollToNode });
+function scrollToNode(id) {
+  const viewport = viewportRef.value;
+  if (!viewport) return;
 
-watch(
-  () => props.highlightId,
-  async (id) => {
-    if (!id) return;
-    await nextTick();
-    scrollToNode(id);
-  }
-);
+  const target = renderedNodes.value.find((n) => normId(n.id) === normId(id));
+  if (!target) return;
+
+  const vw = viewport.clientWidth;
+  const vh = viewport.clientHeight;
+
+  const z = zoomLocal.value;
+  const cx = (target._x + NODE_W / 2) * z;
+  const cy = (target._y + NODE_H / 2) * z;
+
+  viewport.scrollLeft = Math.max(0, cx - vw / 2);
+  viewport.scrollTop = Math.max(0, cy - vh / 2);
+}
+
+defineExpose({ scrollToNode, fitToScreen });
 </script>
 
 <style scoped>
-.mapWrap {
+.map-shell {
+  position: relative;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.04);
   overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
 }
-.scroller {
-  height: min(72vh, 820px);
+
+.overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.chip {
+  border-radius: 999px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.35);
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+}
+.chip:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.chip.stat {
+  cursor: default;
+  display: inline-flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.muted {
+  opacity: 0.8;
+}
+
+.viewport {
+  height: min(78vh, 780px);
   overflow: auto;
   position: relative;
 }
-.stage {
+
+.canvas {
   position: relative;
-  transform-origin: top left;
+  transform-origin: 0 0;
+  zoom: var(--zoom);
 }
 
-/* Edges layer */
+@supports not (zoom: 1) {
+  .canvas {
+    zoom: 1;
+    transform: scale(var(--zoom)) translateZ(0);
+    will-change: transform;
+  }
+}
+
 .edges {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
+
 .edge {
-  stroke: rgba(255, 255, 255, 0.22);
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.18);
   stroke-width: 2.5;
+  opacity: 0.9;
+  shape-rendering: geometricPrecision;
 }
+
 @keyframes edgePulse {
   0% {
     stroke-opacity: 0.55;
@@ -368,6 +423,7 @@ watch(
     stroke-opacity: 0.55;
   }
 }
+
 .edge.highlighted {
   stroke: rgba(255, 255, 255, 0.55);
   stroke-width: 4;
@@ -375,70 +431,62 @@ watch(
   animation: edgePulse 2.2s ease-in-out infinite;
 }
 
-/* Nodes */
 .node {
   position: absolute;
-  width: 240px;
-  min-height: 96px;
-  text-align: left;
-  padding: 12px 12px 10px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(11, 18, 32, 0.92);
+  width: 260px;
+  height: 120px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
   color: white;
+  text-align: left;
+  padding: 12px;
   cursor: pointer;
-  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.35);
-  transition: transform 0.12s ease, border-color 0.12s ease,
-    background 0.12s ease;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease;
+  backdrop-filter: blur(10px);
 }
 .node:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.22);
-}
-.node.completed {
-  border-color: rgba(255, 255, 255, 0.18);
-  background: rgba(11, 18, 32, 0.86);
+  background: rgba(255, 255, 255, 0.09);
 }
 .node.locked {
-  opacity: 0.7;
-  filter: saturate(0.85);
+  opacity: 0.55;
+}
+.node.completed {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
 }
 .node.highlighted {
-  border-color: rgba(255, 255, 255, 0.35);
-  box-shadow: 0 18px 64px rgba(0, 0, 0, 0.48);
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
-.nodeTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-.nodeId {
+.node-id {
   font-size: 12px;
-  opacity: 0.9;
+  opacity: 0.85;
 }
-.check {
-  font-size: 14px;
-}
-.nodeTitle {
+.node-title {
   margin-top: 6px;
-  font-size: 14px;
-  line-height: 1.35;
-  opacity: 0.95;
+  font-size: 13px;
+  line-height: 1.25;
+  max-height: 2.6em;
+  overflow: hidden;
 }
-.nodeMeta {
+.node-meta {
   margin-top: 10px;
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
 }
 .pill {
-  font-size: 12px;
-  opacity: 0.9;
-  padding: 4px 8px;
+  font-size: 11px;
+  opacity: 0.82;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px 8px;
 }
 </style>

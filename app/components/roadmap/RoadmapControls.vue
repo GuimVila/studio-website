@@ -38,8 +38,8 @@
         <label>Zoom</label>
         <input
           type="range"
-          min="0.7"
-          max="1.4"
+          min="0.25"
+          max="2"
           step="0.05"
           :value="zoom"
           @input="emit('update:zoom', Number($event.target.value))"
