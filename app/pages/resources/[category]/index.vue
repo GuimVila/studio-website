@@ -25,10 +25,9 @@ const { data: articles } = await useAsyncData(
 
 <template>
   <section class="page">
-    <header class="hero">
-      <NuxtLink class="back" to="/resources">← Resources</NuxtLink>
-      <h1>{{ category }}</h1>
-    </header>
+    <section class="section">
+      <h1 class="section-title heading-accent">{{ category }}</h1>
+    </section>
 
     <ul class="list">
       <li v-for="a in articles" :key="a.path">
@@ -43,9 +42,110 @@ const { data: articles } = await useAsyncData(
 </template>
 
 <style scoped>
-.page { max-width: 900px; margin: 0 auto; padding: 22px 16px 40px; color: white; }
-.hero { margin-bottom: 14px; }
-.back { display:inline-block; margin-bottom: 10px; opacity: .85; text-decoration:none; color: white; }
-.list { display: grid; gap: 10px; padding-left: 18px; }
-.empty { opacity: .75; margin-top: 14px; }
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  color: var(--text);
+}
+
+.header {
+  margin-bottom: 3rem;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.back:hover {
+  color: var(--accent);
+  transform: translateX(-4px);
+}
+
+.header h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  text-transform: capitalize;
+  color: var(--text);
+}
+
+.list {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.list li:hover {
+  transform: translateX(8px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-1);
+}
+
+.list a {
+  display: block;
+  padding: 1.5rem 2rem;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 1.1rem;
+  position: relative;
+}
+
+.list a::before {
+  content: "→";
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.list li:hover a::before {
+  opacity: 1;
+}
+
+.empty {
+  color: var(--text-secondary);
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 3rem 1.5rem;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  .list a {
+    padding: 1.25rem 1.5rem;
+    font-size: 1rem;
+  }
+}
 </style>

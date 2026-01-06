@@ -73,14 +73,32 @@ const focusPack = computed(() => {
     nextId: nextId.value,
     completedIds: completedUpper.value,
     includeNearbyBranches: true,
+    canUnlock,
   });
 });
 
-const focusIds = computed(() => focusPack.value?.focusIds ?? null);
-const highlightEdges = computed(() => focusPack.value?.highlightEdges ?? null);
+const focusIds = computed(() => {
+  const set = focusPack.value?.focusIds;
+  return set ? Array.from(set) : null;
+});
+const highlightEdges = computed(() => {
+  const set = focusPack.value?.highlightEdges;
+  return set ? Array.from(set) : null;
+});
 
 const completedCount = computed(() => completedUpper.value.size);
 const totalCount = computed(() => (data.value.nodes || []).length);
+
+const estimatedMinutes = computed(() => {
+  const nodes = data.value.nodes || [];
+  let total = 0;
+  for (const node of nodes) {
+    if (!isCompleted(node.id) && node.estMinutes) {
+      total += node.estMinutes;
+    }
+  }
+  return total;
+});
 
 const sidebarOpen = ref(false);
 const selectedId = ref(null);
@@ -130,9 +148,11 @@ function onSelect(id) {
 
 <template>
   <div class="page">
-    <header class="hero">
-      <h1>Roadmap d’aprenentatge</h1>
-      <p>Camí amb prerequisits, branques, focus i un “següent pas” recomanat.</p>
+    <header class="header">
+      <h1>Roadmap d'aprenentatge</h1>
+      <p>
+        Camí amb prerequisits, branques, focus i un "següent pas" recomanat.
+      </p>
     </header>
 
     <RoadmapControls
@@ -157,6 +177,7 @@ function onSelect(id) {
       :completed-count="completedCount"
       :total-count="totalCount"
       :streak="streak"
+      :estimated-minutes="estimatedMinutes"
     />
 
     <RoadmapMap
@@ -191,24 +212,41 @@ function onSelect(id) {
 
 <style scoped>
 .page {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 22px 16px 40px;
-  color: white;
+  padding: 4rem 2rem;
+  color: var(--text);
 }
-.hero {
-  margin-bottom: 14px;
+
+.header {
+  margin-bottom: 2.5rem;
 }
-.hero h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
+
+.header h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: var(--text);
 }
-.hero p {
-  opacity: 0.85;
+
+.header p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
   line-height: 1.5;
-  max-width: 78ch;
+  max-width: 70ch;
 }
+
 .map {
-  margin-top: 14px;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 3rem 1.5rem;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
 }
 </style>

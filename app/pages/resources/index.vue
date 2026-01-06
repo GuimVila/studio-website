@@ -19,11 +19,9 @@ const categories = computed(() => {
 
 <template>
   <section class="page">
-    <header class="hero">
-      <h1>Resources</h1>
-      <p>Browse by category or open the learning roadmap.</p>
-    </header>
-
+    <section class="section">
+      <h1 class="section-title heading-accent">Recursos</h1>
+    </section>
     <div class="cards">
       <NuxtLink class="card" to="/resources/roadmap">
         <div class="title">Roadmap</div>
@@ -48,15 +46,108 @@ const categories = computed(() => {
 </template>
 
 <style scoped>
-.page { max-width: 1100px; margin: 0 auto; padding: 22px 16px 40px; color: white; }
-.hero h1 { font-size: 28px; margin-bottom: 8px; }
-.hero p { opacity: 0.85; max-width: 70ch; }
-.cards { margin-top: 16px; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
-.card { display:block; text-decoration:none; color:white; padding:14px; border-radius:16px;
-  background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); }
-.card:hover { background: rgba(255,255,255,0.09); }
-.title { font-size: 16px; margin-bottom: 6px; }
-.sub { opacity: 0.8; font-size: 12px; line-height: 1.4; }
-.debug { margin-top: 14px; font-size: 12px; opacity: 0.75; }
-@media (max-width: 900px){ .cards { grid-template-columns: 1fr; } }
+.page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  color: var(--text);
+}
+
+.header {
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.header p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+
+}
+
+.card {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  padding: 2.5rem;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent-light));
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(208, 138, 63, 0.55);
+  box-shadow: var(--shadow-2);
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  text-transform: capitalize;
+}
+
+.sub {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.debug {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 3rem 1.5rem;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card {
+    padding: 2rem;
+  }
+}
 </style>
