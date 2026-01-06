@@ -7,7 +7,6 @@
       alt="Estudi de producció musical"
       format="webp"
       sizes="(max-width: 768px) 100vw, 1400px"
-      preload
     />
 
     <!-- Overlay -->
