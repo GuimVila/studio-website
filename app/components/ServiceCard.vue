@@ -1,13 +1,15 @@
 <template>
   <div class="service-card">
     <div class="service-image">
-      <NuxtImg
+  <NuxtImg
         :src="image"
         :alt="title"
         loading="lazy"
-        sizes="(max-width: 768px) 100vw, 33vw"
         width="800"
         height="450"
+        format="webp"
+        quality="70"
+        densities="x1 x2"
       />
     </div>
 

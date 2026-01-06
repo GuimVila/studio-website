@@ -3,9 +3,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "sync:roadmap": "node scripts/sync-roadmap-public.mjs",
+    "dev": "npm run sync:roadmap && nuxt dev",
+    "build": "npm run sync:roadmap && nuxt build",
+    "generate": "npm run sync:roadmap && nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
@@ -35,7 +36,9 @@
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
+    "@iconify-json/lucide": "^1.2.82",
     "@nuxt/image": "^2.0.0",
-    "@nuxtjs/sitemap": "^7.5.0"
+    "@nuxtjs/sitemap": "^7.5.0",
+    "xlsx": "^0.18.5"
   }
 }
