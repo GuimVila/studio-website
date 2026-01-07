@@ -82,7 +82,7 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from "vue";
+import { computed, ref, watch, onMounted, onBeforeUnmount } from "vue";
 
 const props = defineProps({
   nodes: { type: Array, required: true },
@@ -107,6 +107,22 @@ const emit = defineEmits(["select", "update:zoom"]);
 
 const viewportRef = ref(null);
 const canvasRef = ref(null);
+
+const viewportSize = ref({ w: 1200, h: 800 });
+let ro = null;
+
+onMounted(() => {
+  if (!viewportRef.value) return;
+  ro = new ResizeObserver(([entry]) => {
+    const r = entry.contentRect;
+    viewportSize.value = { w: r.width, h: r.height };
+  });
+  ro.observe(viewportRef.value);
+});
+
+onBeforeUnmount(() => {
+  ro?.disconnect?.();
+});
 
 // zoom local (sync with parent)
 const zoomLocal = ref(Number.isFinite(props.zoom) ? props.zoom : 1);
@@ -182,20 +198,38 @@ function matchesFilters(n) {
 
 const visibleNodes = computed(() => (props.nodes || []).filter(matchesFilters));
 
-// --- ADAPTIVE LAYOUT ---
+// --- LAYOUT (categories en 2-3 columnes) ---
 const NODE_W = 280;
 const NODE_H = 120;
 const NODE_GAP_X = 40;
 const NODE_GAP_Y = 60;
-const SECTION_GAP = 200;
-const PADDING = 80;
 
-// Adaptive columns based on visible nodes count
+const PADDING = 140;
+
+// Padding intern del cluster (espai dins la caixa)
+const CLUSTER_PAD_X = 40;
+const CLUSTER_PAD_TOP = 92;
+const CLUSTER_PAD_BOTTOM = 50;
+const CLUSTER_PAD_Y = 80;
+
+// Separació entre clusters (categories)
+const CAT_GAP_X = 140;
+const CAT_GAP_Y = 160;
+
+// Quants nodes per fila DINS d'una categoria (això és el teu "grid" intern)
 const NODES_PER_ROW = computed(() => {
   const total = visibleNodes.value.length;
-  if (total <= 20) return 3; // Focus mode: compact
+  if (total <= 20) return 3;
   if (total <= 50) return 4;
-  return 5; // Full view: wider
+  return 5;
+});
+
+// Quantes columnes de CATEGORIES (clusters) volem a la pantalla
+const CAT_COLS = computed(() => {
+  const w = viewportRef.value?.clientWidth || 1200;
+  if (w < 900) return 1;
+  if (w < 1100) return 2;
+  return 3;
 });
 
 // Group and sort nodes
@@ -229,37 +263,85 @@ const categoryOrder = computed(() => {
   });
 });
 
-function nodePos(n) {
-  let currentY = PADDING;
-  const cols = NODES_PER_ROW.value;
+// Layout de cada cluster: { x, y, width, height, innerW, innerH }
+const clusterLayout = computed(() => {
+  const colsInside = NODES_PER_ROW.value;
+  const catCols = CAT_COLS.value;
 
-  for (const cat of categoryOrder.value) {
+  const cats = categoryOrder.value;
+  const meta = cats.map((cat) => {
     const nodes = categoryGroups.value.get(cat) || [];
-    const idx = nodes.findIndex((node) => node.id === n.id);
+    const rows = Math.max(1, Math.ceil(nodes.length / colsInside));
 
-    if (idx !== -1) {
-      const row = Math.floor(idx / cols);
-      const col = idx % cols;
+    const innerW = colsInside * NODE_W + (colsInside - 1) * NODE_GAP_X;
+    const innerH = rows * NODE_H + (rows - 1) * NODE_GAP_Y;
 
-      const x = PADDING + col * (NODE_W + NODE_GAP_X);
-      const y = currentY + row * (NODE_H + NODE_GAP_Y);
+    const width = innerW + CLUSTER_PAD_X * 2;
+    const height = innerH + CLUSTER_PAD_Y * 2;
 
-      // DEBUG
-      if (idx < 10) {
-        console.log(
-          `Node ${n.id}: cat=${cat}, idx=${idx}, row=${row}, col=${col}, cols=${cols}, x=${x}, y=${y}`
-        );
-      }
+    return { cat, nodes, rows, innerW, innerH, width, height };
+  });
 
-      return { x, y };
-    }
-
-    const rows = Math.ceil(nodes.length / cols);
-    currentY += rows * (NODE_H + NODE_GAP_Y) + SECTION_GAP;
+  // rowHeights per files de categories
+  const rowHeights = [];
+  for (let i = 0; i < meta.length; i++) {
+    const row = Math.floor(i / catCols);
+    rowHeights[row] = Math.max(rowHeights[row] || 0, meta[i].height);
   }
 
-  return { x: PADDING, y: PADDING };
+  // y acumulada per fila
+  const rowY = [];
+  let acc = PADDING;
+  for (let r = 0; r < rowHeights.length; r++) {
+    rowY[r] = acc;
+    acc += rowHeights[r] + CAT_GAP_Y;
+  }
+
+  const map = new Map();
+  for (let i = 0; i < meta.length; i++) {
+    const row = Math.floor(i / catCols);
+    const col = i % catCols;
+
+    const x = PADDING + col * (meta[i].width + CAT_GAP_X);
+    const y = rowY[row];
+
+    map.set(meta[i].cat, { ...meta[i], x, y });
+  }
+
+  return map;
+});
+
+// Posicions precomputades per id (més eficient i més clar)
+const positionsById = computed(() => {
+  const pos = new Map();
+  const colsInside = NODES_PER_ROW.value;
+
+  for (const cat of categoryOrder.value) {
+    const layout = clusterLayout.value.get(cat);
+    if (!layout) continue;
+
+    const nodes = layout.nodes || [];
+    for (let idx = 0; idx < nodes.length; idx++) {
+      const n = nodes[idx];
+      const row = Math.floor(idx / colsInside);
+      const col = idx % colsInside;
+
+      const x = layout.x + CLUSTER_PAD_X + col * (NODE_W + NODE_GAP_X);
+
+      const y = layout.y + CLUSTER_PAD_Y + row * (NODE_H + NODE_GAP_Y);
+
+      pos.set(normId(n.id), { x, y });
+    }
+  }
+
+  return pos;
+});
+
+function nodePos(n) {
+  return positionsById.value.get(normId(n.id)) || { x: PADDING, y: PADDING };
 }
+
+// --- RENDERING ---
 
 const bounds = computed(() => {
   if (!visibleNodes.value.length) {
@@ -291,7 +373,7 @@ const canvasW = computed(() => Math.max(1, Math.ceil(bounds.value.w)));
 const canvasH = computed(() => Math.max(1, Math.ceil(bounds.value.h)));
 
 const canvasStyle = computed(() => {
-  console.log(`Canvas dimensions: ${canvasW.value}px x ${canvasH.value}px`);
+  console.log(`📐 Canvas: ${canvasW.value}px x ${canvasH.value}px`);
   return {
     width: `${canvasW.value}px`,
     height: `${canvasH.value}px`,
@@ -328,12 +410,16 @@ const renderedClusters = computed(() => {
       catMaxY = Math.max(catMaxY, pos.y + NODE_H);
     }
 
+    // posició dins el canvas renderitzat
+    const x = catMinX - minX - CLUSTER_PAD_X;
+    const y = catMinY - minY - CLUSTER_PAD_TOP;
+
     clusters.push({
       category: cat,
-      x: catMinX - minX - 40,
-      y: catMinY - minY - 60,
-      width: catMaxX - catMinX + 80,
-      height: catMaxY - catMinY + 120,
+      x,
+      y,
+      width: catMaxX - catMinX + CLUSTER_PAD_X * 2,
+      height: catMaxY - catMinY + CLUSTER_PAD_TOP + CLUSTER_PAD_BOTTOM,
     });
   }
 
@@ -587,7 +673,7 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 
 .cluster-label {
   position: absolute;
-  top: -14px;
+  top: -6px;
   left: 30px;
   padding: 0.4rem 1.2rem;
   background: var(--accent);
