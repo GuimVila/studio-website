@@ -3,6 +3,7 @@
     <section class="section">
       <h1 class="section-title heading-accent">Recursos</h1>
     </section>
+
     <div class="cards">
       <NuxtLink class="card" to="/resources/roadmap">
         <div class="title">Roadmap</div>
@@ -18,23 +19,20 @@
         :to="`/resources/${c.slug}`"
       >
         <div class="title">{{ c.label }}</div>
-        <div class="sub">Explora articles en aquesta categoria</div>
+        <div class="sub">
+          Explora articles en aquesta categoria
+          <span class="count">· {{ c.count }}</span>
+        </div>
       </NuxtLink>
     </div>
 
     <p v-if="!categories.length" class="debug">
-      No categories found. Docs detected: {{ (docs || []).length }}
+      No categories found. Docs detected: {{ docsCount }}
     </p>
   </section>
 </template>
 
 <script setup>
-import { computed } from "vue";
-
-const { data: docs } = await useAsyncData("resources-hub", async () => {
-  return await queryCollection("resources").select("path", "title").all();
-});
-
 const CATEGORY_LABELS = {
   "disseny-de-so": "Disseny de so",
   edicio: "Edició",
@@ -47,10 +45,8 @@ const CATEGORY_LABELS = {
 };
 
 function categoryLabel(slug) {
-  // 1) mapping explícit (recomanat: accents i estil perfectes)
   if (CATEGORY_LABELS[slug]) return CATEGORY_LABELS[slug];
 
-  // 2) fallback decent si mai surt una categoria nova
   const stop = new Set([
     "de",
     "i",
@@ -78,19 +74,41 @@ function categoryLabel(slug) {
     .join(" ");
 }
 
-const categories = computed(() => {
-  const set = new Set();
+const { data: payload } = await useAsyncData(
+  "resources-hub",
+  async () => {
+    // Important: això ha de funcionar en SSR a producció
+    const rows = await queryCollection("resources").select("path").all();
 
-  for (const d of docs.value || []) {
-    const p = String(d.path || "");
-    const parts = p.split("/").filter(Boolean);
-    if (parts.length >= 2 && parts[0] === "resources") set.add(parts[1]);
+    const counts = new Map(); // slug -> count
+    for (const r of rows || []) {
+      const p = String(r.path || "");
+      // esperem: /resources/<category>/<slug>
+      const parts = p.split("/").filter(Boolean);
+      if (parts.length >= 2 && parts[0] === "resources") {
+        const slug = parts[1];
+        counts.set(slug, (counts.get(slug) || 0) + 1);
+      }
+    }
+
+    const categories = Array.from(counts.entries())
+      .map(([slug, count]) => ({ slug, label: categoryLabel(slug), count }))
+      // ordena per label (o canvia a count desc si vols)
+      .sort((a, b) => a.label.localeCompare(b.label));
+
+    return {
+      categories,
+      docsCount: (rows || []).length,
+    };
+  },
+  {
+    server: true,
+    default: () => ({ categories: [], docsCount: 0 }),
   }
+);
 
-  return Array.from(set)
-    .sort()
-    .map((slug) => ({ slug, label: categoryLabel(slug) }));
-});
+const categories = computed(() => payload.value.categories || []);
+const docsCount = computed(() => payload.value.docsCount || 0);
 </script>
 
 <style scoped>
@@ -99,23 +117,6 @@ const categories = computed(() => {
   margin: 0 auto;
   padding: 4rem 2rem;
   color: var(--text);
-}
-
-.header {
-  margin-bottom: 3rem;
-}
-
-.header h1 {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 800;
-  margin-bottom: 0.75rem;
-  color: var(--text);
-}
-
-.header p {
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
 }
 
 .cards {
@@ -171,6 +172,10 @@ const categories = computed(() => {
   line-height: 1.5;
 }
 
+.count {
+  opacity: 0.85;
+}
+
 .debug {
   margin-top: 2rem;
   font-size: 0.9rem;
@@ -182,16 +187,10 @@ const categories = computed(() => {
   .page {
     padding: 3rem 1.5rem;
   }
-
-  .header {
-    margin-bottom: 2rem;
-  }
-
   .cards {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-
   .card {
     padding: 2rem;
   }
