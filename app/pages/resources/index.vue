@@ -20,19 +20,21 @@
       >
         <div class="title">{{ c.label }}</div>
         <div class="sub">
-          Explora articles en aquesta categoria
-          <span class="count">· {{ c.count }}</span>
+          {{ c.count }} recurs{{ c.count === 1 ? "" : "os" }} en aquesta
+          categoria
         </div>
       </NuxtLink>
     </div>
 
     <p v-if="!categories.length" class="debug">
-      No categories found. Docs detected: {{ docsCount }}
+      No categories found. Docs detected: {{ totalDocs }}
     </p>
   </section>
 </template>
 
 <script setup>
+import { computed } from "vue";
+
 const CATEGORY_LABELS = {
   "disseny-de-so": "Disseny de so",
   edicio: "Edició",
@@ -44,7 +46,19 @@ const CATEGORY_LABELS = {
   produccio: "Producció",
 };
 
-function categoryLabel(slug) {
+// (Opcional) ordre preferit a la home de resources
+const CATEGORY_ORDER = [
+  "fonaments",
+  "llenguatge-musical",
+  "harmonia",
+  "edicio",
+  "gravacio",
+  "mescla",
+  "produccio",
+  "disseny-de-so",
+];
+
+function humanizeSlug(slug) {
   if (CATEGORY_LABELS[slug]) return CATEGORY_LABELS[slug];
 
   const stop = new Set([
@@ -74,41 +88,68 @@ function categoryLabel(slug) {
     .join(" ");
 }
 
-const { data: payload } = await useAsyncData(
+function slugFromRow(row) {
+  // 1) Preferim frontmatter categorySlug (és el robust)
+  const fromFM = String(row?.categorySlug || "").trim();
+  if (fromFM) return fromFM;
+
+  // 2) Fallback: intentem deduir-ho des del path (per docs antics sense categorySlug)
+  const p = String(row?.path || "");
+  const parts = p.split("/").filter(Boolean);
+
+  // casos típics:
+  // - /resources/<slug>/<article>
+  // - /<slug>/<article> (si Content resol el path sense prefix)
+  const idx = parts.indexOf("resources");
+  if (idx !== -1 && parts[idx + 1]) return parts[idx + 1];
+  if (parts.length >= 2) return parts[0];
+
+  return "";
+}
+
+const { data: hub } = await useAsyncData(
   "resources-hub",
   async () => {
-    // Important: això ha de funcionar en SSR a producció
-    const rows = await queryCollection("resources").select("path").all();
+    const rows =
+      (await queryCollection("resources")
+        .select("path", "categorySlug")
+        .all()) || [];
 
     const counts = new Map(); // slug -> count
-    for (const r of rows || []) {
-      const p = String(r.path || "");
-      // esperem: /resources/<category>/<slug>
-      const parts = p.split("/").filter(Boolean);
-      if (parts.length >= 2 && parts[0] === "resources") {
-        const slug = parts[1];
-        counts.set(slug, (counts.get(slug) || 0) + 1);
-      }
+
+    for (const r of rows) {
+      const slug = slugFromRow(r);
+      if (!slug) continue;
+      counts.set(slug, (counts.get(slug) || 0) + 1);
     }
 
-    const categories = Array.from(counts.entries())
-      .map(([slug, count]) => ({ slug, label: categoryLabel(slug), count }))
-      // ordena per label (o canvia a count desc si vols)
-      .sort((a, b) => a.label.localeCompare(b.label));
+    const slugs = Array.from(counts.keys());
 
-    return {
-      categories,
-      docsCount: (rows || []).length,
-    };
+    slugs.sort((a, b) => {
+      const ia = CATEGORY_ORDER.indexOf(a);
+      const ib = CATEGORY_ORDER.indexOf(b);
+
+      if (ia !== -1 || ib !== -1) {
+        return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
+      }
+      return a.localeCompare(b);
+    });
+
+    const categories = slugs.map((slug) => ({
+      slug,
+      label: humanizeSlug(slug),
+      count: counts.get(slug) || 0,
+    }));
+
+    return { categories, totalDocs: rows.length };
   },
   {
-    server: true,
-    default: () => ({ categories: [], docsCount: 0 }),
+    default: () => ({ categories: [], totalDocs: 0 }),
   }
 );
 
-const categories = computed(() => payload.value.categories || []);
-const docsCount = computed(() => payload.value.docsCount || 0);
+const categories = computed(() => hub.value?.categories || []);
+const totalDocs = computed(() => hub.value?.totalDocs || 0);
 </script>
 
 <style scoped>
@@ -164,16 +205,13 @@ const docsCount = computed(() => payload.value.docsCount || 0);
   font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
+  text-transform: capitalize;
 }
 
 .sub {
   color: var(--text-secondary);
   font-size: 1rem;
   line-height: 1.5;
-}
-
-.count {
-  opacity: 0.85;
 }
 
 .debug {
