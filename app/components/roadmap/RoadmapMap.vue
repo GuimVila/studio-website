@@ -182,114 +182,88 @@ function matchesFilters(n) {
 
 const visibleNodes = computed(() => (props.nodes || []).filter(matchesFilters));
 
-// --- IMPROVED CLUSTERED LAYOUT ---
-const NODE_W = 240;
-const NODE_H = 110;
-const NODE_GAP = 20;
-const CLUSTER_PAD = 120;
-const CLUSTER_GAP_X = 200;
-const CLUSTER_GAP_Y = 180;
-const NODES_PER_ROW = 8;
-const CLUSTERS_PER_ROW = 2; // Distribute clusters in a 2D grid
+// --- ADAPTIVE LAYOUT ---
+const NODE_W = 280;
+const NODE_H = 120;
+const NODE_GAP_X = 40;
+const NODE_GAP_Y = 60;
+const SECTION_GAP = 200;
+const PADDING = 80;
 
-// Group nodes by category
+// Adaptive columns based on visible nodes count
+const NODES_PER_ROW = computed(() => {
+  const total = visibleNodes.value.length;
+  if (total <= 20) return 3; // Focus mode: compact
+  if (total <= 50) return 4;
+  return 5; // Full view: wider
+});
+
+// Group and sort nodes
+const sortedNodes = computed(() => {
+  return [...visibleNodes.value].sort((a, b) => {
+    const seqA = Number.isFinite(a.seq) ? a.seq : 999999;
+    const seqB = Number.isFinite(b.seq) ? b.seq : 999999;
+    return seqA - seqB;
+  });
+});
+
 const categoryGroups = computed(() => {
   const groups = new Map();
-
-  for (const n of visibleNodes.value) {
+  for (const n of sortedNodes.value) {
     const cat = String(n.category || "Altres");
-    if (!groups.has(cat)) {
-      groups.set(cat, []);
-    }
+    if (!groups.has(cat)) groups.set(cat, []);
     groups.get(cat).push(n);
   }
-
-  // Sort nodes within each category by seq
-  for (const [_, nodes] of groups) {
-    nodes.sort((a, b) => {
-      const seqA = Number.isFinite(a.seq) ? a.seq : 999999;
-      const seqB = Number.isFinite(b.seq) ? b.seq : 999999;
-      return seqA - seqB;
-    });
-  }
-
   return groups;
 });
 
 const categoryOrder = computed(() => {
-  const cats = Array.from(categoryGroups.value.keys());
-  return cats.sort((a, b) => a.localeCompare(b));
-});
-
-// Calculate cluster positions and dimensions in 2D grid
-const clusterLayouts = computed(() => {
-  const layouts = new Map();
-  let clusterIndex = 0;
-  let maxClusterHeight = 0;
-
-  for (const cat of categoryOrder.value) {
-    const nodes = categoryGroups.value.get(cat) || [];
-    const nodeCount = nodes.length;
-    const rows = Math.ceil(nodeCount / NODES_PER_ROW);
-    const cols = Math.min(nodeCount, NODES_PER_ROW);
-
-    const clusterW = cols * NODE_W + (cols - 1) * NODE_GAP;
-    const clusterH = rows * NODE_H + (rows - 1) * NODE_GAP;
-
-    // Calculate position in 2D grid
-    const gridRow = Math.floor(clusterIndex / CLUSTERS_PER_ROW);
-    const gridCol = clusterIndex % CLUSTERS_PER_ROW;
-
-    // Dynamically calculate max width per column for proper spacing
-    const maxWidthPerCol = 2200; // Approximate max width per column
-    const offsetX = CLUSTER_PAD + gridCol * (maxWidthPerCol + CLUSTER_GAP_X);
-    const offsetY = CLUSTER_PAD + gridRow * (1000 + CLUSTER_GAP_Y); // Approximate height
-
-    layouts.set(cat, {
-      x: offsetX,
-      y: offsetY,
-      width: clusterW,
-      height: clusterH,
-      rows,
-      cols,
-      gridRow,
-      gridCol,
-    });
-
-    maxClusterHeight = Math.max(maxClusterHeight, clusterH);
-    clusterIndex++;
-  }
-
-  return { layouts, maxClusterHeight };
+  return Array.from(categoryGroups.value.keys()).sort((a, b) => {
+    const minSeqA = Math.min(
+      ...(categoryGroups.value.get(a) || []).map((n) => n.seq || 999999)
+    );
+    const minSeqB = Math.min(
+      ...(categoryGroups.value.get(b) || []).map((n) => n.seq || 999999)
+    );
+    return minSeqA - minSeqB;
+  });
 });
 
 function nodePos(n) {
-  const cat = String(n.category || "Altres");
-  const layout = clusterLayouts.value.layouts.get(cat);
+  let currentY = PADDING;
+  const cols = NODES_PER_ROW.value;
 
-  if (!layout) {
-    return { x: 0, y: 0 };
+  for (const cat of categoryOrder.value) {
+    const nodes = categoryGroups.value.get(cat) || [];
+    const idx = nodes.findIndex((node) => node.id === n.id);
+
+    if (idx !== -1) {
+      const row = Math.floor(idx / cols);
+      const col = idx % cols;
+
+      const x = PADDING + col * (NODE_W + NODE_GAP_X);
+      const y = currentY + row * (NODE_H + NODE_GAP_Y);
+
+      // DEBUG
+      if (idx < 10) {
+        console.log(
+          `Node ${n.id}: cat=${cat}, idx=${idx}, row=${row}, col=${col}, cols=${cols}, x=${x}, y=${y}`
+        );
+      }
+
+      return { x, y };
+    }
+
+    const rows = Math.ceil(nodes.length / cols);
+    currentY += rows * (NODE_H + NODE_GAP_Y) + SECTION_GAP;
   }
 
-  const nodes = categoryGroups.value.get(cat) || [];
-  const idx = nodes.findIndex((node) => node.id === n.id);
-
-  if (idx === -1) {
-    return { x: layout.x, y: layout.y };
-  }
-
-  const row = Math.floor(idx / NODES_PER_ROW);
-  const col = idx % NODES_PER_ROW;
-
-  const x = layout.x + col * (NODE_W + NODE_GAP);
-  const y = layout.y + row * (NODE_H + NODE_GAP);
-
-  return { x, y };
+  return { x: PADDING, y: PADDING };
 }
 
 const bounds = computed(() => {
   if (!visibleNodes.value.length) {
-    return { minX: 0, minY: 0, w: 1200, h: 800 };
+    return { minX: 0, minY: 0, w: 1400, h: 800 };
   }
 
   let minX = Infinity,
@@ -305,10 +279,10 @@ const bounds = computed(() => {
     maxY = Math.max(maxY, y + NODE_H);
   }
 
-  minX = Math.max(0, minX - CLUSTER_PAD);
-  minY = Math.max(0, minY - CLUSTER_PAD);
-  maxX = maxX + CLUSTER_PAD;
-  maxY = maxY + CLUSTER_PAD;
+  minX = Math.max(0, minX - PADDING);
+  minY = Math.max(0, minY - PADDING);
+  maxX = maxX + PADDING;
+  maxY = maxY + PADDING;
 
   return { minX, minY, w: maxX - minX, h: maxY - minY };
 });
@@ -316,11 +290,14 @@ const bounds = computed(() => {
 const canvasW = computed(() => Math.max(1, Math.ceil(bounds.value.w)));
 const canvasH = computed(() => Math.max(1, Math.ceil(bounds.value.h)));
 
-const canvasStyle = computed(() => ({
-  width: `${canvasW.value}px`,
-  height: `${canvasH.value}px`,
-  "--zoom": String(zoomLocal.value),
-}));
+const canvasStyle = computed(() => {
+  console.log(`Canvas dimensions: ${canvasW.value}px x ${canvasH.value}px`);
+  return {
+    width: `${canvasW.value}px`,
+    height: `${canvasH.value}px`,
+    "--zoom": String(zoomLocal.value),
+  };
+});
 
 const renderedNodes = computed(() => {
   const { minX, minY } = bounds.value;
@@ -330,21 +307,33 @@ const renderedNodes = computed(() => {
   });
 });
 
-// Cluster backgrounds for visual separation
 const renderedClusters = computed(() => {
   const { minX, minY } = bounds.value;
   const clusters = [];
 
   for (const cat of categoryOrder.value) {
-    const layout = clusterLayouts.value.layouts.get(cat);
-    if (!layout) continue;
+    const nodes = categoryGroups.value.get(cat) || [];
+    if (!nodes.length) continue;
+
+    let catMinX = Infinity,
+      catMaxX = -Infinity;
+    let catMinY = Infinity,
+      catMaxY = -Infinity;
+
+    for (const node of nodes) {
+      const pos = nodePos(node);
+      catMinX = Math.min(catMinX, pos.x);
+      catMaxX = Math.max(catMaxX, pos.x + NODE_W);
+      catMinY = Math.min(catMinY, pos.y);
+      catMaxY = Math.max(catMaxY, pos.y + NODE_H);
+    }
 
     clusters.push({
       category: cat,
-      x: layout.x - minX - 30,
-      y: layout.y - minY - 30,
-      width: layout.width + 60,
-      height: layout.height + 60,
+      x: catMinX - minX - 40,
+      y: catMinY - minY - 60,
+      width: catMaxX - catMinX + 80,
+      height: catMaxY - catMinY + 120,
     });
   }
 
@@ -367,11 +356,14 @@ const highlightEdgeSet = computed(() => {
 });
 
 function bezierPath(x1, y1, x2, y2) {
-  const dx = Math.max(60, Math.min(480, Math.abs(x2 - x1) * 0.6));
-  const c1x = x1 + dx;
+  const dx = Math.abs(x2 - x1);
+  const controlOffset = Math.min(dx * 0.5, 200);
+
+  const c1x = x1 + controlOffset;
   const c1y = y1;
-  const c2x = x2 - dx;
+  const c2x = x2 - controlOffset;
   const c2y = y2;
+
   return `M ${x1} ${y1} C ${c1x} ${c1y}, ${c2x} ${c2y}, ${x2} ${y2}`;
 }
 
@@ -583,30 +575,29 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   }
 }
 
-/* Cluster backgrounds */
+/* Category sections */
 .cluster-bg {
   position: absolute;
-  border: 2px solid var(--border);
+  border: 2px solid rgba(208, 138, 63, 0.15);
   border-radius: 24px;
-  background: var(--surface);
+  background: rgba(208, 138, 63, 0.03);
   pointer-events: none;
   transition: all 0.3s ease;
 }
 
 .cluster-label {
   position: absolute;
-  top: -12px;
-  left: 20px;
-  padding: 0.35rem 1rem;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
+  top: -14px;
+  left: 30px;
+  padding: 0.4rem 1.2rem;
+  background: var(--accent);
   border-radius: 50px;
   font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--accent);
+  font-weight: 800;
+  color: white;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  box-shadow: var(--shadow-1);
+  letter-spacing: 0.06em;
+  box-shadow: 0 3px 8px rgba(208, 138, 63, 0.25);
 }
 
 .edges {
@@ -617,89 +608,72 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 
 .edge {
   fill: none;
-  stroke: var(--border-strong);
-  stroke-width: 2;
+  stroke: rgba(208, 138, 63, 0.3);
+  stroke-width: 2.5;
   opacity: 0.5;
-  shape-rendering: geometricPrecision;
   transition: all 0.3s ease;
 }
 
 .edge.dimmed {
   stroke: var(--border);
-  stroke-width: 1.5;
+  stroke-width: 2;
   opacity: 0.25;
   stroke-dasharray: 4 4;
-}
-
-@keyframes edgePulse {
-  0% {
-    stroke-opacity: 0.6;
-  }
-  50% {
-    stroke-opacity: 1;
-  }
-  100% {
-    stroke-opacity: 0.6;
-  }
 }
 
 .edge.highlighted {
   stroke: var(--accent);
   stroke-width: 3.5;
   opacity: 1;
-  animation: edgePulse 2.2s ease-in-out infinite;
 }
 
 .node {
   position: absolute;
-  width: 240px;
-  height: 110px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: var(--surface-2);
+  width: 280px;
+  height: 120px;
+  border-radius: 16px;
+  border: 2px solid var(--border);
+  background: var(--surface);
   color: var(--text);
   text-align: left;
-  padding: 0.875rem;
+  padding: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .node:hover {
-  transform: translateY(-3px);
-  background: var(--surface);
+  transform: translateY(-4px);
   border-color: var(--accent);
-  box-shadow: var(--shadow-1);
+  box-shadow: 0 6px 16px rgba(208, 138, 63, 0.2);
   z-index: 10;
 }
 
 .node.locked {
-  opacity: 0.45;
-  filter: grayscale(0.4);
+  opacity: 0.5;
+  filter: grayscale(0.5);
   cursor: not-allowed;
 }
 
 .node.locked:hover {
   transform: none;
-  background: var(--surface-2);
   border-color: var(--border);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .node.completed {
   border-color: var(--accent);
-  background: var(--surface);
-  box-shadow: 0 0 0 2px rgba(208, 138, 63, 0.12);
+  background: rgba(208, 138, 63, 0.05);
+  box-shadow: 0 0 0 2px rgba(208, 138, 63, 0.15);
 }
 
-.node.completed::before {
+.node.completed::after {
   content: "✓";
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  width: 22px;
-  height: 22px;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -707,27 +681,14 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   color: white;
   border-radius: 50%;
   font-weight: 900;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 .node.highlighted {
   border-color: var(--accent);
-  border-width: 2px;
-  box-shadow:
-    0 0 0 4px rgba(208, 138, 63, 0.2),
-    var(--shadow-2);
-  animation: pulse 2s ease-in-out infinite;
+  border-width: 3px;
+  box-shadow: 0 0 0 4px rgba(208, 138, 63, 0.2);
   z-index: 15;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: translateY(-3px) scale(1);
-  }
-  50% {
-    transform: translateY(-3px) scale(1.03);
-  }
 }
 
 .node-id {
@@ -739,17 +700,17 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 }
 
 .node-title {
-  margin-top: 0.4rem;
-  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  line-height: 1.25;
-  max-height: 2.5em;
+  line-height: 1.3;
+  max-height: 2.6em;
   overflow: hidden;
   color: var(--text);
 }
 
 .node-meta {
-  margin-top: 0.6rem;
+  margin-top: 0.65rem;
   display: flex;
   gap: 0.4rem;
   flex-wrap: wrap;
@@ -762,7 +723,7 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   border: 1px solid var(--border);
   background: var(--background);
   border-radius: 999px;
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem 0.55rem;
   opacity: 0.8;
 }
 
