@@ -3,14 +3,9 @@ import { ref, computed } from "vue";
 import { buildTopoIndex, getNextBestNode } from "~/utils/roadmapNext";
 import { computeFocusSet } from "~/utils/roadmapFocus";
 import { useRoadmapProgress } from "~/composables/useRoadmapProgress";
+import roadmap from "../data/roadmap.json";
 
-// Carreguem des de /public/roadmap.json (copiat des de data/roadmap.json)
-const { data: roadmapData } = await useAsyncData(
-  "roadmap",
-  () => $fetch("/api/roadmap"),
-  { server: true, default: () => ({ nodes: [] }) }
-);
-const data = computed(() => roadmapData.value || { nodes: [] });
+const data = computed(() => roadmap || { nodes: [] });
 
 const {
   completed,
