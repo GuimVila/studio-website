@@ -5,7 +5,11 @@ import { computeFocusSet } from "~/utils/roadmapFocus";
 import { useRoadmapProgress } from "~/composables/useRoadmapProgress";
 
 // Carreguem des de /public/roadmap.json (copiat des de data/roadmap.json)
-const { data: roadmapData } = await useFetch("/roadmap.json");
+const { data: roadmapData } = await useAsyncData(
+  "roadmap",
+  () => $fetch("/api/roadmap"),
+  { server: true, default: () => ({ nodes: [] }) }
+);
 const data = computed(() => roadmapData.value || { nodes: [] });
 
 const {

@@ -1,75 +1,77 @@
-# Nuxt Minimal Starter
+# Guillem Vila — Studio Website + Open Learning Resources
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This repository contains the Nuxt-based website for **Guillem Vila** and an open, community-driven learning section:
 
-## Setup
+- **/resources**: articles and learning materials
+- **/resources/roadmap**: interactive learning roadmap (graph)
 
-Make sure to install dependencies:
+The goal is to build a high-quality, well-structured learning path for music production, recording, editing, mixing, sound design, harmony and music theory — maintained with the community (Wikipedia-style, via Pull Requests).
+
+---
+
+## Tech stack
+
+- Nuxt (app in `/app`)
+- Nuxt Content (articles in `/content`)
+- Roadmap data served from `/public/roadmap.json`
+- Deployed on Vercel
+
+---
+
+## Local development
+
+Requirements:
+
+- Node.js
+- npm
+
+Install & run:
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+App runs at:
 
-Build the application for production:
+- http://localhost:3000
 
-```bash
-# npm
-npm run build
+---
 
-# pnpm
-pnpm build
+## Project structure
 
-# yarn
-yarn build
+- `app/` — Nuxt app (pages, components)
+- `content/` — articles (Nuxt Content)
+- `public/roadmap.json` — roadmap nodes/edges used by the interactive map
+- `app/pages/resources/` — resources hub, category pages, article pages
 
-# bun
-bun run build
-```
+Articles live under:
 
-Locally preview production build:
+- `content/resources/<category>/<id>-<slug>.md`
 
-```bash
-# npm
-npm run preview
+Example:
 
-# pnpm
-pnpm preview
+- `content/resources/mixing/me-12-headroom-mix-bus.md`
 
-# yarn
-yarn preview
+---
 
-# bun
-bun run preview
-```
+## Contributing (Wikipedia-style)
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Contributions are welcome via Pull Requests.
+
+Please read **CONTRIBUTING.md** before submitting changes.
+
+Quick workflow:
+
+1. Fork this repository
+2. Create a branch
+3. Add or edit content
+4. Open a Pull Request
+5. Maintainers review and merge (or request changes)
+
+---
+
+## Licensing
+
+- **Code**: MIT (see `LICENSE`)
+- **Content (articles/resources)**: CC BY-SA 4.0 (see `LICENSE-CONTENT`)
