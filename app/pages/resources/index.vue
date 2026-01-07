@@ -148,8 +148,8 @@ const { data: hub } = await useAsyncData(
   }
 );
 
-const categories = computed(() => hub.value?.categories || []);
-const totalDocs = computed(() => hub.value?.totalDocs || 0);
+const categories = computed(() => hub.value.categories);
+const totalDocs = computed(() => hub.value.totalDocs);
 </script>
 
 <style scoped>

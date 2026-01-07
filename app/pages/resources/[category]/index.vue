@@ -24,7 +24,7 @@ const route = useRoute();
 const category = computed(() => String(route.params.category || "").trim());
 
 const { data: articles } = await useAsyncData(
-  () => `resources-cat-${category.value}`,
+  `resources-cat-${category.value}`,
   async () => {
     const prefix = `/resources/${category.value}/`;
 
