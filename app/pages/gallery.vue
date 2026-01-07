@@ -35,10 +35,6 @@ useHead({
 </script>
 
 <style scoped>
-.page-wrapper {
-  padding-top: 100px;
-}
-
 .section-subtitle {
   margin-bottom: 4rem;
 }

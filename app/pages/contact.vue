@@ -143,10 +143,6 @@ useHead({
 </script>
 
 <style scoped>
-.page-wrapper {
-  padding-top: 100px;
-}
-
 .section {
   text-align: center;
 }

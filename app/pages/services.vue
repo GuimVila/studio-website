@@ -377,10 +377,6 @@ useHead({
 </script>
 
 <style scoped>
-.page-wrapper {
-  padding-top: 100px;
-}
-
 .section-title-margin {
   margin-top: 5rem;
 }

@@ -76,16 +76,30 @@ export function computeFocusSet(args: {
   nextId: string;
   completedIds: Set<string>;
   includeNearbyBranches?: boolean;
+  canUnlock?: (node: RoadmapNode) => boolean;
 }): { focusIds: Set<string>; highlightEdges: Set<string> } {
-  const { nodes, nextId, completedIds, includeNearbyBranches = true } = args;
+  const {
+    nodes,
+    nextId,
+    completedIds,
+    includeNearbyBranches = true,
+    canUnlock,
+  } = args;
 
   const byId = buildNodeIndex(nodes);
   const dependents = buildDependentsIndex(nodes);
 
+  // Inclou el camí de prerequisits cap al nextId
   const core = prereqClosure({ targetId: nextId, byId });
   const focusIds = new Set<string>(core);
 
+  // Inclou TOTS els nodes completats
+  for (const completedId of completedIds) {
+    focusIds.add(completedId);
+  }
+
   if (includeNearbyBranches) {
+    // Inclou dependents directes del nextId
     const nextNorm = norm(nextId);
     const deps = dependents.get(nextNorm) || [];
 
@@ -99,6 +113,16 @@ export function computeFocusSet(args: {
       });
 
       if (ok) focusIds.add(depId);
+    }
+
+    // Inclou TOTS els nodes que es poden desbloquejar ara
+    if (canUnlock) {
+      for (const node of nodes) {
+        const id = norm(node.id);
+        if (!completedIds.has(id) && canUnlock(node)) {
+          focusIds.add(id);
+        }
+      }
     }
   }
 
