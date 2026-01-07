@@ -1,8 +1,10 @@
 <template>
   <section class="page">
     <section class="section">
-      <h1 class="section-title heading-accent">{{ categoryLabelText }}</h1>
-      <NuxtLink class="back" to="/resources">← Back</NuxtLink>
+      <h1 class="section-title heading-accent capitalize">
+        {{ categoryLabelText }}
+      </h1>
+      <NuxtLink class="back" to="/resources">← Enrere</NuxtLink>
     </section>
 
     <ul class="list">
@@ -12,7 +14,7 @@
     </ul>
 
     <p v-if="!pending && !articles.length" class="empty">
-      No resources in this category yet.
+      No s'han trobat articles en aquesta categoria.
     </p>
   </section>
 </template>
@@ -182,6 +184,10 @@ onMounted(() => {
   text-align: center;
   font-size: 1.1rem;
 }
+
+/* .capitalize {
+  text-transform: capitalize;
+} */
 
 @media (max-width: 768px) {
   .page {

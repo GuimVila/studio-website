@@ -8,7 +8,7 @@
       <NuxtLink class="card" to="/resources/roadmap">
         <div class="title">Roadmap</div>
         <div class="sub">
-          Interactive learning map with recommended resources
+          Mapa interactiu d'aprenentatge amb recursos recomanats per a cada etapa
         </div>
       </NuxtLink>
 
@@ -20,13 +20,13 @@
       >
         <div class="title">{{ c.label }}</div>
         <div class="sub">
-          {{ c.count }} resource{{ c.count === 1 ? "" : "s" }} in this category
+          {{ c.count }} recursos en aquesta categoria
         </div>
       </NuxtLink>
     </div>
 
     <p v-if="!pending && !categories.length" class="debug">
-      No categories found. Docs detected: {{ (docs || []).length }}
+      No s'han trobat categories. Documents detectats: {{ (docs || []).length }}
     </p>
   </section>
 </template>
@@ -169,7 +169,7 @@ const categories = computed(() => {
   font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 
 .sub {
