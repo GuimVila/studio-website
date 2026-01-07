@@ -2,7 +2,7 @@
   <section class="page">
     <section class="section">
       <h1 class="section-title heading-accent">{{ categoryLabelText }}</h1>
-      <NuxtLink class="back" :to="`/resources/`">← Enrere</NuxtLink>
+      <NuxtLink class="back" to="/resources">← Back</NuxtLink>
     </section>
 
     <ul class="list">
@@ -11,35 +11,17 @@
       </li>
     </ul>
 
-    <p v-if="!articles.length" class="empty">
-      Encara no hi ha articles en aquesta categoria. Torna més tard!
+    <p v-if="!pending && !articles.length" class="empty">
+      No resources in this category yet.
     </p>
   </section>
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 
 const route = useRoute();
 const category = computed(() => String(route.params.category || "").trim());
-
-const { data: articles } = await useAsyncData(
-  `resources-cat-${category.value}`,
-  async () => {
-    const prefix = `/resources/${category.value}/`;
-
-    const rows = await queryCollection("resources")
-      .where("path", "LIKE", `${prefix}%`)
-      .select("title", "path", "seq")
-      .all();
-
-    // ordenem amb seq si existeix (fallback segur)
-    return (rows || []).sort(
-      (a, b) => (Number(a.seq) || 999999) - (Number(b.seq) || 999999)
-    );
-  },
-  { default: () => [] }
-);
 
 const CATEGORY_LABELS = {
   "disseny-de-so": "Disseny de so",
@@ -83,6 +65,32 @@ function categoryLabel(slug) {
 }
 
 const categoryLabelText = computed(() => categoryLabel(category.value));
+
+const {
+  data: articles,
+  pending,
+  refresh,
+} = await useAsyncData(
+  () => `resources-cat-${category.value}`,
+  async () => {
+    const prefix = `/resources/${category.value}/`;
+
+    const rows = await queryCollection("resources")
+      .where("path", "LIKE", `${prefix}%`)
+      .select("title", "path", "seq")
+      .all();
+
+    return (rows || []).sort(
+      (a, b) => (Number(a.seq) || 999999) - (Number(b.seq) || 999999)
+    );
+  },
+  { default: () => [] }
+);
+
+// Fallback robust: si SSR a prod torna buit, força refetch al client
+onMounted(() => {
+  if (!(articles.value || []).length) refresh();
+});
 </script>
 
 <style scoped>
@@ -93,15 +101,11 @@ const categoryLabelText = computed(() => categoryLabel(category.value));
   color: var(--text);
 }
 
-.header {
-  margin-bottom: 3rem;
-}
-
 .back {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
   padding: 0.75rem 1.5rem;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -109,25 +113,19 @@ const categoryLabelText = computed(() => categoryLabel(category.value));
   text-decoration: none;
   color: var(--text);
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .back:hover {
   background: var(--surface-2);
-  border-color: rgba(208, 138, 63, 0.55);
+  border-color: var(--accent);
   color: var(--accent);
-  transform: translate3d(-2px, 0, 0); /* suau */
-  box-shadow: var(--shadow-1);
-}
-
-.header h1 {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 800;
-  text-transform: capitalize;
-  color: var(--text);
+  transform: translateX(-3px);
+  text-decoration: none;
 }
 
 .list {
+  margin-top: 2rem;
   display: grid;
   gap: 1rem;
   list-style: none;
@@ -138,12 +136,12 @@ const categoryLabelText = computed(() => categoryLabel(category.value));
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   overflow: hidden;
 }
 
 .list li:hover {
-  transform: translateX(8px);
+  transform: translateX(6px);
   border-color: var(--accent);
   box-shadow: var(--shadow-1);
 }
@@ -158,6 +156,10 @@ const categoryLabelText = computed(() => categoryLabel(category.value));
   position: relative;
 }
 
+.list a:hover {
+  text-decoration: none;
+}
+
 .list a::before {
   content: "→";
   position: absolute;
@@ -167,7 +169,7 @@ const categoryLabelText = computed(() => categoryLabel(category.value));
   color: var(--accent);
   font-size: 1.5rem;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
 }
 
 .list li:hover a::before {
@@ -185,11 +187,6 @@ const categoryLabelText = computed(() => categoryLabel(category.value));
   .page {
     padding: 3rem 1.5rem;
   }
-
-  .header {
-    margin-bottom: 2rem;
-  }
-
   .list a {
     padding: 1.25rem 1.5rem;
     font-size: 1rem;

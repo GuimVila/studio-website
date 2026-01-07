@@ -1,14 +1,14 @@
 <template>
   <section class="page">
     <section class="section">
-      <h1 class="section-title heading-accent">Recursos</h1>
+      <h1 class="section-title heading-accent">Resources</h1>
     </section>
 
     <div class="cards">
       <NuxtLink class="card" to="/resources/roadmap">
         <div class="title">Roadmap</div>
         <div class="sub">
-          Mapa interactiu d'aprenentatge amb recursos recomanats
+          Interactive learning map with recommended resources
         </div>
       </NuxtLink>
 
@@ -20,20 +20,19 @@
       >
         <div class="title">{{ c.label }}</div>
         <div class="sub">
-          {{ c.count }} recurs{{ c.count === 1 ? "" : "os" }} en aquesta
-          categoria
+          {{ c.count }} resource{{ c.count === 1 ? "" : "s" }} in this category
         </div>
       </NuxtLink>
     </div>
 
-    <p v-if="!categories.length" class="debug">
-      No categories found. Docs detected: {{ totalDocs }}
+    <p v-if="!pending && !categories.length" class="debug">
+      No categories found. Docs detected: {{ (docs || []).length }}
     </p>
   </section>
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 
 const CATEGORY_LABELS = {
   "disseny-de-so": "Disseny de so",
@@ -46,19 +45,7 @@ const CATEGORY_LABELS = {
   produccio: "Producció",
 };
 
-// (Opcional) ordre preferit a la home de resources
-const CATEGORY_ORDER = [
-  "fonaments",
-  "llenguatge-musical",
-  "harmonia",
-  "edicio",
-  "gravacio",
-  "mescla",
-  "produccio",
-  "disseny-de-so",
-];
-
-function humanizeSlug(slug) {
+function categoryLabel(slug) {
   if (CATEGORY_LABELS[slug]) return CATEGORY_LABELS[slug];
 
   const stop = new Set([
@@ -88,68 +75,45 @@ function humanizeSlug(slug) {
     .join(" ");
 }
 
-function slugFromRow(row) {
-  // 1) Preferim frontmatter categorySlug (és el robust)
-  const fromFM = String(row?.categorySlug || "").trim();
-  if (fromFM) return fromFM;
-
-  // 2) Fallback: intentem deduir-ho des del path (per docs antics sense categorySlug)
-  const p = String(row?.path || "");
-  const parts = p.split("/").filter(Boolean);
-
-  // casos típics:
-  // - /resources/<slug>/<article>
-  // - /<slug>/<article> (si Content resol el path sense prefix)
-  const idx = parts.indexOf("resources");
-  if (idx !== -1 && parts[idx + 1]) return parts[idx + 1];
-  if (parts.length >= 2) return parts[0];
-
-  return "";
-}
-
-const { data: hub } = await useAsyncData(
+const {
+  data: docs,
+  pending,
+  refresh,
+} = await useAsyncData(
   "resources-hub",
   async () => {
-    const rows =
-      (await queryCollection("resources")
-        .select("path", "categorySlug")
-        .all()) || [];
-
-    const counts = new Map(); // slug -> count
-
-    for (const r of rows) {
-      const slug = slugFromRow(r);
-      if (!slug) continue;
-      counts.set(slug, (counts.get(slug) || 0) + 1);
-    }
-
-    const slugs = Array.from(counts.keys());
-
-    slugs.sort((a, b) => {
-      const ia = CATEGORY_ORDER.indexOf(a);
-      const ib = CATEGORY_ORDER.indexOf(b);
-
-      if (ia !== -1 || ib !== -1) {
-        return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
-      }
-      return a.localeCompare(b);
-    });
-
-    const categories = slugs.map((slug) => ({
-      slug,
-      label: humanizeSlug(slug),
-      count: counts.get(slug) || 0,
-    }));
-
-    return { categories, totalDocs: rows.length };
+    // IMPORTANT: query Nuxt Content collection
+    return await queryCollection("resources").select("path", "title").all();
   },
-  {
-    default: () => ({ categories: [], totalDocs: 0 }),
-  }
+  { default: () => [] }
 );
 
-const categories = computed(() => hub.value.categories);
-const totalDocs = computed(() => hub.value.totalDocs);
+// Fallback robust: si SSR a prod torna buit, força refetch al client
+onMounted(() => {
+  if (!(docs.value || []).length) refresh();
+});
+
+const categories = computed(() => {
+  const counts = new Map();
+
+  for (const d of docs.value || []) {
+    const p = String(d.path || "");
+    // esperem: /resources/<category>/<slug>
+    const parts = p.split("/").filter(Boolean);
+    if (parts.length >= 2 && parts[0] === "resources") {
+      const slug = parts[1];
+      counts.set(slug, (counts.get(slug) || 0) + 1);
+    }
+  }
+
+  return Array.from(counts.entries())
+    .sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([slug, count]) => ({
+      slug,
+      label: categoryLabel(slug),
+      count,
+    }));
+});
 </script>
 
 <style scoped>
