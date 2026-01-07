@@ -1,3 +1,22 @@
+<template>
+  <section class="page">
+    <section class="section">
+      <h1 class="section-title heading-accent">{{ categoryLabelText }}</h1>
+      <NuxtLink class="back" :to="`/resources/`">← Enrere</NuxtLink>
+    </section>
+
+    <ul class="list">
+      <li v-for="a in articles" :key="a.path">
+        <NuxtLink :to="a.path">{{ a.title }}</NuxtLink>
+      </li>
+    </ul>
+
+    <p v-if="!articles.length" class="empty">
+      Encara no hi ha articles en aquesta categoria. Torna més tard!
+    </p>
+  </section>
+</template>
+
 <script setup>
 import { computed } from "vue";
 
@@ -21,25 +40,50 @@ const { data: articles } = await useAsyncData(
   },
   { default: () => [] }
 );
+
+const CATEGORY_LABELS = {
+  "disseny-de-so": "Disseny de so",
+  edicio: "Edició",
+  fonaments: "Fonaments",
+  gravacio: "Gravació",
+  harmonia: "Harmonia",
+  "llenguatge-musical": "Llenguatge musical",
+  mescla: "Mescla",
+  produccio: "Producció",
+};
+
+function categoryLabel(slug) {
+  if (CATEGORY_LABELS[slug]) return CATEGORY_LABELS[slug];
+
+  const stop = new Set([
+    "de",
+    "i",
+    "a",
+    "per",
+    "del",
+    "dels",
+    "la",
+    "el",
+    "les",
+    "els",
+  ]);
+  const words = String(slug)
+    .trim()
+    .toLowerCase()
+    .replace(/[-_]+/g, " ")
+    .split(" ")
+    .filter(Boolean);
+
+  return words
+    .map((w, i) => {
+      if (i > 0 && stop.has(w)) return w;
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    })
+    .join(" ");
+}
+
+const categoryLabelText = computed(() => categoryLabel(category.value));
 </script>
-
-<template>
-  <section class="page">
-    <section class="section">
-      <h1 class="section-title heading-accent">{{ category }}</h1>
-    </section>
-
-    <ul class="list">
-      <li v-for="a in articles" :key="a.path">
-        <NuxtLink :to="a.path">{{ a.title }}</NuxtLink>
-      </li>
-    </ul>
-
-    <p v-if="!articles.length" class="empty">
-      No articles found in this category yet.
-    </p>
-  </section>
-</template>
 
 <style scoped>
 .page {
@@ -57,20 +101,23 @@ const { data: articles } = await useAsyncData(
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
-  background: transparent;
-  border: none;
+  margin-bottom: 2rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50px;
   text-decoration: none;
-  color: var(--text-secondary);
+  color: var(--text);
   font-weight: 500;
-  font-size: 0.95rem;
   transition: all 0.3s ease;
 }
 
 .back:hover {
+  background: var(--surface-2);
+  border-color: rgba(208, 138, 63, 0.55);
   color: var(--accent);
-  transform: translateX(-4px);
+  transform: translate3d(-2px, 0, 0); /* suau */
+  box-shadow: var(--shadow-1);
 }
 
 .header h1 {

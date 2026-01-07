@@ -1,14 +1,19 @@
 <template>
   <div class="map-shell">
     <div class="overlay">
-      <button class="chip" type="button" @click="fitToScreen">Fit</button>
+      <button class="chip" type="button" @click="fitToScreen">
+        Ajustar a pantalla
+      </button>
       <button
         class="chip"
         type="button"
-        :disabled="!highlightId"
-        @click="scrollToNode(highlightId)"
+        :disabled="!nextSeq"
+        :title="
+          nextSeq ? `Centrar node següent recomanat` : 'No hi ha node recomanat'
+        "
+        @click="centerNextNode"
       >
-        Center
+        Anar al següent
       </button>
       <div class="chip stat">
         <span class="muted">Zoom</span>
@@ -182,8 +187,10 @@ const NODE_W = 240;
 const NODE_H = 110;
 const NODE_GAP = 20;
 const CLUSTER_PAD = 120;
-const CLUSTER_GAP = 200;
+const CLUSTER_GAP_X = 200;
+const CLUSTER_GAP_Y = 180;
 const NODES_PER_ROW = 8;
+const CLUSTERS_PER_ROW = 2; // Distribute clusters in a 2D grid
 
 // Group nodes by category
 const categoryGroups = computed(() => {
@@ -214,10 +221,10 @@ const categoryOrder = computed(() => {
   return cats.sort((a, b) => a.localeCompare(b));
 });
 
-// Calculate cluster positions and dimensions
+// Calculate cluster positions and dimensions in 2D grid
 const clusterLayouts = computed(() => {
   const layouts = new Map();
-  let offsetX = CLUSTER_PAD;
+  let clusterIndex = 0;
   let maxClusterHeight = 0;
 
   for (const cat of categoryOrder.value) {
@@ -229,17 +236,28 @@ const clusterLayouts = computed(() => {
     const clusterW = cols * NODE_W + (cols - 1) * NODE_GAP;
     const clusterH = rows * NODE_H + (rows - 1) * NODE_GAP;
 
+    // Calculate position in 2D grid
+    const gridRow = Math.floor(clusterIndex / CLUSTERS_PER_ROW);
+    const gridCol = clusterIndex % CLUSTERS_PER_ROW;
+
+    // Dynamically calculate max width per column for proper spacing
+    const maxWidthPerCol = 2200; // Approximate max width per column
+    const offsetX = CLUSTER_PAD + gridCol * (maxWidthPerCol + CLUSTER_GAP_X);
+    const offsetY = CLUSTER_PAD + gridRow * (1000 + CLUSTER_GAP_Y); // Approximate height
+
     layouts.set(cat, {
       x: offsetX,
-      y: CLUSTER_PAD,
+      y: offsetY,
       width: clusterW,
       height: clusterH,
       rows,
       cols,
+      gridRow,
+      gridCol,
     });
 
-    offsetX += clusterW + CLUSTER_GAP;
     maxClusterHeight = Math.max(maxClusterHeight, clusterH);
+    clusterIndex++;
   }
 
   return { layouts, maxClusterHeight };
@@ -449,7 +467,27 @@ function scrollToNode(id) {
   viewport.scrollTop = Math.max(0, cy - vh / 2);
 }
 
-defineExpose({ scrollToNode, fitToScreen });
+function centerNextNode() {
+  if (!props.nextSeq) return;
+
+  const viewport = viewportRef.value;
+  if (!viewport) return;
+
+  const target = renderedNodes.value.find((n) => n.seq === props.nextSeq);
+  if (!target) return;
+
+  const vw = viewport.clientWidth;
+  const vh = viewport.clientHeight;
+
+  const z = zoomLocal.value;
+  const cx = (target._x + NODE_W / 2) * z;
+  const cy = (target._y + NODE_H / 2) * z;
+
+  viewport.scrollLeft = Math.max(0, cx - vw / 2);
+  viewport.scrollTop = Math.max(0, cy - vh / 2);
+}
+
+defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 </script>
 
 <style scoped>

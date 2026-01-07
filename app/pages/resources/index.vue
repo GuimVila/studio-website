@@ -1,22 +1,3 @@
-<script setup>
-import { computed } from "vue";
-
-const { data: docs } = await useAsyncData("resources-hub", async () => {
-  return await queryCollection("resources").select("path", "title").all();
-});
-
-const categories = computed(() => {
-  const set = new Set();
-  for (const d of docs.value || []) {
-    const p = String(d.path || "");
-    // esperem: /resources/<category>/<slug>
-    const parts = p.split("/").filter(Boolean);
-    if (parts.length >= 2 && parts[0] === "resources") set.add(parts[1]);
-  }
-  return Array.from(set).sort();
-});
-</script>
-
 <template>
   <section class="page">
     <section class="section">
@@ -25,17 +6,19 @@ const categories = computed(() => {
     <div class="cards">
       <NuxtLink class="card" to="/resources/roadmap">
         <div class="title">Roadmap</div>
-        <div class="sub">Visual learning map with prerequisites</div>
+        <div class="sub">
+          Mapa interactiu d'aprenentatge amb recursos recomanats
+        </div>
       </NuxtLink>
 
       <NuxtLink
         v-for="c in categories"
-        :key="c"
+        :key="c.slug"
         class="card"
-        :to="`/resources/${c}`"
+        :to="`/resources/${c.slug}`"
       >
-        <div class="title">{{ c }}</div>
-        <div class="sub">Browse articles in this category</div>
+        <div class="title">{{ c.label }}</div>
+        <div class="sub">Explora articles en aquesta categoria</div>
       </NuxtLink>
     </div>
 
@@ -44,6 +27,71 @@ const categories = computed(() => {
     </p>
   </section>
 </template>
+
+<script setup>
+import { computed } from "vue";
+
+const { data: docs } = await useAsyncData("resources-hub", async () => {
+  return await queryCollection("resources").select("path", "title").all();
+});
+
+const CATEGORY_LABELS = {
+  "disseny-de-so": "Disseny de so",
+  edicio: "Edició",
+  fonaments: "Fonaments",
+  gravacio: "Gravació",
+  harmonia: "Harmonia",
+  "llenguatge-musical": "Llenguatge musical",
+  mescla: "Mescla",
+  produccio: "Producció",
+};
+
+function categoryLabel(slug) {
+  // 1) mapping explícit (recomanat: accents i estil perfectes)
+  if (CATEGORY_LABELS[slug]) return CATEGORY_LABELS[slug];
+
+  // 2) fallback decent si mai surt una categoria nova
+  const stop = new Set([
+    "de",
+    "i",
+    "a",
+    "per",
+    "del",
+    "dels",
+    "la",
+    "el",
+    "les",
+    "els",
+  ]);
+  const words = String(slug)
+    .trim()
+    .toLowerCase()
+    .replace(/[-_]+/g, " ")
+    .split(" ")
+    .filter(Boolean);
+
+  return words
+    .map((w, i) => {
+      if (i > 0 && stop.has(w)) return w;
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    })
+    .join(" ");
+}
+
+const categories = computed(() => {
+  const set = new Set();
+
+  for (const d of docs.value || []) {
+    const p = String(d.path || "");
+    const parts = p.split("/").filter(Boolean);
+    if (parts.length >= 2 && parts[0] === "resources") set.add(parts[1]);
+  }
+
+  return Array.from(set)
+    .sort()
+    .map((slug) => ({ slug, label: categoryLabel(slug) }));
+});
+</script>
 
 <style scoped>
 .page {
@@ -74,7 +122,6 @@ const categories = computed(() => {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
-
 }
 
 .card {
@@ -116,7 +163,6 @@ const categories = computed(() => {
   font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
-  text-transform: capitalize;
 }
 
 .sub {

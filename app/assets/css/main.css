@@ -185,10 +185,6 @@ p {
   align-items: center;
 }
 
-/* ❌ ABANS tenies una segona definició de .logo aquí que trepitjava el layout.
-   La retiro perquè no rebenti el header. Si vols estil del text, ja és a .logo p.
-*/
-
 .nav-menu {
   display: flex;
   gap: 2rem;
@@ -321,7 +317,7 @@ p {
    ========================= */
 
 .section {
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
   text-align: center;
@@ -332,7 +328,8 @@ p {
   text-align: center;
 }
 
-.section {
+.page-wrapper {
+  padding-top: 100px;
 }
 
 .section-subtitle {

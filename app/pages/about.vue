@@ -1,7 +1,7 @@
 <template>
   <div class="page-wrapper">
     <div class="content-wrapper">
-      <section class="about-header">
+      <section class="section">
         <h1 class="section-title heading-accent">Sobre mi</h1>
         <p class="section-subtitle">
           Una mica sobre mi i la meva trajectòria en el món de la música
@@ -12,7 +12,7 @@
         <p
           v-for="(text, index) in aboutParagraphs"
           :key="index"
-          class="section-subtitle separated-paragraph"
+          class="section-subtitle"
         >
           {{ text }}
         </p>
@@ -46,25 +46,10 @@ useHead({
 </script>
 
 <style scoped>
-.page-wrapper {
-  padding-top: 100px;
-}
-
-.about-header {
-  padding: 6rem 2rem 0rem 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
-  text-align: center;
-}
-
 .about-paragraph {
   padding: 0rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
   text-align: center;
-}
-
-.separated-paragraph {
-  margin-top: 2rem;
 }
 </style>

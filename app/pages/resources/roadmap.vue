@@ -148,12 +148,13 @@ function onSelect(id) {
 
 <template>
   <div class="page">
-    <header class="header">
-      <h1>Roadmap d'aprenentatge</h1>
+    <section class="section">
+      <h1 class="section-title heading-accent">Roadmap d'aprenentatge</h1>
       <p>
-        Camí amb prerequisits, branques, focus i un "següent pas" recomanat.
+        Explora aquest roadmap d'aprenentatge interactiu per descobrir els
+        recursos i passos recomanats per avançar en el teu camí d'aprenentatge.
       </p>
-    </header>
+    </section>
 
     <RoadmapControls
       :categories="categories"

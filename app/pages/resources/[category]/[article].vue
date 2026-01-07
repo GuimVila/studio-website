@@ -1,3 +1,20 @@
+<template>
+  <article class="page">
+    <section class="section">
+      <h1 class="section-title heading-accent">{{ doc.title }}</h1>
+
+      <NuxtLink class="back" :to="`/resources/${category}`">
+        ← Enrere
+      </NuxtLink>
+    </section>
+
+    <!-- IMPORTANT: només encapsulem el markdown -->
+    <div class="prose">
+      <ContentRenderer :value="doc" />
+    </div>
+  </article>
+</template>
+
 <script setup>
 const route = useRoute();
 
@@ -18,15 +35,6 @@ if (!doc.value) {
 }
 </script>
 
-<template>
-  <article class="page">
-    <NuxtLink class="back" :to="`/resources/${category}`">← Back</NuxtLink>
-
-    <h1 class="title">{{ doc.title }}</h1>
-    <ContentRenderer :value="doc" />
-  </article>
-</template>
-
 <style scoped>
 .page {
   max-width: 900px;
@@ -35,40 +43,53 @@ if (!doc.value) {
   color: var(--text);
 }
 
+/* Botó enrere: no el centrem ni el movem del teu layout */
 .back {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 2rem;
+
+  margin-top: 1rem; /* sota el títol */
   padding: 0.75rem 1.5rem;
+
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 50px;
-  text-decoration: none;
+
   color: var(--text);
   font-weight: 500;
-  transition: all 0.3s ease;
+
+  text-decoration: none !important; /* blinda contra styles del markdown i globals */
+  transition:
+    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 220ms ease,
+    background 220ms ease,
+    color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.back:hover,
+.back:focus,
+.back:focus-visible,
+.back:active {
+  text-decoration: none !important;
 }
 
 .back:hover {
   background: var(--surface-2);
-  border-color: var(--accent);
+  border-color: rgba(208, 138, 63, 0.55);
   color: var(--accent);
-  transform: translateX(-4px);
+  transform: translate3d(-2px, 0, 0); /* suau */
+  box-shadow: var(--shadow-1);
 }
 
-.title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 900;
-  margin: 1rem 0 2rem;
-  line-height: 1.2;
-  background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Wrapper del markdown */
+.prose {
+  margin-top: 1.5rem;
 }
 
-/* Estils per al contingut de l'article */
-.page :deep(h2) {
+/* Estils del contingut: ARA només afecten el markdown */
+.prose :deep(h2) {
   font-size: 1.8rem;
   font-weight: 700;
   margin-top: 3rem;
@@ -76,7 +97,7 @@ if (!doc.value) {
   color: var(--text);
 }
 
-.page :deep(h3) {
+.prose :deep(h3) {
   font-size: 1.4rem;
   font-weight: 600;
   margin-top: 2rem;
@@ -84,26 +105,26 @@ if (!doc.value) {
   color: var(--text);
 }
 
-.page :deep(p) {
+.prose :deep(p) {
   line-height: 1.8;
   margin-bottom: 1.5rem;
   color: var(--text-secondary);
   font-size: 1.05rem;
 }
 
-.page :deep(ul),
-.page :deep(ol) {
+.prose :deep(ul),
+.prose :deep(ol) {
   margin-bottom: 1.5rem;
   padding-left: 2rem;
   line-height: 1.8;
   color: var(--text-secondary);
 }
 
-.page :deep(li) {
+.prose :deep(li) {
   margin-bottom: 0.5rem;
 }
 
-.page :deep(code) {
+.prose :deep(code) {
   background: var(--surface);
   padding: 0.2rem 0.5rem;
   border-radius: 6px;
@@ -111,7 +132,7 @@ if (!doc.value) {
   border: 1px solid var(--border);
 }
 
-.page :deep(pre) {
+.prose :deep(pre) {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -120,13 +141,13 @@ if (!doc.value) {
   margin-bottom: 1.5rem;
 }
 
-.page :deep(pre code) {
+.prose :deep(pre code) {
   background: none;
   padding: 0;
   border: none;
 }
 
-.page :deep(blockquote) {
+.prose :deep(blockquote) {
   border-left: 4px solid var(--accent);
   padding-left: 1.5rem;
   margin: 2rem 0;
@@ -134,20 +155,23 @@ if (!doc.value) {
   color: var(--text-secondary);
 }
 
-.page :deep(strong) {
+.prose :deep(strong) {
   color: var(--text);
   font-weight: 700;
 }
 
-.page :deep(a) {
+.prose :deep(a) {
   color: var(--accent);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
 }
 
-.page :deep(a:hover) {
+.prose :deep(a:hover) {
   color: var(--accent-light);
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 @media (max-width: 768px) {
