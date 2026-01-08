@@ -11,5 +11,104 @@
     "resources": "Resources",
     "subscribe": "Subscribe",
     "contact": "Contact"
+  },
+  "hero": {
+    "imageAlt": "Music production studio",
+    "title": "Bring your music to life",
+    "subtitle": "Professional production, mixing, and recording. Your sound, brought to perfection.",
+    "ctaPrimary": "Get started",
+    "ctaSecondary": "My services"
+  },
+  "whyMe": {
+    "title": "Why work with me?",
+    "items": {
+      "production": {
+        "title": "Production",
+        "description": "From pre-production to the final product, I guide you through every step of the creative process."
+      },
+      "mixing": {
+        "title": "Mixing",
+        "description": "Boutique gear and technical judgment to achieve a competitive and coherent sound."
+      },
+      "recording": {
+        "title": "Recording",
+        "description": "Acoustically treated studio and a workflow designed to capture real performances."
+      },
+      "resources": {
+        "title": "Resources",
+        "description": "Resources and content for musicians and producers who want to grow with solid criteria."
+      }
+    }
+  },
+  "startToday": {
+    "title": "Start your project today",
+    "subtitle": "Production, editing, recording, and mixing with a fast and efficient workflow.",
+    "cta": "Contact me"
+  },
+  "footer": {
+    "brandDescription": "Professional audio studio and music production",
+    "sections": {
+      "services": "Services",
+      "contact": "Contact",
+      "newsletter": "Newsletter"
+    },
+    "servicesList": {
+      "musicProduction": "Music production",
+      "editing": "Editing",
+      "recording": "Recording",
+      "mixing": "Mixing",
+      "soundDesign": "Sound design"
+    },
+    "contact": {
+      "location": "Riells i Viabrea, Baix Montseny"
+    },
+    "newsletter": {
+      "text": "Subscribe to receive the latest updates, tutorials, and special offers",
+      "placeholderEmail": "Email address",
+      "button": "Subscribe",
+      "sending": "Sending..."
+    },
+    "legal": {
+      "copyright": "© {year} Guillem Vila. All rights reserved.",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookie Policy",
+      "terms": "Terms and Conditions",
+      "credit": "Web design and development by Guillem Vila."
+    }
+  },
+  "home": {
+    "seo": {
+      "title": "Guillem Vila · Artist, music producer and audio engineer",
+      "description": "My name is Guillem Vila and I am an artist, music producer, and audio engineer. I offer professional recording, mixing, music production services and creative collaborations for artistic and musical projects."
+    }
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "A visual selection of the studio. Gear and work sessions.",
+    "images": {
+      "controlRoom": "Main control room",
+      "analogRack": "Analog rack",
+      "instruments": "Instruments",
+      "gearDetail": "Gear detail",
+      "acousticTreatment": "Acoustic treatment"
+    },
+    "seo": {
+      "title": "Gallery | Guillem Vila · Artist, music producer and audio engineer",
+      "description": "Gallery. Photos of the studio, recording sessions and concerts, showcasing creative and professional work in music and audio."
+    }
+  },
+  "about": {
+    "title": "About me",
+    "subtitle": "A bit about me and my journey in the world of music",
+    "paragraphs": [
+      "I’m Guillem Vila, a musician, producer, and audio engineer born in Arenys de Mar. In my early years in music, I focused on continuous training between Taller de Músics and AULA del Liceu, while also gaining hands-on experience in local studios and projects. I was the lyricist and composer of the first two albums by the rock band Exceso, sharing stages with acts such as La Fuga, Poncho K, Burning, Siniestro Total, and Reincidentes.",
+      "In the second phase of my education, I completed a Bachelor in Professional Music at Berklee College of Music (Boston), with concentrations in Music Production & Engineering and Performance, complemented by a minor in Music Technology & Innovation in Valencia. In Boston, I had the opportunity to learn from professors such as Sean McLaughlin, Lyle Brewer, Colin Sapp, Dave Fiuczynski, Scott DeOgburn, and Steve Rochinsky—an experience that gave me tools to combine technical rigor and artistic expression effectively.",
+      "After a brief period at Igloo Music in California, I returned to Catalonia, where I combine music production, composition, and audio engineering with teaching. I have taught at Microfusa and, for the past five years, I have worked as a secondary-school music teacher, while continuing to study and refine guitar, bass, vocal, mixing, mastering, production, and sound design techniques.",
+      "As an artist, I aim to develop a personal language that blends influences from creators such as Jacob Collier, Billie Eilish, Bob Dylan, John Mayer, and Bon Iver. I’m drawn to a minimalist approach and to music where technique and emotion coexist, with artistic honesty and personal expression as central values. This website is where I bring together these facets—musician, producer, engineer, and teacher—always with music at the core of my work and passion."
+    ],
+    "seo": {
+      "title": "About | Guillem Vila · Artist, music producer and audio engineer",
+      "description": "My name is Guillem Vila and I am an artist, music producer, and audio engineer. I have experience in recording, mixing, and production for artists and professional projects."
+    }
   }
 }

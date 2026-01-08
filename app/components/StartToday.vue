@@ -1,12 +1,12 @@
 <template>
   <section class="section section--cta">
     <div class="container">
-      <h2 class="section-title">Comença el teu projecte avui</h2>
+      <h2 class="section-title">{{ $t("startToday.title") }}</h2>
       <p class="section-subtitle">
-        Producció, edició, gravació i mescla amb un flux de treball àgil i eficient.
+        {{ $t("startToday.subtitle") }}
       </p>
       <div class="button-wrapper">
-        <NuxtLink to="/contact" class="btn btn-primary"> Contacta'ns </NuxtLink>
+        <NuxtLink to="/contact" class="btn btn-primary">{{ $t("startToday.cta") }}</NuxtLink>
       </div>
     </div>
   </section>

@@ -7,18 +7,20 @@
 </template>
 
 <script setup>
+import { useI18n } from "vue-i18n";
 import AppHero from "~/components/AppHero.vue";
 import WhyChooseMe from "~/components/WhyChooseMe.vue";
 import StartToday from "~/components/StartToday.vue";
 
-useHead({
-  title: "Guillem Vila · Artista, productor musical i enginyer de so",
+const { t } = useI18n();
+
+useHead(() => ({
+  title: t("home.seo.title"),
   meta: [
     {
       name: "description",
-      content:
-        "Em dic Guillem Vila i sóc artista, productor musical i enginyer de so. Ofereixo serveis professionals de gravació, mescla, producció musical i col·laboracions creatives per projectes artístics i musicals.",
+      content: t("home.seo.description"),
     },
   ],
-});
+}));
 </script>

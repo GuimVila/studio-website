@@ -1,6 +1,6 @@
 <template>
   <section class="section">
-    <h2 class="section-title">Per què treballar amb mi?</h2>
+    <h2 class="section-title">{{ $t("whyMe.title") }}</h2>
 
     <div class="services-grid">
       <ServiceCard
@@ -15,32 +15,31 @@
 </template>
 
 <script setup>
+import { useI18n } from "vue-i18n";
 import ServiceCard from "~/components/ServiceCard.vue";
 
-const services = [
+const { t } = useI18n();
+
+const services = computed(() => [
   {
-    title: "Producció",
-    description:
-      "Des de la preproducció fins al producte final, t'acompanyo en cada pas del procés creatiu.",
+    title: t("whyMe.items.production.title"),
+    description: t("whyMe.items.production.description"),
     image: "/images/services/produccio.png",
   },
   {
-    title: "Mescla",
-    description:
-      "Equipament boutique i criteri tècnic per aconseguir un so competitiu i coherent.",
+    title: t("whyMe.items.mixing.title"),
+    description: t("whyMe.items.mixing.description"),
     image: "/images/services/mescla.png",
   },
   {
-    title: "Gravació",
-    description:
-      "Estudi acustitzat i flux de treball pensat per capturar interpretacions reals.",
+    title: t("whyMe.items.recording.title"),
+    description: t("whyMe.items.recording.description"),
     image: "/images/services/gravacio.png",
   },
   {
-    title: "Recursos",
-    description:
-      "Recursos i contingut per a músics i productors que volen créixer amb criteri.",
+    title: t("whyMe.items.resources.title"),
+    description: t("whyMe.items.resources.description"),
     image: "/images/services/recursos.png",
   },
-];
+]);
 </script>

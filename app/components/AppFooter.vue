@@ -19,7 +19,7 @@
           </div>
 
           <p class="brand-description">
-            Estudi de so professional i producció musical
+            {{ $t("footer.brandDescription") }}
           </p>
 
           <div class="social-links">
@@ -49,7 +49,7 @@
 
         <!-- Services -->
         <div class="footer-section">
-          <h4 class="footer-title">Serveis</h4>
+          <h4 class="footer-title">{{ $t("footer.sections.services") }}</h4>
           <ul class="footer-links">
             <li v-for="service in services" :key="service">{{ service }}</li>
           </ul>
@@ -57,7 +57,7 @@
 
         <!-- Contact -->
         <div class="footer-section footer-contact-section">
-          <h4 class="footer-title">Contacte</h4>
+          <h4 class="footer-title">{{ $t("footer.sections.contact") }}</h4>
           <ul class="footer-contact">
             <li class="contact-item">
               <a
@@ -85,15 +85,14 @@
         <div class="footer-section">
           <h4 class="footer-title">Newsletter</h4>
           <p class="newsletter-text">
-            Subscriu-te per rebre les últimes novetats, tutorials i ofertes
-            especials
+            {{ $t("footer.newsletter.text") }}
           </p>
 
           <form class="newsletter-form" @submit.prevent="subscribe">
             <input
               v-model="email"
               type="email"
-              placeholder="Correu electrònic"
+              :placeholder="$t('footer.newsletter.placeholderEmail')"
               required
               class="newsletter-input"
             >
@@ -109,7 +108,11 @@
               class="newsletter-button"
               :disabled="isSubmitting"
             >
-              {{ isSubmitting ? "Enviant..." : "Subscriu-te" }}
+              {{
+                isSubmitting
+                  ? $t("footer.newsletter.sending")
+                  : $t("footer.newsletter.button")
+              }}
             </button>
 
             <p
@@ -129,14 +132,18 @@
 
       <!-- Bottom Bar -->
       <div class="footer-bottom">
-        <p class="copyright">
-          &copy; 2025 Guillem Vila. Tots els drets reservats.
-        </p>
-
+        <div class="footer-copyright">
+          <p class="copyright">
+            {{ $t("footer.legal.copyright", { year }) }}
+          </p>
+          <p class="copyright credit">
+            {{ $t("footer.legal.credit") }}
+          </p>
+        </div>
         <div class="footer-legal">
-          <NuxtLink to="/privacy">Política de Privacitat</NuxtLink>
-          <NuxtLink to="/cookies">Política de Cookies</NuxtLink>
-          <NuxtLink to="/terms">Termes i Condicions</NuxtLink>
+          <NuxtLink to="/privacy">{{ $t("footer.legal.privacy") }}</NuxtLink>
+          <NuxtLink to="/cookies">{{ $t("footer.legal.cookies") }}</NuxtLink>
+          <NuxtLink to="/terms">{{ $t("footer.legal.terms") }}</NuxtLink>
         </div>
       </div>
 
@@ -149,6 +156,7 @@
 
 <script setup>
 import { useNewsletter } from "~/composables/useNewsletter";
+import { useI18n } from "vue-i18n";
 
 import {
   InstagramIcon,
@@ -161,6 +169,7 @@ import {
   WhatsAppIcon,
 } from "~/components/icons";
 
+const { t } = useI18n();
 const { email, honeypot, isSubmitting, message, success, subscribe } =
   useNewsletter();
 
@@ -188,13 +197,13 @@ const socialLinks = [
   },
 ];
 
-const services = [
-  "Producció musical",
-  "Edició",
-  "Gravació",
-  "Mescla",
-  "Disseny de so",
-];
+const services = computed(() => [
+  t("footer.servicesList.musicProduction"),
+  t("footer.servicesList.editing"),
+  t("footer.servicesList.recording"),
+  t("footer.servicesList.mixing"),
+  t("footer.servicesList.soundDesign"),
+]);
 
 watch(message, (val) => {
   if (!val) return;
@@ -236,6 +245,22 @@ watch(message, (val) => {
   align-items: center;
 }
 
+.footer-copyright {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  margin: 0;
+}
+
+.copyright.credit {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
 /* Brand */
 .brand {
   display: flex;

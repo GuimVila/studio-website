@@ -11,5 +11,104 @@
     "resources": "Recursos",
     "subscribe": "Suscríbete",
     "contact": "Contacto"
+  },
+  "hero": {
+    "imageAlt": "Estudio de producción musical",
+    "title": "Da vida a tu música",
+    "subtitle": "Producción, mezcla y grabación profesional. Tu sonido, llevado a la perfección.",
+    "ctaPrimary": "Empieza ahora",
+    "ctaSecondary": "Mis servicios"
+  },
+  "whyMe": {
+    "title": "¿Por qué trabajar conmigo?",
+    "items": {
+      "production": {
+        "title": "Producción",
+        "description": "Desde la preproducción hasta el producto final, te acompaño en cada paso del proceso creativo."
+      },
+      "mixing": {
+        "title": "Mezcla",
+        "description": "Equipamiento boutique y criterio técnico para lograr un sonido competitivo y coherente."
+      },
+      "recording": {
+        "title": "Grabación",
+        "description": "Estudio acondicionado acústicamente y flujo de trabajo pensado para capturar interpretaciones reales."
+      },
+      "resources": {
+        "title": "Recursos",
+        "description": "Recursos y contenido para músicos y productores que quieren crecer con criterio."
+      }
+    }
+  },
+  "startToday": {
+    "title": "Empieza tu proyecto hoy",
+    "subtitle": "Producción, edición, grabación y mezcla con un flujo de trabajo ágil y eficiente.",
+    "cta": "Contáctame"
+  },
+  "footer": {
+    "brandDescription": "Estudio de sonido profesional y producción musical",
+    "sections": {
+      "services": "Servicios",
+      "contact": "Contacto",
+      "newsletter": "Newsletter"
+    },
+    "servicesList": {
+      "musicProduction": "Producción musical",
+      "editing": "Edición",
+      "recording": "Grabación",
+      "mixing": "Mezcla",
+      "soundDesign": "Diseño de sonido"
+    },
+    "contact": {
+      "location": "Riells i Viabrea, el Baix Montseny"
+    },
+    "newsletter": {
+      "text": "Suscríbete para recibir las últimas novedades, tutoriales y ofertas especiales",
+      "placeholderEmail": "Correo electrónico",
+      "button": "Suscríbete",
+      "sending": "Enviando..."
+    },
+    "legal": {
+      "copyright": "© {year} Guillem Vila. Todos los derechos reservados.",
+      "privacy": "Política de Privacidad",
+      "cookies": "Política de Cookies",
+      "terms": "Términos y Condiciones",
+      "credit": "Diseño y desarrollo web por Guillem Vila."
+    }
+  },
+  "home": {
+    "seo": {
+      "title": "Guillem Vila · Artista, productor musical y ingeniero de sonido",
+      "description": "Me llamo Guillem Vila y soy artista, productor musical e ingeniero de sonido. Ofrezco servicios profesionales de grabación, mezcla, producción musical y colaboraciones creativas para proyectos artísticos y musicales."
+    }
+  },
+  "gallery": {
+    "title": "Galería",
+    "subtitle": "Una muestra visual del estudio. Equipamiento y sesiones de trabajo.",
+    "images": {
+      "controlRoom": "Sala principal de control",
+      "analogRack": "Rack analógico",
+      "instruments": "Instrumentos",
+      "gearDetail": "Detalle del equipo",
+      "acousticTreatment": "Tratamiento acústico"
+    },
+    "seo": {
+      "title": "Galería | Guillem Vila · Artista, productor musical y ingeniero de sonido",
+      "description": "Galería. Fotografías del estudio, sesiones de grabación y conciertos, mostrando el trabajo creativo y profesional en música y sonido."
+    }
+  },
+  "about": {
+    "title": "Sobre mí",
+    "subtitle": "Un poco sobre mí y mi trayectoria en el mundo de la música",
+    "paragraphs": [
+      "Soy Guillem Vila, músico, productor e ingeniero de sonido nacido en Arenys de Mar. Durante mis primeros años en el mundo de la música, me dediqué a la formación constante entre el Taller de Músics y el AULA del Liceu, y al trabajo de campo en estudios y proyectos locales. Fui letrista y compositor de los dos primeros discos del grupo de rock Exceso, compartiendo escenario con bandas como La Fuga, Poncho K, Burning, Siniestro Total o Reincidentes.",
+      "En la segunda fase de mi formación, cursé el Bachelor en Professional Music en Berklee College of Music (Boston), con menciones en Music Production & Engineering y Performance, complementado con el minor en Music Technology & Innovation en Valencia. En Boston, tuve la oportunidad de aprender de profesores como Sean McLaughlin, Lyle Brewer, Colin Sapp, Dave Fiuczynski, Scott DeOgburn y Steve Rochinsky, una experiencia que me dio herramientas para combinar rigor técnico y expresión artística de forma efectiva.",
+      "Después, tras una breve etapa en Igloo Music en California, regresé a Cataluña, donde compagino la producción musical, la composición y la ingeniería de sonido con la docencia. He sido profesor en Microfusa y, desde hace cinco años, trabajo como profesor de música en educación secundaria, mientras continúo estudiando y perfeccionando técnicas de guitarra, bajo, voz, mezcla, mastering, producción y diseño de sonido.",
+      "Como artista, busco crear un lenguaje propio que combine influencias diversas de autores como Jacob Collier, Billie Eilish, Bob Dylan, John Mayer o Bon Iver. Me interesa una mirada minimalista y una música donde técnica y emoción conviven, con la honestidad artística y la expresión personal como valores centrales. Esta web es el espacio donde muestro todas estas facetas: músico, productor, ingeniero y docente, con la música como eje central de mi trabajo y mi pasión."
+    ],
+    "seo": {
+      "title": "Sobre mí | Guillem Vila · Artista, productor musical e ingeniero de sonido",
+      "description": "Me llamo Guillem Vila y soy artista, productor musical e ingeniero de sonido. Tengo experiencia en grabación, mezcla y producción para artistas y proyectos profesionales."
+    }
   }
 }
