@@ -1,0 +1,15 @@
+{
+  "hello": "Hello",
+  "nav": {
+    "logoAltDark": "Logo in dark mode",
+    "logoAltLight": "Logo in light mode",
+    "mobileToggle": "Open menu",
+    "home": "Home",
+    "gallery": "Gallery",
+    "services": "Services",
+    "about": "About",
+    "resources": "Resources",
+    "subscribe": "Subscribe",
+    "contact": "Contact"
+  }
+}

@@ -1,7 +1,7 @@
 // scripts/generate-roadmap-json.mjs
 import fs from "node:fs";
 import path from "node:path";
-import xlsx from "xlsx";
+import * as xlsx from "@e965/xlsx";
 
 const XLSX_PATH = path.resolve("data/roadmap_estudi_so.xlsx");
 const OUT_PATH = path.resolve("data/roadmap.json");
@@ -16,7 +16,8 @@ if (!fs.existsSync(XLSX_PATH)) {
   fail(`Missing file: ${XLSX_PATH}`);
 }
 
-const wb = xlsx.readFile(XLSX_PATH);
+const buf = fs.readFileSync(XLSX_PATH);
+const wb = xlsx.read(buf, { type: "buffer" });
 if (!wb.SheetNames.includes(SHEET_NAME)) {
   fail(`Missing sheet "${SHEET_NAME}". Found: ${wb.SheetNames.join(", ")}`);
 }

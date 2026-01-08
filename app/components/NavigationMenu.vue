@@ -16,20 +16,24 @@
       </div>
       <button class="mobile-toggle" @click="toggleMenu">☰</button>
       <ul class="nav-menu" :class="{ active: menuOpen }">
-        <li><NuxtLink to="/" class="nav-link" @click="menuOpen = false">Inici</NuxtLink></li>
+        <li>
+          <NuxtLink to="/" class="nav-link" @click="menuOpen = false"
+            >{{ $t("nav.home") }}</NuxtLink
+          >
+        </li>
         <li>
           <NuxtLink to="/gallery" class="nav-link" @click="menuOpen = false"
-            >Galeria</NuxtLink
+            >{{ $t("nav.gallery") }}</NuxtLink
           >
         </li>
         <li>
           <NuxtLink to="/services" class="nav-link" @click="menuOpen = false"
-            >Serveis</NuxtLink
+            >{{ $t("nav.services") }}</NuxtLink
           >
         </li>
         <li>
           <NuxtLink to="/about" class="nav-link" @click="menuOpen = false"
-            >Sobre mi</NuxtLink
+            >{{ $t("nav.about") }}</NuxtLink
           >
         </li>
         <!-- <li>
@@ -38,29 +42,32 @@
         <li><NuxtLink to="/music" class="nav-link" @click="menuOpen = false">Música</NuxtLink></li> -->
         <li>
           <NuxtLink to="/resources" class="nav-link" @click="menuOpen = false"
-            >Recursos</NuxtLink
+            >{{ $t("nav.resources") }}</NuxtLink
           >
         </li>
         <li>
           <NuxtLink to="/subscribe" class="nav-link" @click="menuOpen = false"
-            >Subscriu-te</NuxtLink
+            >{{ $t("nav.subscribe") }}</NuxtLink
           >
         </li>
         <li>
           <NuxtLink to="/contact" class="nav-link" @click="menuOpen = false"
-            >Contacte</NuxtLink
+            >{{ $t("nav.contact") }}</NuxtLink
           >
         </li>
       </ul>
       <div class="user-actions">
-        <ToggleSwitch />
+        <LanguageSelector />
       </div>
+      <ToggleSwitch />
     </nav>
   </header>
 </template>
 
 <script setup>
 import ToggleSwitch from "~/components/ToggleSwitch.vue";
+import LanguageSelector from "~/components/LanguageSelector.vue";
+
 const menuOpen = ref(false);
 
 function toggleMenu() {
