@@ -1,37 +1,33 @@
 <template>
   <div class="page">
     <section class="section">
-      <h1 class="section-title">Confirmació de subscripció</h1>
+      <h1 class="section-title">{{ $t("confirmSubscribe.title") }}</h1>
 
       <!-- Estat -->
       <div class="status-text">
         <p class="status-message" :class="`status-${status}`">
           <span v-if="status === 'loading'">
-            Estem confirmant la teva subscripció...
+            {{ $t("confirmSubscribe.status.loading") }}
           </span>
 
           <span v-else-if="status === 'success'">
-            Perfecte. Ja estàs subscrit a la newsletter.
+            {{ $t("confirmSubscribe.status.success") }}
           </span>
 
           <span v-else-if="status === 'missing'">
-            Falta el token de confirmació. Si no has rebut el correu, pots
-            reenviar-lo a continuació.
+            {{ $t("confirmSubscribe.status.missing") }}
           </span>
 
           <span v-else-if="status === 'expired'">
-            Aquest enllaç de confirmació ha caducat. Pots reenviar el correu de
-            confirmació.
+            {{ $t("confirmSubscribe.status.expired") }}
           </span>
 
           <span v-else-if="status === 'invalid'">
-            Aquest enllaç de confirmació no és vàlid. Si no has rebut el correu,
-            pots reenviar-lo a continuació.
+            {{ $t("confirmSubscribe.status.invalid") }}
           </span>
 
           <span v-else>
-            Hi ha hagut un error confirmant la subscripció. Si no has rebut el
-            correu, pots reenviar-lo a continuació.
+            {{ $t("confirmSubscribe.status.error") }}
           </span>
         </p>
       </div>
@@ -39,16 +35,18 @@
       <!-- Reenviar confirmació -->
       <div v-if="status !== 'success'" class="resend-wrap">
         <div class="resend-card">
-          <h2 class="resend-title">No has rebut el correu?</h2>
+          <h2 class="resend-title">
+            {{ $t("confirmSubscribe.resend.title") }}
+          </h2>
           <p class="resend-subtitle">
-            Introdueix el teu correu i t’enviarem un nou enllaç de confirmació.
+            {{ $t("confirmSubscribe.resend.subtitle") }}
           </p>
 
           <form class="resend-form" @submit.prevent="resend">
             <input
               v-model="email"
               type="email"
-              placeholder="Correu electrònic"
+              :placeholder="$t('confirmSubscribe.resend.placeholderEmail')"
               required
               class="resend-input"
               autocomplete="email"
@@ -64,7 +62,11 @@
             >
 
             <button class="resend-button" type="submit" :disabled="isSending">
-              {{ isSending ? "Enviant..." : "Reenviar confirmació" }}
+              {{
+                isSending
+                  ? $t("confirmSubscribe.resend.sending")
+                  : $t("confirmSubscribe.resend.button")
+              }}
             </button>
 
             <p v-if="resendMessage" class="resend-message">
@@ -76,7 +78,9 @@
 
       <!-- Back -->
       <div class="back-wrap">
-        <NuxtLink class="btn btn-secondary" to="/"> Tornar a l'inici </NuxtLink>
+        <NuxtLink class="btn btn-secondary" to="/">
+          {{ $t("confirmSubscribe.backHome") }}
+        </NuxtLink>
       </div>
     </section>
   </div>
@@ -85,7 +89,9 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
+import { useI18n } from "#i18n";
 
+const { t } = useI18n();
 const status = ref("loading");
 
 // Reenviar confirmació
@@ -104,7 +110,6 @@ function safeGetLastEmail() {
 }
 
 onMounted(async () => {
-  // Prefill email si el tenim guardat (pas 6 el farem a useNewsletter.ts)
   email.value = safeGetLastEmail();
 
   const route = useRoute();
@@ -126,7 +131,6 @@ onMounted(async () => {
       return;
     }
 
-    // Si backend retorna reason, el fem servir per UX
     const reason = res && typeof res === "object" ? res.reason : null;
     if (reason === "expired") status.value = "expired";
     else if (reason === "invalid") status.value = "invalid";
@@ -142,8 +146,7 @@ async function resend() {
 
   // Honeypot (bots) → UX silenciosa
   if (honeypot.value) {
-    resendMessage.value =
-      "Si hi ha una subscripció pendent per aquest correu, rebràs un nou enllaç de confirmació.";
+    resendMessage.value = t("confirmSubscribe.resend.silentMessage");
     return;
   }
 
@@ -160,16 +163,20 @@ async function resend() {
     });
 
     // UX silenciosa (no confirmem existència)
-    resendMessage.value =
-      "Si hi ha una subscripció pendent per aquest correu, rebràs un nou enllaç de confirmació.";
+    resendMessage.value = t("confirmSubscribe.resend.silentMessage");
   } catch (e) {
     console.error("[newsletter resend error]", e);
-    resendMessage.value =
-      "Si hi ha una subscripció pendent per aquest correu, rebràs un nou enllaç de confirmació.";
+    resendMessage.value = t("confirmSubscribe.resend.silentMessage");
   } finally {
     isSending.value = false;
   }
 }
+useHead(() => ({
+  title: t("confirmSubscribe.seo.title"),
+  meta: [
+    { name: "description", content: t("confirmSubscribe.seo.description") },
+  ],
+}));
 </script>
 
 <style scoped>

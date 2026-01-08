@@ -1,3 +1,68 @@
+<template>
+  <div class="page">
+    <section class="section">
+      <h1 class="section-title heading-accent">Roadmap d'aprenentatge</h1>
+      <p>
+        Explora aquest roadmap d'aprenentatge interactiu per descobrir els
+        recursos i passos recomanats per avançar en el teu camí d'aprenentatge.
+      </p>
+    </section>
+
+    <RoadmapControls
+      :categories="categories"
+      :next-id="nextId"
+      :next-title="nextTitle"
+      :search="search"
+      :category="category"
+      :hide-locked="hideLocked"
+      :zoom="zoom"
+      :focus-mode="focusMode"
+      @update:search="search = $event"
+      @update:category="category = $event"
+      @update:hide-locked="hideLocked = $event"
+      @update:focus-mode="focusMode = $event"
+      @update:zoom="zoom = $event"
+      @reset="resetAll"
+      @next="goNext"
+    />
+
+    <RoadmapHUD
+      :completed-count="completedCount"
+      :total-count="totalCount"
+      :streak="streak"
+      :estimated-minutes="estimatedMinutes"
+    />
+
+    <RoadmapMap
+      ref="mapRef"
+      class="map"
+      :nodes="data.nodes"
+      :zoom="zoom"
+      :search="search"
+      :category="category"
+      :hide-locked="hideLocked"
+      :focus-ids="focusIds"
+      :highlight-edges="highlightEdges"
+      :highlight-id="nextId"
+      :next-seq="nextSeq"
+      :is-completed="isCompleted"
+      :can-unlock="canUnlock"
+      @select="onSelect"
+    />
+
+    <RoadmapSidebar
+      :open="sidebarOpen"
+      :node="selectedNode"
+      :completed="selectedNode ? isCompleted(selectedNode.id) : false"
+      :unlockable="selectedNode ? canUnlock(selectedNode) : false"
+      :is-completed="isCompleted"
+      @close="sidebarOpen = false"
+      @toggle-complete="toggleComplete"
+      @jump="jumpTo"
+    />
+  </div>
+</template>
+
 <script setup>
 import { ref, computed } from "vue";
 import { buildTopoIndex, getNextBestNode } from "~/utils/roadmapNext";
@@ -145,77 +210,14 @@ function onSelect(id) {
 }
 </script>
 
-<template>
-  <div class="page">
-    <section class="section">
-      <h1 class="section-title heading-accent">Roadmap d'aprenentatge</h1>
-      <p>
-        Explora aquest roadmap d'aprenentatge interactiu per descobrir els
-        recursos i passos recomanats per avançar en el teu camí d'aprenentatge.
-      </p>
-    </section>
-
-    <RoadmapControls
-      :categories="categories"
-      :next-id="nextId"
-      :next-title="nextTitle"
-      :search="search"
-      :category="category"
-      :hide-locked="hideLocked"
-      :zoom="zoom"
-      :focus-mode="focusMode"
-      @update:search="search = $event"
-      @update:category="category = $event"
-      @update:hide-locked="hideLocked = $event"
-      @update:focus-mode="focusMode = $event"
-      @update:zoom="zoom = $event"
-      @reset="resetAll"
-      @next="goNext"
-    />
-
-    <RoadmapHUD
-      :completed-count="completedCount"
-      :total-count="totalCount"
-      :streak="streak"
-      :estimated-minutes="estimatedMinutes"
-    />
-
-    <RoadmapMap
-      ref="mapRef"
-      class="map"
-      :nodes="data.nodes"
-      :zoom="zoom"
-      :search="search"
-      :category="category"
-      :hide-locked="hideLocked"
-      :focus-ids="focusIds"
-      :highlight-edges="highlightEdges"
-      :highlight-id="nextId"
-      :next-seq="nextSeq"
-      :is-completed="isCompleted"
-      :can-unlock="canUnlock"
-      @select="onSelect"
-    />
-
-    <RoadmapSidebar
-      :open="sidebarOpen"
-      :node="selectedNode"
-      :completed="selectedNode ? isCompleted(selectedNode.id) : false"
-      :unlockable="selectedNode ? canUnlock(selectedNode) : false"
-      :is-completed="isCompleted"
-      @close="sidebarOpen = false"
-      @toggle-complete="toggleComplete"
-      @jump="jumpTo"
-    />
-  </div>
-</template>
-
 <style scoped>
 .page {
   max-width: 1400px;
   margin: 0 auto;
   padding: 4rem 2rem;
   color: var(--text);
+  position: relative;
+  isolation: isolate; /* crea un stacking context net */
 }
 
 .header {

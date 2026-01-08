@@ -46,7 +46,6 @@ function formatTime(minutes) {
 
 <style scoped>
 .hud {
-  position: sticky;
   top: calc(88px + 8rem);
   z-index: 15;
   display: flex;

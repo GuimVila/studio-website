@@ -175,7 +175,6 @@ const emit = defineEmits([
 
 <style scoped>
 .controls {
-  position: sticky;
   top: 88px;
   z-index: 20;
   backdrop-filter: blur(12px);

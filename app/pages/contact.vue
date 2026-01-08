@@ -1,44 +1,44 @@
 <template>
   <div class="page-wrapper">
     <section class="section">
-      <h1 class="section-title heading-accent">Contacta amb mi</h1>
+      <h1 class="section-title heading-accent">{{ $t("contact.title") }}</h1>
 
       <p class="section-subtitle">
-        Explica’m el teu projecte i et respondré amb una proposta personalitzada
+        {{ $t("contact.subtitle") }}
       </p>
 
       <div class="contact-container">
         <!-- FORM -->
         <form class="contact-form" @submit.prevent="submitForm">
           <div class="form-group">
-            <label for="name">Nom complet *</label>
+            <label for="name">{{ $t("contact.form.nameLabel") }}</label>
             <input
               id="name"
               v-model="formData.name"
               type="text"
               required
-              placeholder="El teu nom"
+              :placeholder="$t('contact.form.namePlaceholder')"
             >
           </div>
 
           <div class="form-group">
-            <label for="email">Email *</label>
+            <label for="email">{{ $t("contact.form.emailLabel") }}</label>
             <input
               id="email"
               v-model="formData.email"
               type="email"
               required
-              placeholder="email@exemple.com"
+              :placeholder="`${$t('contact.form.emailPlaceholderUser')}@${$t('contact.form.emailPlaceholderDomain')}`"
             >
           </div>
 
           <div class="form-group">
-            <label for="phone">Telèfon</label>
+            <label for="phone">{{ $t("contact.form.phoneLabel") }}</label>
             <input
               id="phone"
               v-model="formData.phone"
               type="tel"
-              placeholder="+34 600 000 000"
+              :placeholder="$t('contact.form.phonePlaceholder')"
             >
           </div>
 
@@ -51,24 +51,36 @@
           >
 
           <div class="form-group">
-            <label for="service">Servei d’interès *</label>
+            <label for="service">{{ $t("contact.form.serviceLabel") }}</label>
             <select id="service" v-model="formData.service" required>
-              <option value="">Selecciona un servei</option>
-              <option value="mescla">Mescla</option>
-              <option value="gravacio">Gravació</option>
-              <option value="produccio">Producció</option>
-              <option value="edicio">Edició</option>
-              <option value="altre">Altres</option>
+              <option value="">
+                {{ $t("contact.form.servicePlaceholder") }}
+              </option>
+              <option value="mescla">
+                {{ $t("contact.form.services.mixing") }}
+              </option>
+              <option value="gravacio">
+                {{ $t("contact.form.services.recording") }}
+              </option>
+              <option value="produccio">
+                {{ $t("contact.form.services.production") }}
+              </option>
+              <option value="edicio">
+                {{ $t("contact.form.services.editing") }}
+              </option>
+              <option value="altre">
+                {{ $t("contact.form.services.other") }}
+              </option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="message">Missatge *</label>
+            <label for="message">{{ $t("contact.form.messageLabel") }}</label>
             <textarea
               id="message"
               v-model="formData.message"
               required
-              placeholder="Explica el teu projecte, objectius, terminis, etc."
+              :placeholder="$t('contact.form.messagePlaceholder')"
             />
           </div>
 
@@ -77,7 +89,11 @@
             class="btn btn-primary submit-btn"
             :disabled="isSubmitting"
           >
-            {{ isSubmitting ? "Enviant..." : "Enviar missatge" }}
+            {{
+              isSubmitting
+                ? $t("contact.form.sending")
+                : $t("contact.form.submit")
+            }}
           </button>
 
           <p
@@ -93,13 +109,13 @@
         <div class="contact-cards">
           <a href="mailto:info@guillemvila.com" class="contact-card">
             <div class="card-icon">📧</div>
-            <h3>Email</h3>
+            <h3>{{ $t("contact.cards.email") }}</h3>
             <p>info@guillemvila.com</p>
           </a>
 
           <a href="tel:+34682463081" class="contact-card">
             <div class="card-icon">📱</div>
-            <h3>Telèfon</h3>
+            <h3>{{ $t("contact.cards.phone") }}</h3>
             <p>+34 682 463 081</p>
           </a>
 
@@ -109,7 +125,7 @@
             class="contact-card"
           >
             <div class="card-icon">📍</div>
-            <h3>Ubicació</h3>
+            <h3>{{ $t("contact.cards.location") }}</h3>
             <p>Riells i Viabrea, el Baix Montseny</p>
           </a>
         </div>
@@ -119,7 +135,10 @@
 </template>
 
 <script setup>
+import { useI18n } from "vue-i18n";
 import { useContactForm } from "~/composables/useContactForm";
+
+const { t } = useI18n();
 
 const {
   formData,
@@ -130,16 +149,10 @@ const {
   honeypot,
 } = useContactForm();
 
-useHead({
-  title: "Contacte | Guillem Vila · Productor musical i enginyer de so",
-  meta: [
-    {
-      name: "description",
-      content:
-        "Contacta amb mi per projectes de producció musical, mescla, gravació o col·laboracions creatives.",
-    },
-  ],
-});
+useHead(() => ({
+  title: t("contact.seo.title"),
+  meta: [{ name: "description", content: t("contact.seo.description") }],
+}));
 </script>
 
 <style scoped>
@@ -180,7 +193,9 @@ useHead({
   color: var(--text);
   font-size: 1rem;
   font-family: inherit;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
 }
 
 .form-group input:focus,
@@ -227,7 +242,9 @@ textarea {
   border-radius: 20px;
   text-align: center;
   border: 1px solid var(--border);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .contact-card:hover {

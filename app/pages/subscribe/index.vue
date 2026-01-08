@@ -1,11 +1,10 @@
 <template>
   <div class="page-wrapper">
     <section class="section">
-      <h1 class="section-title heading-accent">Subscriu-te</h1>
+      <h1 class="section-title heading-accent">{{ t("subscribe.title") }}</h1>
 
       <p class="section-subtitle">
-        Subscriu-te al meu butlletí per rebre les últimes novetats, tutorials i
-        ofertes especials directament al teu correu electrònic.
+        {{ t("subscribe.subtitle") }}
       </p>
 
       <form class="subscribe-form" @submit.prevent="subscribe">
@@ -13,7 +12,7 @@
           v-model="email"
           type="email"
           required
-          placeholder="Introdueix el teu correu electrònic"
+          :placeholder="t('subscribe.placeholderEmail')"
           class="subscribe-input"
         >
 
@@ -26,7 +25,7 @@
         >
 
         <button type="submit" class="btn btn-primary" :disabled="isSubmitting">
-          {{ isSubmitting ? "Enviant..." : "Subscriu-te" }}
+          {{ isSubmitting ? t("subscribe.sending") : t("subscribe.cta") }}
         </button>
       </form>
 
@@ -42,7 +41,10 @@
 </template>
 
 <script setup>
+import { useI18n } from "#i18n";
 import { useNewsletter } from "~/composables/useNewsletter";
+
+const { t } = useI18n();
 
 const {
   email,

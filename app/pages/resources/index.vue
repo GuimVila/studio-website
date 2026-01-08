@@ -1,7 +1,7 @@
 <template>
   <section class="page">
     <section class="section">
-      <h1 class="section-title heading-accent">Resources</h1>
+      <h1 class="section-title heading-accent">Recursos</h1>
     </section>
 
     <div class="cards">

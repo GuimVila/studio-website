@@ -110,5 +110,85 @@
       "title": "About | Guillem Vila · Artist, music producer and audio engineer",
       "description": "My name is Guillem Vila and I am an artist, music producer, and audio engineer. I have experience in recording, mixing, and production for artists and professional projects."
     }
+  },
+  "subscribe": {
+    "title": "Subscribe",
+    "subtitle": "Get the latest updates, tutorials, and special offers delivered directly to your email.",
+    "placeholderEmail": "Email address",
+    "button": "Subscribe",
+    "successMessage": "Thank you for subscribing! You will receive a confirmation email soon.",
+    "errorMessage": "An error occurred. Please try again later."
+  },
+  "confirmSubscribe": {
+    "title": "Subscription confirmation",
+    "status": {
+      "loading": "We’re confirming your subscription...",
+      "success": "All set. You’re now subscribed to the newsletter.",
+      "missing": "The confirmation token is missing. If you didn’t receive the email, you can resend it below.",
+      "expired": "This confirmation link has expired. You can resend the confirmation email.",
+      "invalid": "This confirmation link is not valid. If you didn’t receive the email, you can resend it below.",
+      "error": "Something went wrong while confirming your subscription. If you didn’t receive the email, you can resend it below."
+    },
+    "resend": {
+      "title": "Didn’t receive the email?",
+      "subtitle": "Enter your email and we’ll send you a new confirmation link.",
+      "placeholderEmail": "Email address",
+      "button": "Resend confirmation",
+      "sending": "Sending...",
+      "silentMessage": "If there is a pending subscription for this email, you will receive a new confirmation link."
+    },
+    "backHome": "Back to home",
+    "seo": {
+      "title": "Subscription confirmation | Guillem Vila",
+      "description": "Newsletter subscription confirmation page."
+    }
+  },
+  "subscribeError": {
+    "title": "Something went wrong",
+    "message": "There was a problem processing your subscription.\nPlease try again later.",
+    "actions": {
+      "backHome": "Back to home",
+      "resubscribe": "Subscribe again"
+    },
+    "seo": {
+      "title": "Error | Guillem Vila",
+      "description": "An error occurred while processing the newsletter subscription. Please try again later or subscribe again."
+    }
+  },
+  "contact": {
+    "title": "Contact me",
+    "subtitle": "Tell me about your project and I’ll get back to you with a tailored proposal",
+    "form": {
+      "nameLabel": "Full name *",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email *",
+      "emailPlaceholderUser": "email",
+      "emailPlaceholderDomain": "example.com",
+      "phoneLabel": "Phone",
+      "phonePlaceholder": "+34 600 000 000",
+      "serviceLabel": "Service of interest *",
+      "servicePlaceholder": "Select a service",
+      "services": {
+        "mixing": "Mixing",
+        "recording": "Recording",
+        "production": "Production",
+        "editing": "Editing",
+        "other": "Other"
+      },
+      "messageLabel": "Message *",
+      "messagePlaceholder": "Describe your project, goals, timeline, etc.",
+      "submit": "Send message",
+      "sending": "Sending..."
+    },
+    "cards": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "locationText": "Riells i Viabrea, Baix Montseny"
+    },
+    "seo": {
+      "title": "Contact | Guillem Vila · Music producer and audio engineer",
+      "description": "Contact me for music production, mixing, recording, or creative collaborations."
+    }
   }
 }

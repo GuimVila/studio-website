@@ -110,5 +110,84 @@
       "title": "Sobre mí | Guillem Vila · Artista, productor musical e ingeniero de sonido",
       "description": "Me llamo Guillem Vila y soy artista, productor musical e ingeniero de sonido. Tengo experiencia en grabación, mezcla y producción para artistas y proyectos profesionales."
     }
+  },
+  "subscribe": {
+    "title": "Suscríbete",
+    "subtitle": "Apúntate para recibir novedades, tutoriales y recursos.",
+    "placeholderEmail": "Correo electrónico",
+    "cta": "Suscríbete",
+    "sending": "Enviando..."
+  },
+  "confirmSubscribe": {
+    "title": "Confirmación de suscripción",
+    "status": {
+      "loading": "Estamos confirmando tu suscripción...",
+      "success": "Perfecto. Ya estás suscrito a la newsletter.",
+      "missing": "Falta el token de confirmación. Si no has recibido el correo, puedes reenviarlo a continuación.",
+      "expired": "Este enlace de confirmación ha caducado. Puedes reenviar el correo de confirmación.",
+      "invalid": "Este enlace de confirmación no es válido. Si no has recibido el correo, puedes reenviarlo a continuación.",
+      "error": "Ha ocurrido un error al confirmar la suscripción. Si no has recibido el correo, puedes reenviarlo a continuación."
+    },
+    "resend": {
+      "title": "¿No has recibido el correo?",
+      "subtitle": "Introduce tu correo y te enviaremos un nuevo enlace de confirmación.",
+      "placeholderEmail": "Correo electrónico",
+      "button": "Reenviar confirmación",
+      "sending": "Enviando...",
+      "silentMessage": "Si hay una suscripción pendiente para este correo, recibirás un nuevo enlace de confirmación."
+    },
+    "backHome": "Volver al inicio",
+    "seo": {
+      "title": "Confirmación de suscripción | Guillem Vila",
+      "description": "Página de confirmación de suscripción a la newsletter."
+    }
+  },
+  "subscribeError": {
+    "title": "Algo no ha ido bien",
+    "message": "Ha habido un problema al procesar la suscripción.\nPor favor, vuelve a intentarlo más tarde.",
+    "actions": {
+      "backHome": "Volver al inicio",
+      "resubscribe": "Volver a suscribirme"
+    },
+    "seo": {
+      "title": "Error | Guillem Vila",
+      "description": "Se ha producido un error al procesar la suscripción a la newsletter. Vuelve a intentarlo más tarde o suscríbete de nuevo."
+    }
+  },
+  "contact": {
+    "title": "Contacta conmigo",
+    "subtitle": "Cuéntame tu proyecto y te responderé con una propuesta personalizada",
+    "form": {
+      "nameLabel": "Nombre completo *",
+      "namePlaceholder": "Tu nombre",
+      "emailLabel": "Email *",
+      "emailPlaceholderUser": "correo",
+      "emailPlaceholderDomain": "ejemplo.com",
+      "phoneLabel": "Teléfono",
+      "phonePlaceholder": "+34 600 000 000",
+      "serviceLabel": "Servicio de interés *",
+      "servicePlaceholder": "Selecciona un servicio",
+      "services": {
+        "mixing": "Mezcla",
+        "recording": "Grabación",
+        "production": "Producción",
+        "editing": "Edición",
+        "other": "Otros"
+      },
+      "messageLabel": "Mensaje *",
+      "messagePlaceholder": "Cuéntame tu proyecto, objetivos, plazos, etc.",
+      "submit": "Enviar mensaje",
+      "sending": "Enviando..."
+    },
+    "cards": {
+      "email": "Email",
+      "phone": "Teléfono",
+      "location": "Ubicación",
+      "locationText": "Riells i Viabrea, el Baix Montseny"
+    },
+    "seo": {
+      "title": "Contacto | Guillem Vila · Productor musical e ingeniero de sonido",
+      "description": "Contacta conmigo para proyectos de producción musical, mezcla, grabación o colaboraciones creativas."
+    }
   }
 }

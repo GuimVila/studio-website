@@ -84,8 +84,52 @@ const { isUnset, accept, reject } = useCookieConsent();
 
 @media (max-width: 640px) {
   .cookie-banner {
+    bottom: 0.75rem;
+    width: calc(100% - 1.5rem);
+    max-width: 520px;
+
+    padding: 0.85rem 0.95rem;
+    border-radius: 14px;
+    gap: 0.75rem;
+
     flex-direction: column;
-    text-align: center;
+    align-items: stretch;
+    text-align: left;
+
+    /* Coherent amb el teu header */
+    background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-1);
+  }
+
+  .cookie-text {
+    font-size: 0.9rem;
+    line-height: 1.35;
+
+    /* Manté el banner baix */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .cookie-actions {
+    width: 100%;
+    gap: 0.6rem;
+  }
+
+  .btn-reject,
+  .btn-accept {
+    flex: 1;
+    padding: 0.55rem 0.75rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .cookie-text {
+    -webkit-line-clamp: 1;
   }
 }
 </style>

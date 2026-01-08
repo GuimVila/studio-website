@@ -1,19 +1,21 @@
 <template>
   <div class="page">
     <section class="section">
-      <h1 class="section-title">Alguna cosa no ha anat bé</h1>
+      <h1 class="section-title">{{ t("subscribeError.title") }}</h1>
 
       <div class="error-text">
-        <p>
-          Hi ha hagut un problema processant la subscripció.<br >
-          Si us plau, torna-ho a provar més tard.
+        <p style="white-space: pre-line">
+          {{ t("subscribeError.message") }}
         </p>
       </div>
 
       <div class="actions">
-        <NuxtLink to="/" class="btn btn-secondary"> Tornar a l'inici </NuxtLink>
+        <NuxtLink to="/" class="btn btn-secondary">
+          {{ t("subscribeError.actions.backHome") }}
+        </NuxtLink>
+
         <NuxtLink to="/subscribe" class="btn btn-primary">
-          Tornar-me a subscriure
+          {{ t("subscribeError.actions.resubscribe") }}
         </NuxtLink>
       </div>
     </section>
@@ -21,9 +23,19 @@
 </template>
 
 <script setup>
-useHead({
-  title: "Error | Guillem Vila",
-});
+import { useI18n } from "#i18n";
+
+const { t } = useI18n();
+
+useHead(() => ({
+  title: t("subscribeError.seo.title"),
+  meta: [
+    {
+      name: "description",
+      content: t("subscribeError.seo.description"),
+    },
+  ],
+}));
 </script>
 
 <style scoped>
