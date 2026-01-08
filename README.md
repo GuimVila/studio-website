@@ -55,6 +55,36 @@ Example:
 
 ---
 
+## Scripts (roadmap & resources)
+
+These scripts live in `./scripts/`.
+
+### 1) Generate `data/roadmap.json` from the Excel
+
+```bash
+node ./scripts/generate-roadmap-json.mjs
+```
+
+### 2) Generate/update scaffolded content under `content/resources/**`
+
+```bash
+node ./scripts/scaffold-roadmap-content.mjs
+```
+
+### 3) Sync the roadmap into `public/roadmap.json` (so the frontend can load it)
+
+```bash
+node ./scripts/sync-roadmap-public.mjs
+```
+
+### Run everything (recommended)
+
+```bash
+node ./scripts/generate-roadmap-json.mjs && node ./scripts/scaffold-roadmap-content.mjs && node ./scripts/sync-roadmap-public.mjs
+```
+
+---
+
 ## Contributing (Wikipedia-style)
 
 Contributions are welcome via Pull Requests.

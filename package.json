@@ -8,7 +8,10 @@
     "build": "npm run sync:roadmap && nuxt build",
     "generate": "npm run sync:roadmap && nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:nuxt": "vitest --project nuxt"
   },
   "dependencies": {
     "@nuxt/content": "^3.8.2",
@@ -36,9 +39,13 @@
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
+    "@e965/xlsx": "^0.20.3",
     "@iconify-json/lucide": "^1.2.82",
     "@nuxt/image": "^2.0.0",
+    "@nuxtjs/i18n": "^10.2.1",
     "@nuxtjs/sitemap": "^7.5.0",
-    "xlsx": "^0.18.5"
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^20.1.0",
+    "vitest": "^3.2.4"
   }
 }

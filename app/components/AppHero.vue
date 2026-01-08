@@ -4,7 +4,7 @@
     <NuxtImg
       class="hero-media"
       src="/images/hero-collage.png"
-      alt="Estudi de producció musical"
+      :alt="$t('hero.imageAlt')"
       format="webp"
       sizes="(max-width: 768px) 100vw, 1400px"
     />
@@ -14,16 +14,11 @@
 
     <!-- Contingut -->
     <div class="hero-content hero-content--bg">
-      <h1>Dona vida a la teva música</h1>
-      <p>
-        Producció, mescla, i gravació professional. El teu so, portat a la
-        perfecció.
-      </p>
+      <h1>{{ $t('hero.title') }}</h1>
+      <p>{{ $t('hero.subtitle') }}</p>
       <div class="cta-buttons">
-        <NuxtLink to="/contact" class="btn btn-primary">Comença ara</NuxtLink>
-        <NuxtLink to="/services" class="btn btn-secondary"
-          >Els meus serveis</NuxtLink
-        >
+        <NuxtLink to="/contact" class="btn btn-primary">{{ $t('hero.ctaPrimary') }}</NuxtLink>
+        <NuxtLink to="/services" class="btn btn-secondary">{{ $t('hero.ctaSecondary') }}</NuxtLink>
       </div>
     </div>
   </section>

@@ -1,0 +1,114 @@
+{
+  "hello": "Hola",
+  "nav": {
+    "logoAltDark": "Logo en mode fosc",
+    "logoAltLight": "Logo en mode clar",
+    "mobileToggle": "Obrir menú",
+    "home": "Inici",
+    "gallery": "Galeria",
+    "services": "Serveis",
+    "about": "Sobre mi",
+    "resources": "Recursos",
+    "subscribe": "Subscriu-te",
+    "contact": "Contacte"
+  },
+  "hero": {
+    "imageAlt": "Estudi de producció musical",
+    "title": "Dona vida a la teva música",
+    "subtitle": "Producció, mescla i gravació professional. El teu so, portat a la perfecció.",
+    "ctaPrimary": "Comença ara",
+    "ctaSecondary": "Els meus serveis"
+  },
+  "whyMe": {
+    "title": "Per què treballar amb mi?",
+    "items": {
+      "production": {
+        "title": "Producció",
+        "description": "Des de la preproducció fins al producte final, t'acompanyo en cada pas del procés creatiu."
+      },
+      "mixing": {
+        "title": "Mescla",
+        "description": "Equipament boutique i criteri tècnic per aconseguir un so competitiu i coherent."
+      },
+      "recording": {
+        "title": "Gravació",
+        "description": "Estudi acustitzat i flux de treball pensat per capturar interpretacions reals."
+      },
+      "resources": {
+        "title": "Recursos",
+        "description": "Recursos i contingut per a músics i productors que volen créixer amb criteri."
+      }
+    }
+  },
+  "startToday": {
+    "title": "Comença el teu projecte avui",
+    "subtitle": "Producció, edició, gravació i mescla amb un flux de treball àgil i eficient.",
+    "cta": "Contacta'm"
+  },
+  "footer": {
+    "brandDescription": "Estudi de so professional i producció musical",
+    "sections": {
+      "services": "Serveis",
+      "contact": "Contacte",
+      "newsletter": "Newsletter"
+    },
+    "servicesList": {
+      "musicProduction": "Producció musical",
+      "editing": "Edició",
+      "recording": "Gravació",
+      "mixing": "Mescla",
+      "soundDesign": "Disseny de so"
+    },
+    "contact": {
+      "location": "Riells i Viabrea, el Baix Montseny"
+    },
+    "newsletter": {
+      "text": "Subscriu-te per rebre les últimes novetats, tutorials i ofertes especials",
+      "placeholderEmail": "Correu electrònic",
+      "button": "Subscriu-te",
+      "sending": "Enviant..."
+    },
+    "legal": {
+      "copyright": "© {year} Guillem Vila. Tots els drets reservats.",
+      "privacy": "Política de Privacitat",
+      "cookies": "Política de Cookies",
+      "terms": "Termes i Condicions",
+      "credit": "Disseny i desenvolupament web per Guillem Vila."
+    }
+  },
+  "home": {
+    "seo": {
+      "title": "Guillem Vila · Artista, productor musical i enginyer de so",
+      "description": "Em dic Guillem Vila i sóc artista, productor musical i enginyer de so. Ofereixo serveis professionals de gravació, mescla, producció musical i col·laboracions creatives per projectes artístics i musicals."
+    }
+  },
+  "gallery": {
+    "title": "Galeria",
+    "subtitle": "Una mostra visual de l'estudi. Equipaments i sessions de treball.",
+    "images": {
+      "controlRoom": "Sala principal de control",
+      "analogRack": "Rack analògic",
+      "instruments": "Instruments",
+      "gearDetail": "Detall equipament",
+      "acousticTreatment": "Tractament acústic"
+    },
+    "seo": {
+      "title": "Galeria | Guillem Vila · Artista, productor musical i enginyer de so",
+      "description": "Galeria. Fotografies de l’estudi, sessions de gravació i concerts, mostrant el treball creatiu i professional en música i so."
+    }
+  },
+  "about": {
+    "title": "Sobre mi",
+    "subtitle": "Una mica sobre mi i la meva trajectòria en el món de la música",
+    "paragraphs": [
+      "Sóc Guillem Vila, músic, productor i enginyer de so nascut a Arenys de Mar. Durant els meus primers anys en el món de la música, em vaig dedicar a la formació constant entre el Taller de Músics i l'AULA del Liceu i al treball de camp en estudis i projectes locals. Vaig ser lletrista i compositor dels dos primers discos del grup de rock Exceso, compartint escenari amb grups com La Fuga, Poncho K, Burning, Siniestro Total o Reincidentes.",
+      "Al llarg de la segona fase de la meva formació, vaig cursar el Bachelor en Professional Music al Berklee College of Music (Boston), amb mencions en Music Production & Engineering i Performance, complementat amb el minor en Music Technology & Innovation a València. A Boston, vaig tenir l’oportunitat d’aprendre de professors com Sean McLaughlin, Lyle Brewer, Colin Sapp, Dave Fiuczynski, Scott DeOgburn i Steve Rochinsky, experiència que em va donar eines per combinar rigor tècnic i expressió artística de manera efectiva.",
+      "A continuació, després d’una breu etapa a Igloo Music a Califòrnia, vaig tornar a Catalunya, on compagino la producció musical, la composició i l’enginyeria de so amb la docència. He estat professor a Microfusa i, des de fa cinc anys, treballo com a professor de música d'educació secundària, mentre continuo estudiant i perfeccionant tècniques de guitarra, baix, veu, mescla, mastering, producció i disseny de so.",
+      "Com a artista, busco crear un llenguatge propi que combini influències diverses d'autors com Jacob Collier, Billie Eilish, Bob Dylan, John Mayer o Bon Iver. M’interessa una mirada minimalista i una música on tècnica i emoció conviuen, amb l’honestedat artística i l’expressió personal com a valors centrals. Aquesta web és l’espai on mostro totes aquestes facetes: músic, productor, enginyer i docent, amb la música com a eix central del meu treball i la meva passió."
+    ],
+    "seo": {
+      "title": "Sobre mi | Guillem Vila · Artista, productor musical i enginyer de so",
+      "description": "Em dic Guillem Vila i sóc artista, productor musical i enginyer de so. Tinc experiència en gravació, mescla i producció per a artistes i projectes professionals."
+    }
+  }
+}

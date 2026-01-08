@@ -24,6 +24,7 @@ export default defineNuxtConfig({
     "motion-v/nuxt",
     "@nuxtjs/supabase",
     "@nuxtjs/sitemap",
+    "@nuxtjs/i18n",
   ],
 
   image: {
@@ -52,5 +53,14 @@ export default defineNuxtConfig({
 
   sitemap: {
     exclude: ["/subscribe/error", "/subscribe/confirmed"],
+  },
+  i18n: {
+    strategy: "prefix_except_default",
+    defaultLocale: "ca",
+    locales: [
+      { code: "ca", language: "ca-ES", name: "Català", file: "ca.json" },
+      { code: "es", language: "es-ES", name: "Español", file: "es.json" },
+      { code: "en", language: "en-US", name: "English", file: "en.json" },
+    ],
   },
 });

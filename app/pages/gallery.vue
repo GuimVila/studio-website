@@ -1,9 +1,9 @@
 <template>
   <div class="page-wrapper">
     <section class="section">
-      <h1 class="section-title heading-accent">Galeria</h1>
+      <h1 class="section-title heading-accent">{{ t("gallery.title") }}</h1>
       <p class="section-subtitle">
-        Una mostra visual de l'estudi. Equipaments i sessions de treball.
+        {{ t("gallery.subtitle") }}
       </p>
 
       <GalleryGrid :images="images" />
@@ -12,26 +12,31 @@
 </template>
 
 <script setup>
+import { useI18n } from "vue-i18n";
 import GalleryGrid from "~/components/GalleryGrid.vue";
 
+const { t } = useI18n();
+
 const images = [
-  { src: "/images/foto4_galeria.jpg", alt: "Sala principal de control" },
-  { src: "/images/foto8_galeria.jpg", alt: "Rack analògic" },
-  { src: "/images/foto3_galeria.jpg", alt: "Instruments" },
-  { src: "/images/foto1_galeria.jpg", alt: "Detall equipament" },
-  { src: "/images/foto7_galeria.jpg", alt: "Tractament acústic" },
+  { src: "/images/foto4_galeria.jpg", alt: t("gallery.images.controlRoom") },
+  { src: "/images/foto8_galeria.jpg", alt: t("gallery.images.analogRack") },
+  { src: "/images/foto3_galeria.jpg", alt: t("gallery.images.instruments") },
+  { src: "/images/foto1_galeria.jpg", alt: t("gallery.images.gearDetail") },
+  {
+    src: "/images/foto7_galeria.jpg",
+    alt: t("gallery.images.acousticTreatment"),
+  },
 ];
 
-useHead({
-  title: "Galeria | Guillem Vila · Artista, productor musical i enginyer de so",
+useHead(() => ({
+  title: t("gallery.seo.title"),
   meta: [
     {
       name: "description",
-      content:
-        "Galeria. Fotografies de l’estudi, sessions de gravació i concerts, mostrant el treball creatiu i professional en música i so.",
+      content: t("gallery.seo.description"),
     },
   ],
-});
+}));
 </script>
 
 <style scoped>
