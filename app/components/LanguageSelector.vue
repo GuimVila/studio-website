@@ -1,17 +1,17 @@
 <template>
   <div class="language-selector">
-    <label class="sr-only" for="lang">Language</label>
+    <label class="sr-only" for="lang">{{ $t("nav.language") }}</label>
 
     <select
       id="lang"
       class="lang-select"
       :value="current"
-      aria-label="Language"
+      :aria-label="$t('nav.language')"
       @change="onChange"
     >
-      <option value="ca">Català</option>
-      <option value="es">Castellano</option>
-      <option value="en">English</option>
+      <option value="ca">CA</option>
+      <option value="es">ES</option>
+      <option value="en">EN</option>
     </select>
   </div>
 </template>
@@ -34,8 +34,9 @@ async function onChange(e) {
 }
 
 .lang-select {
-  padding: 8px 10px;
-  border-radius: 12px;
+  height: 38px;
+  padding: 0 10px;
+  border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text);
@@ -44,13 +45,11 @@ async function onChange(e) {
   line-height: 1;
 }
 
-/* evita “lletra negra sobre fons fosc” en alguns navegadors */
 .lang-select option {
   color: var(--text);
   background: var(--surface);
 }
 
-/* focus accessible i coherent amb la teva UI */
 .lang-select:focus {
   outline: none;
   border-color: rgba(208, 138, 63, 0.65);

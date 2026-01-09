@@ -14,11 +14,17 @@
 
     <!-- Contingut -->
     <div class="hero-content hero-content--bg">
-      <h1>{{ $t('hero.title') }}</h1>
-      <p>{{ $t('hero.subtitle') }}</p>
-      <div class="cta-buttons">
-        <NuxtLink to="/contact" class="btn btn-primary">{{ $t('hero.ctaPrimary') }}</NuxtLink>
-        <NuxtLink to="/services" class="btn btn-secondary">{{ $t('hero.ctaSecondary') }}</NuxtLink>
+      <div class="hero-panel">
+        <h1>{{ $t("hero.title") }}</h1>
+        <p>{{ $t("hero.subtitle") }}</p>
+        <div class="cta-buttons">
+          <NuxtLink to="/contact" class="btn btn-primary">{{
+            $t("hero.ctaPrimary")
+          }}</NuxtLink>
+          <NuxtLink to="/services" class="btn btn-secondary">{{
+            $t("hero.ctaSecondary")
+          }}</NuxtLink>
+        </div>
       </div>
     </div>
   </section>
@@ -26,12 +32,14 @@
 
 <style scoped>
 .hero.hero--bg {
-  min-height: clamp(520px, 70vh, 780px);
-  padding: clamp(3rem, 6vw, 6rem) 1.5rem;
+  min-height: 100svh;
+  padding: clamp(2.5rem, 6vw, 6rem) 1.5rem;
   overflow: hidden;
   background-color: var(--background);
-  margin-top: calc(var(--header-height, 88px) + 1rem);
   position: relative;
+  margin-top: 0;
+  display: grid;
+  place-items: center;
 }
 
 /* La imatge */
@@ -79,14 +87,16 @@
     );
 }
 
+
+
 /* Contingut */
 .hero-content.hero-content--bg {
   position: relative;
-  z-index: 1;
-  max-width: 720px;
+  z-index: 2;
   width: 100%;
-  margin: 0 auto;
-  text-align: left;
+  max-width: 1400px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .hero-content.hero-content--bg h1 {
@@ -119,6 +129,7 @@
 
   .hero-content.hero-content--bg {
     text-align: center;
+    justify-content: center;
   }
 
   .hero-overlay {
@@ -137,6 +148,10 @@
       rgba(0, 0, 0, 0.4) 60%,
       rgba(0, 0, 0, 0.18) 100%
     );
+  }
+
+  .cta-buttons {
+    justify-content: center;
   }
 
   .cta-buttons {

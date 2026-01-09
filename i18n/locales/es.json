@@ -10,7 +10,8 @@
     "about": "Sobre mí",
     "resources": "Recursos",
     "subscribe": "Suscríbete",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "language": "Idioma"
   },
   "hero": {
     "imageAlt": "Estudio de producción musical",
@@ -188,6 +189,31 @@
     "seo": {
       "title": "Contacto | Guillem Vila · Productor musical e ingeniero de sonido",
       "description": "Contacta conmigo para proyectos de producción musical, mezcla, grabación o colaboraciones creativas."
+    }
+  },
+  "resourcesHub": {
+    "title": "Recursos",
+    "roadmap": {
+      "title": "Roadmap",
+      "subtitle": "Mapa interactivo de aprendizaje con recursos recomendados para cada etapa"
+    },
+    "categoryCount": "{count} recurso en esta categoría | {count} recursos en esta categoría",
+    "categories": {
+      "disseny-de-so": "Diseño de sonido",
+      "edicio": "Edición",
+      "fonaments": "Fundamentos",
+      "gravacio": "Grabación",
+      "harmonia": "Armonía",
+      "llenguatge-musical": "Lenguaje musical",
+      "mescla": "Mezcla",
+      "produccio": "Producción"
+    },
+    "debug": {
+      "noCategories": "No se han encontrado categorías. Documentos detectados: {count}"
+    },
+    "seo": {
+      "title": "Recursos | Guillem Vila",
+      "description": "Recursos educativos de producción, mezcla, grabación, armonía y diseño de sonido, con categorías y roadmap de aprendizaje."
     }
   }
 }

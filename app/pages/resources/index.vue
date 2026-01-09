@@ -1,14 +1,16 @@
 <template>
   <section class="page">
     <section class="section">
-      <h1 class="section-title heading-accent">Recursos</h1>
+      <h1 class="section-title heading-accent">
+        {{ $t("resourcesHub.title") }}
+      </h1>
     </section>
 
     <div class="cards">
-      <NuxtLink class="card" to="/resources/roadmap">
-        <div class="title">Roadmap</div>
+      <NuxtLink class="card" :to="localePath('/resources/roadmap')">
+        <div class="title">{{ $t("resourcesHub.roadmap.title") }}</div>
         <div class="sub">
-          Mapa interactiu d'aprenentatge amb recursos recomanats per a cada etapa
+          {{ $t("resourcesHub.roadmap.subtitle") }}
         </div>
       </NuxtLink>
 
@@ -16,38 +18,38 @@
         v-for="c in categories"
         :key="c.slug"
         class="card"
-        :to="`/resources/${c.slug}`"
+        :to="localePath(`/resources/${c.slug}`)"
       >
         <div class="title">{{ c.label }}</div>
         <div class="sub">
-          {{ c.count }} recursos en aquesta categoria
+          {{
+            t("resourcesHub.categoryCount", { count: c.count, plural: c.count })
+          }}
         </div>
       </NuxtLink>
     </div>
 
     <p v-if="!pending && !categories.length" class="debug">
-      No s'han trobat categories. Documents detectats: {{ (docs || []).length }}
+      {{
+        $t("resourcesHub.debug.noCategories", { count: (docs || []).length })
+      }}
     </p>
   </section>
 </template>
 
 <script setup>
 import { computed, onMounted } from "vue";
+import { useI18n, useLocalePath } from "#i18n";
 
-const CATEGORY_LABELS = {
-  "disseny-de-so": "Disseny de so",
-  edicio: "Edició",
-  fonaments: "Fonaments",
-  gravacio: "Gravació",
-  harmonia: "Harmonia",
-  "llenguatge-musical": "Llenguatge musical",
-  mescla: "Mescla",
-  produccio: "Producció",
-};
+const { t } = useI18n();
+const localePath = useLocalePath();
 
 function categoryLabel(slug) {
-  if (CATEGORY_LABELS[slug]) return CATEGORY_LABELS[slug];
+  const key = `resourcesHub.categories.${slug}`;
+  const translated = t(key);
+  if (translated !== key) return translated;
 
+  // fallback (el teu codi actual de title-case)
   const stop = new Set([
     "de",
     "i",
@@ -100,8 +102,9 @@ const categories = computed(() => {
     const p = String(d.path || "");
     // esperem: /resources/<category>/<slug>
     const parts = p.split("/").filter(Boolean);
-    if (parts.length >= 2 && parts[0] === "resources") {
-      const slug = parts[1];
+    const idx = parts.indexOf("resources");
+    if (idx !== -1 && parts.length > idx + 1) {
+      const slug = parts[idx + 1];
       counts.set(slug, (counts.get(slug) || 0) + 1);
     }
   }

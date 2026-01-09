@@ -10,7 +10,8 @@
     "about": "About",
     "resources": "Resources",
     "subscribe": "Subscribe",
-    "contact": "Contact"
+    "contact": "Contact",
+    "language": "Language"
   },
   "hero": {
     "imageAlt": "Music production studio",
@@ -189,6 +190,31 @@
     "seo": {
       "title": "Contact | Guillem Vila · Music producer and audio engineer",
       "description": "Contact me for music production, mixing, recording, or creative collaborations."
+    }
+  },
+  "resourcesHub": {
+    "title": "Resources",
+    "roadmap": {
+      "title": "Roadmap",
+      "subtitle": "Interactive learning map with recommended resources for each stage"
+    },
+    "categoryCount": "{count} resource in this category | {count} resources in this category",
+    "categories": {
+      "disseny-de-so": "Sound design",
+      "edicio": "Editing",
+      "fonaments": "Fundamentals",
+      "gravacio": "Recording",
+      "harmonia": "Harmony",
+      "llenguatge-musical": "Music language",
+      "mescla": "Mixing",
+      "produccio": "Production"
+    },
+    "debug": {
+      "noCategories": "No categories found. Documents detected: {count}"
+    },
+    "seo": {
+      "title": "Resources | Guillem Vila",
+      "description": "Educational resources on production, mixing, recording, harmony, and sound design, organized by categories and a learning roadmap."
     }
   }
 }

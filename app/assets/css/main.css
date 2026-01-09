@@ -11,7 +11,6 @@
 
 .main {
   flex: 1;
-  padding-top: 88px;
 }
 
 /* =========================
@@ -179,7 +178,7 @@ p {
 .nav-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 1.5rem 2rem;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -317,14 +316,14 @@ p {
    ========================= */
 
 .section {
-  padding: 3rem 2rem;
+  padding: 4rem 2rem 2rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
   text-align: center;
 }
 
 .section-title {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   text-align: center;
 }
 

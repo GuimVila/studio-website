@@ -13,58 +13,77 @@
           alt="Logo light"
           class="logo-image logo-light"
         >
-        <p class="brand-name">Guillem Vila</p>
+        <NuxtLink to="/" class="brand-name-link">
+          <p class="brand-name">Guillem Vila</p>
+        </NuxtLink>
       </div>
 
       <!-- 2) Links -->
       <ul class="nav-menu" :class="{ active: menuOpen }">
         <li>
-          <NuxtLink to="/" class="nav-link" @click="menuOpen = false">{{
-            $t("nav.home")
-          }}</NuxtLink>
+          <NuxtLink to="/" class="nav-link" @click="closeMenu">
+            {{ $t("nav.home") }}
+          </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/gallery" class="nav-link" @click="menuOpen = false">{{
-            $t("nav.gallery")
-          }}</NuxtLink>
+          <NuxtLink to="/gallery" class="nav-link" @click="closeMenu">
+            {{ $t("nav.gallery") }}
+          </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/services" class="nav-link" @click="menuOpen = false">{{
-            $t("nav.services")
-          }}</NuxtLink>
+          <NuxtLink to="/services" class="nav-link" @click="closeMenu">
+            {{ $t("nav.services") }}
+          </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/about" class="nav-link" @click="menuOpen = false">{{
-            $t("nav.about")
-          }}</NuxtLink>
+          <NuxtLink to="/about" class="nav-link" @click="closeMenu">
+            {{ $t("nav.about") }}
+          </NuxtLink>
         </li>
         <li>
-          <NuxtLink
-            to="/resources"
-            class="nav-link"
-            @click="menuOpen = false"
-            >{{ $t("nav.resources") }}</NuxtLink
-          >
+          <NuxtLink to="/resources" class="nav-link" @click="closeMenu">
+            {{ $t("nav.resources") }}
+          </NuxtLink>
         </li>
         <li>
-          <NuxtLink
-            to="/subscribe"
-            class="nav-link"
-            @click="menuOpen = false"
-            >{{ $t("nav.subscribe") }}</NuxtLink
-          >
+          <NuxtLink to="/subscribe" class="nav-link" @click="closeMenu">
+            {{ $t("nav.subscribe") }}
+          </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/contact" class="nav-link" @click="menuOpen = false">{{
-            $t("nav.contact")
-          }}</NuxtLink>
+          <NuxtLink to="/contact" class="nav-link" @click="closeMenu">
+            {{ $t("nav.contact") }}
+          </NuxtLink>
+        </li>
+
+        <!-- Mobile-only language selector inside the hamburger menu -->
+        <li class="nav-sep" />
+        <li class="nav-lang">
+          <p class="nav-lang-title">{{ $t("nav.language") }}</p>
+
+          <div class="nav-lang-actions">
+            <button
+              v-for="l in locales"
+              :key="l.code"
+              type="button"
+              class="nav-lang-btn"
+              :class="{ active: currentLocale === l.code }"
+              @click="changeLocale(l.code)"
+            >
+              {{ l.short }}
+            </button>
+          </div>
         </li>
       </ul>
 
       <!-- 3) User actions + burger (burger només visible en mòbil) -->
       <div class="right">
         <div class="user-actions">
-          <LanguageSelector />
+          <!-- Desktop-only language selector -->
+          <div class="lang-desktop">
+            <LanguageSelector />
+          </div>
+
           <ToggleSwitch />
         </div>
 
@@ -85,9 +104,36 @@ import ToggleSwitch from "~/components/ToggleSwitch.vue";
 import LanguageSelector from "~/components/LanguageSelector.vue";
 
 const menuOpen = ref(false);
+
 function toggleMenu() {
   menuOpen.value = !menuOpen.value;
-  document.documentElement.classList.toggle("nav-open", menuOpen.value);
+  if (import.meta.client) {
+    document.documentElement.classList.toggle("nav-open", menuOpen.value);
+  }
+}
+
+function closeMenu() {
+  menuOpen.value = false;
+  if (import.meta.client) {
+    document.documentElement.classList.remove("nav-open");
+  }
+}
+
+// i18n for the mobile language buttons
+const { locale, setLocale } = useI18n();
+
+const locales = [
+  { code: "ca", short: "CA" },
+  { code: "es", short: "ES" },
+  { code: "en", short: "EN" },
+];
+
+const currentLocale = computed(() => String(locale.value || "ca"));
+
+async function changeLocale(code) {
+  if (code === currentLocale.value) return;
+  await setLocale(code);
+  closeMenu(); // close menu after changing language
 }
 </script>
 
@@ -113,7 +159,6 @@ function toggleMenu() {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 12px 16px;
 }
 
 /* Brand */
@@ -121,7 +166,7 @@ function toggleMenu() {
   display: flex;
   align-items: center;
   gap: 10px;
-  min-width: 0; /* important per truncar text */
+  min-width: 0;
   flex: 0 1 auto;
 }
 
@@ -133,10 +178,10 @@ function toggleMenu() {
 
 .brand-name {
   margin: 0;
-  white-space: nowrap; /* evita 2 línies */
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 180px; /* ajusta si vols */
+  max-width: 220px;
   line-height: 1;
 }
 
@@ -149,7 +194,7 @@ function toggleMenu() {
   margin: 0;
   padding: 0;
   flex: 1 1 auto;
-  justify-content: center; /* links al mig */
+  justify-content: center;
   min-width: 0;
 }
 
@@ -157,19 +202,24 @@ function toggleMenu() {
 .right {
   display: flex;
   align-items: center;
-  gap: 10px; /* separa selector i burger */
+  gap: 10px;
   flex: 0 0 auto;
 }
 
 .user-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 1.5rem;
+}
+
+/* Desktop-only language selector wrapper */
+.lang-desktop {
+  display: inline-flex;
 }
 
 /* Burger */
 .mobile-toggle {
-  display: none; /* desktop off */
+  display: none;
   align-items: center;
   justify-content: center;
   height: 38px;
@@ -185,13 +235,24 @@ function toggleMenu() {
   border-color: rgba(0, 0, 0, 0.18);
 }
 
-/* MÒBIL: amaguem links inline, burger visible, menú desplegable */
+/* Mobile language block (hidden by default; shown in mobile menu) */
+.nav-sep,
+.nav-lang {
+  display: none;
+}
+
+/* MÒBIL */
 @media (max-width: 899px) {
   .mobile-toggle {
     display: inline-flex;
   }
 
-  /* Links no ocupen la fila: es mostren només quan menuOpen */
+  /* Hide desktop language selector on mobile */
+  .lang-desktop {
+    display: none;
+  }
+
+  /* Links become hamburger panel */
   .nav-menu {
     display: none;
     position: absolute;
@@ -213,6 +274,58 @@ function toggleMenu() {
 
   .nav-menu.active {
     display: flex;
+  }
+
+  /* Mobile language selector inside menu */
+  .nav-sep {
+    display: block;
+    height: 1px;
+    background: var(--border);
+    margin: 0.75rem 0;
+  }
+
+  .nav-lang {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .nav-lang-title {
+    margin: 0;
+    font-weight: 700;
+    color: var(--text);
+    opacity: 0.9;
+  }
+
+  .nav-lang-actions {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .nav-lang-btn {
+    flex: 1;
+    height: 42px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    transition: all 0.2s ease;
+  }
+
+  .nav-lang-btn:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+
+  .nav-lang-btn.active {
+    color: #fff;
+    border: none;
+    background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+    box-shadow: var(--accent-shadow-1);
   }
 
   /* Evita que el nom rebenti en pantalles molt petites */
