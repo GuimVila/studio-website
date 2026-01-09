@@ -18,7 +18,22 @@
     "title": "Dona vida a la teva música",
     "subtitle": "Producció, mescla i gravació professional. El teu so, portat a la perfecció.",
     "ctaPrimary": "Comença ara",
-    "ctaSecondary": "Els meus serveis"
+    "ctaSecondary": "Els meus serveis",
+    "ctaRoadmap": "Roadmap interactiu",
+    "badges": {
+      "artist": "Artista"
+    },
+    "features": {
+      "production": "Producció professional",
+      "mixing": "Mescla i masterització",
+      "resources": "Recursos únics"
+    },
+    "stats": {
+      "experience": "Anys d'experiència",
+      "projects": "Projectes completats",
+      "quality": "Qualitat garantida",
+      "resources": "Recursos setmanals"
+    }
   },
   "whyMe": {
     "title": "Per què treballar amb mi?",

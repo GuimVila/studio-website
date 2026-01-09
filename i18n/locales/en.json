@@ -18,7 +18,22 @@
     "title": "Bring your music to life",
     "subtitle": "Professional production, mixing, and recording. Your sound, brought to perfection.",
     "ctaPrimary": "Get started",
-    "ctaSecondary": "My services"
+    "ctaSecondary": "My services",
+    "ctaRoadmap": "Interactive roadmap",
+    "badges": {
+      "artist": "Artist"
+    },
+    "features": {
+      "production": "Professional production",
+      "mixing": "Mixing & mastering",
+      "resources": "Unique resources"
+    },
+    "stats": {
+      "experience": "Years of experience",
+      "projects": "Completed projects",
+      "quality": "Quality guaranteed",
+      "resources": "Weekly resources"
+    }
   },
   "whyMe": {
     "title": "Why work with me?",

@@ -18,7 +18,22 @@
     "title": "Da vida a tu música",
     "subtitle": "Producción, mezcla y grabación profesional. Tu sonido, llevado a la perfección.",
     "ctaPrimary": "Empieza ahora",
-    "ctaSecondary": "Mis servicios"
+    "ctaSecondary": "Mis servicios",
+    "ctaRoadmap": "Roadmap interactivo",
+    "badges": {
+      "artist": "Artista"
+    },
+    "features": {
+      "production": "Producción profesional",
+      "mixing": "Mezcla y masterización",
+      "resources": "Recursos únicos"
+    },
+    "stats": {
+      "experience": "Años de experiencia",
+      "projects": "Proyectos completados",
+      "quality": "Calidad garantizada",
+      "resources": "Recursos semanales"
+    }
   },
   "whyMe": {
     "title": "¿Por qué trabajar conmigo?",
