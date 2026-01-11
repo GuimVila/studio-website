@@ -187,15 +187,15 @@ const CAT_GAP_Y = computed(() => (isMobile.value ? 110 : 160));
 const NODES_PER_ROW = computed(() => {
   if (isMobile.value) {
     const w = viewportSize.value?.w || 390;
-    if (w < 380) return 5;
-    if (w < 430) return 6;
-    if (w < 500) return 7;
-    return 8;
+    if (w < 380) return 3;
+    if (w < 430) return 4;
+    if (w < 500) return 5;
+    return 6;
   }
 
   const total = visibleNodes.value.length;
-  if (total <= 20) return 4;
-  if (total <= 50) return 5;
+  if (total <= 20) return 3;
+  if (total <= 50) return 4;
   return 5;
 });
 // Quantes columnes de categories

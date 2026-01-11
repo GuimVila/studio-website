@@ -55,18 +55,12 @@ export default defineNuxtConfig({
     exclude: ["/subscribe/error", "/subscribe/confirmed"],
   },
   i18n: {
-    locales: [
-      { code: "ca", iso: "ca-ES", name: "Català" },
-      { code: "es", iso: "es-ES", name: "Español" },
-      { code: "en", iso: "en-GB", name: "English" },
-    ],
+    strategy: "prefix_except_default",
     defaultLocale: "ca",
-    strategy: "prefix_except_default", // o "prefix"
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: "i18n_redirected",
-      fallbackLocale: "ca",
-      alwaysRedirect: false,
-    },
+    locales: [
+      { code: "ca", language: "ca-ES", name: "Català", file: "ca.json" },
+      { code: "es", language: "es-ES", name: "Español", file: "es.json" },
+      { code: "en", language: "en-US", name: "English", file: "en.json" },
+    ],
   },
 });
