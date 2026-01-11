@@ -141,13 +141,16 @@ function formatTime(minutes) {
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
     padding-bottom: 0.25rem;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .item {
     flex: 0 0 72%;
     scroll-snap-align: start;
+    width: 100%;
   }
-  
+
   .value {
     font-size: 1.5rem;
   }

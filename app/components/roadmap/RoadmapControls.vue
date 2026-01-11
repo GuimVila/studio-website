@@ -1,24 +1,12 @@
 <template>
   <div class="controls">
-    <div class="row">
-      <div class="field">
+    <div class="controls-grid">
+      <!-- Cerca -->
+      <div class="field area-search">
         <label>Cerca</label>
         <div class="input-wrapper">
-          <svg
-            class="search-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.35-4.35" />
-          </svg>
+          <!-- icon + input igual -->
+
           <input
             type="search"
             inputmode="search"
@@ -32,7 +20,8 @@
         </div>
       </div>
 
-      <div class="field">
+      <!-- Categoria -->
+      <div class="field area-category">
         <label>Categoria</label>
         <select
           :value="category"
@@ -43,54 +32,43 @@
         </select>
       </div>
 
-      <div class="field inline">
-        <label>
-          <span class="toggle-switch">
-            <input
-              type="checkbox"
-              :checked="hideLocked"
-              @change="emit('update:hideLocked', $event.target.checked)"
-            >
-            <span class="slider" />
-          </span>
-          Amaga bloquejats
-        </label>
-      </div>
-    </div>
+      <div class="field area-focus">
+        <div class="toggles">
+          <label class="toggle-item">
+            <span class="toggle-switch">
+              <input
+                type="checkbox"
+                :checked="focusMode"
+                @change="emit('update:focusMode', $event.target.checked)"
+              >
+              <span class="slider" />
+            </span>
+            Mode focus
+          </label>
 
-    <div class="row">
-      <div class="field">
-        <label
-          >Zoom
-          <span class="zoom-value">{{ Math.round(zoom * 100) }}%</span></label
-        >
-        <input
-          type="range"
-          min="0.25"
-          max="2"
-          step="0.05"
-          :value="zoom"
-          @input="emit('update:zoom', Number($event.target.value))"
-        >
-      </div>
+          <label class="toggle-item">
+            <span class="toggle-switch">
+              <input
+                type="checkbox"
+                :checked="hideLocked"
+                @change="emit('update:hideLocked', $event.target.checked)"
+              >
+              <span class="slider" />
+            </span>
+            Amaga bloquejats
+          </label>
+        </div>
 
-      <div class="field inline">
-        <label>
-          <span class="toggle-switch">
-            <input
-              type="checkbox"
-              :checked="focusMode"
-              @change="emit('update:focusMode', $event.target.checked)"
-            >
-            <span class="slider" />
-          </span>
-          Mode focus
-        </label>
+        <div v-if="focusMode" class="focus-help">
+          Mode focus activat: només veuràs els nodes rellevants per arribar al
+          “següent recomanat”.
+        </div>
       </div>
 
-      <div class="actions">
+      <!-- Accions -->
+      <div class="actions area-actions">
         <button
-          class="btn"
+          class="btn primary"
           type="button"
           :disabled="!nextId"
           @click="emit('next')"
@@ -101,12 +79,13 @@
           Reinicia progrés
         </button>
       </div>
-    </div>
 
-    <div v-if="nextTitle" class="hint">
-      Següent recomanat: <strong>{{ nextTitle }}</strong>
-      <span class="small">({{ nextId }})</span>
-      <span v-if="focusMode" class="small focus-badge">· focus actiu</span>
+      <!-- Hint següent recomanat -->
+      <div v-if="nextTitle" class="hint area-hint">
+        Següent recomanat: <strong>{{ nextTitle }}</strong>
+        <span class="small"> ({{ nextId }})</span>
+        <span v-if="focusMode" class="small focus-badge">* Focus actiu</span>
+      </div>
     </div>
   </div>
 </template>
@@ -117,7 +96,6 @@ defineProps({
   search: { type: String, default: "" },
   category: { type: String, default: "" },
   hideLocked: { type: Boolean, default: false },
-  zoom: { type: Number, default: 1 },
   focusMode: { type: Boolean, default: false },
   nextId: { type: String, default: null },
   nextTitle: { type: String, default: null },
@@ -129,14 +107,12 @@ const emit = defineEmits([
   "update:search",
   "update:category",
   "update:hideLocked",
-  "update:zoom",
   "update:focusMode",
 ]);
 </script>
 
 <style scoped>
 .controls {
-  top: 88px;
   z-index: 20;
   backdrop-filter: blur(12px);
   background: var(--header-bg);
@@ -146,6 +122,35 @@ const emit = defineEmits([
   box-shadow: var(--shadow-1);
 }
 
+.controls-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1.4fr 1fr 1fr 260px;
+  grid-template-areas:
+    "search   category category actions"
+    "focus    focus    focus    actions"
+    "hint     hint     hint     hint";
+  align-items: end;
+}
+
+.area-search {
+  grid-area: search;
+}
+.area-category {
+  grid-area: category;
+}
+.area-hide {
+  grid-area: hide;
+}
+.area-focus {
+  grid-area: focus;
+}
+.area-actions {
+  grid-area: actions;
+}
+.area-hint {
+  grid-area: hint;
+}
 .row {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr;
@@ -260,12 +265,36 @@ input[type="range"]::-moz-range-thumb:hover {
   transform: scale(1.2);
 }
 
+.toggles {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.toggle-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0; 
+  padding: 0; 
+  line-height: 1;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.toggle-item .toggle-switch {
+  transform: translateY(1px); /* micro-ajust (si cal) */
+}
+
 .toggle-switch {
   position: relative;
   display: inline-block;
   width: 44px;
   height: 24px;
   flex-shrink: 0;
+  margin-right: 1rem;
 }
 
 .toggle-switch input {
@@ -273,6 +302,23 @@ input[type="range"]::-moz-range-thumb:hover {
   width: 0;
   height: 0;
   position: absolute;
+}
+
+.inline-label {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.focus-help {
+  border: 1px solid rgba(208, 138, 63, 0.35);
+  background: rgba(208, 138, 63, 0.08);
+  color: var(--text-secondary);
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+  line-height: 1.4;
 }
 
 .slider {
@@ -321,11 +367,9 @@ input[type="range"]::-moz-range-thumb:hover {
 }
 
 .actions {
-  display: flex;
+  display: grid;
   gap: 0.75rem;
-  justify-content: flex-end;
-  align-items: end;
-  flex-wrap: wrap;
+  align-items: start;
 }
 
 .btn {
@@ -348,6 +392,10 @@ input[type="range"]::-moz-range-thumb:hover {
   box-shadow: var(--shadow-1);
 }
 
+.btn.primary {
+  border-color: rgba(208, 138, 63, 0.45);
+}
+
 .btn:disabled {
   opacity: 0.4;
   cursor: not-allowed;
@@ -362,14 +410,13 @@ input[type="range"]::-moz-range-thumb:hover {
 }
 
 .hint {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: var(--surface);
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
   border-radius: 12px;
   font-size: 0.95rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 .hint strong {
@@ -378,6 +425,7 @@ input[type="range"]::-moz-range-thumb:hover {
 }
 
 .small {
+  margin-left: 1rem;
   opacity: 0.7;
   font-size: 0.9em;
 }
@@ -392,11 +440,38 @@ input[type="range"]::-moz-range-thumb:hover {
   color: var(--accent);
   font-weight: 600;
   opacity: 1;
+  white-space: nowrap;
 }
 
 @media (max-width: 900px) {
   .controls {
-    padding: 1.25rem;
+    padding: 1.1rem;
+  }
+
+  .toggles {
+    gap: 0.9rem;
+  }
+
+  .controls-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "search"
+      "category"
+      "hide"
+      "focus"
+      "actions"
+      "hint";
+    align-items: stretch;
+  }
+
+  .hint {
+    margin-top: 1rem;
+    padding: 1.1rem;
+  }
+
+  .focus-help {
+    padding: 1rem;
+    font-size: 0.95rem;
   }
 
   .row {
@@ -405,11 +480,18 @@ input[type="range"]::-moz-range-thumb:hover {
   }
 
   .actions {
-    justify-content: stretch;
+    grid-template-columns: 1fr 1fr;
   }
 
   .btn {
     flex: 1;
+    width: 100%;
+  }
+
+  .focus-badge {
+    flex-basis: 100%;
+    width: 100%;
+    justify-content: center;
   }
 }
 </style>

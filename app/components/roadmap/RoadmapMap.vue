@@ -1,6 +1,5 @@
 <template>
   <div class="map-shell">
-    <!-- OVERLAY (fora del clip) -->
     <div class="overlay" :class="{ mobile: isMobile }">
       <button class="chip" type="button" @click="fitToScreen">
         Ajustar a pantalla
@@ -18,69 +17,79 @@
         Anar al següent
       </button>
 
-      <div v-if="!isMobile" class="chip stat">
+      <button class="chip" type="button" @click="setZoom(zoomLocal - 0.1)">
+        −
+      </button>
+
+      <div class="chip stat">
         <span class="muted">Zoom</span>
         <strong>{{ Math.round(zoomLocal * 100) }}%</strong>
       </div>
+
+      <button class="chip" type="button" @click="setZoom(zoomLocal + 0.1)">
+        +
+      </button>
     </div>
 
     <!-- FRAME (aquí hi ha el border i el clip) -->
     <div class="map-frame">
       <div ref="viewportRef" class="viewport">
-        <div ref="canvasRef" class="canvas" :style="canvasStyle">
-          <!-- Cluster backgrounds -->
-          <div
-            v-for="cluster in renderedClusters"
-            :key="cluster.category"
-            class="cluster-bg"
-            :style="{
-              left: cluster.x + 'px',
-              top: cluster.y + 'px',
-              width: cluster.width + 'px',
-              height: cluster.height + 'px',
-            }"
-          >
-            <div class="cluster-label">{{ cluster.category }}</div>
-          </div>
-
-          <!-- Edges -->
-          <svg
-            class="edges"
-            :width="canvasW"
-            :height="canvasH"
-            :viewBox="`0 0 ${canvasW} ${canvasH}`"
-            preserveAspectRatio="xMinYMin meet"
-            aria-hidden="true"
-          >
-            <path
-              v-for="e in renderedEdges"
-              :key="e.key"
-              :d="e.d"
-              class="edge"
-              :class="{ highlighted: e.highlighted, dimmed: e.dimmed }"
-              vector-effect="non-scaling-stroke"
-            />
-          </svg>
-
-          <!-- Nodes -->
-          <button
-            v-for="n in renderedNodes"
-            :key="n.id"
-            class="node"
-            type="button"
-            :class="nodeClass(n)"
-            :style="nodeStyle(n)"
-            @click="$emit('select', n.id)"
-          >
-            <div class="node-id">{{ n.id }}</div>
-            <div class="node-title">{{ n.title }}</div>
-            <div class="node-meta">
-              <span v-if="n.module" class="pill">{{ n.module }}</span>
-              <span v-if="Number.isFinite(n.level)" class="pill"
-                >L{{ n.level }}</span
-              >
+        <div class="stage" :style="stageStyle">
+          <div ref="canvasRef" class="canvas" :style="canvasStyle">
+            <!-- Cluster backgrounds -->
+            <div
+              v-for="cluster in renderedClusters"
+              :key="cluster.category"
+              class="cluster-bg"
+              :style="{
+                left: cluster.x + 'px',
+                top: cluster.y + 'px',
+                width: cluster.width + 'px',
+                height: cluster.height + 'px',
+              }"
+            >
+              <div class="cluster-label">{{ cluster.category }}</div>
             </div>
-          </button>
+
+            <!-- Edges -->
+            <svg
+              class="edges"
+              :width="canvasW"
+              :height="canvasH"
+              :viewBox="`0 0 ${canvasW} ${canvasH}`"
+              preserveAspectRatio="xMinYMin meet"
+              aria-hidden="true"
+            >
+              <path
+                v-for="e in renderedEdges"
+                :key="e.key"
+                :d="e.d"
+                class="edge"
+                :class="{ highlighted: e.highlighted, dimmed: e.dimmed }"
+                vector-effect="non-scaling-stroke"
+              />
+            </svg>
+
+            <!-- Nodes -->
+            <button
+              v-for="n in renderedNodes"
+              :key="n.id"
+              class="node"
+              type="button"
+              :class="nodeClass(n)"
+              :style="nodeStyle(n)"
+              @click="$emit('select', n.id)"
+            >
+              <div class="node-id">{{ n.id }}</div>
+              <div class="node-title">{{ n.title }}</div>
+              <div class="node-meta">
+                <span v-if="n.module" class="pill">{{ n.module }}</span>
+                <span v-if="Number.isFinite(n.level)" class="pill"
+                  >L{{ n.level }}</span
+                >
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -124,6 +133,12 @@ const viewportSize = ref({ w: 1200, h: 800 });
 let ro = null;
 
 const isMobile = computed(() => (viewportSize.value.w || 9999) <= 768);
+
+function setZoom(v) {
+  const next = clampZoom(v);
+  zoomLocal.value = next;
+  emit("update:zoom", next);
+}
 
 onMounted(() => {
   if (!viewportRef.value) return;
@@ -239,19 +254,18 @@ const CAT_GAP_Y = computed(() => (isMobile.value ? 48 : 160));
 
 // nodes per fila dins categoria
 const NODES_PER_ROW = computed(() => {
-  const total = visibleNodes.value.length;
-
-  if (isMobile.value) {
-    const w = viewportSize.value.w || 390;
-    // IMPORTANT: volem evitar “serp infinita” a mòbil
-    if (w < 380) return 4;
-    if (w < 430) return 5;
-    return 6;
+  if (!isMobile.value) {
+    const total = visibleNodes.value.length;
+    if (total <= 20) return 3;
+    if (total <= 50) return 4;
+    return 5;
   }
 
-  if (total <= 20) return 3;
-  if (total <= 50) return 4;
-  return 5;
+  const vw = viewportSize.value.w || 390;
+
+  if (vw < 380) return 2;
+  if (vw < 460) return 3;
+  return 4;
 });
 
 // columnes de categories
@@ -404,8 +418,8 @@ const bounds = computed(() => {
     maxY = Math.max(maxY, y + NODE_H.value);
   }
 
-  minX = minX - PADDING_X.value;
-  minY = minY - PADDING_Y.value;
+  minX = Math.max(0, minX - PADDING_X.value);
+  minY = Math.max(0, minY - PADDING_Y.value);
   maxX = maxX + PADDING_X.value;
   maxY = maxY + PADDING_Y.value;
 
@@ -420,6 +434,8 @@ const canvasStyle = computed(() => {
     width: `${canvasW.value}px`,
     height: `${canvasH.value}px`,
     "--zoom": String(zoomLocal.value),
+    "--node-w": `${NODE_W.value}px`,
+    "--node-h": `${NODE_H.value}px`,
   };
 });
 
@@ -673,11 +689,17 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 .overlay.mobile {
   position: absolute;
   top: auto;
-  right: 0.75rem;
   left: 0.75rem;
-  bottom: 0.75rem;
+  right: 0.75rem;
+  bottom: 0rem;
+  transform: translateY(50%);
+
+  z-index: 50;
+
+  display: flex;
   justify-content: space-between;
   gap: 0.5rem;
+
   padding: 0.5rem;
   border-radius: 16px;
   background: rgba(10, 10, 10, 0.55);
@@ -749,6 +771,8 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   scroll-behavior: smooth;
   /* IMPORTANT: evita gestos estranys en alguns mòbils */
   -webkit-overflow-scrolling: touch;
+  padding-bottom: 84px; /* ajusta 70–110 segons alçada real del bar */
+  box-sizing: border-box;
 }
 
 .canvas {
@@ -821,8 +845,8 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 
 .node {
   position: absolute;
-  width: 280px;
-  height: 120px;
+  width: var(--node-w);
+  height: var(--node-h);
   border-radius: 16px;
   border: 2px solid var(--border);
   background: var(--surface);
@@ -837,12 +861,38 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
+.overlay.mobile .zoom-slider {
+  flex: 1.4;
+  padding: 0.6rem 0.75rem;
+}
+
+.overlay.mobile .zoom-slider input[type="range"] {
+  width: 100%;
+}
+
 /* IMPORTANT: node width/height han de seguir el JS responsive */
 @media (max-width: 768px) {
   .node {
-    width: 220px;
-    height: 108px;
-    padding: 0.85rem;
+    /* width: 200px;
+    height: 96px; */
+    padding: 0.75rem;
+    border-radius: 14px;
+  }
+
+  .node-title {
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+    line-height: 1.25;
+    max-height: 2.5em;
+  }
+
+  .node-meta {
+    margin-top: 0.45rem;
+  }
+
+  .pill {
+    font-size: 0.6rem;
+    padding: 0.18rem 0.45rem;
   }
 
   .cluster-label {
@@ -907,33 +957,5 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   color: var(--accent);
   opacity: 0.85;
   letter-spacing: 0.03em;
-}
-
-.node-title {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  line-height: 1.3;
-  max-height: 2.6em;
-  overflow: hidden;
-  color: var(--text);
-}
-
-.node-meta {
-  margin-top: 0.65rem;
-  display: flex;
-  gap: 0.4rem;
-  flex-wrap: wrap;
-}
-
-.pill {
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  border: 1px solid var(--border);
-  background: var(--background);
-  border-radius: 999px;
-  padding: 0.2rem 0.55rem;
-  opacity: 0.8;
 }
 </style>
