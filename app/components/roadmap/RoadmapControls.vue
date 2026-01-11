@@ -20,10 +20,14 @@
             <path d="m21 21-4.35-4.35" />
           </svg>
           <input
+            type="search"
+            inputmode="search"
+            autocomplete="off"
+            enterkeyhint="go"
             :value="search"
             placeholder="ID, tema, mòdul, tags..."
             @input="emit('update:search', $event.target.value)"
-            @keydown.enter="nextId && emit('next')"
+            @keydown.enter.prevent="nextId && emit('next')"
           >
         </div>
       </div>
@@ -132,7 +136,6 @@ const emit = defineEmits([
 
 <style scoped>
 .controls {
-  position: sticky;
   top: 88px;
   z-index: 20;
   backdrop-filter: blur(12px);

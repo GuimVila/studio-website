@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <section class="section">
-      <h1 class="section-title heading-accent">Roadmap d'aprenentatge</h1>
+      <h1 class="section-title heading-accent">Roadmap</h1>
       <p>
         Explora aquest roadmap d'aprenentatge interactiu per descobrir els
         recursos i passos recomanats per avançar en el teu camí d'aprenentatge.

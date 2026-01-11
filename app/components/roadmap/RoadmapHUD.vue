@@ -5,7 +5,7 @@
       <div class="value">{{ percent }}%</div>
       <div class="small">{{ completedCount }} / {{ totalCount }}</div>
       <div class="progress-bar">
-        <div class="progress-fill" :style="{ width: percent + '%' }"/>
+        <div class="progress-fill" :style="{ width: percent + '%' }" />
       </div>
     </div>
 
@@ -52,6 +52,7 @@ function formatTime(minutes) {
   gap: 1rem;
   justify-content: flex-end;
   margin-top: 1.5rem;
+  padding: 2rem 0 3rem 0;
 }
 
 .item {
@@ -136,16 +137,17 @@ function formatTime(minutes) {
 
 @media (max-width: 900px) {
   .hud {
-    justify-content: stretch;
-    gap: 0.75rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.25rem;
   }
 
   .item {
-    flex: 1;
-    min-width: 0;
-    padding: 1rem;
+    flex: 0 0 72%;
+    scroll-snap-align: start;
   }
-
+  
   .value {
     font-size: 1.5rem;
   }

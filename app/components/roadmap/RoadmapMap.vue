@@ -1,9 +1,11 @@
 <template>
   <div class="map-shell">
-    <div class="overlay">
+    <!-- OVERLAY (fora del clip) -->
+    <div class="overlay" :class="{ mobile: isMobile }">
       <button class="chip" type="button" @click="fitToScreen">
         Ajustar a pantalla
       </button>
+
       <button
         class="chip"
         type="button"
@@ -15,74 +17,85 @@
       >
         Anar al següent
       </button>
-      <div class="chip stat">
+
+      <div v-if="!isMobile" class="chip stat">
         <span class="muted">Zoom</span>
         <strong>{{ Math.round(zoomLocal * 100) }}%</strong>
       </div>
     </div>
 
-    <div ref="viewportRef" class="viewport">
-      <div ref="canvasRef" class="canvas" :style="canvasStyle">
-        <!-- Cluster backgrounds -->
-        <div
-          v-for="cluster in renderedClusters"
-          :key="cluster.category"
-          class="cluster-bg"
-          :style="{
-            left: cluster.x + 'px',
-            top: cluster.y + 'px',
-            width: cluster.width + 'px',
-            height: cluster.height + 'px',
-          }"
-        >
-          <div class="cluster-label">{{ cluster.category }}</div>
-        </div>
-
-        <!-- Edges -->
-        <svg
-          class="edges"
-          :width="canvasW"
-          :height="canvasH"
-          :viewBox="`0 0 ${canvasW} ${canvasH}`"
-          preserveAspectRatio="xMinYMin meet"
-          aria-hidden="true"
-        >
-          <path
-            v-for="e in renderedEdges"
-            :key="e.key"
-            :d="e.d"
-            class="edge"
-            :class="{ highlighted: e.highlighted, dimmed: e.dimmed }"
-            vector-effect="non-scaling-stroke"
-          />
-        </svg>
-
-        <!-- Nodes -->
-        <button
-          v-for="n in renderedNodes"
-          :key="n.id"
-          class="node"
-          type="button"
-          :class="nodeClass(n)"
-          :style="nodeStyle(n)"
-          @click="$emit('select', n.id)"
-        >
-          <div class="node-id">{{ n.id }}</div>
-          <div class="node-title">{{ n.title }}</div>
-          <div class="node-meta">
-            <span v-if="n.module" class="pill">{{ n.module }}</span>
-            <span v-if="Number.isFinite(n.level)" class="pill"
-              >L{{ n.level }}</span
-            >
+    <!-- FRAME (aquí hi ha el border i el clip) -->
+    <div class="map-frame">
+      <div ref="viewportRef" class="viewport">
+        <div ref="canvasRef" class="canvas" :style="canvasStyle">
+          <!-- Cluster backgrounds -->
+          <div
+            v-for="cluster in renderedClusters"
+            :key="cluster.category"
+            class="cluster-bg"
+            :style="{
+              left: cluster.x + 'px',
+              top: cluster.y + 'px',
+              width: cluster.width + 'px',
+              height: cluster.height + 'px',
+            }"
+          >
+            <div class="cluster-label">{{ cluster.category }}</div>
           </div>
-        </button>
+
+          <!-- Edges -->
+          <svg
+            class="edges"
+            :width="canvasW"
+            :height="canvasH"
+            :viewBox="`0 0 ${canvasW} ${canvasH}`"
+            preserveAspectRatio="xMinYMin meet"
+            aria-hidden="true"
+          >
+            <path
+              v-for="e in renderedEdges"
+              :key="e.key"
+              :d="e.d"
+              class="edge"
+              :class="{ highlighted: e.highlighted, dimmed: e.dimmed }"
+              vector-effect="non-scaling-stroke"
+            />
+          </svg>
+
+          <!-- Nodes -->
+          <button
+            v-for="n in renderedNodes"
+            :key="n.id"
+            class="node"
+            type="button"
+            :class="nodeClass(n)"
+            :style="nodeStyle(n)"
+            @click="$emit('select', n.id)"
+          >
+            <div class="node-id">{{ n.id }}</div>
+            <div class="node-title">{{ n.title }}</div>
+            <div class="node-meta">
+              <span v-if="n.module" class="pill">{{ n.module }}</span>
+              <span v-if="Number.isFinite(n.level)" class="pill"
+                >L{{ n.level }}</span
+              >
+            </div>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed, ref, watch, onMounted, onBeforeUnmount } from "vue";
+import {
+  computed,
+  ref,
+  watch,
+  onMounted,
+  onBeforeUnmount,
+  nextTick,
+} from "vue";
 
 const props = defineProps({
   nodes: { type: Array, required: true },
@@ -106,10 +119,11 @@ const props = defineProps({
 const emit = defineEmits(["select", "update:zoom"]);
 
 const viewportRef = ref(null);
-const canvasRef = ref(null);
 
 const viewportSize = ref({ w: 1200, h: 800 });
 let ro = null;
+
+const isMobile = computed(() => (viewportSize.value.w || 9999) <= 768);
 
 onMounted(() => {
   if (!viewportRef.value) return;
@@ -118,6 +132,12 @@ onMounted(() => {
     viewportSize.value = { w: r.width, h: r.height };
   });
   ro.observe(viewportRef.value);
+
+  // Mòbil: auto-fit al primer render (sense tocar lògica)
+  // IMPORTANT: ho fem quan ja hi ha mides i canvas calculat
+  requestAnimationFrame(() => {
+    if (isMobile.value) fitToScreen();
+  });
 });
 
 onBeforeUnmount(() => {
@@ -149,11 +169,10 @@ const focusSet = computed(() => {
 function matchesFilters(n) {
   if (!n) return false;
 
-  // Si el mode focus està actiu, NOMÉS comprovar focus (ignora categoria)
+  // focus actiu: només focus, però mantenim search/hideLocked
   if (focusSet.value) {
     if (!focusSet.value.has(normId(n.id))) return false;
 
-    // Aplicar cerca i hideLocked fins i tot amb focus actiu
     const q = String(props.search || "")
       .trim()
       .toLowerCase();
@@ -173,7 +192,7 @@ function matchesFilters(n) {
     return true;
   }
 
-  // Sense mode focus, aplicar filtres normals
+  // mode normal
   if (props.category && String(n.category) !== String(props.category))
     return false;
 
@@ -198,35 +217,46 @@ function matchesFilters(n) {
 
 const visibleNodes = computed(() => (props.nodes || []).filter(matchesFilters));
 
-// --- LAYOUT (categories en 2-3 columnes) ---
-const NODE_W = 280;
-const NODE_H = 120;
-const NODE_GAP_X = 40;
-const NODE_GAP_Y = 60;
+/**
+ * ====== LAYOUT RESPONSIVE (aquí és on es guanya la UX mòbil) ======
+ */
+const NODE_W = computed(() => (isMobile.value ? 220 : 280));
+const NODE_H = computed(() => (isMobile.value ? 108 : 120));
+const NODE_GAP_X = computed(() => (isMobile.value ? 18 : 40));
+const NODE_GAP_Y = computed(() => (isMobile.value ? 28 : 60));
+const PADDING_X = computed(() => (isMobile.value ? 24 : 140));
+const PADDING_Y = computed(() => (isMobile.value ? 120 : 220));
 
-const PADDING = 140;
+// Padding intern del cluster
+const CLUSTER_PAD_X = computed(() => (isMobile.value ? 20 : 40));
+const CLUSTER_PAD_TOP = computed(() => (isMobile.value ? 90 : 125));
+const CLUSTER_PAD_BOTTOM = computed(() => (isMobile.value ? 36 : 50));
+const CLUSTER_PAD_Y = computed(() => (isMobile.value ? 54 : 80));
 
-// Padding intern del cluster (espai dins la caixa)
-const CLUSTER_PAD_X = 40;
-const CLUSTER_PAD_TOP = 92;
-const CLUSTER_PAD_BOTTOM = 50;
-const CLUSTER_PAD_Y = 80;
+// Separació entre clusters
+const CAT_GAP_X = computed(() => (isMobile.value ? 32 : 140));
+const CAT_GAP_Y = computed(() => (isMobile.value ? 48 : 160));
 
-// Separació entre clusters (categories)
-const CAT_GAP_X = 140;
-const CAT_GAP_Y = 160;
-
-// Quants nodes per fila DINS d'una categoria (això és el teu "grid" intern)
+// nodes per fila dins categoria
 const NODES_PER_ROW = computed(() => {
   const total = visibleNodes.value.length;
+
+  if (isMobile.value) {
+    const w = viewportSize.value.w || 390;
+    // IMPORTANT: volem evitar “serp infinita” a mòbil
+    if (w < 380) return 4;
+    if (w < 430) return 5;
+    return 6;
+  }
+
   if (total <= 20) return 3;
   if (total <= 50) return 4;
   return 5;
 });
 
-// Quantes columnes de CATEGORIES (clusters) volem a la pantalla
+// columnes de categories
 const CAT_COLS = computed(() => {
-  const w = viewportRef.value?.clientWidth || 1200;
+  const w = viewportSize.value.w || 1200;
   if (w < 900) return 1;
   if (w < 1100) return 2;
   return 3;
@@ -263,46 +293,50 @@ const categoryOrder = computed(() => {
   });
 });
 
-// Layout de cada cluster: { x, y, width, height, innerW, innerH }
+// Layout de cada cluster
 const clusterLayout = computed(() => {
   const colsInside = NODES_PER_ROW.value;
   const catCols = CAT_COLS.value;
 
   const cats = categoryOrder.value;
+
   const meta = cats.map((cat) => {
     const nodes = categoryGroups.value.get(cat) || [];
     const rows = Math.max(1, Math.ceil(nodes.length / colsInside));
 
-    const innerW = colsInside * NODE_W + (colsInside - 1) * NODE_GAP_X;
-    const innerH = rows * NODE_H + (rows - 1) * NODE_GAP_Y;
+    const innerW =
+      colsInside * NODE_W.value + (colsInside - 1) * NODE_GAP_X.value;
 
-    const width = innerW + CLUSTER_PAD_X * 2;
-    const height = innerH + CLUSTER_PAD_Y * 2;
+    const innerH = rows * NODE_H.value + (rows - 1) * NODE_GAP_Y.value;
+
+    const width = innerW + CLUSTER_PAD_X.value * 2;
+    const height = innerH + CLUSTER_PAD_Y.value * 2;
 
     return { cat, nodes, rows, innerW, innerH, width, height };
   });
 
-  // rowHeights per files de categories
+  // alçada màxima per fila de categories
   const rowHeights = [];
   for (let i = 0; i < meta.length; i++) {
     const row = Math.floor(i / catCols);
     rowHeights[row] = Math.max(rowHeights[row] || 0, meta[i].height);
   }
 
-  // y acumulada per fila
+  // y acumulada per fila (aquí controles que la primera fila baixi)
   const rowY = [];
-  let acc = PADDING;
+  let acc = PADDING_Y.value;
   for (let r = 0; r < rowHeights.length; r++) {
     rowY[r] = acc;
-    acc += rowHeights[r] + CAT_GAP_Y;
+    acc += rowHeights[r] + CAT_GAP_Y.value;
   }
 
+  // mapa final cat -> layout
   const map = new Map();
   for (let i = 0; i < meta.length; i++) {
     const row = Math.floor(i / catCols);
     const col = i % catCols;
 
-    const x = PADDING + col * (meta[i].width + CAT_GAP_X);
+    const x = PADDING_X.value + col * (meta[i].width + CAT_GAP_X.value);
     const y = rowY[row];
 
     map.set(meta[i].cat, { ...meta[i], x, y });
@@ -311,7 +345,6 @@ const clusterLayout = computed(() => {
   return map;
 });
 
-// Posicions precomputades per id (més eficient i més clar)
 const positionsById = computed(() => {
   const pos = new Map();
   const colsInside = NODES_PER_ROW.value;
@@ -326,9 +359,15 @@ const positionsById = computed(() => {
       const row = Math.floor(idx / colsInside);
       const col = idx % colsInside;
 
-      const x = layout.x + CLUSTER_PAD_X + col * (NODE_W + NODE_GAP_X);
+      const x =
+        layout.x +
+        CLUSTER_PAD_X.value +
+        col * (NODE_W.value + NODE_GAP_X.value);
 
-      const y = layout.y + CLUSTER_PAD_Y + row * (NODE_H + NODE_GAP_Y);
+      const y =
+        layout.y +
+        CLUSTER_PAD_Y.value +
+        row * (NODE_H.value + NODE_GAP_Y.value);
 
       pos.set(normId(n.id), { x, y });
     }
@@ -338,11 +377,15 @@ const positionsById = computed(() => {
 });
 
 function nodePos(n) {
-  return positionsById.value.get(normId(n.id)) || { x: PADDING, y: PADDING };
+  return (
+    positionsById.value.get(normId(n.id)) || {
+      x: PADDING_X.value,
+      y: PADDING_Y.value,
+    }
+  );
 }
 
-// --- RENDERING ---
-
+// --- bounds/canvas
 const bounds = computed(() => {
   if (!visibleNodes.value.length) {
     return { minX: 0, minY: 0, w: 1400, h: 800 };
@@ -357,14 +400,14 @@ const bounds = computed(() => {
     const { x, y } = nodePos(n);
     minX = Math.min(minX, x);
     minY = Math.min(minY, y);
-    maxX = Math.max(maxX, x + NODE_W);
-    maxY = Math.max(maxY, y + NODE_H);
+    maxX = Math.max(maxX, x + NODE_W.value);
+    maxY = Math.max(maxY, y + NODE_H.value);
   }
 
-  minX = Math.max(0, minX - PADDING);
-  minY = Math.max(0, minY - PADDING);
-  maxX = maxX + PADDING;
-  maxY = maxY + PADDING;
+  minX = minX - PADDING_X.value;
+  minY = minY - PADDING_Y.value;
+  maxX = maxX + PADDING_X.value;
+  maxY = maxY + PADDING_Y.value;
 
   return { minX, minY, w: maxX - minX, h: maxY - minY };
 });
@@ -373,7 +416,6 @@ const canvasW = computed(() => Math.max(1, Math.ceil(bounds.value.w)));
 const canvasH = computed(() => Math.max(1, Math.ceil(bounds.value.h)));
 
 const canvasStyle = computed(() => {
-  console.log(`📐 Canvas: ${canvasW.value}px x ${canvasH.value}px`);
   return {
     width: `${canvasW.value}px`,
     height: `${canvasH.value}px`,
@@ -405,21 +447,21 @@ const renderedClusters = computed(() => {
     for (const node of nodes) {
       const pos = nodePos(node);
       catMinX = Math.min(catMinX, pos.x);
-      catMaxX = Math.max(catMaxX, pos.x + NODE_W);
+      catMaxX = Math.max(catMaxX, pos.x + NODE_W.value);
       catMinY = Math.min(catMinY, pos.y);
-      catMaxY = Math.max(catMaxY, pos.y + NODE_H);
+      catMaxY = Math.max(catMaxY, pos.y + NODE_H.value);
     }
 
-    // posició dins el canvas renderitzat
-    const x = catMinX - minX - CLUSTER_PAD_X;
-    const y = catMinY - minY - CLUSTER_PAD_TOP;
+    const x = catMinX - minX - CLUSTER_PAD_X.value;
+    const y = catMinY - minY - CLUSTER_PAD_TOP.value;
 
     clusters.push({
       category: cat,
       x,
       y,
-      width: catMaxX - catMinX + CLUSTER_PAD_X * 2,
-      height: catMaxY - catMinY + CLUSTER_PAD_TOP + CLUSTER_PAD_BOTTOM,
+      width: catMaxX - catMinX + CLUSTER_PAD_X.value * 2,
+      height:
+        catMaxY - catMinY + CLUSTER_PAD_TOP.value + CLUSTER_PAD_BOTTOM.value,
     });
   }
 
@@ -466,17 +508,16 @@ const renderedEdges = computed(() => {
       const from = index.get(fromId);
       if (!from) continue;
 
-      const x1 = from._x + NODE_W;
-      const y1 = from._y + NODE_H * 0.5;
+      const x1 = from._x + NODE_W.value;
+      const y1 = from._y + NODE_H.value * 0.5;
       const x2 = n._x;
-      const y2 = n._y + NODE_H * 0.5;
+      const y2 = n._y + NODE_H.value * 0.5;
 
       const key = edgeKey(fromId, toId);
       const highlighted = highlightEdgeSet.value
         ? highlightEdgeSet.value.has(key)
         : false;
 
-      // Dim edges that cross categories (unless highlighted)
       const crossCategory = from.category !== n.category;
       const dimmed = crossCategory && !highlighted;
 
@@ -505,25 +546,43 @@ function nodeClass(n) {
 function clampZoom(z) {
   const v = Number(z);
   if (!Number.isFinite(v)) return 1;
-  return Math.min(2, Math.max(0.2, v));
+
+  const minZ = isMobile.value ? 0.55 : 0.2; // clau per evitar “catifa” a mòbil
+  const maxZ = isMobile.value ? 1.6 : 2;
+
+  return Math.min(maxZ, Math.max(minZ, v));
 }
 
-function fitToScreen() {
+async function fitToScreen() {
   const viewport = viewportRef.value;
   if (!viewport) return;
 
-  const vw = viewport.clientWidth;
-  const vh = viewport.clientHeight;
+  // assegura layout estable abans de calcular
+  await nextTick();
+  await new Promise((r) => requestAnimationFrame(() => r()));
+  await new Promise((r) => requestAnimationFrame(() => r()));
 
-  const z = Math.min(vw / canvasW.value, vh / canvasH.value) * 0.92;
+  const vw = viewport.clientWidth || 1;
+  const vh = viewport.clientHeight || 1;
+
+  // marge intern perquè no quedi enganxat
+  const pad = isMobile.value ? 12 : 24;
+  const availW = Math.max(1, vw - pad * 2);
+  const availH = Math.max(1, vh - pad * 2);
+
+  const z = Math.min(availW / canvasW.value, availH / canvasH.value);
   const next = clampZoom(z);
 
   zoomLocal.value = next;
   emit("update:zoom", next);
 
+  await nextTick();
   requestAnimationFrame(() => {
-    viewport.scrollLeft = Math.max(0, (canvasW.value * next - vw) / 2);
-    viewport.scrollTop = Math.max(0, (canvasH.value * next - vh) / 2);
+    const scaledW = canvasW.value * next;
+    const scaledH = canvasH.value * next;
+
+    viewport.scrollLeft = Math.max(0, (scaledW - vw) / 2);
+    viewport.scrollTop = Math.max(0, (scaledH - vh) / 2);
   });
 }
 
@@ -534,12 +593,12 @@ function scrollToNode(id) {
   const target = renderedNodes.value.find((n) => normId(n.id) === normId(id));
   if (!target) return;
 
-  const vw = viewport.clientWidth;
-  const vh = viewport.clientHeight;
+  const vw = viewport.clientWidth || 1;
+  const vh = viewport.clientHeight || 1;
 
   const z = zoomLocal.value;
-  const cx = (target._x + NODE_W / 2) * z;
-  const cy = (target._y + NODE_H / 2) * z;
+  const cx = (target._x + NODE_W.value / 2) * z;
+  const cy = (target._y + NODE_H.value / 2) * z;
 
   viewport.scrollLeft = Math.max(0, cx - vw / 2);
   viewport.scrollTop = Math.max(0, cy - vh / 2);
@@ -554,16 +613,32 @@ function centerNextNode() {
   const target = renderedNodes.value.find((n) => n.seq === props.nextSeq);
   if (!target) return;
 
-  const vw = viewport.clientWidth;
-  const vh = viewport.clientHeight;
+  const vw = viewport.clientWidth || 1;
+  const vh = viewport.clientHeight || 1;
 
   const z = zoomLocal.value;
-  const cx = (target._x + NODE_W / 2) * z;
-  const cy = (target._y + NODE_H / 2) * z;
+  const cx = (target._x + NODE_W.value / 2) * z;
+  const cy = (target._y + NODE_H.value / 2) * z;
 
   viewport.scrollLeft = Math.max(0, cx - vw / 2);
   viewport.scrollTop = Math.max(0, cy - vh / 2);
 }
+
+// Si canvien filtres / focus i estem a mòbil, refem fit (per mantenir context)
+watch(
+  () => [
+    props.search,
+    props.category,
+    props.hideLocked,
+    props.focusIds ? props.focusIds.length : 0,
+    visibleNodes.value.length,
+  ],
+  async () => {
+    if (!isMobile.value) return;
+    await nextTick();
+    fitToScreen();
+  }
+);
 
 defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 </script>
@@ -571,21 +646,43 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 <style scoped>
 .map-shell {
   position: relative;
+  overflow: visible;
+}
+
+.map-frame {
   border: 1px solid var(--border);
   border-radius: 20px;
-  overflow: hidden;
+  overflow: hidden; /* aquí sí, per clipar el canvas a les cantonades */
   background: var(--background);
   box-shadow: var(--shadow-1);
 }
 
+/* overlay desktop */
 .overlay {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 5;
+  top: 0;
+  transform: translateY(-50%);
+  right: 0.75rem;
+  z-index: 50;
   display: flex;
   gap: 0.75rem;
   align-items: center;
+}
+
+/* overlay mòbil: bottom bar, usable amb el dit */
+.overlay.mobile {
+  position: absolute;
+  top: auto;
+  right: 0.75rem;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 16px;
+  background: rgba(10, 10, 10, 0.55);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
 }
 
 .chip {
@@ -598,8 +695,20 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   cursor: pointer;
   font-size: 0.85rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition:
+    transform 0.15s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
   box-shadow: var(--shadow-1);
+  white-space: nowrap;
+}
+
+.overlay.mobile .chip {
+  flex: 1;
+  text-align: center;
+  padding: 0.75rem 0.5rem;
+  font-size: 0.85rem;
+  border-radius: 14px;
 }
 
 .chip:hover {
@@ -613,12 +722,6 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   opacity: 0.4;
   cursor: not-allowed;
   transform: none;
-}
-
-.chip:disabled:hover {
-  background: var(--header-bg);
-  border-color: var(--border);
-  color: var(--text);
 }
 
 .chip.stat {
@@ -644,21 +747,18 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   overflow: auto;
   position: relative;
   scroll-behavior: smooth;
+  /* IMPORTANT: evita gestos estranys en alguns mòbils */
+  -webkit-overflow-scrolling: touch;
 }
 
 .canvas {
   position: relative;
   transform-origin: 0 0;
-  zoom: var(--zoom);
-  transition: all 0.4s ease;
-}
-
-@supports not (zoom: 1) {
-  .canvas {
-    zoom: 1;
-    transform: scale(var(--zoom)) translateZ(0);
-    will-change: transform;
-  }
+  /* Evitem transition “all” que a mòbil fa efectes rars */
+  transition: none;
+  /* Prioritzem transform per consistència */
+  transform: scale(var(--zoom)) translateZ(0);
+  will-change: transform;
 }
 
 /* Category sections */
@@ -668,12 +768,15 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   border-radius: 24px;
   background: rgba(208, 138, 63, 0.03);
   pointer-events: none;
-  transition: all 0.3s ease;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
 
 .cluster-label {
   position: absolute;
-  top: -6px;
+  top: 0;
+  transform: translateY(-50%);
   left: 30px;
   padding: 0.4rem 1.2rem;
   background: var(--accent);
@@ -697,7 +800,10 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   stroke: rgba(208, 138, 63, 0.3);
   stroke-width: 2.5;
   opacity: 0.5;
-  transition: all 0.3s ease;
+  transition:
+    opacity 0.2s ease,
+    stroke 0.2s ease,
+    stroke-width 0.2s ease;
 }
 
 .edge.dimmed {
@@ -724,8 +830,26 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   text-align: left;
   padding: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition:
+    transform 0.15s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* IMPORTANT: node width/height han de seguir el JS responsive */
+@media (max-width: 768px) {
+  .node {
+    width: 220px;
+    height: 108px;
+    padding: 0.85rem;
+  }
+
+  .cluster-label {
+    left: 18px;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.9rem;
+  }
 }
 
 .node:hover {
@@ -811,18 +935,5 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   border-radius: 999px;
   padding: 0.2rem 0.55rem;
   opacity: 0.8;
-}
-
-@media (max-width: 768px) {
-  .overlay {
-    top: 0.75rem;
-    right: 0.75rem;
-    gap: 0.5rem;
-  }
-
-  .chip {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.75rem;
-  }
 }
 </style>
