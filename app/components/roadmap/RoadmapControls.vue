@@ -20,7 +20,6 @@
             <path d="m21 21-4.35-4.35" />
           </svg>
           <input
-            type="search"
             :value="search"
             placeholder="ID, tema, mòdul, tags..."
             @input="emit('update:search', $event.target.value)"
@@ -82,26 +81,6 @@
             <span class="slider" />
           </span>
           Mode focus
-          <span
-            class="help-icon"
-            title="Mostra només el camí cap al següent node recomanat: els prerequisits necessaris, els nodes completats i els nodes que pots desbloquejar ara. Ignora el filtre de categoria."
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-              <line x1="12" y1="17" x2="12.01" y2="17" />
-            </svg>
-          </span>
         </label>
       </div>
 
@@ -120,33 +99,10 @@
       </div>
     </div>
 
-    <div v-if="nextTitle" class="hint" :class="{ 'focus-active': focusMode }">
-      <div class="hint-main">
-        Següent recomanat: <strong>{{ nextTitle }}</strong>
-        <span class="small">({{ nextId }})</span>
-      </div>
-      <div v-if="focusMode" class="focus-explanation">
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="12" cy="12" r="3" />
-          <path
-            d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"
-          />
-        </svg>
-        <strong>Mode focus actiu:</strong> només veus els nodes rellevants pel
-        teu camí actual (prerequisits, completats i desblocables). El filtre de
-        categoria està ignorat.
-      </div>
+    <div v-if="nextTitle" class="hint">
+      Següent recomanat: <strong>{{ nextTitle }}</strong>
+      <span class="small">({{ nextId }})</span>
+      <span v-if="focusMode" class="small focus-badge">· focus actiu</span>
     </div>
   </div>
 </template>
@@ -176,6 +132,7 @@ const emit = defineEmits([
 
 <style scoped>
 .controls {
+  position: sticky;
   top: 88px;
   z-index: 20;
   backdrop-filter: blur(12px);
@@ -184,30 +141,6 @@ const emit = defineEmits([
   border-radius: 20px;
   padding: 1.5rem;
   box-shadow: var(--shadow-1);
-}
-
-.controls input,
-.controls select {
-  width: 100%;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 0.75rem 1rem;
-  color: var(--text);
-  outline: none;
-  font-family: inherit;
-  transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.controls input[type="search"] {
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.controls input[type="search"]::-webkit-search-cancel-button {
-  -webkit-appearance: none;
 }
 
 .row {
@@ -446,102 +379,34 @@ input[type="range"]::-moz-range-thumb:hover {
   font-size: 0.9em;
 }
 
-.help-icon {
+.focus-badge {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  margin-left: 0.35rem;
-  color: var(--text-secondary);
-  opacity: 0.6;
-  cursor: help;
-  transition: opacity 0.2s ease;
-}
-
-.help-icon:hover {
+  padding: 0.125rem 0.5rem;
+  background: rgba(208, 138, 63, 0.15);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  color: var(--accent);
+  font-weight: 600;
   opacity: 1;
-  color: var(--accent);
 }
 
-.hint.focus-active {
-  background: linear-gradient(
-    135deg,
-    rgba(208, 138, 63, 0.08),
-    rgba(208, 138, 63, 0.12)
-  );
-  border-color: var(--accent);
-}
-
-.hint-main {
-  margin-bottom: 0;
-}
-
-.focus-explanation {
-  display: flex;
-  gap: 0.5rem;
-  align-items: flex-start;
-  margin-top: 0.75rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid rgba(208, 138, 63, 0.25);
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-
-.focus-explanation .icon {
-  flex-shrink: 0;
-  margin-top: 0.125rem;
-  color: var(--accent);
-}
-
-.focus-explanation strong {
-  color: var(--accent);
-}
-
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .controls {
-    padding: 1rem;
-    border-radius: 18px;
+    padding: 1.25rem;
   }
 
   .row {
     grid-template-columns: 1fr;
-    gap: 0.9rem;
-  }
-
-  .field label {
-    font-size: 0.85rem;
-    opacity: 0.9;
-  }
-
-  .input-wrapper input,
-  select {
-    border-radius: 14px;
-    padding: 0.85rem 1rem;
-  }
-
-  .input-wrapper input {
-    padding-left: 2.75rem;
+    gap: 1rem;
   }
 
   .actions {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
     justify-content: stretch;
   }
 
   .btn {
-    width: 100%;
-    padding: 0.9rem 1rem;
-    border-radius: 14px;
-  }
-
-  .hint {
-    padding: 0.9rem;
-    font-size: 0.9rem;
-  }
-
-  .focus-explanation {
-    font-size: 0.85rem;
+    flex: 1;
   }
 }
 </style>

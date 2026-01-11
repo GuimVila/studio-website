@@ -4,7 +4,6 @@
       <button class="chip" type="button" @click="fitToScreen">
         Ajustar a pantalla
       </button>
-
       <button
         class="chip"
         type="button"
@@ -16,7 +15,6 @@
       >
         Anar al següent
       </button>
-
       <div class="chip stat">
         <span class="muted">Zoom</span>
         <strong>{{ Math.round(zoomLocal * 100) }}%</strong>
@@ -84,14 +82,7 @@
 </template>
 
 <script setup>
-import {
-  computed,
-  ref,
-  watch,
-  onMounted,
-  onBeforeUnmount,
-  nextTick,
-} from "vue";
+import { computed, ref, watch, onMounted, onBeforeUnmount } from "vue";
 
 const props = defineProps({
   nodes: { type: Array, required: true },
@@ -133,23 +124,7 @@ onBeforeUnmount(() => {
   ro?.disconnect?.();
 });
 
-// ----------------------------------------------------
-// Helpers
-// ----------------------------------------------------
-function isMobileViewport() {
-  const w = viewportRef.value?.clientWidth || window.innerWidth || 0;
-  return w <= 768;
-}
-
-function normId(id) {
-  return String(id || "")
-    .trim()
-    .toUpperCase();
-}
-
-// ----------------------------------------------------
-// Zoom local (sync with parent)
-// ----------------------------------------------------
+// zoom local (sync with parent)
 const zoomLocal = ref(Number.isFinite(props.zoom) ? props.zoom : 1);
 watch(
   () => props.zoom,
@@ -158,57 +133,12 @@ watch(
   }
 );
 
-// ----------------------------------------------------
-// Responsive layout metrics (JS-driven)
-// ----------------------------------------------------
-const isMobile = computed(() => {
-  const w = viewportSize.value?.w || viewportRef.value?.clientWidth || 1200;
-  return w < 768;
-});
+function normId(id) {
+  return String(id || "")
+    .trim()
+    .toUpperCase();
+}
 
-const NODE_W = computed(() => (isMobile.value ? 220 : 280));
-const NODE_H = computed(() => (isMobile.value ? 108 : 120));
-const NODE_GAP_X = computed(() => (isMobile.value ? 20 : 40));
-const NODE_GAP_Y = computed(() => (isMobile.value ? 40 : 60));
-
-const PADDING = computed(() => (isMobile.value ? 70 : 140));
-
-// Padding intern del cluster
-const CLUSTER_PAD_X = computed(() => (isMobile.value ? 26 : 40));
-const CLUSTER_PAD_TOP = computed(() => (isMobile.value ? 78 : 92));
-const CLUSTER_PAD_BOTTOM = computed(() => (isMobile.value ? 40 : 50));
-const CLUSTER_PAD_Y = computed(() => (isMobile.value ? 64 : 80));
-
-// Separació entre clusters
-const CAT_GAP_X = computed(() => (isMobile.value ? 70 : 140));
-const CAT_GAP_Y = computed(() => (isMobile.value ? 110 : 160));
-
-// Quants nodes per fila dins categoria
-const NODES_PER_ROW = computed(() => {
-  if (isMobile.value) {
-    const w = viewportSize.value?.w || 390;
-    if (w < 380) return 3;
-    if (w < 430) return 4;
-    if (w < 500) return 5;
-    return 6;
-  }
-
-  const total = visibleNodes.value.length;
-  if (total <= 20) return 3;
-  if (total <= 50) return 4;
-  return 5;
-});
-// Quantes columnes de categories
-const CAT_COLS = computed(() => {
-  const w = viewportSize.value?.w || viewportRef.value?.clientWidth || 1200;
-  if (w < 900) return 1;
-  if (w < 1100) return 2;
-  return 3;
-});
-
-// ----------------------------------------------------
-// Filters
-// ----------------------------------------------------
 const focusSet = computed(() => {
   if (!props.focusIds) return null;
   const s = new Set();
@@ -219,10 +149,11 @@ const focusSet = computed(() => {
 function matchesFilters(n) {
   if (!n) return false;
 
-  // Focus mode: només focus, però aplica search + hideLocked
+  // Si el mode focus està actiu, NOMÉS comprovar focus (ignora categoria)
   if (focusSet.value) {
     if (!focusSet.value.has(normId(n.id))) return false;
 
+    // Aplicar cerca i hideLocked fins i tot amb focus actiu
     const q = String(props.search || "")
       .trim()
       .toLowerCase();
@@ -242,7 +173,7 @@ function matchesFilters(n) {
     return true;
   }
 
-  // Filtres normals
+  // Sense mode focus, aplicar filtres normals
   if (props.category && String(n.category) !== String(props.category))
     return false;
 
@@ -267,9 +198,41 @@ function matchesFilters(n) {
 
 const visibleNodes = computed(() => (props.nodes || []).filter(matchesFilters));
 
-// ----------------------------------------------------
+// --- LAYOUT (categories en 2-3 columnes) ---
+const NODE_W = 280;
+const NODE_H = 120;
+const NODE_GAP_X = 40;
+const NODE_GAP_Y = 60;
+
+const PADDING = 140;
+
+// Padding intern del cluster (espai dins la caixa)
+const CLUSTER_PAD_X = 40;
+const CLUSTER_PAD_TOP = 92;
+const CLUSTER_PAD_BOTTOM = 50;
+const CLUSTER_PAD_Y = 80;
+
+// Separació entre clusters (categories)
+const CAT_GAP_X = 140;
+const CAT_GAP_Y = 160;
+
+// Quants nodes per fila DINS d'una categoria (això és el teu "grid" intern)
+const NODES_PER_ROW = computed(() => {
+  const total = visibleNodes.value.length;
+  if (total <= 20) return 3;
+  if (total <= 50) return 4;
+  return 5;
+});
+
+// Quantes columnes de CATEGORIES (clusters) volem a la pantalla
+const CAT_COLS = computed(() => {
+  const w = viewportRef.value?.clientWidth || 1200;
+  if (w < 900) return 1;
+  if (w < 1100) return 2;
+  return 3;
+});
+
 // Group and sort nodes
-// ----------------------------------------------------
 const sortedNodes = computed(() => {
   return [...visibleNodes.value].sort((a, b) => {
     const seqA = Number.isFinite(a.seq) ? a.seq : 999999;
@@ -300,9 +263,7 @@ const categoryOrder = computed(() => {
   });
 });
 
-// ----------------------------------------------------
-// Layout clusters
-// ----------------------------------------------------
+// Layout de cada cluster: { x, y, width, height, innerW, innerH }
 const clusterLayout = computed(() => {
   const colsInside = NODES_PER_ROW.value;
   const catCols = CAT_COLS.value;
@@ -312,28 +273,28 @@ const clusterLayout = computed(() => {
     const nodes = categoryGroups.value.get(cat) || [];
     const rows = Math.max(1, Math.ceil(nodes.length / colsInside));
 
-    const innerW =
-      colsInside * NODE_W.value + (colsInside - 1) * NODE_GAP_X.value;
-    const innerH = rows * NODE_H.value + (rows - 1) * NODE_GAP_Y.value;
+    const innerW = colsInside * NODE_W + (colsInside - 1) * NODE_GAP_X;
+    const innerH = rows * NODE_H + (rows - 1) * NODE_GAP_Y;
 
-    const width = innerW + CLUSTER_PAD_X.value * 2;
-    const height = innerH + CLUSTER_PAD_Y.value * 2;
+    const width = innerW + CLUSTER_PAD_X * 2;
+    const height = innerH + CLUSTER_PAD_Y * 2;
 
     return { cat, nodes, rows, innerW, innerH, width, height };
   });
 
-  // alçada per fila de categories
+  // rowHeights per files de categories
   const rowHeights = [];
   for (let i = 0; i < meta.length; i++) {
     const row = Math.floor(i / catCols);
     rowHeights[row] = Math.max(rowHeights[row] || 0, meta[i].height);
   }
 
+  // y acumulada per fila
   const rowY = [];
-  let acc = PADDING.value;
+  let acc = PADDING;
   for (let r = 0; r < rowHeights.length; r++) {
     rowY[r] = acc;
-    acc += rowHeights[r] + CAT_GAP_Y.value;
+    acc += rowHeights[r] + CAT_GAP_Y;
   }
 
   const map = new Map();
@@ -341,7 +302,7 @@ const clusterLayout = computed(() => {
     const row = Math.floor(i / catCols);
     const col = i % catCols;
 
-    const x = PADDING.value + col * (meta[i].width + CAT_GAP_X.value);
+    const x = PADDING + col * (meta[i].width + CAT_GAP_X);
     const y = rowY[row];
 
     map.set(meta[i].cat, { ...meta[i], x, y });
@@ -350,9 +311,7 @@ const clusterLayout = computed(() => {
   return map;
 });
 
-// ----------------------------------------------------
-// Positions by id
-// ----------------------------------------------------
+// Posicions precomputades per id (més eficient i més clar)
 const positionsById = computed(() => {
   const pos = new Map();
   const colsInside = NODES_PER_ROW.value;
@@ -367,14 +326,9 @@ const positionsById = computed(() => {
       const row = Math.floor(idx / colsInside);
       const col = idx % colsInside;
 
-      const x =
-        layout.x +
-        CLUSTER_PAD_X.value +
-        col * (NODE_W.value + NODE_GAP_X.value);
-      const y =
-        layout.y +
-        CLUSTER_PAD_Y.value +
-        row * (NODE_H.value + NODE_GAP_Y.value);
+      const x = layout.x + CLUSTER_PAD_X + col * (NODE_W + NODE_GAP_X);
+
+      const y = layout.y + CLUSTER_PAD_Y + row * (NODE_H + NODE_GAP_Y);
 
       pos.set(normId(n.id), { x, y });
     }
@@ -384,17 +338,11 @@ const positionsById = computed(() => {
 });
 
 function nodePos(n) {
-  return (
-    positionsById.value.get(normId(n.id)) || {
-      x: PADDING.value,
-      y: PADDING.value,
-    }
-  );
+  return positionsById.value.get(normId(n.id)) || { x: PADDING, y: PADDING };
 }
 
-// ----------------------------------------------------
-// Bounds + canvas
-// ----------------------------------------------------
+// --- RENDERING ---
+
 const bounds = computed(() => {
   if (!visibleNodes.value.length) {
     return { minX: 0, minY: 0, w: 1400, h: 800 };
@@ -409,14 +357,14 @@ const bounds = computed(() => {
     const { x, y } = nodePos(n);
     minX = Math.min(minX, x);
     minY = Math.min(minY, y);
-    maxX = Math.max(maxX, x + NODE_W.value);
-    maxY = Math.max(maxY, y + NODE_H.value);
+    maxX = Math.max(maxX, x + NODE_W);
+    maxY = Math.max(maxY, y + NODE_H);
   }
 
-  minX = Math.max(0, minX - PADDING.value);
-  minY = Math.max(0, minY - PADDING.value);
-  maxX = maxX + PADDING.value;
-  maxY = maxY + PADDING.value;
+  minX = Math.max(0, minX - PADDING);
+  minY = Math.max(0, minY - PADDING);
+  maxX = maxX + PADDING;
+  maxY = maxY + PADDING;
 
   return { minX, minY, w: maxX - minX, h: maxY - minY };
 });
@@ -425,12 +373,11 @@ const canvasW = computed(() => Math.max(1, Math.ceil(bounds.value.w)));
 const canvasH = computed(() => Math.max(1, Math.ceil(bounds.value.h)));
 
 const canvasStyle = computed(() => {
+  console.log(`📐 Canvas: ${canvasW.value}px x ${canvasH.value}px`);
   return {
     width: `${canvasW.value}px`,
     height: `${canvasH.value}px`,
     "--zoom": String(zoomLocal.value),
-    "--node-w": `${NODE_W.value}px`,
-    "--node-h": `${NODE_H.value}px`,
   };
 });
 
@@ -458,30 +405,28 @@ const renderedClusters = computed(() => {
     for (const node of nodes) {
       const pos = nodePos(node);
       catMinX = Math.min(catMinX, pos.x);
-      catMaxX = Math.max(catMaxX, pos.x + NODE_W.value);
+      catMaxX = Math.max(catMaxX, pos.x + NODE_W);
       catMinY = Math.min(catMinY, pos.y);
-      catMaxY = Math.max(catMaxY, pos.y + NODE_H.value);
+      catMaxY = Math.max(catMaxY, pos.y + NODE_H);
     }
 
-    const x = catMinX - minX - CLUSTER_PAD_X.value;
-    const y = catMinY - minY - CLUSTER_PAD_TOP.value;
+    // posició dins el canvas renderitzat
+    const x = catMinX - minX - CLUSTER_PAD_X;
+    const y = catMinY - minY - CLUSTER_PAD_TOP;
 
     clusters.push({
       category: cat,
       x,
       y,
-      width: catMaxX - catMinX + CLUSTER_PAD_X.value * 2,
-      height:
-        catMaxY - catMinY + CLUSTER_PAD_TOP.value + CLUSTER_PAD_BOTTOM.value,
+      width: catMaxX - catMinX + CLUSTER_PAD_X * 2,
+      height: catMaxY - catMinY + CLUSTER_PAD_TOP + CLUSTER_PAD_BOTTOM,
     });
   }
 
   return clusters;
 });
 
-// ----------------------------------------------------
-// Edges
-// ----------------------------------------------------
+// --- edges
 function edgeKey(a, b) {
   return `${normId(a)}->${normId(b)}`;
 }
@@ -521,16 +466,17 @@ const renderedEdges = computed(() => {
       const from = index.get(fromId);
       if (!from) continue;
 
-      const x1 = from._x + NODE_W.value;
-      const y1 = from._y + NODE_H.value * 0.5;
+      const x1 = from._x + NODE_W;
+      const y1 = from._y + NODE_H * 0.5;
       const x2 = n._x;
-      const y2 = n._y + NODE_H.value * 0.5;
+      const y2 = n._y + NODE_H * 0.5;
 
       const key = edgeKey(fromId, toId);
       const highlighted = highlightEdgeSet.value
         ? highlightEdgeSet.value.has(key)
         : false;
 
+      // Dim edges that cross categories (unless highlighted)
       const crossCategory = from.category !== n.category;
       const dimmed = crossCategory && !highlighted;
 
@@ -541,9 +487,7 @@ const renderedEdges = computed(() => {
   return out;
 });
 
-// ----------------------------------------------------
-// Node visuals
-// ----------------------------------------------------
+// --- node visuals
 function nodeStyle(n) {
   return { left: `${n._x}px`, top: `${n._y}px` };
 }
@@ -557,9 +501,7 @@ function nodeClass(n) {
   return { completed, locked, highlighted };
 }
 
-// ----------------------------------------------------
-// UX helpers
-// ----------------------------------------------------
+// --- UX
 function clampZoom(z) {
   const v = Number(z);
   if (!Number.isFinite(v)) return 1;
@@ -596,8 +538,8 @@ function scrollToNode(id) {
   const vh = viewport.clientHeight;
 
   const z = zoomLocal.value;
-  const cx = (target._x + NODE_W.value / 2) * z;
-  const cy = (target._y + NODE_H.value / 2) * z;
+  const cx = (target._x + NODE_W / 2) * z;
+  const cy = (target._y + NODE_H / 2) * z;
 
   viewport.scrollLeft = Math.max(0, cx - vw / 2);
   viewport.scrollTop = Math.max(0, cy - vh / 2);
@@ -616,30 +558,14 @@ function centerNextNode() {
   const vh = viewport.clientHeight;
 
   const z = zoomLocal.value;
-  const cx = (target._x + NODE_W.value / 2) * z;
-  const cy = (target._y + NODE_H.value / 2) * z;
+  const cx = (target._x + NODE_W / 2) * z;
+  const cy = (target._y + NODE_H / 2) * z;
 
   viewport.scrollLeft = Math.max(0, cx - vw / 2);
   viewport.scrollTop = Math.max(0, cy - vh / 2);
 }
 
 defineExpose({ scrollToNode, fitToScreen, centerNextNode });
-
-// ----------------------------------------------------
-// Auto-fit on mobile at entry + on filter changes (mobile only)
-// ----------------------------------------------------
-onMounted(async () => {
-  await nextTick();
-  if (isMobileViewport()) fitToScreen();
-});
-
-watch(
-  () => [props.search, props.category, props.hideLocked, props.focusIds],
-  async () => {
-    await nextTick();
-    if (isMobileViewport()) fitToScreen();
-  }
-);
 </script>
 
 <style scoped>
@@ -789,8 +715,8 @@ watch(
 
 .node {
   position: absolute;
-  width: var(--node-w);
-  height: var(--node-h);
+  width: 280px;
+  height: 120px;
   border-radius: 16px;
   border: 2px solid var(--border);
   background: var(--surface);
@@ -887,51 +813,16 @@ watch(
   opacity: 0.8;
 }
 
-/* -----------------------
-   MOBILE FIXES
-   ----------------------- */
 @media (max-width: 768px) {
-  /* Bottom bar overlay */
   .overlay {
-    top: auto;
-    right: auto;
-    left: 0.75rem;
-    bottom: 0.75rem;
-    width: calc(100% - 1.5rem);
-    justify-content: space-between;
+    top: 0.75rem;
+    right: 0.75rem;
     gap: 0.5rem;
-    z-index: 20;
   }
 
   .chip {
-    flex: 1;
-    text-align: center;
-    padding: 0.7rem 0.75rem;
-    font-size: 0.78rem;
-  }
-
-  /* Amaga el xip del zoom a mòbil */
-  .chip.stat {
-    display: none;
-  }
-
-  /* Evita sensació "gomosa" en fit/zoom */
-  .canvas {
-    transition: none;
-  }
-
-  .viewport {
-    scroll-behavior: auto;
-    height: min(70vh, 640px);
-  }
-
-  .node {
-    padding: 0.85rem;
-    border-radius: 14px;
-  }
-
-  .node-title {
-    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
   }
 }
 </style>
