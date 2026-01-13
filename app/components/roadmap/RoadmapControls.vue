@@ -162,10 +162,13 @@ const emit = defineEmits([
 }
 .row {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
   gap: 1rem;
   align-items: end;
   margin-bottom: 1rem;
+}
+
+.controls-grid {
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr) 260px;
 }
 
 .row:last-of-type {
@@ -379,6 +382,12 @@ input[type="range"]::-moz-range-thumb:hover {
   display: flex;
   gap: 0.75rem;
   align-items: center;
+}
+
+.actions .btn {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .actions {
