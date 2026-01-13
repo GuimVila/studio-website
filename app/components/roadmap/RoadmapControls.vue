@@ -182,6 +182,7 @@ const emit = defineEmits([
 .input-wrapper {
   position: relative;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .search-icon {
@@ -208,6 +209,7 @@ select {
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease;
+  box-sizing: border-box;
 }
 
 .input-wrapper input {
@@ -276,8 +278,8 @@ input[type="range"]::-moz-range-thumb:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  margin: 0; 
-  padding: 0; 
+  margin: 0;
+  padding: 0;
   line-height: 1;
   font-weight: 600;
   color: var(--text);
@@ -376,12 +378,13 @@ input[type="range"]::-moz-range-thumb:hover {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
   color: var(--text);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .btn:hover {
