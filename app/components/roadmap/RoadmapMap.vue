@@ -17,7 +17,11 @@
         Anar al següent
       </button>
 
-      <button class="chip" type="button" @click="setZoom(zoomLocal - 0.1)">
+      <button
+        class="chip zoom-btn"
+        type="button"
+        @click="setZoom(zoomLocal - 0.1)"
+      >
         −
       </button>
 
@@ -26,7 +30,11 @@
         <strong>{{ Math.round(zoomLocal * 100) }}%</strong>
       </div>
 
-      <button class="chip" type="button" @click="setZoom(zoomLocal + 0.1)">
+      <button
+        class="chip zoom-btn"
+        type="button"
+        @click="setZoom(zoomLocal + 0.1)"
+      >
         +
       </button>
     </div>
@@ -697,7 +705,7 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   z-index: 50;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 0.5rem;
 
   padding: 0.5rem;
@@ -726,11 +734,90 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 }
 
 .overlay.mobile .chip {
-  flex: 1;
+  min-width: 0;
+  flex: 1 1 0;
   text-align: center;
   padding: 0.75rem 0.5rem;
   font-size: 0.85rem;
   border-radius: 14px;
+}
+
+.overlay.mobile .chip.zoom-btn {
+  flex: 0 0 42px;
+  padding: 0.75rem 0;
+  text-align: center;
+}
+
+.overlay.mobile .chip.stat {
+  flex: 0 1 110px; /* límit raonable: es pot encongir */
+  justify-content: center;
+  min-width: 0;
+  padding: 0.75rem 0.5rem;
+}
+
+.overlay.mobile .chip.stat .muted,
+.overlay.mobile .chip.stat strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Botons + i - de zoom: estil coherent amb els chips */
+.chip.zoom-btn {
+  /* mida i alineació */
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* mateixa pell que la resta */
+  border-radius: 14px; /* una mica menys “pastilla” perquè és un botó quadrat */
+  background: var(--header-bg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-1);
+  backdrop-filter: blur(12px);
+
+  /* tipografia */
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.02em;
+
+  /* tacte */
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hover coherent amb el teu .chip:hover però una mica més “apretat” */
+.chip.zoom-btn:hover {
+  background: var(--surface-2);
+  border-color: rgba(208, 138, 63, 0.45);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* Active (quan prem): resposta clara però suau */
+.chip.zoom-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18);
+}
+
+/* Focus accessible (teu accent) */
+.chip.zoom-btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(208, 138, 63, 0.18),
+    var(--shadow-1);
+}
+
+/* Disabled coherent amb la resta */
+.chip.zoom-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .chip:hover {
