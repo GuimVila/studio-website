@@ -112,6 +112,11 @@ const emit = defineEmits([
 </script>
 
 <style scoped>
+.controls,
+.controls * {
+  box-sizing: border-box;
+}
+
 .controls {
   z-index: 20;
   backdrop-filter: blur(12px);
@@ -120,12 +125,9 @@ const emit = defineEmits([
   border-radius: 20px;
   padding: 1.5rem;
   box-shadow: var(--shadow-1);
-  overflow: hidden;
-}
-
-.controls,
-.controls * {
-  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .controls-grid {
@@ -499,6 +501,8 @@ input[type="range"]::-moz-range-thumb:hover {
 
   .actions {
     grid-template-columns: 1fr 1fr;
+    min-width: 0;
+    width: 100%;
   }
 
   .btn {
@@ -510,6 +514,12 @@ input[type="range"]::-moz-range-thumb:hover {
     flex-basis: 100%;
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .actions {
+    grid-template-columns: 1fr; 
   }
 }
 </style>
