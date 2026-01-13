@@ -120,6 +120,12 @@ const emit = defineEmits([
   border-radius: 20px;
   padding: 1.5rem;
   box-shadow: var(--shadow-1);
+  overflow: hidden;
+}
+
+.controls,
+.controls * {
+  box-sizing: border-box;
 }
 
 .controls-grid {
@@ -163,6 +169,10 @@ const emit = defineEmits([
   margin-bottom: 0;
 }
 
+.field {
+  min-width: 0;
+}
+
 .field label {
   display: block;
   font-size: 0.9rem;
@@ -182,7 +192,7 @@ const emit = defineEmits([
 .input-wrapper {
   position: relative;
   width: 100%;
-  box-sizing: border-box;
+  min-width: 0;
 }
 
 .search-icon {
@@ -199,6 +209,7 @@ input[type="text"],
 input[type="search"],
 select {
   width: 100%;
+  max-width: 100%;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -209,7 +220,6 @@ select {
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease;
-  box-sizing: border-box;
 }
 
 .input-wrapper input {
@@ -372,19 +382,21 @@ input[type="range"]::-moz-range-thumb:hover {
   display: grid;
   gap: 0.75rem;
   align-items: start;
+  min-width: 0;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .btn {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.5rem;
   color: var(--text);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
-  box-sizing: border-box;
 }
 
 .btn:hover {
@@ -478,8 +490,11 @@ input[type="range"]::-moz-range-thumb:hover {
   }
 
   .row {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
     gap: 1rem;
+    align-items: end;
+    margin-bottom: 1rem;
   }
 
   .actions {
