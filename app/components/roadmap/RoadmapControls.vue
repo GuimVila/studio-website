@@ -139,6 +139,7 @@ const emit = defineEmits([
     "focus    focus    focus    actions"
     "hint     hint     hint     hint";
   align-items: end;
+  min-width: 0;
 }
 
 .area-search {
@@ -385,8 +386,7 @@ input[type="range"]::-moz-range-thumb:hover {
   gap: 0.75rem;
   align-items: start;
   min-width: 0;
-  justify-content: flex-end;
-  flex-wrap: wrap;
+  width: 100%;
 }
 
 .btn {
@@ -505,6 +505,12 @@ input[type="range"]::-moz-range-thumb:hover {
     width: 100%;
   }
 
+  .actions .btn {
+    min-width: 0;
+    white-space: normal; /* clau: permet trencar línia si cal */
+    padding: 0.75rem 1rem; /* una mica menys lateral */
+  }
+
   .btn {
     flex: 1;
     width: 100%;
@@ -519,7 +525,7 @@ input[type="range"]::-moz-range-thumb:hover {
 
 @media (max-width: 420px) {
   .actions {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
   }
 }
 </style>
