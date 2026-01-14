@@ -230,5 +230,322 @@
       "title": "Recursos | Guillem Vila",
       "description": "Recursos educatius de producció, mescla, gravació, harmonia i disseny de so, amb categories i roadmap d’aprenentatge."
     }
+  },
+  "services": {
+    "title": "Serveis i preus",
+    "subtitle": "Estudi professional de mescla, producció i gravació. Treball híbrid, sala tractada i flux de treball d’alt nivell.",
+    "sections": {
+      "mixing": "Mescla",
+      "tracking": "Gravació",
+      "production": "Producció musical",
+      "editing": "Edició",
+      "pro": "Altres serveis"
+    },
+    "volumeDiscounts": {
+      "title": "Descomptes per volum",
+      "lines": [
+        "✓ 10% de descompte a partir de 5 cançons",
+        "✓ 15% de descompte a partir de 10 cançons (EP / Àlbum)",
+        "✓ Pressupost personalitzat per a projectes grans"
+      ],
+      "cta": "Demanar pressupost"
+    },
+    "units": {
+      "perSong": "/cançó",
+      "perHour": "/hora",
+      "per8h": "/8h",
+      "perProject": "/projecte",
+      "perTrack": "/pista",
+      "perStemOrTrack": "/stem o pista",
+      "perPatch": "/patch"
+    },
+    "buttons": {
+      "hire": "Contractar",
+      "book": "Reservar",
+      "quote": "Demanar pressupost"
+    },
+    "badges": {
+      "mainService": "SERVEI PRINCIPAL",
+      "recommended": "RECOMANAT",
+      "mostRequested": "MÉS SOL·LICITAT",
+      "mostDemanded": "MÉS DEMANAT"
+    },
+    "packages": {
+      "mixing": [
+        {
+          "title": "Mescla bàsica",
+          "price": "75€",
+          "unit": "/cançó",
+          "features": [
+            "Mescla professional ITB",
+            "Fins a 40 pistes",
+            "Automatitzacions bàsiques",
+            "2 revisions incloses",
+            "Lliurament en 4–6 dies"
+          ],
+          "button": "Contractar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Mescla híbrida",
+          "price": "95€",
+          "unit": "/cançó",
+          "features": [
+            "Mescla híbrida analògica (Silver Bullet + SSL)",
+            "Fins a 60 pistes",
+            "Automatitzacions completes",
+            "3 revisions incloses",
+            "Mix final + instrumental",
+            "Lliurament en 5–7 dies"
+          ],
+          "button": "Contractar",
+          "badge": "SERVEI PRINCIPAL",
+          "featured": true
+        },
+        {
+          "title": "Mescla avançada",
+          "price": "120€",
+          "unit": "/cançó",
+          "features": [
+            "Mescla híbrida analògica (Silver Bullet + SSL)",
+            "Sessions complexes (+60 pistes)",
+            "Automatitzacions completes",
+            "3 revisions incloses",
+            "Lliurament en 7–10 dies"
+          ],
+          "button": "Contractar",
+          "badge": null,
+          "featured": false
+        }
+      ],
+      "tracking": [
+        {
+          "title": "Gravació d’instruments",
+          "price": "40€",
+          "unit": "/hora",
+          "features": [
+            "Instruments elèctrics, acústics i overdubs",
+            "Suhr Reactive Load",
+            "Captura DI + amp",
+            "Enginyer inclòs",
+            "Edició inclosa"
+          ],
+          "button": "Reservar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Dia complet d’estudi",
+          "price": "300€",
+          "unit": "/8h",
+          "features": [
+            "8 hores de gravació",
+            "Tot l’equip disponible",
+            "Enginyer inclòs",
+            "Edició inclosa",
+            "Estalvi respecte hores soltes"
+          ],
+          "button": "Reservar",
+          "badge": "RECOMANAT",
+          "featured": true
+        },
+        {
+          "title": "Gravació vocal",
+          "price": "50€",
+          "unit": "/hora",
+          "features": [
+            "UAD Sphere DLX (microfonia modelada)",
+            "Sala completament tractada",
+            "Direcció vocal i coaching",
+            "Enginyer inclòs",
+            "Edició inclosa"
+          ],
+          "button": "Reservar",
+          "badge": null,
+          "featured": false
+        }
+      ],
+      "production": [
+        {
+          "title": "Sound Design",
+          "price": "Des de 100€",
+          "unit": "/patch",
+          "features": [
+            "Disseny sonor per a sintetitzadors i samplers",
+            "Creació de kits originals i textures úniques",
+            "Optimitzat per produccions i live",
+            "Consultoria sobre implementació en DAW"
+          ],
+          "button": "Demanar pressupost",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Producció / Coproducció completa",
+          "price": "A mida",
+          "unit": "",
+          "features": [
+            "Preproducció i arranjaments",
+            "Sound design i selecció sonora",
+            "Producció musical completa",
+            "Direcció artística",
+            "Mescla inclosa"
+          ],
+          "button": "Demanar pressupost",
+          "badge": "SERVEI PRINCIPAL",
+          "featured": true
+        },
+        {
+          "title": "Beat Making",
+          "price": "Des de 150€",
+          "unit": "/cançó",
+          "features": [
+            "Producció original adaptada a l’artista",
+            "Llicència inclosa",
+            "Revisions segons acord",
+            "Compatible amb vocals o instrumentals existents"
+          ],
+          "button": "Demanar pressupost",
+          "badge": null,
+          "featured": false
+        }
+      ],
+      "editing": [
+        {
+          "title": "Preparació de sessions",
+          "price": "30€",
+          "unit": "/projecte",
+          "features": [
+            "Organització de sessions a Pro Tools",
+            "Neteja de pistes i silencis",
+            "Ruteig i etiquetatge correcte",
+            "Preparació òptima per a mescla o enviament"
+          ],
+          "button": "Contractar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Edició completa pre-mescla",
+          "price": "70€",
+          "unit": "/cançó",
+          "features": [
+            "Comping vocal i instrumental",
+            "Correcció de timing musical",
+            "Afinació vocal transparent",
+            "Edició musical amb criteri artístic",
+            "Session ready per a mescla professional"
+          ],
+          "button": "Contractar",
+          "badge": "MÉS DEMANAT",
+          "featured": true
+        },
+        {
+          "title": "Edició i afinació vocal",
+          "price": "40€",
+          "unit": "/cançó",
+          "features": [
+            "Comping vocal",
+            "Correcció de timing",
+            "Afinació natural i transparent",
+            "Respecte total pel caràcter de la veu"
+          ],
+          "button": "Contractar",
+          "badge": null,
+          "featured": false
+        }
+      ],
+      "pro": [
+        {
+          "title": "Reamp de guitarres i baixos",
+          "price": "35€",
+          "unit": "/pista",
+          "features": [
+            "Reamp amb amplificació real",
+            "Captura DI + amp",
+            "Fender Blues Jr III / Suhr Reactive Load",
+            "Integració directa a la teva sessió"
+          ],
+          "button": "Contractar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Mix bus processing extern",
+          "price": "40€",
+          "unit": "/cançó",
+          "features": [
+            "Processament analògic del mix bus",
+            "Silver Bullet MK2 + SSL Bus+",
+            "Sense alterar balances",
+            "Ideal per mixers ITB"
+          ],
+          "button": "Contractar",
+          "badge": "MÉS SOL·LICITAT",
+          "featured": true
+        },
+        {
+          "title": "Processament analògic de pistes",
+          "price": "30€",
+          "unit": "/stem o pista",
+          "features": [
+            "Color analògic amb Silver Bullet",
+            "Tape79 Mojo Module",
+            "Ideal per a bateries, baixos, sintetitzadors o veus",
+            "Entrega alineada i phased-aligned"
+          ],
+          "button": "Contractar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Assessorament tècnic",
+          "price": "50€",
+          "unit": "/hora",
+          "features": [
+            "Flux de treball professional",
+            "Equipament i routing",
+            "Plugins i gestió de sessions",
+            "Optimització d’estudi i acústica"
+          ],
+          "button": "Reservar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Mix coaching",
+          "price": "40€",
+          "unit": "/hora",
+          "features": [
+            "Feedback tècnic i artístic",
+            "Revisió de mescles reals",
+            "Orientat a productors i mixers",
+            "Sessió 1 a 1"
+          ],
+          "button": "Reservar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Listening session professional",
+          "price": "30€",
+          "unit": "/hora",
+          "features": [
+            "Escolta crítica en sala tractada",
+            "Adam Audio A7V calibrats (Sonarworks)",
+            "Feedback honest i constructiu",
+            "Ideal abans de publicar o enviar a mescla"
+          ],
+          "button": "Reservar",
+          "badge": null,
+          "featured": false
+        }
+      ]
+    },
+    "seo": {
+      "title": "Serveis | Guillem Vila · Productor musical, artista i enginyer de so",
+      "description": "Ofereixo serveis professionals de producció musical, gravació, edició, mescla i d'altres. Treballo per fer realitat projectes musicals amb qualitat i creativitat."
+    }
   }
 }

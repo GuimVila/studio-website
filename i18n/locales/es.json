@@ -230,5 +230,322 @@
       "title": "Recursos | Guillem Vila",
       "description": "Recursos educativos de producción, mezcla, grabación, armonía y diseño de sonido, con categorías y roadmap de aprendizaje."
     }
+  },
+  "services": {
+    "title": "Servicios y precios",
+    "subtitle": "Estudio profesional de mezcla, producción y grabación. Trabajo híbrido, sala tratada y un flujo de trabajo de alto nivel.",
+    "sections": {
+      "mixing": "Mezcla",
+      "tracking": "Grabación",
+      "production": "Producción musical",
+      "editing": "Edición",
+      "pro": "Otros servicios"
+    },
+    "volumeDiscounts": {
+      "title": "Descuentos por volumen",
+      "lines": [
+        "✓ 10% de descuento a partir de 5 canciones",
+        "✓ 15% de descuento a partir de 10 canciones (EP / Álbum)",
+        "✓ Presupuesto personalizado para proyectos grandes"
+      ],
+      "cta": "Pedir presupuesto"
+    },
+    "units": {
+      "perSong": "/canción",
+      "perHour": "/hora",
+      "per8h": "/8h",
+      "perProject": "/proyecto",
+      "perTrack": "/pista",
+      "perStemOrTrack": "/stem o pista",
+      "perPatch": "/patch"
+    },
+    "buttons": {
+      "hire": "Contratar",
+      "book": "Reservar",
+      "quote": "Pedir presupuesto"
+    },
+    "badges": {
+      "mainService": "SERVICIO PRINCIPAL",
+      "recommended": "RECOMENDADO",
+      "mostRequested": "MÁS SOLICITADO",
+      "mostDemanded": "MÁS DEMANDADO"
+    },
+    "packages": {
+      "mixing": [
+        {
+          "title": "Mezcla básica",
+          "price": "75€",
+          "unit": "/canción",
+          "features": [
+            "Mezcla profesional ITB",
+            "Hasta 40 pistas",
+            "Automatizaciones básicas",
+            "2 revisiones incluidas",
+            "Entrega en 4–6 días"
+          ],
+          "button": "Contratar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Mezcla híbrida",
+          "price": "95€",
+          "unit": "/canción",
+          "features": [
+            "Mezcla híbrida analógica (Silver Bullet + SSL)",
+            "Hasta 60 pistas",
+            "Automatizaciones completas",
+            "3 revisiones incluidas",
+            "Mix final + instrumental",
+            "Entrega en 5–7 días"
+          ],
+          "button": "Contratar",
+          "badge": "SERVICIO PRINCIPAL",
+          "featured": true
+        },
+        {
+          "title": "Mezcla avanzada",
+          "price": "120€",
+          "unit": "/canción",
+          "features": [
+            "Mezcla híbrida analógica (Silver Bullet + SSL)",
+            "Sesiones complejas (+60 pistas)",
+            "Automatizaciones completas",
+            "3 revisiones incluidas",
+            "Entrega en 7–10 días"
+          ],
+          "button": "Contratar",
+          "badge": null,
+          "featured": false
+        }
+      ],
+      "tracking": [
+        {
+          "title": "Grabación de instrumentos",
+          "price": "40€",
+          "unit": "/hora",
+          "features": [
+            "Instrumentos eléctricos, acústicos y overdubs",
+            "Suhr Reactive Load",
+            "Captura DI + amp",
+            "Ingeniero incluido",
+            "Edición incluida"
+          ],
+          "button": "Reservar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Día completo de estudio",
+          "price": "300€",
+          "unit": "/8h",
+          "features": [
+            "8 horas de grabación",
+            "Todo el equipo disponible",
+            "Ingeniero incluido",
+            "Edición incluida",
+            "Ahorro frente a horas sueltas"
+          ],
+          "button": "Reservar",
+          "badge": "RECOMENDADO",
+          "featured": true
+        },
+        {
+          "title": "Grabación vocal",
+          "price": "50€",
+          "unit": "/hora",
+          "features": [
+            "UAD Sphere DLX (microfonía modelada)",
+            "Sala completamente tratada",
+            "Dirección vocal y coaching",
+            "Ingeniero incluido",
+            "Edición incluida"
+          ],
+          "button": "Reservar",
+          "badge": null,
+          "featured": false
+        }
+      ],
+      "production": [
+        {
+          "title": "Sound Design",
+          "price": "Desde 100€",
+          "unit": "/patch",
+          "features": [
+            "Diseño sonoro para sintetizadores y samplers",
+            "Creación de kits originales y texturas únicas",
+            "Optimizado para producciones y directo",
+            "Consultoría sobre implementación en DAW"
+          ],
+          "button": "Pedir presupuesto",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Producción / Coproducción completa",
+          "price": "A medida",
+          "unit": "",
+          "features": [
+            "Preproducción y arreglos",
+            "Sound design y selección sonora",
+            "Producción musical completa",
+            "Dirección artística",
+            "Mezcla incluida"
+          ],
+          "button": "Pedir presupuesto",
+          "badge": "SERVICIO PRINCIPAL",
+          "featured": true
+        },
+        {
+          "title": "Beat Making",
+          "price": "Desde 150€",
+          "unit": "/canción",
+          "features": [
+            "Producción original adaptada al artista",
+            "Licencia incluida",
+            "Revisiones según acuerdo",
+            "Compatible con voces o instrumentales existentes"
+          ],
+          "button": "Pedir presupuesto",
+          "badge": null,
+          "featured": false
+        }
+      ],
+      "editing": [
+        {
+          "title": "Preparación de sesiones",
+          "price": "30€",
+          "unit": "/proyecto",
+          "features": [
+            "Organización de sesiones en Pro Tools",
+            "Limpieza de pistas y silencios",
+            "Ruteo y etiquetado correcto",
+            "Preparación óptima para mezcla o envío"
+          ],
+          "button": "Contratar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Edición completa pre-mezcla",
+          "price": "70€",
+          "unit": "/canción",
+          "features": [
+            "Comping vocal e instrumental",
+            "Corrección de timing musical",
+            "Afinación vocal transparente",
+            "Edición musical con criterio artístico",
+            "Sesión lista para mezcla profesional"
+          ],
+          "button": "Contratar",
+          "badge": "MÁS DEMANDADO",
+          "featured": true
+        },
+        {
+          "title": "Edición y afinación vocal",
+          "price": "40€",
+          "unit": "/canción",
+          "features": [
+            "Comping vocal",
+            "Corrección de timing",
+            "Afinación natural y transparente",
+            "Respeto total por el carácter de la voz"
+          ],
+          "button": "Contratar",
+          "badge": null,
+          "featured": false
+        }
+      ],
+      "pro": [
+        {
+          "title": "Reamp de guitarras y bajos",
+          "price": "35€",
+          "unit": "/pista",
+          "features": [
+            "Reamp con amplificación real",
+            "Captura DI + amp",
+            "Fender Blues Jr III / Suhr Reactive Load",
+            "Integración directa en tu sesión"
+          ],
+          "button": "Contratar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Procesamiento externo del mix bus",
+          "price": "40€",
+          "unit": "/canción",
+          "features": [
+            "Procesamiento analógico del mix bus",
+            "Silver Bullet MK2 + SSL Bus+",
+            "Sin alterar balances",
+            "Ideal para mixers ITB"
+          ],
+          "button": "Contratar",
+          "badge": "MÁS SOLICITADO",
+          "featured": true
+        },
+        {
+          "title": "Procesamiento analógico de pistas",
+          "price": "30€",
+          "unit": "/stem o pista",
+          "features": [
+            "Color analógico con Silver Bullet",
+            "Tape79 Mojo Module",
+            "Ideal para baterías, bajos, sintetizadores o voces",
+            "Entrega alineada y phased-aligned"
+          ],
+          "button": "Contratar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Asesoramiento técnico",
+          "price": "50€",
+          "unit": "/hora",
+          "features": [
+            "Flujo de trabajo profesional",
+            "Equipamiento y routing",
+            "Plugins y gestión de sesiones",
+            "Optimización de estudio y acústica"
+          ],
+          "button": "Reservar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Mix coaching",
+          "price": "40€",
+          "unit": "/hora",
+          "features": [
+            "Feedback técnico y artístico",
+            "Revisión de mezclas reales",
+            "Orientado a productores y mixers",
+            "Sesión 1 a 1"
+          ],
+          "button": "Reservar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Listening session profesional",
+          "price": "30€",
+          "unit": "/hora",
+          "features": [
+            "Escucha crítica en sala tratada",
+            "Adam Audio A7V calibrados (Sonarworks)",
+            "Feedback honesto y constructivo",
+            "Ideal antes de publicar o enviar a mezcla"
+          ],
+          "button": "Reservar",
+          "badge": null,
+          "featured": false
+        }
+      ]
+    },
+    "seo": {
+      "title": "Servicios | Guillem Vila · Productor musical, artista e ingeniero de sonido",
+      "description": "Ofrezco servicios profesionales de producción musical, grabación, edición, mezcla y otros. Trabajo para hacer realidad proyectos musicales con calidad y creatividad."
+    }
   }
 }
