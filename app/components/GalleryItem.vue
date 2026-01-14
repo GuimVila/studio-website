@@ -41,10 +41,25 @@ defineProps({
   display: block;
 }
 
-.gallery-item:hover {
-  transform: translateY(-10px);
-  border-color: rgba(208, 138, 63, 0.55);
-  box-shadow: var(--accent-shadow-1);
+@media (max-width: 1023px) {
+  .gallery-item {
+    transform: translateY(-10px);
+    border-color: rgba(208, 138, 63, 0.55);
+    box-shadow: var(--accent-shadow-1);
+  }
+  .gallery-item .overlay {
+    opacity: 1;
+  }
+}
+@media (min-width: 1024px) {
+  .gallery-item:hover {
+    transform: translateY(-10px);
+    border-color: rgba(208, 138, 63, 0.55);
+    box-shadow: var(--accent-shadow-1);
+  }
+  .gallery-item:hover .overlay {
+    opacity: 1;
+  }
 }
 
 .overlay {
@@ -61,10 +76,6 @@ defineProps({
   padding: 1.25rem;
   opacity: 0;
   transition: opacity 0.35s ease;
-}
-
-.gallery-item:hover .overlay {
-  opacity: 1;
 }
 
 .overlay span {
