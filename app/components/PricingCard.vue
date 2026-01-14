@@ -101,12 +101,10 @@ onMounted(() => {
 }
 
 .badge-popular {
-  background: var(--accent);
-  color: #fff;
-  padding: 0.5rem 0.9rem;
-  border-radius: 999px;
+  border-bottom: 2px solid var(--accent);
+  color: var(--accent);
+  padding-bottom: 1rem;
   margin-bottom: 1rem;
-  font-weight: 700;
   font-size: 0.95rem;
 }
 
