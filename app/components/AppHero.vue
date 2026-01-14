@@ -743,7 +743,8 @@ onUnmounted(() => {
   }
 
   .hero-features {
-    align-items: center;
+    width: max-content;
+    margin: 0 auto 3rem;
   }
 
   .hero-cta-group {
@@ -759,7 +760,7 @@ onUnmounted(() => {
   }
 
   .hero-stats {
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: center;
     gap: 1.5rem;
   }
