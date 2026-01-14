@@ -646,3 +646,10 @@ html.nav-open .cookie-banner {
   pointer-events: none;
   transform: translateX(-50%) translateY(10px);
 }
+
+
+@media (min-width: 1023px) {
+  main {
+    margin-top: 4rem;
+  }
+}
