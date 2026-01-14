@@ -103,7 +103,7 @@ defineProps({
 }
 
 .service-content {
-  padding: clamp(1.5rem, 3vw, 2.25rem) 0;
+  padding: clamp(1.5rem, 3vw, 2.25rem) ;
   flex: 1;
   display: flex;
   flex-direction: column;
