@@ -7,12 +7,12 @@
           src="/images/logo-web_blanc.png"
           alt="Logo dark"
           class="logo-image logo-dark"
-        >
+        />
         <img
           src="/images/logo-web-negre2.png"
           alt="Logo light"
           class="logo-image logo-light"
-        >
+        />
         <NuxtLink to="/" class="brand-name-link">
           <p class="brand-name">Guillem Vila</p>
         </NuxtLink>
@@ -261,7 +261,6 @@ async function changeLocale(code) {
     right: 0;
     padding: 14px 16px;
     flex-direction: column;
-    gap: 12px;
     justify-content: flex-start;
     background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(10px);
@@ -273,7 +272,7 @@ async function changeLocale(code) {
   }
 
   .nav-menu.active {
-    display: flex;
+    display: block;
   }
 
   /* Mobile language selector inside menu */
@@ -291,10 +290,11 @@ async function changeLocale(code) {
   }
 
   .nav-lang-title {
+    font-size: 0.85rem;
     margin: 0;
-    font-weight: 700;
     color: var(--text);
     opacity: 0.9;
+    text-align: center;
   }
 
   .nav-lang-actions {
@@ -302,15 +302,21 @@ async function changeLocale(code) {
     gap: 0.75rem;
   }
 
+  .nav-link {
+    font-size: 1.2rem;
+    display: block;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+  
   .nav-lang-btn {
     flex: 1;
-    height: 42px;
+    padding: 0.5rem;
     border-radius: 999px;
     border: 1px solid var(--border);
     background: transparent;
     color: var(--text-secondary);
     cursor: pointer;
-    font-weight: 800;
     letter-spacing: 0.02em;
     line-height: 1;
     transition: all 0.2s ease;
@@ -328,11 +334,12 @@ async function changeLocale(code) {
     box-shadow: var(--accent-shadow-1);
   }
 
-  /* Evita que el nom rebenti en pantalles molt petites */
-  @media (max-width: 380px) {
-    .brand-name {
-      display: none;
-    }
+}
+
+/* Evita que el nom rebenti en pantalles molt petites */
+@media (max-width: 380px) {
+  .brand-name {
+    display: none;
   }
 }
 </style>

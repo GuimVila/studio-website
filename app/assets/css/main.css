@@ -612,18 +612,14 @@ p {
 
   .nav-menu {
     position: fixed;
-    top: 80px;
-    left: -100%;
+    top: 70px;
+    left: 0;
     width: 100%;
     flex-direction: column;
     background: var(--header-bg);
     padding: 2rem;
     transition: left 0.3s ease;
     border-bottom: 1px solid var(--border);
-  }
-
-  .nav-menu.active {
-    left: 0;
   }
 
   .mobile-toggle {
