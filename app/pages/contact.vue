@@ -108,14 +108,18 @@
         <!-- CONTACT CARDS -->
         <div class="contact-cards">
           <a href="mailto:info@guillemvila.com" class="contact-card">
-            <div class="card-icon">📧</div>
-            <h3>{{ $t("contact.cards.email") }}</h3>
+            <div class="card-icon">
+              📧
+              <h3>{{ $t("contact.cards.email") }}</h3>
+            </div>
             <p>info@guillemvila.com</p>
           </a>
 
           <a href="tel:+34682463081" class="contact-card">
-            <div class="card-icon">📱</div>
-            <h3>{{ $t("contact.cards.phone") }}</h3>
+            <div class="card-icon">
+              📱
+              <h3>{{ $t("contact.cards.phone") }}</h3>
+            </div>
             <p>+34 682 463 081</p>
           </a>
 
@@ -124,8 +128,10 @@
             target="_blank"
             class="contact-card"
           >
-            <div class="card-icon">📍</div>
-            <h3>{{ $t("contact.cards.location") }}</h3>
+            <div class="card-icon">
+              📍
+              <h3>{{ $t("contact.cards.location") }}</h3>
+            </div>
             <p>Riells i Viabrea, el Baix Montseny</p>
           </a>
         </div>
@@ -253,12 +259,12 @@ textarea {
 }
 
 .card-icon {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  width: min-content;
+  margin: 0 auto;
   font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.contact-card h3 {
-  margin-bottom: 0.5rem;
 }
 
 .contact-card p {
