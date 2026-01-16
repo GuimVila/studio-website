@@ -11,7 +11,17 @@
     "postinstall": "nuxt prepare",
     "test": "vitest",
     "test:watch": "vitest --watch",
-    "test:nuxt": "vitest --project nuxt"
+    "test:nuxt": "vitest --project nuxt",
+    "db:start": "supabase start",
+    "db:stop": "supabase stop",
+    "db:reset": "supabase db reset",
+    "db:push": "supabase db push",
+    "db:pull": "supabase db pull",
+    "db:migration": "supabase migration new",
+    "db:link": "supabase link",
+    "migrate:articles": "node scripts/migrate-md-to-supabase.mjs",
+    "populate:modules": "node scripts/populate-modules.mjs",
+    "link:prerequisites": "node scripts/link-prerequisites.mjs"
   },
   "dependencies": {
     "@nuxt/content": "^3.8.2",
@@ -29,6 +39,7 @@
     "dayjs": "^1.11.19",
     "eslint": "^9.39.1",
     "fuse.js": "^7.1.0",
+    "gray-matter": "^4.0.3",
     "motion-v": "^1.7.4",
     "nuxt": "^4.2.1",
     "react": "^19.2.3",
@@ -46,6 +57,7 @@
     "@nuxtjs/sitemap": "^7.5.0",
     "@vue/test-utils": "^2.4.6",
     "happy-dom": "^20.1.0",
+    "supabase": "^2.72.7",
     "vitest": "^3.2.4"
   }
 }
