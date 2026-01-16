@@ -167,6 +167,30 @@ export function useArticles() {
     return { breadcrumb, error: null };
   }
 
+  // @ts-ignore - Supabase query returns complex nested types
+  async function getModuleBreadcrumb(categorySlug: string, moduleSlug: string) {
+    // @ts-ignore - Supabase single() returns never on type mismatches
+    const { data: module, error } = await supabase
+      .from("modules")
+      .select("name_ca, slug, categories(name_ca, slug)")
+      .eq("slug", moduleSlug)
+      .single();
+
+    if (error || !module) return { breadcrumb: null, error };
+
+    // Verificar que pertenece a la categoría correcta
+    if (module.categories?.slug !== categorySlug) {
+      return { breadcrumb: null, error: new Error("Module not found in this category") };
+    }
+
+    const breadcrumb = [
+      { label: module.categories.name_ca, slug: module.categories.slug },
+      { label: module.name_ca, active: true },
+    ];
+
+    return { breadcrumb, error: null };
+  }
+
   // Artículos relacionados
   async function getRelatedArticles(articleSlug: string) {
     const { data: article, error: articleError } = await supabase
@@ -256,6 +280,7 @@ export function useArticles() {
     getCategoryArticles,
     getModuleArticles,
     getBreadcrumb,
+    getModuleBreadcrumb,
     getRelatedArticles,
     getNextArticle,
     getPrevArticle,

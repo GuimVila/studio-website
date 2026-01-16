@@ -1,5 +1,8 @@
 <template>
   <section class="page">
+    <!-- Breadcrumb -->
+    <Breadcrumb :items="breadcrumb" />
+
     <section class="section">
       <h1 class="section-title heading-accent capitalize">
         {{ module?.name_ca || moduleSlug }}
@@ -37,7 +40,7 @@ const moduleSlug = computed(() => String(route.params.module || "").trim());
 
 console.log("🔍 Module page - category:", category.value, "moduleSlug:", moduleSlug.value);
 
-const { getModuleArticles } = useArticles();
+const { getModuleArticles, getModuleBreadcrumb } = useArticles();
 
 const { data: moduleData, pending } = await useAsyncData(
   () => `resources-module-${category.value}-${moduleSlug.value}`,
@@ -55,6 +58,14 @@ const articles = computed(() => moduleData.value?.data || []);
 
 console.log("🔍 Module computed:", module.value);
 console.log("🔍 Articles computed:", articles.value);
+
+// Breadcrumb
+const { data: breadcrumbData } = await useAsyncData(
+  () => `breadcrumb-module-${category.value}-${moduleSlug.value}`,
+  () => getModuleBreadcrumb(category.value, moduleSlug.value)
+);
+
+const breadcrumb = computed(() => breadcrumbData.value?.breadcrumb || []);
 
 // SEO
 useHead(() => ({
