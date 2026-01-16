@@ -2,74 +2,41 @@
   <div>
     <section class="section">
       <div class="container">
-        <h1 class="section-title heading-accent">Política de Cookies</h1>
+        <h1 class="section-title heading-accent">{{ t("cookies.title") }}</h1>
 
-        <p>
-          Aquesta pàgina explica què són les cookies, quines s’utilitzen en
-          aquest lloc web i com pots gestionar-les.
-        </p>
+        <p>{{ t("cookies.intro") }}</p>
 
-        <h2>Què són les cookies?</h2>
-        <p>
-          Les cookies són petits fitxers de text que s’emmagatzemen al
-          dispositiu quan visites una pàgina web. Poden servir per garantir el
-          bon funcionament del lloc, recordar preferències o obtenir informació
-          estadística.
-        </p>
+        <h2>{{ t("cookies.whatTitle") }}</h2>
+        <p>{{ t("cookies.whatText") }}</p>
 
-        <h2>Cookies utilitzades en aquest lloc web</h2>
+        <h2>{{ t("cookies.usedTitle") }}</h2>
 
-        <h3>Cookies tècniques o essencials</h3>
-        <p>
-          Aquest lloc web pot utilitzar cookies estrictament necessàries per al
-          funcionament tècnic i la seguretat (per exemple, cookies pròpies del
-          navegador o del servidor). Aquestes cookies no s’utilitzen per fer
-          publicitat ni per identificar l’usuari i, en general, no requereixen
-          consentiment.
-        </p>
+        <h3>{{ t("cookies.essentialTitle") }}</h3>
+        <p>{{ t("cookies.essentialText") }}</p>
 
-        <h3>Analítica</h3>
-        <p>
-          Utilitzem Plausible Analytics per entendre de manera agregada i
-          anònima com es fa servir el web (pàgines visitades, referents,
-          dispositiu, etc.). Plausible està dissenyat per funcionar sense
-          cookies i sense identificació personal dels usuaris.
-        </p>
+        <h3>{{ t("cookies.analyticsTitle") }}</h3>
+        <p>{{ t("cookies.analyticsText") }}</p>
 
-        <h2>Com gestionar o bloquejar cookies i analítica</h2>
-        <p>
-          Pots configurar el teu navegador per bloquejar o eliminar cookies.
-          Tingues en compte que bloquejar cookies tècniques pot afectar el
-          funcionament del lloc web.
-        </p>
-        <p>
-          Si vols evitar l’analítica, pots utilitzar bloquejadors de contingut
-          (adblockers) o desactivar JavaScript al navegador. Això pot afectar
-          certes funcionalitats del web.
-        </p>
+        <h2>{{ t("cookies.manageTitle") }}</h2>
+        <p>{{ t("cookies.manageText1") }}</p>
+        <p>{{ t("cookies.manageText2") }}</p>
 
-        <h2>Canvis en la política de cookies</h2>
-        <p>
-          Aquesta política pot actualitzar-se periòdicament. Es recomana
-          revisar-la regularment per estar informat de possibles canvis.
-        </p>
+        <h2>{{ t("cookies.changesTitle") }}</h2>
+        <p>{{ t("cookies.changesText") }}</p>
       </div>
     </section>
   </div>
 </template>
 
 <script setup>
-useHead({
-  title:
-    "Política de Cookies | Guillem Vila · Artista, productor musical i enginyer de so",
-  meta: [
-    {
-      name: "description",
-      content:
-        "Política de cookies de Guillem Vila: informació sobre cookies tècniques i analítica amb Plausible, i com gestionar-les al navegador.",
-    },
-  ],
-});
+import { useI18n } from "#i18n";
+
+const { t } = useI18n();
+
+useHead(() => ({
+  title: t("cookies.seo.title"),
+  meta: [{ name: "description", content: t("cookies.seo.description") }],
+}));
 </script>
 
 <style scoped>

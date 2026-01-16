@@ -8,7 +8,7 @@
             {{ $t("startToday.subtitle") }}
           </p>
           <div class="cta-actions">
-            <NuxtLink to="/contact" class="cta-button">
+            <LocaleLink to="/contact" class="cta-button">
               <span>{{ $t("startToday.cta") }}</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +24,7 @@
                 <path d="M5 12h14" />
                 <path d="m12 5 7 7-7 7" />
               </svg>
-            </NuxtLink>
+            </LocaleLink>
           </div>
         </div>
       </div>

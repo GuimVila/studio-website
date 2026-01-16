@@ -230,5 +230,501 @@
       "title": "Recursos | Guillem Vila",
       "description": "Recursos educativos de producción, mezcla, grabación, armonía y diseño de sonido, con categorías y roadmap de aprendizaje."
     }
+  },
+  "services": {
+    "title": "Servicios y precios",
+    "subtitle": "Estudio profesional de mezcla, producción y grabación. Trabajo híbrido, sala tratada y un flujo de trabajo de alto nivel.",
+    "sections": {
+      "mixing": "Mezcla",
+      "tracking": "Grabación",
+      "production": "Producción musical",
+      "editing": "Edición",
+      "pro": "Otros servicios"
+    },
+    "volumeDiscounts": {
+      "title": "Descuentos por volumen",
+      "lines": [
+        "✓ 10% de descuento a partir de 5 canciones",
+        "✓ 15% de descuento a partir de 10 canciones (EP / Álbum)",
+        "✓ Presupuesto personalizado para proyectos grandes"
+      ],
+      "cta": "Pedir presupuesto"
+    },
+    "units": {
+      "perSong": "/canción",
+      "perHour": "/hora",
+      "per8h": "/8h",
+      "perProject": "/proyecto",
+      "perTrack": "/pista",
+      "perStemOrTrack": "/stem o pista",
+      "perPatch": "/patch"
+    },
+    "buttons": {
+      "hire": "Contratar",
+      "book": "Reservar",
+      "quote": "Pedir presupuesto"
+    },
+    "badges": {
+      "mainService": "SERVICIO PRINCIPAL",
+      "recommended": "RECOMENDADO",
+      "mostRequested": "MÁS SOLICITADO",
+      "mostDemanded": "MÁS DEMANDADO"
+    },
+    "packages": {
+      "mixing": [
+        {
+          "title": "Mezcla básica",
+          "price": "75€",
+          "unit": "/canción",
+          "features": [
+            "Mezcla profesional ITB",
+            "Hasta 40 pistas",
+            "Automatizaciones básicas",
+            "2 revisiones incluidas",
+            "Entrega en 4–6 días"
+          ],
+          "button": "Contratar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Mezcla híbrida",
+          "price": "95€",
+          "unit": "/canción",
+          "features": [
+            "Mezcla híbrida analógica (Silver Bullet + SSL)",
+            "Hasta 60 pistas",
+            "Automatizaciones completas",
+            "3 revisiones incluidas",
+            "Mix final + instrumental",
+            "Entrega en 5–7 días"
+          ],
+          "button": "Contratar",
+          "badge": "SERVICIO PRINCIPAL",
+          "featured": true
+        },
+        {
+          "title": "Mezcla avanzada",
+          "price": "120€",
+          "unit": "/canción",
+          "features": [
+            "Mezcla híbrida analógica (Silver Bullet + SSL)",
+            "Sesiones complejas (+60 pistas)",
+            "Automatizaciones completas",
+            "3 revisiones incluidas",
+            "Entrega en 7–10 días"
+          ],
+          "button": "Contratar",
+          "badge": null,
+          "featured": false
+        }
+      ],
+      "tracking": [
+        {
+          "title": "Grabación de instrumentos",
+          "price": "40€",
+          "unit": "/hora",
+          "features": [
+            "Instrumentos eléctricos, acústicos y overdubs",
+            "Suhr Reactive Load",
+            "Captura DI + amp",
+            "Ingeniero incluido",
+            "Edición incluida"
+          ],
+          "button": "Reservar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Día completo de estudio",
+          "price": "300€",
+          "unit": "/8h",
+          "features": [
+            "8 horas de grabación",
+            "Todo el equipo disponible",
+            "Ingeniero incluido",
+            "Edición incluida",
+            "Ahorro frente a horas sueltas"
+          ],
+          "button": "Reservar",
+          "badge": "RECOMENDADO",
+          "featured": true
+        },
+        {
+          "title": "Grabación vocal",
+          "price": "50€",
+          "unit": "/hora",
+          "features": [
+            "UAD Sphere DLX (microfonía modelada)",
+            "Sala completamente tratada",
+            "Dirección vocal y coaching",
+            "Ingeniero incluido",
+            "Edición incluida"
+          ],
+          "button": "Reservar",
+          "badge": null,
+          "featured": false
+        }
+      ],
+      "production": [
+        {
+          "title": "Sound Design",
+          "price": "Desde 100€",
+          "unit": "/patch",
+          "features": [
+            "Diseño sonoro para sintetizadores y samplers",
+            "Creación de kits originales y texturas únicas",
+            "Optimizado para producciones y directo",
+            "Consultoría sobre implementación en DAW"
+          ],
+          "button": "Pedir presupuesto",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Producción / Coproducción completa",
+          "price": "A medida",
+          "unit": "",
+          "features": [
+            "Preproducción y arreglos",
+            "Sound design y selección sonora",
+            "Producción musical completa",
+            "Dirección artística",
+            "Mezcla incluida"
+          ],
+          "button": "Pedir presupuesto",
+          "badge": "SERVICIO PRINCIPAL",
+          "featured": true
+        },
+        {
+          "title": "Beat Making",
+          "price": "Desde 150€",
+          "unit": "/canción",
+          "features": [
+            "Producción original adaptada al artista",
+            "Licencia incluida",
+            "Revisiones según acuerdo",
+            "Compatible con voces o instrumentales existentes"
+          ],
+          "button": "Pedir presupuesto",
+          "badge": null,
+          "featured": false
+        }
+      ],
+      "editing": [
+        {
+          "title": "Preparación de sesiones",
+          "price": "30€",
+          "unit": "/proyecto",
+          "features": [
+            "Organización de sesiones en Pro Tools",
+            "Limpieza de pistas y silencios",
+            "Ruteo y etiquetado correcto",
+            "Preparación óptima para mezcla o envío"
+          ],
+          "button": "Contratar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Edición completa pre-mezcla",
+          "price": "70€",
+          "unit": "/canción",
+          "features": [
+            "Comping vocal e instrumental",
+            "Corrección de timing musical",
+            "Afinación vocal transparente",
+            "Edición musical con criterio artístico",
+            "Sesión lista para mezcla profesional"
+          ],
+          "button": "Contratar",
+          "badge": "MÁS DEMANDADO",
+          "featured": true
+        },
+        {
+          "title": "Edición y afinación vocal",
+          "price": "40€",
+          "unit": "/canción",
+          "features": [
+            "Comping vocal",
+            "Corrección de timing",
+            "Afinación natural y transparente",
+            "Respeto total por el carácter de la voz"
+          ],
+          "button": "Contratar",
+          "badge": null,
+          "featured": false
+        }
+      ],
+      "pro": [
+        {
+          "title": "Reamp de guitarras y bajos",
+          "price": "35€",
+          "unit": "/pista",
+          "features": [
+            "Reamp con amplificación real",
+            "Captura DI + amp",
+            "Fender Blues Jr III / Suhr Reactive Load",
+            "Integración directa en tu sesión"
+          ],
+          "button": "Contratar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Procesamiento externo del mix bus",
+          "price": "40€",
+          "unit": "/canción",
+          "features": [
+            "Procesamiento analógico del mix bus",
+            "Silver Bullet MK2 + SSL Bus+",
+            "Sin alterar balances",
+            "Ideal para mixers ITB"
+          ],
+          "button": "Contratar",
+          "badge": "MÁS SOLICITADO",
+          "featured": true
+        },
+        {
+          "title": "Procesamiento analógico de pistas",
+          "price": "30€",
+          "unit": "/stem o pista",
+          "features": [
+            "Color analógico con Silver Bullet",
+            "Tape79 Mojo Module",
+            "Ideal para baterías, bajos, sintetizadores o voces",
+            "Entrega alineada y phased-aligned"
+          ],
+          "button": "Contratar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Asesoramiento técnico",
+          "price": "50€",
+          "unit": "/hora",
+          "features": [
+            "Flujo de trabajo profesional",
+            "Equipamiento y routing",
+            "Plugins y gestión de sesiones",
+            "Optimización de estudio y acústica"
+          ],
+          "button": "Reservar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Mix coaching",
+          "price": "40€",
+          "unit": "/hora",
+          "features": [
+            "Feedback técnico y artístico",
+            "Revisión de mezclas reales",
+            "Orientado a productores y mixers",
+            "Sesión 1 a 1"
+          ],
+          "button": "Reservar",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "title": "Listening session profesional",
+          "price": "30€",
+          "unit": "/hora",
+          "features": [
+            "Escucha crítica en sala tratada",
+            "Adam Audio A7V calibrados (Sonarworks)",
+            "Feedback honesto y constructivo",
+            "Ideal antes de publicar o enviar a mezcla"
+          ],
+          "button": "Reservar",
+          "badge": null,
+          "featured": false
+        }
+      ]
+    },
+    "seo": {
+      "title": "Servicios | Guillem Vila · Productor musical, artista e ingeniero de sonido",
+      "description": "Ofrezco servicios profesionales de producción musical, grabación, edición, mezcla y otros. Trabajo para hacer realidad proyectos musicales con calidad y creatividad."
+    }
+  },
+  "cookieBanner": {
+    "text": "Utilizamos cookies para mejorar la experiencia y analizar el uso del sitio web.",
+    "accept": "Aceptar",
+    "reject": "Rechazar",
+    "links": {
+      "cookies": "Política de cookies",
+      "privacy": "Política de privacidad"
+    }
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "sections": {
+      "controller": {
+        "title": "Responsable del tratamiento",
+        "p1": "El responsable del tratamiento de los datos personales es Guillem Vila. Puedes contactar a través del correo electrónico:"
+      },
+      "data": {
+        "title": "Qué datos tratamos",
+        "items": [
+          {
+            "label": "Newsletter",
+            "text": "correo electrónico (y, en su caso, metadatos técnicos mínimos necesarios para el funcionamiento del servicio)."
+          },
+          {
+            "label": "Formulario de contacto",
+            "text": "nombre y apellidos (si se indica), correo electrónico y el contenido del mensaje."
+          },
+          {
+            "label": "Datos de navegación",
+            "text": "información agregada y estadística del tráfico (analítica)."
+          }
+        ]
+      },
+      "purposes": {
+        "title": "Finalidades y base jurídica",
+        "items": [
+          {
+            "bold": "Gestionar la suscripción a la newsletter",
+            "text": "(alta, confirmación double opt-in y envíos):",
+            "basis": "consentimiento"
+          },
+          {
+            "bold": "Responder consultas",
+            "text": "a través del formulario de contacto:",
+            "basis": "consentimiento y/o medidas precontractuales (si procede)"
+          },
+          {
+            "bold": "Analizar el uso de la web",
+            "text": "para mejorar contenido y rendimiento:",
+            "basis": "interés legítimo cuando la analítica es agregada y sin identificación personal"
+          }
+        ],
+        "p1": "Puedes retirar el consentimiento en cualquier momento. La retirada del consentimiento no afecta a la licitud del tratamiento basado en el consentimiento previo."
+      },
+      "retention": {
+        "title": "Conservación de los datos",
+        "items": [
+          {
+            "label": "Newsletter",
+            "text": "mientras la suscripción esté activa o hasta que la persona usuaria solicite la baja/supresión."
+          },
+          {
+            "label": "Contacto",
+            "text": "el tiempo necesario para gestionar la consulta y, posteriormente, durante un período razonable para seguimiento o hasta que se solicite la supresión."
+          },
+          {
+            "label": "Registros técnicos (logs)",
+            "text": "durante el tiempo necesario por seguridad y diagnóstico de incidencias."
+          }
+        ]
+      },
+      "processors": {
+        "title": "Encargados del tratamiento y proveedores",
+        "p1": "Para prestar el servicio, podemos utilizar proveedores que actúan como encargados del tratamiento, por ejemplo:",
+        "providers": [
+          {
+            "name": "Vercel",
+            "note": "(alojamiento e infraestructura de la web)."
+          },
+          {
+            "name": "Supabase",
+            "note": "(base de datos y servicios asociados)."
+          },
+          { "name": "Resend", "note": "(envío de correos electrónicos)." },
+          { "name": "Plausible Analytics", "note": "(analítica web)." }
+        ]
+      },
+      "intl": {
+        "title": "Transferencias internacionales",
+        "p1": "Algunos proveedores pueden tratar datos fuera del Espacio Económico Europeo. En estos casos, se aplican garantías adecuadas, como cláusulas contractuales tipo o mecanismos equivalentes previstos por la normativa."
+      },
+      "rights": {
+        "title": "Derechos de las personas usuarias",
+        "p1": "Puedes ejercer tus derechos de protección de datos contactándonos en",
+        "items": [
+          "Derecho de acceso.",
+          "Derecho de rectificación.",
+          "Derecho de supresión (“derecho al olvido”).",
+          "Derecho de oposición.",
+          "Derecho a la limitación del tratamiento.",
+          "Derecho a la portabilidad de los datos."
+        ],
+        "p2": "También tienes derecho a presentar una reclamación ante la autoridad de control competente (en España, la AEPD) si consideras que se ha vulnerado la normativa."
+      },
+      "unsubscribe": {
+        "title": "Baja de la newsletter",
+        "p1": "Puedes darte de baja en cualquier momento mediante el enlace de baja incluido en los correos de la newsletter o escribiendo a"
+      },
+      "changes": {
+        "title": "Cambios en la política de privacidad",
+        "p1": "Esta política puede actualizarse periódicamente. Se recomienda revisarla regularmente para estar informado de posibles cambios."
+      }
+    },
+    "seo": {
+      "title": "Política de Privacidad | Guillem Vila · Artista, productor musical e ingeniero de sonido",
+      "description": "Política de privacidad de Guillem Vila: datos tratados, finalidades, base jurídica, conservación, proveedores, derechos de las personas usuarias y baja de la newsletter."
+    }
+  },
+  "cookies": {
+    "title": "Política de Cookies",
+    "intro": "Esta página explica qué son las cookies, cuáles se utilizan en este sitio web y cómo puedes gestionarlas.",
+    "whatTitle": "¿Qué son las cookies?",
+    "whatText": "Las cookies son pequeños archivos de texto que se almacenan en el dispositivo cuando visitas un sitio web. Sirven para garantizar el correcto funcionamiento del sitio, recordar preferencias u obtener información estadística.",
+    "usedTitle": "Cookies utilizadas en este sitio web",
+    "essentialTitle": "Cookies técnicas o esenciales",
+    "essentialText": "Este sitio web puede utilizar cookies estrictamente necesarias para el funcionamiento técnico y la seguridad (por ejemplo, cookies del navegador o del servidor). Estas cookies no se utilizan con fines publicitarios ni para identificar al usuario y, en general, no requieren consentimiento.",
+    "analyticsTitle": "Analítica",
+    "analyticsText": "Utilizamos Plausible Analytics para entender de forma agregada y anónima cómo se utiliza la web (páginas visitadas, procedencia, dispositivo, etc.). Plausible está diseñado para funcionar sin cookies y sin identificación personal de los usuarios.",
+    "manageTitle": "Cómo gestionar o bloquear cookies y analítica",
+    "manageText1": "Puedes configurar tu navegador para bloquear o eliminar cookies. Ten en cuenta que bloquear cookies técnicas puede afectar al correcto funcionamiento del sitio web.",
+    "manageText2": "Si deseas evitar la analítica, puedes usar bloqueadores de contenido (adblockers) o desactivar JavaScript en tu navegador. Esto puede afectar a ciertas funcionalidades del sitio.",
+    "changesTitle": "Cambios en la política de cookies",
+    "changesText": "Esta política puede actualizarse periódicamente. Se recomienda revisarla regularmente para estar informado de posibles cambios.",
+    "seo": {
+      "title": "Política de Cookies | Guillem Vila · Artista, productor musical e ingeniero de sonido",
+      "description": "Política de cookies de Guillem Vila: información sobre cookies técnicas y analítica con Plausible, y cómo gestionarlas en el navegador."
+    }
+  },
+  "terms": {
+    "title": "Términos y Condiciones",
+    "intro": "Estos términos y condiciones regulan el uso de este sitio web. Al acceder y navegar por él, el usuario acepta estas condiciones.",
+    "sections": {
+      "use": {
+        "title": "1. Uso del sitio web",
+        "items": [
+          "El sitio web tiene una finalidad informativa y profesional.",
+          "El usuario se compromete a utilizar el sitio de forma lícita, responsable y sin causar daños a terceros ni al funcionamiento del servicio."
+        ]
+      },
+      "ip": {
+        "title": "2. Propiedad intelectual",
+        "text": "Los contenidos, diseños, imágenes y material audiovisual de este sitio web son titularidad de Guillem Vila o de sus colaboradores, y están protegidos por la normativa de propiedad intelectual. No se permite su reproducción, distribución o transformación sin autorización."
+      },
+      "liability": {
+        "title": "3. Limitación de responsabilidad",
+        "text": "Se procura mantener la información actualizada y el servicio operativo, pero no se garantiza la disponibilidad ininterrumpida ni la ausencia de errores. No se asume responsabilidad por los daños derivados del uso del sitio web, en la medida permitida por la ley."
+      },
+      "links": {
+        "title": "4. Enlaces a terceros",
+        "text": "El sitio puede contener enlaces a páginas externas. No se controla ni se garantiza su contenido, exactitud o políticas, y no se asume responsabilidad alguna por estos sitios de terceros."
+      },
+      "changes": {
+        "title": "5. Modificaciones de los términos",
+        "text": "Estos términos pueden actualizarse en cualquier momento. El uso continuado del sitio implica la aceptación de los cambios."
+      },
+      "law": {
+        "title": "6. Legislación aplicable y jurisdicción",
+        "text": "Estos términos se rigen por la legislación española. En caso de conflicto, las partes se someterán a los juzgados y tribunales que resulten competentes según la normativa aplicable."
+      },
+      "contact": {
+        "title": "7. Contacto",
+        "text": "Para cualquier duda sobre estos términos, puedes contactarme en"
+      }
+    },
+    "seo": {
+      "title": "Términos y Condiciones | Guillem Vila · Artista, productor musical e ingeniero de sonido",
+      "description": "Consulta los términos y condiciones del sitio web de Guillem Vila: uso del sitio, propiedad intelectual, responsabilidad, enlaces a terceros y legislación aplicable."
+    }
   }
 }

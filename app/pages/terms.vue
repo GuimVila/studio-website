@@ -2,61 +2,33 @@
   <div>
     <section class="section">
       <div class="container">
-        <h1 class="section-title heading-accent">Termes i Condicions</h1>
-        <p>
-          Aquests termes i condicions regulen l’ús d’aquest lloc web. En
-          accedir-hi i navegar-hi, l’usuari accepta aquestes condicions.
-        </p>
+        <h1 class="section-title heading-accent">{{ t("terms.title") }}</h1>
+        <p>{{ t("terms.intro") }}</p>
 
-        <h2>1. Ús del lloc web</h2>
+        <h2>{{ t("terms.sections.use.title") }}</h2>
         <ul>
-          <li>El lloc web té finalitat informativa i professional.</li>
-          <li>
-            L’usuari es compromet a utilitzar el lloc de manera lícita,
-            responsable i sense causar danys a tercers ni al funcionament del
-            servei.
-          </li>
+          <li>{{ t("terms.sections.use.items.0") }}</li>
+          <li>{{ t("terms.sections.use.items.1") }}</li>
         </ul>
 
-        <h2>2. Propietat intel·lectual</h2>
-        <p>
-          Els continguts, dissenys, imatges i material audiovisual d’aquest lloc
-          web són titularitat de Guillem Vila o dels seus col·laboradors, i
-          estan protegits per la normativa de propietat intel·lectual. No es
-          permet la reproducció, distribució o transformació sense autorització.
-        </p>
+        <h2>{{ t("terms.sections.ip.title") }}</h2>
+        <p>{{ t("terms.sections.ip.text") }}</p>
 
-        <h2>3. Limitació de responsabilitat</h2>
-        <p>
-          Es procura mantenir la informació actualitzada i el servei operatiu,
-          però no es garanteix la disponibilitat ininterrompuda ni l’absència
-          d’errors. No s’assumeix responsabilitat per danys derivats de l’ús del
-          lloc web, en la mesura permesa per la llei.
-        </p>
+        <h2>{{ t("terms.sections.liability.title") }}</h2>
+        <p>{{ t("terms.sections.liability.text") }}</p>
 
-        <h2>4. Enllaços a tercers</h2>
-        <p>
-          El lloc pot contenir enllaços a pàgines externes. No es controla ni es
-          garanteix el seu contingut, exactitud o polítiques, i no s’assumeix
-          cap responsabilitat per aquests webs de tercers.
-        </p>
+        <h2>{{ t("terms.sections.links.title") }}</h2>
+        <p>{{ t("terms.sections.links.text") }}</p>
 
-        <h2>5. Modificacions dels termes</h2>
-        <p>
-          Es poden actualitzar aquests termes en qualsevol moment. L’ús
-          continuat del lloc implica acceptació dels canvis.
-        </p>
+        <h2>{{ t("terms.sections.changes.title") }}</h2>
+        <p>{{ t("terms.sections.changes.text") }}</p>
 
-        <h2>6. Legislació aplicable i jurisdicció</h2>
-        <p>
-          Aquests termes es regeixen per la legislació espanyola. En cas de
-          disputa, les parts se sotmetran als jutjats i tribunals que resultin
-          competents segons la normativa aplicable.
-        </p>
+        <h2>{{ t("terms.sections.law.title") }}</h2>
+        <p>{{ t("terms.sections.law.text") }}</p>
 
-        <h2>7. Contacte</h2>
+        <h2>{{ t("terms.sections.contact.title") }}</h2>
         <p>
-          Per qualsevol dubte sobre aquests termes, pots contactar-me a
+          {{ t("terms.sections.contact.text") }}
           <a href="mailto:info@guillemvila.com">info@guillemvila.com</a>.
         </p>
       </div>
@@ -65,17 +37,13 @@
 </template>
 
 <script setup>
-useHead({
-  title:
-    "Termes i Condicions | Guillem Vila · Artista, productor musical i enginyer de so",
-  meta: [
-    {
-      name: "description",
-      content:
-        "Consulta els termes i condicions del lloc web de Guillem Vila: ús del lloc, propietat intel·lectual, responsabilitat, enllaços a tercers i legislació aplicable.",
-    },
-  ],
-});
+import { useI18n } from "#i18n";
+const { t } = useI18n();
+
+useHead(() => ({
+  title: t("terms.seo.title"),
+  meta: [{ name: "description", content: t("terms.seo.description") }],
+}));
 </script>
 
 <style scoped>
@@ -84,10 +52,6 @@ h2 {
   margin-bottom: 1rem;
 }
 
-h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
-}
 p,
 li {
   color: var(--text-secondary);

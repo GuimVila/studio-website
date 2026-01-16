@@ -1,19 +1,41 @@
 <template>
-  <div v-if="isUnset" class="cookie-banner">
+  <div
+    v-if="isUnset"
+    class="cookie-banner"
+    role="dialog"
+    aria-live="polite"
+    aria-label="Cookie consent"
+  >
     <p class="cookie-text">
-      Utilitzem cookies per millorar l’experiència i analitzar l’ús del lloc
-      web.
+      {{ t("cookieBanner.text") }}
+      <span class="cookie-links">
+        <NuxtLink :to="localePath('/cookies')">
+          {{ t("cookieBanner.links.cookies") }}
+        </NuxtLink>
+        ·
+        <NuxtLink :to="localePath('/privacy')">
+          {{ t("cookieBanner.links.privacy") }}
+        </NuxtLink>
+      </span>
     </p>
 
     <div class="cookie-actions">
-      <button class="btn-reject" @click="reject">Rebutjar</button>
-      <button class="btn-accept" @click="accept">Acceptar</button>
+      <button class="btn-reject" type="button" @click="reject">
+        {{ t("cookieBanner.reject") }}
+      </button>
+      <button class="btn-accept" type="button" @click="accept">
+        {{ t("cookieBanner.accept") }}
+      </button>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useI18n, useLocalePath } from "#i18n";
 import { useCookieConsent } from "~/composables/useCookieConsent";
+
+const { t } = useI18n();
+const localePath = useLocalePath();
 
 const { isUnset, accept, reject } = useCookieConsent();
 </script>
@@ -45,9 +67,26 @@ const { isUnset, accept, reject } = useCookieConsent();
   margin: 0;
 }
 
+.cookie-links {
+  margin-left: 0.5rem;
+  white-space: nowrap;
+}
+
+.cookie-links :deep(a) {
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.cookie-links :deep(a:hover) {
+  color: var(--accent);
+}
+
 .cookie-actions {
   display: flex;
   gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 /* Reject */
@@ -96,7 +135,6 @@ const { isUnset, accept, reject } = useCookieConsent();
     align-items: stretch;
     text-align: left;
 
-    /* Coherent amb el teu header */
     background: var(--header-bg);
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-1);
@@ -106,11 +144,14 @@ const { isUnset, accept, reject } = useCookieConsent();
     font-size: 0.9rem;
     line-height: 1.35;
 
-    /* Manté el banner baix */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  .cookie-links {
+    white-space: normal;
   }
 
   .cookie-actions {

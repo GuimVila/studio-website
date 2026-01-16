@@ -56,13 +56,12 @@ async function onChange(e) {
   box-shadow: 0 0 0 3px rgba(208, 138, 63, 0.2);
 }
 
-/* Screen-reader-only helper */
 .sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
   padding: 0;
-  margin: -1px;
+  margin: 0;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;

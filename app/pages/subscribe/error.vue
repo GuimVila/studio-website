@@ -10,13 +10,13 @@
       </div>
 
       <div class="actions">
-        <NuxtLink to="/" class="btn btn-secondary">
+        <LocaleLink to="/" class="btn btn-secondary">
           {{ t("subscribeError.actions.backHome") }}
-        </NuxtLink>
+        </LocaleLink>
 
-        <NuxtLink to="/subscribe" class="btn btn-primary">
+        <LocaleLink to="/subscribe" class="btn btn-primary">
           {{ t("subscribeError.actions.resubscribe") }}
-        </NuxtLink>
+        </LocaleLink>
       </div>
     </section>
   </div>
