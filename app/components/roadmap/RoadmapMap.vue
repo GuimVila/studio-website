@@ -699,13 +699,16 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   top: auto;
   left: 0.75rem;
   right: 0.75rem;
-  bottom: 0rem;
-  transform: translateY(50%);
+
+  /* abans: bottom: 0rem; transform: translateY(50%); */
+  bottom: calc(0.75rem + env(safe-area-inset-bottom));
+  transform: none;
 
   z-index: 50;
 
   display: flex;
-  justify-content: flex-start;
+  flex-wrap: wrap; /* CLAU: permet 2 línies si cal */
+  justify-content: center;
   gap: 0.5rem;
 
   padding: 0.5rem;
@@ -733,24 +736,35 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   white-space: nowrap;
 }
 
+.only-mobile {
+  display: none;
+}
+.only-desktop {
+  display: inline;
+}
+
 .overlay.mobile .chip {
   min-width: 0;
-  flex: 1 1 0;
+  flex: 1 1 140px; /* abans: 1 1 0 (massa agressiu) */
   text-align: center;
   padding: 0.75rem 0.5rem;
   font-size: 0.85rem;
   border-radius: 14px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .overlay.mobile .chip.zoom-btn {
-  flex: 0 0 42px;
-  padding: 0.75rem 0;
-  text-align: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
 }
 
 .overlay.mobile .chip.stat {
-  flex: 0 1 110px; /* límit raonable: es pot encongir */
-  justify-content: center;
+  flex: 0 1 120px;
   min-width: 0;
   padding: 0.75rem 0.5rem;
 }
@@ -858,7 +872,7 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   scroll-behavior: smooth;
   /* IMPORTANT: evita gestos estranys en alguns mòbils */
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 84px; /* ajusta 70–110 segons alçada real del bar */
+  padding-bottom: 140px; /* ajustar 70–140 segons alçada real del bar */
   box-sizing: border-box;
 }
 
@@ -986,6 +1000,12 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
     left: 18px;
     font-size: 0.8rem;
     padding: 0.35rem 0.9rem;
+  }
+  .only-mobile {
+    display: inline;
+  }
+  .only-desktop {
+    display: none;
   }
 }
 

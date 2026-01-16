@@ -547,5 +547,184 @@
       "title": "Serveis | Guillem Vila · Productor musical, artista i enginyer de so",
       "description": "Ofereixo serveis professionals de producció musical, gravació, edició, mescla i d'altres. Treballo per fer realitat projectes musicals amb qualitat i creativitat."
     }
+  },
+  "cookieBanner": {
+    "text": "Utilitzem cookies per millorar l’experiència i analitzar l’ús del lloc web.",
+    "accept": "Acceptar",
+    "reject": "Rebutjar",
+    "links": {
+      "cookies": "Política de cookies",
+      "privacy": "Política de privacitat"
+    }
+  },
+  "privacy": {
+    "title": "Política de Privacitat",
+    "sections": {
+      "controller": {
+        "title": "Responsable del tractament",
+        "p1": "El responsable del tractament de les dades personals és Guillem Vila. Pots contactar a través del correu electrònic:"
+      },
+      "data": {
+        "title": "Quines dades tractem",
+        "items": [
+          {
+            "label": "Newsletter",
+            "text": "correu electrònic (i, si escau, metadades tècniques mínimes necessàries per al funcionament del servei)."
+          },
+          {
+            "label": "Formulari de contacte",
+            "text": "nom i cognoms (si s’indica), correu electrònic i el contingut del missatge."
+          },
+          {
+            "label": "Dades de navegació",
+            "text": "informació agregada i estadística del trànsit (analítica)."
+          }
+        ]
+      },
+      "purposes": {
+        "title": "Finalitats i base jurídica",
+        "items": [
+          {
+            "bold": "Gestionar la subscripció a la newsletter",
+            "text": "(alta, confirmació double opt-in i enviaments):",
+            "basis": "consentiment"
+          },
+          {
+            "bold": "Respondre consultes",
+            "text": "a través del formulari de contacte:",
+            "basis": "consentiment i/o mesures precontractuals (si escau)"
+          },
+          {
+            "bold": "Analitzar l’ús del web",
+            "text": "per millorar contingut i rendiment:",
+            "basis": "interès legítim quan l’analítica és agregada i sense identificació personal"
+          }
+        ],
+        "p1": "Pots retirar el consentiment en qualsevol moment. La retirada del consentiment no afecta la licitud del tractament basat en el consentiment previ."
+      },
+      "retention": {
+        "title": "Conservació de les dades",
+        "items": [
+          {
+            "label": "Newsletter",
+            "text": "mentre la subscripció estigui activa o fins que l’usuari sol·liciti la baixa/supressió."
+          },
+          {
+            "label": "Contacte",
+            "text": "el temps necessari per gestionar la consulta i, posteriorment, durant un període raonable per a seguiment o fins que se’n sol·liciti la supressió."
+          },
+          {
+            "label": "Registres tècnics (logs)",
+            "text": "durant el temps necessari per seguretat i diagnòstic d’incidències."
+          }
+        ]
+      },
+      "processors": {
+        "title": "Encàrrecs de tractament i proveïdors",
+        "p1": "Per prestar el servei, podem utilitzar proveïdors que actuen com a encarregats del tractament, per exemple:",
+        "providers": [
+          {
+            "name": "Vercel",
+            "note": "(allotjament i infraestructura del web)."
+          },
+          {
+            "name": "Supabase",
+            "note": "(base de dades i serveis associats)."
+          },
+          { "name": "Resend", "note": "(enviament de correus electrònics)." },
+          { "name": "Plausible Analytics", "note": "(analítica web)." }
+        ]
+      },
+      "intl": {
+        "title": "Transferències internacionals",
+        "p1": "Alguns proveïdors poden tractar dades fora de l’Espai Econòmic Europeu. En aquests casos, s’apliquen garanties adequades, com ara clàusules contractuals tipus o mecanismes equivalents previstos per la normativa."
+      },
+      "rights": {
+        "title": "Drets de les persones usuàries",
+        "p1": "Pots exercir els teus drets de protecció de dades contactant-nos a",
+        "items": [
+          "Dret d’accés.",
+          "Dret de rectificació.",
+          "Dret de supressió (“dret a l’oblit”).",
+          "Dret d’oposició.",
+          "Dret a la limitació del tractament.",
+          "Dret a la portabilitat de les dades."
+        ],
+        "p2": "També tens dret a presentar una reclamació davant l’autoritat de control competent (a Espanya, l’AEPD) si consideres que s’ha vulnerat la normativa."
+      },
+      "unsubscribe": {
+        "title": "Baixa de la newsletter",
+        "p1": "Pots donar-te de baixa en qualsevol moment mitjançant l’enllaç de baixa inclòs als correus de la newsletter o escrivint a"
+      },
+      "changes": {
+        "title": "Canvis en la política de privacitat",
+        "p1": "Aquesta política pot actualitzar-se periòdicament. Es recomana revisar-la regularment per estar informat de possibles canvis."
+      }
+    },
+    "seo": {
+      "title": "Política de Privacitat | Guillem Vila · Artista, productor musical i enginyer de so",
+      "description": "Política de privacitat de Guillem Vila: dades tractades, finalitats, base jurídica, conservació, proveïdors, drets de les persones usuàries i baixa de la newsletter."
+    }
+  },
+  "cookies": {
+    "title": "Política de Cookies",
+    "intro": "Aquesta pàgina explica què són les cookies, quines s’utilitzen en aquest lloc web i com pots gestionar-les.",
+    "whatTitle": "Què són les cookies?",
+    "whatText": "Les cookies són petits fitxers de text que s’emmagatzemen al dispositiu quan visites una pàgina web. Poden servir per garantir el bon funcionament del lloc, recordar preferències o obtenir informació estadística.",
+    "usedTitle": "Cookies utilitzades en aquest lloc web",
+    "essentialTitle": "Cookies tècniques o essencials",
+    "essentialText": "Aquest lloc web pot utilitzar cookies estrictament necessàries per al funcionament tècnic i la seguretat (per exemple, cookies pròpies del navegador o del servidor). Aquestes cookies no s’utilitzen per fer publicitat ni per identificar l’usuari i, en general, no requereixen consentiment.",
+    "analyticsTitle": "Analítica",
+    "analyticsText": "Utilitzem Plausible Analytics per entendre de manera agregada i anònima com es fa servir el web (pàgines visitades, referents, dispositiu, etc.). Plausible està dissenyat per funcionar sense cookies i sense identificació personal dels usuaris.",
+    "manageTitle": "Com gestionar o bloquejar cookies i analítica",
+    "manageText1": "Pots configurar el teu navegador per bloquejar o eliminar cookies. Tingues en compte que bloquejar cookies tècniques pot afectar el funcionament del lloc web.",
+    "manageText2": "Si vols evitar l’analítica, pots utilitzar bloquejadors de contingut (adblockers) o desactivar JavaScript al navegador. Això pot afectar certes funcionalitats del web.",
+    "changesTitle": "Canvis en la política de cookies",
+    "changesText": "Aquesta política pot actualitzar-se periòdicament. Es recomana revisar-la regularment per estar informat de possibles canvis.",
+    "seo": {
+      "title": "Política de Cookies | Guillem Vila · Artista, productor musical i enginyer de so",
+      "description": "Política de cookies de Guillem Vila: informació sobre cookies tècniques i analítica amb Plausible, i com gestionar-les al navegador."
+    }
+  },
+  "terms": {
+    "title": "Termes i Condicions",
+    "intro": "Aquests termes i condicions regulen l’ús d’aquest lloc web. En accedir-hi i navegar-hi, l’usuari accepta aquestes condicions.",
+    "sections": {
+      "use": {
+        "title": "1. Ús del lloc web",
+        "items": [
+          "El lloc web té finalitat informativa i professional.",
+          "L’usuari es compromet a utilitzar el lloc de manera lícita, responsable i sense causar danys a tercers ni al funcionament del servei."
+        ]
+      },
+      "ip": {
+        "title": "2. Propietat intel·lectual",
+        "text": "Els continguts, dissenys, imatges i material audiovisual d’aquest lloc web són titularitat de Guillem Vila o dels seus col·laboradors, i estan protegits per la normativa de propietat intel·lectual. No es permet la reproducció, distribució o transformació sense autorització."
+      },
+      "liability": {
+        "title": "3. Limitació de responsabilitat",
+        "text": "Es procura mantenir la informació actualitzada i el servei operatiu, però no es garanteix la disponibilitat ininterrompuda ni l’absència d’errors. No s’assumeix responsabilitat per danys derivats de l’ús del lloc web, en la mesura permesa per la llei."
+      },
+      "links": {
+        "title": "4. Enllaços a tercers",
+        "text": "El lloc pot contenir enllaços a pàgines externes. No es controla ni es garanteix el seu contingut, exactitud o polítiques, i no s’assumeix cap responsabilitat per aquests webs de tercers."
+      },
+      "changes": {
+        "title": "5. Modificacions dels termes",
+        "text": "Es poden actualitzar aquests termes en qualsevol moment. L’ús continuat del lloc implica acceptació dels canvis."
+      },
+      "law": {
+        "title": "6. Legislació aplicable i jurisdicció",
+        "text": "Aquests termes es regeixen per la legislació espanyola. En cas de disputa, les parts se sotmetran als jutjats i tribunals que resultin competents segons la normativa aplicable."
+      },
+      "contact": {
+        "title": "7. Contacte",
+        "text": "Per qualsevol dubte sobre aquests termes, pots contactar-me a"
+      }
+    },
+    "seo": {
+      "title": "Termes i Condicions | Guillem Vila · Artista, productor musical i enginyer de so",
+      "description": "Consulta els termes i condicions del lloc web de Guillem Vila: ús del lloc, propietat intel·lectual, responsabilitat, enllaços a tercers i legislació aplicable."
+    }
   }
 }

@@ -129,7 +129,7 @@
         </div>
 
         <div class="hero-cta-group">
-          <NuxtLink to="/contact" class="cta-primary">
+          <LocaleLink to="/contact" class="cta-primary">
             <span>{{ $t("hero.ctaPrimary") }}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -145,11 +145,11 @@
               <path d="M5 12h14" />
               <path d="m12 5 7 7-7 7" />
             </svg>
-          </NuxtLink>
-          <NuxtLink to="/services" class="cta-secondary">
+          </LocaleLink>
+          <LocaleLink to="/services" class="cta-secondary">
             <span>{{ $t("hero.ctaSecondary") }}</span>
-          </NuxtLink>
-          <NuxtLink to="/resources/roadmap" class="cta-tertiary">
+          </LocaleLink>
+          <LocaleLink to="/resources/roadmap" class="cta-tertiary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -166,7 +166,7 @@
               <path d="M12 8h.01" />
             </svg>
             <span>{{ $t("hero.ctaRoadmap") || "Roadmap interactiu" }}</span>
-          </NuxtLink>
+          </LocaleLink>
         </div>
 
         <div class="hero-stats">

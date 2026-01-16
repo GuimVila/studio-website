@@ -13,47 +13,47 @@
           alt="Logo light"
           class="logo-image logo-light"
         >
-        <NuxtLink to="/" class="brand-name-link">
+        <LocaleLink to="/" class="brand-name-link">
           <p class="brand-name">Guillem Vila</p>
-        </NuxtLink>
+        </LocaleLink>
       </div>
 
       <!-- 2) Links -->
       <ul class="nav-menu" :class="{ active: menuOpen }">
         <li>
-          <NuxtLink to="/" class="nav-link" @click="closeMenu">
+          <LocaleLink to="/" class="nav-link" @click="closeMenu">
             {{ $t("nav.home") }}
-          </NuxtLink>
+          </LocaleLink>
         </li>
         <li>
-          <NuxtLink to="/gallery" class="nav-link" @click="closeMenu">
+          <LocaleLink to="/gallery" class="nav-link" @click="closeMenu">
             {{ $t("nav.gallery") }}
-          </NuxtLink>
+          </LocaleLink>
         </li>
         <li>
-          <NuxtLink to="/services" class="nav-link" @click="closeMenu">
+          <LocaleLink to="/services" class="nav-link" @click="closeMenu">
             {{ $t("nav.services") }}
-          </NuxtLink>
+          </LocaleLink>
         </li>
         <li>
-          <NuxtLink to="/about" class="nav-link" @click="closeMenu">
+          <LocaleLink to="/about" class="nav-link" @click="closeMenu">
             {{ $t("nav.about") }}
-          </NuxtLink>
+          </LocaleLink>
         </li>
         <li>
-          <NuxtLink to="/resources" class="nav-link" @click="closeMenu">
+          <LocaleLink to="/resources" class="nav-link" @click="closeMenu">
             {{ $t("nav.resources") }}
-          </NuxtLink>
+          </LocaleLink>
         </li>
         <li>
-          <NuxtLink to="/subscribe" class="nav-link" @click="closeMenu">
+          <LocaleLink to="/subscribe" class="nav-link" @click="closeMenu">
             {{ $t("nav.subscribe") }}
-          </NuxtLink>
+          </LocaleLink>
         </li>
         <li>
-          <NuxtLink to="/contact" class="nav-link" @click="closeMenu">
+          <LocaleLink to="/contact" class="nav-link" @click="closeMenu">
             {{ $t("nav.contact") }}
-          </NuxtLink>
+          </LocaleLink>
         </li>
 
         <!-- Mobile-only language selector inside the hamburger menu -->

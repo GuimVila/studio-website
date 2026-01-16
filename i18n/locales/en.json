@@ -548,5 +548,178 @@
       "title": "Services | Guillem Vila · Music producer, artist and audio engineer",
       "description": "Professional services in music production, recording, editing, mixing and more. I help turn musical projects into high-quality releases with creativity and care."
     }
+  },
+  "cookieBanner": {
+    "text": "We use cookies to improve your experience and analyze website usage.",
+    "accept": "Accept",
+    "reject": "Reject",
+    "links": {
+      "cookies": "Cookie Policy",
+      "privacy": "Privacy Policy"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "sections": {
+      "controller": {
+        "title": "Data controller",
+        "p1": "The controller of personal data processing is Guillem Vila. You can contact us via email:"
+      },
+      "data": {
+        "title": "What data we process",
+        "items": [
+          {
+            "label": "Newsletter",
+            "text": "email address (and, where applicable, minimal technical metadata required for the service to operate)."
+          },
+          {
+            "label": "Contact form",
+            "text": "name (if provided), email address, and the content of the message."
+          },
+          {
+            "label": "Browsing data",
+            "text": "aggregated and statistical traffic information (analytics)."
+          }
+        ]
+      },
+      "purposes": {
+        "title": "Purposes and legal basis",
+        "items": [
+          {
+            "bold": "Manage newsletter subscription",
+            "text": "(signup, double opt-in confirmation, and sends):",
+            "basis": "consent"
+          },
+          {
+            "bold": "Respond to inquiries",
+            "text": "submitted through the contact form:",
+            "basis": "consent and/or pre-contractual measures (where applicable)"
+          },
+          {
+            "bold": "Analyze website usage",
+            "text": "to improve content and performance:",
+            "basis": "legitimate interest when analytics are aggregated and do not identify individuals"
+          }
+        ],
+        "p1": "You may withdraw your consent at any time. Withdrawing consent does not affect the lawfulness of processing based on prior consent."
+      },
+      "retention": {
+        "title": "Data retention",
+        "items": [
+          {
+            "label": "Newsletter",
+            "text": "while the subscription remains active or until the user requests unsubscribe/deletion."
+          },
+          {
+            "label": "Contact",
+            "text": "for as long as needed to handle the inquiry and, afterwards, for a reasonable period for follow-up or until deletion is requested."
+          },
+          {
+            "label": "Technical logs",
+            "text": "for as long as needed for security and incident diagnosis."
+          }
+        ]
+      },
+      "processors": {
+        "title": "Processors and providers",
+        "p1": "To provide the service, we may use providers acting as data processors, for example:",
+        "providers": [
+          { "name": "Vercel", "note": "(website hosting and infrastructure)." },
+          { "name": "Supabase", "note": "(database and related services)." },
+          { "name": "Resend", "note": "(email delivery)." },
+          { "name": "Plausible Analytics", "note": "(website analytics)." }
+        ]
+      },
+      "intl": {
+        "title": "International transfers",
+        "p1": "Some providers may process data outside the European Economic Area. In such cases, appropriate safeguards apply, such as Standard Contractual Clauses or equivalent mechanisms provided by applicable law."
+      },
+      "rights": {
+        "title": "User rights",
+        "p1": "You can exercise your data protection rights by contacting us at",
+        "items": [
+          "Right of access.",
+          "Right to rectification.",
+          "Right to erasure (“right to be forgotten”).",
+          "Right to object.",
+          "Right to restriction of processing.",
+          "Right to data portability."
+        ],
+        "p2": "You also have the right to lodge a complaint with the competent supervisory authority (in Spain, the AEPD) if you believe the law has been breached."
+      },
+      "unsubscribe": {
+        "title": "Unsubscribing from the newsletter",
+        "p1": "You can unsubscribe at any time using the unsubscribe link included in newsletter emails or by writing to"
+      },
+      "changes": {
+        "title": "Changes to this privacy policy",
+        "p1": "This policy may be updated periodically. We recommend reviewing it regularly to stay informed about any changes."
+      }
+    },
+    "seo": {
+      "title": "Privacy Policy | Guillem Vila · Artist, music producer and audio engineer",
+      "description": "Guillem Vila’s privacy policy: processed data, purposes, legal basis, retention, providers, user rights, and newsletter unsubscribe."
+    }
+  },
+  "cookies": {
+    "title": "Cookie Policy",
+    "intro": "This page explains what cookies are, which ones are used on this website, and how you can manage them.",
+    "whatTitle": "What are cookies?",
+    "whatText": "Cookies are small text files that are stored on your device when you visit a website. They are used to ensure proper site functionality, remember preferences, or obtain statistical information.",
+    "usedTitle": "Cookies used on this website",
+    "essentialTitle": "Technical or essential cookies",
+    "essentialText": "This website may use cookies strictly necessary for technical operation and security (for example, browser or server cookies). These cookies are not used for advertising purposes nor to identify users and generally do not require consent.",
+    "analyticsTitle": "Analytics",
+    "analyticsText": "We use Plausible Analytics to understand, in an aggregated and anonymous way, how the website is used (visited pages, referrers, device type, etc.). Plausible is designed to work without cookies and without personal user identification.",
+    "manageTitle": "How to manage or block cookies and analytics",
+    "manageText1": "You can configure your browser to block or delete cookies. Please note that blocking technical cookies may affect the proper functioning of the website.",
+    "manageText2": "If you want to avoid analytics, you can use content blockers (ad blockers) or disable JavaScript in your browser. This may affect certain website functionalities.",
+    "changesTitle": "Changes to the cookie policy",
+    "changesText": "This policy may be updated periodically. It is recommended to review it regularly to stay informed about any changes.",
+    "seo": {
+      "title": "Cookie Policy | Guillem Vila · Artist, music producer and audio engineer",
+      "description": "Cookie policy of Guillem Vila: information about technical cookies, privacy-friendly analytics with Plausible, and how to manage them in your browser."
+    }
+  },
+  "terms": {
+    "title": "Terms and Conditions",
+    "intro": "These terms and conditions govern the use of this website. By accessing and browsing it, the user agrees to these conditions.",
+    "sections": {
+      "use": {
+        "title": "1. Use of the website",
+        "items": [
+          "The website has an informative and professional purpose.",
+          "The user agrees to use the site lawfully and responsibly, without causing harm to third parties or to the proper functioning of the service."
+        ]
+      },
+      "ip": {
+        "title": "2. Intellectual property",
+        "text": "The contents, designs, images and audiovisual material on this website are the property of Guillem Vila or his collaborators and are protected by intellectual property laws. Reproduction, distribution or modification without authorization is not permitted."
+      },
+      "liability": {
+        "title": "3. Limitation of liability",
+        "text": "Efforts are made to keep the information up to date and the service operational, but uninterrupted availability and absence of errors cannot be guaranteed. No liability is accepted for damages arising from the use of the website, to the extent permitted by law."
+      },
+      "links": {
+        "title": "4. Third-party links",
+        "text": "The website may contain links to external pages. Their content, accuracy and policies are not controlled or guaranteed, and no responsibility is assumed for such third-party websites."
+      },
+      "changes": {
+        "title": "5. Changes to the terms",
+        "text": "These terms may be updated at any time. Continued use of the website implies acceptance of the changes."
+      },
+      "law": {
+        "title": "6. Applicable law and jurisdiction",
+        "text": "These terms are governed by Spanish law. In the event of a dispute, the parties shall submit to the courts and tribunals that are competent under the applicable regulations."
+      },
+      "contact": {
+        "title": "7. Contact",
+        "text": "For any questions about these terms, you can contact me at"
+      }
+    },
+    "seo": {
+      "title": "Terms and Conditions | Guillem Vila · Artist, music producer and audio engineer",
+      "description": "Read the terms and conditions of Guillem Vila’s website: site usage, intellectual property, liability, third-party links and applicable law."
+    }
   }
 }

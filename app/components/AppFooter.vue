@@ -141,9 +141,9 @@
           </p>
         </div>
         <div class="footer-legal">
-          <NuxtLink to="/privacy">{{ $t("footer.legal.privacy") }}</NuxtLink>
-          <NuxtLink to="/cookies">{{ $t("footer.legal.cookies") }}</NuxtLink>
-          <NuxtLink to="/terms">{{ $t("footer.legal.terms") }}</NuxtLink>
+          <LocaleLink to="/privacy">{{ $t("footer.legal.privacy") }}</LocaleLink>
+          <LocaleLink to="/cookies">{{ $t("footer.legal.cookies") }}</LocaleLink>
+          <LocaleLink to="/terms">{{ $t("footer.legal.terms") }}</LocaleLink>
         </div>
       </div>
 
