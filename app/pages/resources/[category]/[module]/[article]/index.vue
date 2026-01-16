@@ -42,7 +42,7 @@
       <ul>
         <li v-for="p in article.prerequisites" :key="p.id">
           <NuxtLink
-            :to="`/resources/${article.categories?.slug}/${p.slug}`"
+            :to="`/resources/${article.categories?.slug}/${p.modules?.slug || 'modulos'}/${p.slug}`"
           >
             {{ p.title_ca }}
           </NuxtLink>
@@ -60,7 +60,7 @@
           class="article-card"
         >
           <NuxtLink
-            :to="`/resources/${article.categories?.slug}/${related.slug}`"
+            :to="`/resources/${article.categories?.slug}/${related.modules?.slug || 'modulos'}/${related.slug}`"
             class="card-link"
           >
             <h4>{{ related.title_ca }}</h4>
@@ -76,14 +76,14 @@
     <footer v-if="prevArticle || nextArticle" class="navigation">
       <NuxtLink
         v-if="prevArticle"
-        :to="`/resources/${article.categories?.slug}/${prevArticle.slug}`"
+        :to="`/resources/${article.categories?.slug}/${prevArticle.modules?.slug || 'modulos'}/${prevArticle.slug}`"
         class="nav-link prev"
       >
         ← {{ prevArticle.title_ca }}
       </NuxtLink>
       <NuxtLink
         v-if="nextArticle"
-        :to="`/resources/${article.categories?.slug}/${nextArticle.slug}`"
+        :to="`/resources/${article.categories?.slug}/${nextArticle.modules?.slug || 'modulos'}/${nextArticle.slug}`"
         class="nav-link next"
       >
         {{ nextArticle.title_ca }} →

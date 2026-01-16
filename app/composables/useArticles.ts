@@ -24,13 +24,13 @@ export function useArticles() {
         ),
         article_prerequisites!article_prerequisites_article_id_fkey(
           required_article_id,
-          articles!article_prerequisites_required_article_id_fkey(id, title_ca, slug)
+          articles!article_prerequisites_required_article_id_fkey(id, title_ca, slug, categories(id, name_ca, slug), modules(id, name_ca, slug))
         ),
         related_articles!related_articles_article_id_fkey(
           related_article_id,
           relation_type,
           order,
-          articles!related_articles_related_article_id_fkey(id, title_ca, slug, resource_type, est_minutes)
+          articles!related_articles_related_article_id_fkey(id, title_ca, slug, resource_type, est_minutes, categories(id, name_ca, slug), modules(id, name_ca, slug))
         )
       `
       )
@@ -99,26 +99,28 @@ export function useArticles() {
     return { data: data || [], error };
   }
 
-  // Obtener artículos de un módulo específico
+  // Obtener artículos de un módulo específico con sus datos
   // @ts-ignore - Supabase query returns complex nested types
   async function getModuleArticles(categorySlug: string, moduleSlug: string) {
-    // @ts-ignore - Supabase single() returns never on type mismatches
+    // Obtener el módulo con su categoría para validar
+    // @ts-ignore
     const { data: module, error: moduleError } = await supabase
       .from("modules")
-      .select("id, name_ca, slug, category_id, categories(id, name_ca, slug)")
+      .select("id, name_ca, slug, categories(id, name_ca, slug)")
       .eq("slug", moduleSlug)
       .single();
 
     if (moduleError || !module) {
-      return { data: null, error: moduleError };
+      return { data: null, module: null, error: moduleError };
     }
 
-    // Verificar que el módulo pertenece a la categoría
+    // Verificar que el módulo pertenece a la categoría correcta
     if (module.categories?.slug !== categorySlug) {
-      return { data: null, error: new Error("Module not found in this category") };
+      return { data: null, module: null, error: new Error("Module not found in this category") };
     }
 
-    const { data, error } = await supabase
+    // Obtener artículos del módulo
+    const { data: articles, error: articlesError } = await supabase
       .from("articles")
       .select(`
         id, 
@@ -127,15 +129,16 @@ export function useArticles() {
         est_minutes, 
         resource_type, 
         seq,
-        modules(id, name_ca, slug),
-        categories(id, name_ca, slug)
+        categories(id, name_ca, slug),
+        modules(id, name_ca, slug)
       `)
       .eq("module_id", module.id)
       .eq("published", true)
       .order("seq", { ascending: true });
 
-    return { module, articles: data || [], error };
+    return { data: articles || [], module, error: articlesError };
   }
+
   // @ts-ignore - Supabase query returns complex nested types
   async function getBreadcrumb(articleSlug: string) {
     // @ts-ignore - Supabase single() returns never on type mismatches
@@ -212,7 +215,7 @@ export function useArticles() {
 
     const { data } = await supabase
       .from("articles")
-      .select("id, title_ca, slug")
+      .select("id, title_ca, slug, modules(id, name_ca, slug)")
       .eq("category_id", current.category_id)
       .gt("seq", current.seq)
       .eq("published", true)
@@ -237,7 +240,7 @@ export function useArticles() {
 
     const { data } = await supabase
       .from("articles")
-      .select("id, title_ca, slug")
+      .select("id, title_ca, slug, modules(id, name_ca, slug)")
       .eq("category_id", current.category_id)
       .lt("seq", current.seq)
       .eq("published", true)

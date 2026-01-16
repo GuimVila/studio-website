@@ -14,7 +14,7 @@
     <div v-else-if="articles.length" class="articles-container">
       <ul class="articles-list">
         <li v-for="article in articles" :key="article.id">
-          <NuxtLink :to="`/resources/${category}/${article.slug}`">
+          <NuxtLink :to="`/resources/${category}/${moduleSlug}/${article.slug}`">
             <span class="title">{{ article.title_ca }}</span>
             <span class="meta">{{ article.est_minutes }} min</span>
           </NuxtLink>
@@ -35,16 +35,26 @@ const route = useRoute();
 const category = computed(() => String(route.params.category || "").trim());
 const moduleSlug = computed(() => String(route.params.module || "").trim());
 
+console.log("🔍 Module page - category:", category.value, "moduleSlug:", moduleSlug.value);
+
 const { getModuleArticles } = useArticles();
 
 const { data: moduleData, pending } = await useAsyncData(
   () => `resources-module-${category.value}-${moduleSlug.value}`,
-  () => getModuleArticles(category.value, moduleSlug.value),
-  { default: () => ({ module: null, articles: [] }) }
+  () => {
+    console.log("🔍 Fetching module articles for:", category.value, moduleSlug.value);
+    return getModuleArticles(category.value, moduleSlug.value);
+  },
+  { default: () => ({ module: null, data: [] }) }
 );
 
+console.log("🔍 Module data received:", moduleData.value);
+
 const module = computed(() => moduleData.value?.module);
-const articles = computed(() => moduleData.value?.articles || []);
+const articles = computed(() => moduleData.value?.data || []);
+
+console.log("🔍 Module computed:", module.value);
+console.log("🔍 Articles computed:", articles.value);
 
 // SEO
 useHead(() => ({

@@ -5,7 +5,7 @@
       <h3 class="module-title">Sin módulo</h3>
       <ul class="articles-list">
         <li v-for="article in articlesWithoutModule" :key="article.id">
-          <NuxtLink :to="`/resources/${category}/${article.slug}`">
+          <NuxtLink :to="`/resources/${category}/modulos/${article.slug}`">
             <span class="title">{{ article.title_ca }}</span>
             <span class="meta">{{ article.est_minutes }} min</span>
           </NuxtLink>
@@ -18,7 +18,7 @@
       <h3 class="module-title">{{ moduleName }}</h3>
       <ul class="articles-list">
         <li v-for="article in moduleData.articles" :key="article.id">
-          <NuxtLink :to="`/resources/${category}/${article.slug}`">
+          <NuxtLink :to="`/resources/${category}/${article.modules?.slug}/${article.slug}`">
             <span class="title">{{ article.title_ca }}</span>
             <span class="meta">{{ article.est_minutes }} min</span>
           </NuxtLink>
@@ -42,11 +42,14 @@ const props = defineProps({
   },
 });
 
-// Agrupar artículos por módulo
+// Agrupar artículos por módulo (solo artículos con módulo)
 const groupedByModule = computed(() => {
   const grouped = {};
   (props.articles || []).forEach((article) => {
-    const moduleName = article.modules?.name_ca || "Sin módulo";
+    // Ignorar artículos sin módulo en la estructura jerárquica
+    if (!article.modules) return;
+    
+    const moduleName = article.modules.name_ca;
     if (!grouped[moduleName]) {
       grouped[moduleName] = { articles: [] };
     }
