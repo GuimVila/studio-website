@@ -2,16 +2,16 @@
   <section class="page">
     <section class="section">
       <h1 class="section-title heading-accent capitalize">
-        {{ categoryLabelText }}
+        {{ categoryName }}
       </h1>
       <NuxtLink class="back" to="/resources">← Enrere</NuxtLink>
     </section>
 
-    <ul class="list">
-      <li v-for="a in articles" :key="a.path">
-        <NuxtLink :to="a.path">{{ a.title }}</NuxtLink>
-      </li>
-    </ul>
+    <div v-if="pending" class="loading">
+      <p>Carregant artícles...</p>
+    </div>
+
+    <CategoryModuleList v-else-if="articles.length" :articles="articles" :category="category" />
 
     <p v-if="!pending && !articles.length" class="empty">
       No s'han trobat articles en aquesta categoria.
@@ -20,78 +20,24 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from "vue";
+import { computed } from "vue";
 
 const route = useRoute();
 const category = computed(() => String(route.params.category || "").trim());
 
-const CATEGORY_LABELS = {
-  "disseny-de-so": "Disseny de so",
-  edicio: "Edició",
-  fonaments: "Fonaments",
-  gravacio: "Gravació",
-  harmonia: "Harmonia",
-  "llenguatge-musical": "Llenguatge musical",
-  mescla: "Mescla",
-  produccio: "Producció",
-};
+const { getCategoryArticles } = useArticles();
 
-function categoryLabel(slug) {
-  if (CATEGORY_LABELS[slug]) return CATEGORY_LABELS[slug];
-
-  const stop = new Set([
-    "de",
-    "i",
-    "a",
-    "per",
-    "del",
-    "dels",
-    "la",
-    "el",
-    "les",
-    "els",
-  ]);
-  const words = String(slug)
-    .trim()
-    .toLowerCase()
-    .replace(/[-_]+/g, " ")
-    .split(" ")
-    .filter(Boolean);
-
-  return words
-    .map((w, i) => {
-      if (i > 0 && stop.has(w)) return w;
-      return w.charAt(0).toUpperCase() + w.slice(1);
-    })
-    .join(" ");
-}
-
-const categoryLabelText = computed(() => categoryLabel(category.value));
-
-const {
-  data: articles,
-  pending,
-  refresh,
-} = await useAsyncData(
-  () => `resources-cat-${category.value}`,
-  async () => {
-    const prefix = `/resources/${category.value}/`;
-
-    const rows = await queryCollection("resources")
-      .where("path", "LIKE", `${prefix}%`)
-      .select("title", "path", "seq")
-      .all();
-
-    return (rows || []).sort(
-      (a, b) => (Number(a.seq) || 999999) - (Number(b.seq) || 999999)
-    );
-  },
+const { data: articlesData, pending } = await useAsyncData(
+  () => `resources-category-${category.value}`,
+  () => getCategoryArticles(category.value),
   { default: () => [] }
 );
 
-// Fallback robust: si SSR a prod torna buit, força refetch al client
-onMounted(() => {
-  if (!(articles.value || []).length) refresh();
+const articles = computed(() => articlesData.value?.data || []);
+
+const categoryName = computed(() => {
+  if (!articles.value.length) return category.value;
+  return articles.value[0].categories?.name_ca || category.value;
 });
 </script>
 
@@ -101,6 +47,16 @@ onMounted(() => {
   margin: 0 auto;
   padding: 4rem 2rem;
   color: var(--text);
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .back {
@@ -124,6 +80,12 @@ onMounted(() => {
   color: var(--accent);
   transform: translateX(-3px);
   text-decoration: none;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
 }
 
 .list {
@@ -178,6 +140,16 @@ onMounted(() => {
   opacity: 1;
 }
 
+.title {
+  font-weight: 500;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
 .empty {
   color: var(--text-secondary);
   margin-top: 2rem;
@@ -185,17 +157,23 @@ onMounted(() => {
   font-size: 1.1rem;
 }
 
-/* .capitalize {
-  text-transform: capitalize;
-} */
-
 @media (max-width: 768px) {
   .page {
     padding: 3rem 1.5rem;
   }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
   .list a {
     padding: 1.25rem 1.5rem;
     font-size: 1rem;
+  }
+
+  .list a::before {
+    right: 1.5rem;
+    font-size: 1.2rem;
   }
 }
 </style>

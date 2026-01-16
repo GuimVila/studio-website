@@ -15,108 +15,78 @@
       </NuxtLink>
 
       <NuxtLink
-        v-for="c in categories"
-        :key="c.slug"
+        v-for="category in categories"
+        :key="category.id"
         class="card"
-        :to="localePath(`/resources/${c.slug}`)"
+        :to="localePath(`/resources/${category.slug}`)"
       >
-        <div class="title">{{ c.label }}</div>
+        <div class="title">{{ category.name_ca }}</div>
         <div class="sub">
           {{
-            t("resourcesHub.categoryCount", { count: c.count, plural: c.count })
+            t("resourcesHub.categoryCount", {
+              count: category.articleCount,
+              plural: category.articleCount,
+            })
           }}
         </div>
       </NuxtLink>
     </div>
 
     <p v-if="!pending && !categories.length" class="debug">
-      {{
-        $t("resourcesHub.debug.noCategories", { count: (docs || []).length })
-      }}
+      {{ $t("resourcesHub.debug.noCategories") }}
     </p>
   </section>
 </template>
 
 <script setup>
-import { computed, onMounted } from "vue";
 import { useI18n, useLocalePath } from "#i18n";
 
 const { t } = useI18n();
 const localePath = useLocalePath();
+const supabase = useSupabaseClient();
 
-function categoryLabel(slug) {
-  const key = `resourcesHub.categories.${slug}`;
-  const translated = t(key);
-  if (translated !== key) return translated;
-
-  // fallback (el teu codi actual de title-case)
-  const stop = new Set([
-    "de",
-    "i",
-    "a",
-    "per",
-    "del",
-    "dels",
-    "la",
-    "el",
-    "les",
-    "els",
-  ]);
-  const words = String(slug)
-    .trim()
-    .toLowerCase()
-    .replace(/[-_]+/g, " ")
-    .split(" ")
-    .filter(Boolean);
-
-  return words
-    .map((w, i) => {
-      if (i > 0 && stop.has(w)) return w;
-      return w.charAt(0).toUpperCase() + w.slice(1);
-    })
-    .join(" ");
+// DEBUG: Verificar configuración de Supabase
+if (process.client) {
+  console.log("🔍 DEBUG - Supabase Configuration:");
+  console.log("  Actual URL:", supabase.supabaseUrl);
+  console.log("  Expected (local): http://127.0.0.1:54321");
+  console.log("  Expected (prod): https://pzkqgccyzzojplquobkw.supabase.co");
+  console.log("  Env NUXT_SUPABASE_URL:", process.env.NUXT_SUPABASE_URL);
 }
 
-const {
-  data: docs,
-  pending,
-  refresh,
-} = await useAsyncData(
-  "resources-hub",
+const { data: categories, pending } = await useAsyncData(
+  "resources-categories",
   async () => {
-    // IMPORTANT: query Nuxt Content collection
-    return await queryCollection("resources").select("path", "title").all();
+    // Obtener categorías con conteo de artículos
+    const { data, error } = await supabase
+      .from("categories")
+      .select(
+        `
+        id,
+        slug,
+        name_ca,
+        name_es,
+        name_en,
+        articles(id)
+      `
+      )
+      .eq("articles.published", true)
+      .order("id");
+
+    if (error) {
+      console.error("❌ Error loading categories:", error);
+      console.error("   Code:", error.code);
+      console.error("   Message:", error.message);
+      return [];
+    }
+
+    return (data || []).map((cat) => ({
+      ...cat,
+      articleCount: (cat.articles || []).length,
+    }));
   },
   { default: () => [] }
 );
-
-// Fallback robust: si SSR a prod torna buit, força refetch al client
-onMounted(() => {
-  if (!(docs.value || []).length) refresh();
-});
-
-const categories = computed(() => {
-  const counts = new Map();
-
-  for (const d of docs.value || []) {
-    const p = String(d.path || "");
-    // esperem: /resources/<category>/<slug>
-    const parts = p.split("/").filter(Boolean);
-    const idx = parts.indexOf("resources");
-    if (idx !== -1 && parts.length > idx + 1) {
-      const slug = parts[idx + 1];
-      counts.set(slug, (counts.get(slug) || 0) + 1);
-    }
-  }
-
-  return Array.from(counts.entries())
-    .sort((a, b) => a[0].localeCompare(b[0]))
-    .map(([slug, count]) => ({
-      slug,
-      label: categoryLabel(slug),
-      count,
-    }));
-});
 </script>
 
 <style scoped>
