@@ -49,13 +49,14 @@ export function useNewsletter() {
     const newsletterStore = useNewsletterStore();
 
     try {
-      await newsletterStore.subscribe(
+      const response = await newsletterStore.subscribe(
         email.value.trim().toLowerCase(),
         honeypot.value
       );
 
       submitSuccess.value = true;
       submitMessage.value =
+        response?.message ||
         newsletterStore.message ||
         "T'he enviat un correu per confirmar la subscripció.";
 
@@ -77,6 +78,8 @@ export function useNewsletter() {
     email,
     honeypot,
     isSubmitting,
+    success: submitSuccess,
+    message: submitMessage,
     submitSuccess,
     submitMessage,
     subscribe,

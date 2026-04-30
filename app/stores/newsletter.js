@@ -22,6 +22,10 @@ export const useNewsletterStore = defineStore("newsletter", () => {
         },
       });
 
+      if (response?.success === false) {
+        throw new Error(response?.message || "Newsletter subscription failed.");
+      }
+
       success.value = true;
       message.value =
         response?.message ||

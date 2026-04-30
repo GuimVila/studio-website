@@ -33,6 +33,8 @@
         v-if="submitMessage"
         class="submit-message"
         :class="submitSuccess ? 'success' : 'error'"
+        role="status"
+        aria-live="polite"
       >
         {{ submitMessage }}
       </p>
@@ -96,16 +98,26 @@ const {
 /* Result message */
 .submit-message {
   text-align: center;
-  margin-top: 1.25rem;
+  width: min(560px, 100%);
+  margin: 1.25rem auto 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
   font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .submit-message.success {
-  color: #4ade80;
+  color: var(--text);
+  border-color: rgba(74, 222, 128, 0.35);
+  background: rgba(74, 222, 128, 0.08);
 }
 
 .submit-message.error {
-  color: #ef4444;
+  color: var(--text);
+  border-color: rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.08);
 }
 
 /* Honeypot */

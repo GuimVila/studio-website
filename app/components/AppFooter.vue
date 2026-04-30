@@ -117,12 +117,10 @@
 
             <p
               v-if="message"
-              :style="{
-                marginTop: '0.75rem',
-                fontSize: '0.9rem',
-                color: success ? '#4ade80' : '#ef4444',
-                textAlign: 'center',
-              }"
+              class="newsletter-message"
+              :class="success ? 'success' : 'error'"
+              role="status"
+              aria-live="polite"
             >
               {{ message }}
             </p>
@@ -445,6 +443,27 @@ watch(message, (val) => {
 }
 .newsletter-button:active {
   transform: translateY(0);
+}
+
+.newsletter-message {
+  margin: 0.15rem 0 0 0;
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.newsletter-message.success {
+  color: var(--text);
+  background: rgba(74, 222, 128, 0.08);
+  border: 1px solid rgba(74, 222, 128, 0.28);
+}
+
+.newsletter-message.error {
+  color: var(--text);
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.28);
 }
 
 .hp-field {
