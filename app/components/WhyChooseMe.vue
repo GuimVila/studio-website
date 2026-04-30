@@ -6,13 +6,18 @@
       </div>
 
       <div class="services-grid-modern">
-        <ServiceCard
-          v-for="(item, index) in services"
-          :key="index"
-          :title="item.title"
-          :description="item.description"
-          :image="item.image"
-        />
+        <LocaleLink
+          v-for="item in services"
+          :key="item.key"
+          class="service-link"
+          :to="item.to"
+        >
+          <ServiceCard
+            :title="item.title"
+            :description="item.description"
+            :image="item.image"
+          />
+        </LocaleLink>
       </div>
     </div>
   </section>
@@ -26,24 +31,32 @@ const { t } = useI18n();
 
 const services = computed(() => [
   {
+    key: "production",
     title: t("whyMe.items.production.title"),
     description: t("whyMe.items.production.description"),
     image: "/images/services/produccio.png",
+    to: "/services",
   },
   {
+    key: "mixing",
     title: t("whyMe.items.mixing.title"),
     description: t("whyMe.items.mixing.description"),
     image: "/images/services/mescla.png",
+    to: "/services",
   },
   {
+    key: "recording",
     title: t("whyMe.items.recording.title"),
     description: t("whyMe.items.recording.description"),
     image: "/images/services/gravacio.png",
+    to: "/services",
   },
   {
+    key: "resources",
     title: t("whyMe.items.resources.title"),
     description: t("whyMe.items.resources.description"),
     image: "/images/services/recursos.png",
+    to: "/resources/roadmap",
   },
 ]);
 </script>
@@ -67,7 +80,7 @@ const services = computed(() => [
 }
 
 .section-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: 3rem;
   font-weight: 900;
   line-height: 1.1;
   margin: 0;
@@ -88,9 +101,22 @@ const services = computed(() => [
   gap: clamp(1.5rem, 3vw, 2.5rem);
 }
 
+.service-link {
+  display: block;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
 @media (min-width: 768px) {
   .services-grid-modern {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .section-title {
+    font-size: 2.2rem;
   }
 }
 

@@ -104,7 +104,10 @@ async function submit() {
       email.value.trim().toLowerCase(),
       password.value
     );
-    await navigateTo(localizedPath(redirectTo.value));
+    await navigateTo({
+      path: localePath("/verify-email"),
+      query: { redirect: localizedPath(redirectTo.value) },
+    });
   } catch {
     const error = String(userStore.error || "");
     message.value =

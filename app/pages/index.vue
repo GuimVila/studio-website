@@ -1,6 +1,8 @@
 <template>
   <div>
     <AppHero />
+    <HomePathways />
+    <HomeResources />
     <WhyChooseMe />
     <StartToday />
   </div>
@@ -9,6 +11,8 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 import AppHero from "~/components/AppHero.vue";
+import HomePathways from "~/components/HomePathways.vue";
+import HomeResources from "~/components/HomeResources.vue";
 import WhyChooseMe from "~/components/WhyChooseMe.vue";
 import StartToday from "~/components/StartToday.vue";
 

@@ -13,6 +13,7 @@ export const useUserStore = defineStore("user", () => {
   const error = ref("");
 
   const isLoggedIn = computed(() => !!token.value);
+  const isEmailVerified = computed(() => !!user.value?.email_verified_at);
 
   async function register(name, email, password) {
     const api = useApiStore();
@@ -110,15 +111,38 @@ export const useUserStore = defineStore("user", () => {
     user.value = null;
   }
 
+  async function resendVerificationEmail() {
+    const api = useApiStore();
+
+    loading.value = true;
+    error.value = "";
+
+    try {
+      return await api.request("/email/verification-notification", {
+        method: "POST",
+      });
+    } catch (err) {
+      error.value =
+        err?.data?.message ||
+        err?.message ||
+        "verification_resend_failed";
+      throw err;
+    } finally {
+      loading.value = false;
+    }
+  }
+
   return {
     token,
     user,
     loading,
     error,
     isLoggedIn,
+    isEmailVerified,
     register,
     login,
     fetchUser,
     logout,
+    resendVerificationEmail,
   };
 });

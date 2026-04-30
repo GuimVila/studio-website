@@ -17,13 +17,15 @@
   },
   "hero": {
     "imageAlt": "Music production studio",
-    "title": "Bring your music to life",
-    "subtitle": "Professional production, mixing, and recording. Your sound, brought to perfection.",
-    "ctaPrimary": "Get started",
-    "ctaSecondary": "My services",
-    "ctaRoadmap": "Interactive roadmap",
+    "title": "Production, mixing, and resources to take your sound further",
+    "subtitle": "I work with artists and producers who want to finish songs with taste, a competitive sound, and a clear process. If you came from a video, the roadmap and resources are here so you can keep learning.",
+    "ctaPrimary": "Tell me about your project",
+    "ctaSecondary": "View services",
+    "ctaRoadmap": "Explore resources",
     "badges": {
-      "artist": "Artist"
+      "artist": "Artist",
+      "studio": "Audio studio · Riells i Viabrea",
+      "resources": "Resources to grow with taste"
     },
     "features": {
       "production": "Professional production",
@@ -31,37 +33,87 @@
       "resources": "Unique resources"
     },
     "stats": {
-      "experience": "Years of experience",
+      "experience": "Years producing, recording, and mixing",
       "projects": "Completed projects",
       "quality": "Quality guaranteed",
-      "resources": "Weekly resources"
+      "resources": "Articles and exercises to keep moving",
+      "studioLabel": "Studio",
+      "studio": "Production, recording, and mixing",
+      "resourcesLabel": "Roadmap"
+    }
+  },
+  "homePathways": {
+    "eyebrow": "Choose your path",
+    "title": "However you arrive, the next step should be obvious.",
+    "subtitle": "The home page now serves both people who want to work with me and people coming from a short video who want to keep learning without getting lost.",
+    "items": {
+      "project": {
+        "title": "I have a music project",
+        "description": "Tell me what you want to record, produce, or mix and I’ll reply with a realistic proposal for your case.",
+        "cta": "Let’s talk"
+      },
+      "services": {
+        "title": "I want to see the services",
+        "description": "Check production, recording, mixing, editing, and sound design options before getting in touch.",
+        "cta": "Compare services"
+      },
+      "learn": {
+        "title": "I’m here to learn production and audio",
+        "description": "Open the interactive roadmap, track your progress, and follow articles designed to build taste step by step.",
+        "cta": "Open the roadmap"
+      }
+    }
+  },
+  "homeResources": {
+    "eyebrow": "Resources and roadmap",
+    "title": "If you came from a video, continue here.",
+    "subtitle": "Each article belongs to a bigger map: fundamentals, recording, production, mixing, and sound design connected so you don’t jump from tutorial to tutorial without direction.",
+    "ctaRoadmap": "Open interactive roadmap",
+    "ctaResources": "View categories",
+    "items": {
+      "start": {
+        "label": "Fundamentals",
+        "title": "What sound is",
+        "description": "A starting point for understanding waves, phase, pressure, and listening with a clear foundation."
+      },
+      "mix": {
+        "label": "Mixing",
+        "title": "Mixing objectives",
+        "description": "Before touching plugins, define translation, intention, and decision-making criteria."
+      },
+      "sound": {
+        "label": "Sound design",
+        "title": "Basic waves and spectrum",
+        "description": "A practical foundation for understanding sine, saw, square, and noise without empty theory."
+      }
     }
   },
   "whyMe": {
-    "title": "Work with me",
+    "title": "Services connected to your goal",
     "items": {
       "production": {
         "title": "Production",
-        "description": "From pre-production to the final product, I guide you through every step of the creative process."
+        "description": "Guidance to turn ideas, demos, or references into a finished and coherent production."
       },
       "mixing": {
         "title": "Mixing",
-        "description": "Boutique gear and technical judgment to achieve a competitive and coherent sound."
+        "description": "Balance, depth, and clear decisions so the song translates well and keeps its intention."
       },
       "recording": {
         "title": "Recording",
-        "description": "Acoustically treated studio and a workflow designed to capture real performances."
+        "description": "Careful capture of vocals, guitars, and instruments with a workflow designed for strong takes."
       },
       "resources": {
         "title": "Resources",
-        "description": "Resources and content for musicians and producers who want to grow with solid criteria."
+        "description": "Articles, roadmap, and reading progress to learn production and audio in a structured way."
       }
     }
   },
   "startToday": {
-    "title": "Start your project today",
-    "subtitle": "Production, editing, recording, and mixing with a fast and efficient workflow.",
-    "cta": "Contact me"
+    "title": "Do you have a song, a mix, or an idea halfway there?",
+    "subtitle": "Tell me where you are and I’ll help you choose the most useful next step: produce, record, mix, or prepare the material better before entering the studio.",
+    "cta": "Tell me about the project",
+    "secondaryCta": "View services"
   },
   "footer": {
     "brandDescription": "Professional audio studio and music production",
@@ -277,6 +329,22 @@
         "default": "Could not create the account.",
         "emailTaken": "This email already has an account. Try logging in."
       }
+    },
+    "verify": {
+      "seoTitle": "Verify email | Guillem Vila",
+      "eyebrow": "Verification",
+      "title": "Check your email",
+      "body": "We sent you an email with a button to confirm your account. Once confirmed, you can continue to your space.",
+      "verifiedTitle": "Account verified",
+      "verifiedBody": "Your email is confirmed. You can now continue and sync your roadmap progress.",
+      "invalidTitle": "Invalid or expired link",
+      "invalidBody": "This verification link is no longer valid. If you are signed in, you can request a new one.",
+      "continue": "Continue",
+      "resend": "Resend email",
+      "resending": "Resending...",
+      "resendSuccess": "We sent the verification email again.",
+      "resendError": "Could not resend the verification email.",
+      "login": "Log in"
     }
   },
   "readingProgress": {

@@ -25,6 +25,9 @@
                 <path d="m12 5 7 7-7 7" />
               </svg>
             </LocaleLink>
+            <LocaleLink to="/services" class="cta-button cta-button-secondary">
+              <span>{{ $t("startToday.secondaryCta") }}</span>
+            </LocaleLink>
           </div>
         </div>
       </div>
@@ -99,7 +102,7 @@
 }
 
 .cta-title {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: 2.75rem;
   font-weight: 900;
   line-height: 1.15;
   margin: 0 0 1.25rem 0;
@@ -115,7 +118,7 @@
 }
 
 .cta-subtitle {
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-size: 1.16rem;
   color: var(--text-secondary);
   line-height: 1.6;
   margin: 0 0 2.5rem 0;
@@ -126,6 +129,7 @@
 
 .cta-actions {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
 }
@@ -164,6 +168,18 @@
   transform: translateX(4px);
 }
 
+.cta-button-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  box-shadow: none;
+}
+
+.cta-button-secondary:hover {
+  border-color: rgba(208, 138, 63, 0.55);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
 @media (max-width: 768px) {
   .cta-card {
     border-radius: 24px;
@@ -174,6 +190,14 @@
     width: 100%;
     justify-content: center;
     padding: 1rem 2rem;
+  }
+
+  .cta-title {
+    font-size: 2.1rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1.02rem;
   }
 }
 </style>

@@ -89,6 +89,15 @@ async function submit() {
 
   try {
     await userStore.login(email.value.trim().toLowerCase(), password.value);
+
+    if (!userStore.isEmailVerified) {
+      await navigateTo({
+        path: localePath("/verify-email"),
+        query: { redirect: localizedPath(redirectTo.value) },
+      });
+      return;
+    }
+
     await navigateTo(localizedPath(redirectTo.value));
   } catch {
     hasError.value = true;

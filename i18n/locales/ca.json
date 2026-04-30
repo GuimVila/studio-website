@@ -17,13 +17,15 @@
   },
   "hero": {
     "imageAlt": "Estudi de producció musical",
-    "title": "Dona vida a la teva música",
-    "subtitle": "Producció, mescla i gravació professional. El teu so, portat a la perfecció.",
-    "ctaPrimary": "Comença ara",
-    "ctaSecondary": "Els meus serveis",
-    "ctaRoadmap": "Roadmap interactiu",
+    "title": "Producció, mescla i recursos per portar el teu so més lluny",
+    "subtitle": "Treballo amb artistes i productors que volen acabar cançons amb criteri, so competitiu i un procés clar. Si vens d’un vídeo, també tens el roadmap i els recursos per continuar aprenent.",
+    "ctaPrimary": "Explica’m el teu projecte",
+    "ctaSecondary": "Veure serveis",
+    "ctaRoadmap": "Explorar recursos",
     "badges": {
-      "artist": "Artista"
+      "artist": "Artista",
+      "studio": "Estudi de so · Riells i Viabrea",
+      "resources": "Recursos per créixer amb criteri"
     },
     "features": {
       "production": "Producció professional",
@@ -31,37 +33,87 @@
       "resources": "Recursos únics"
     },
     "stats": {
-      "experience": "Anys d'experiència",
+      "experience": "Anys produint, gravant i mesclant",
       "projects": "Projectes completats",
       "quality": "Qualitat garantida",
-      "resources": "Recursos setmanals"
+      "resources": "Articles i exercicis per avançar",
+      "studioLabel": "Estudi",
+      "studio": "Producció, gravació i mescla",
+      "resourcesLabel": "Roadmap"
+    }
+  },
+  "homePathways": {
+    "eyebrow": "Tria el teu camí",
+    "title": "Arribis com arribis, has de saber on anar.",
+    "subtitle": "La home serveix tant a qui vol contractar-me com a qui ve d’un vídeo curt i vol continuar aprenent sense perdre’s.",
+    "items": {
+      "project": {
+        "title": "Tinc un projecte musical",
+        "description": "Explica’m què vols gravar, produir o mesclar i et respondré amb una proposta realista pel teu cas.",
+        "cta": "Parlem-ne"
+      },
+      "services": {
+        "title": "Vull veure serveis",
+        "description": "Consulta les opcions de producció, gravació, mescla, edició i disseny de so abans de contactar.",
+        "cta": "Comparar serveis"
+      },
+      "learn": {
+        "title": "Vinc a aprendre producció i so",
+        "description": "Entra al roadmap interactiu, marca el progrés i segueix articles pensats per construir criteri pas a pas.",
+        "cta": "Obrir el roadmap"
+      }
+    }
+  },
+  "homeResources": {
+    "eyebrow": "Recursos i roadmap",
+    "title": "Si vens d’un vídeo, continua per aquí.",
+    "subtitle": "Cada article forma part d’un mapa més gran: fonaments, gravació, producció, mescla i disseny de so connectats perquè no saltis de tutorial en tutorial sense rumb.",
+    "ctaRoadmap": "Obrir roadmap interactiu",
+    "ctaResources": "Veure categories",
+    "items": {
+      "start": {
+        "label": "Fonaments",
+        "title": "Què és el so",
+        "description": "El punt d’entrada per entendre ones, fase, pressió i escolta amb una base clara."
+      },
+      "mix": {
+        "label": "Mescla",
+        "title": "Objectius de mescla",
+        "description": "Abans de tocar plugins, defineix traducció, intenció i criteri de decisió."
+      },
+      "sound": {
+        "label": "Disseny de so",
+        "title": "Ones bàsiques i espectre",
+        "description": "Una base pràctica per entendre sine, saw, square i noise sense perdre’t en teoria buida."
+      }
     }
   },
   "whyMe": {
-    "title": "Treballa amb mi",
+    "title": "Serveis que connecten amb el teu objectiu",
     "items": {
       "production": {
         "title": "Producció",
-        "description": "Des de la preproducció fins al producte final, t'acompanyo en cada pas del procés creatiu."
+        "description": "Acompanyament per convertir idees, demos o referències en una producció acabada i coherent."
       },
       "mixing": {
         "title": "Mescla",
-        "description": "Equipament boutique i criteri tècnic per aconseguir un so competitiu i coherent."
+        "description": "Equilibri, profunditat i decisió perquè la cançó tradueixi bé i mantingui la intenció."
       },
       "recording": {
         "title": "Gravació",
-        "description": "Estudi acustitzat i flux de treball pensat per capturar interpretacions reals."
+        "description": "Captura cuidada de veus, guitarres i instruments amb un flux pensat per fer bones preses."
       },
       "resources": {
         "title": "Recursos",
-        "description": "Recursos i contingut per a músics i productors que volen créixer amb criteri."
+        "description": "Articles, roadmap i progrés de lectura per aprendre producció i so amb ordre."
       }
     }
   },
   "startToday": {
-    "title": "Comença el teu projecte avui",
-    "subtitle": "Producció, edició, gravació i mescla amb un flux de treball àgil i eficient.",
-    "cta": "Contacta'm"
+    "title": "Tens una cançó, una mescla o una idea a mig camí?",
+    "subtitle": "Explica’m en quin punt estàs i et diré quin camí té més sentit: produir, gravar, mesclar o preparar millor el material abans d’entrar a estudi.",
+    "cta": "Explica’m el projecte",
+    "secondaryCta": "Mirar serveis"
   },
   "footer": {
     "brandDescription": "Estudi de so professional i producció musical",
@@ -276,6 +328,22 @@
         "default": "No s'ha pogut crear el compte.",
         "emailTaken": "Aquest correu ja té un compte. Prova d'entrar-hi."
       }
+    },
+    "verify": {
+      "seoTitle": "Verificar email | Guillem Vila",
+      "eyebrow": "Verificació",
+      "title": "Revisa el teu correu",
+      "body": "T'hem enviat un correu amb un botó per confirmar el compte. Quan el confirmis, podràs continuar amb el teu espai.",
+      "verifiedTitle": "Compte verificat",
+      "verifiedBody": "El teu correu ja està confirmat. Ja pots continuar i sincronitzar el progrés del roadmap.",
+      "invalidTitle": "Enllaç no vàlid o caducat",
+      "invalidBody": "Aquest enllaç de verificació ja no és vàlid. Si tens la sessió oberta, pots demanar-ne un de nou.",
+      "continue": "Continuar",
+      "resend": "Reenviar correu",
+      "resending": "Reenviant...",
+      "resendSuccess": "T'hem reenviat el correu de verificació.",
+      "resendError": "No s'ha pogut reenviar el correu de verificació.",
+      "login": "Entrar"
     }
   },
   "readingProgress": {

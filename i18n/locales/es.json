@@ -17,13 +17,15 @@
   },
   "hero": {
     "imageAlt": "Estudio de producción musical",
-    "title": "Da vida a tu música",
-    "subtitle": "Producción, mezcla y grabación profesional. Tu sonido, llevado a la perfección.",
-    "ctaPrimary": "Empieza ahora",
-    "ctaSecondary": "Mis servicios",
-    "ctaRoadmap": "Roadmap interactivo",
+    "title": "Producción, mezcla y recursos para llevar tu sonido más lejos",
+    "subtitle": "Trabajo con artistas y productores que quieren terminar canciones con criterio, sonido competitivo y un proceso claro. Si vienes de un vídeo, también tienes el roadmap y los recursos para seguir aprendiendo.",
+    "ctaPrimary": "Cuéntame tu proyecto",
+    "ctaSecondary": "Ver servicios",
+    "ctaRoadmap": "Explorar recursos",
     "badges": {
-      "artist": "Artista"
+      "artist": "Artista",
+      "studio": "Estudio de sonido · Riells i Viabrea",
+      "resources": "Recursos para crecer con criterio"
     },
     "features": {
       "production": "Producción profesional",
@@ -31,37 +33,87 @@
       "resources": "Recursos únicos"
     },
     "stats": {
-      "experience": "Años de experiencia",
+      "experience": "Años produciendo, grabando y mezclando",
       "projects": "Proyectos completados",
       "quality": "Calidad garantizada",
-      "resources": "Recursos semanales"
+      "resources": "Artículos y ejercicios para avanzar",
+      "studioLabel": "Estudio",
+      "studio": "Producción, grabación y mezcla",
+      "resourcesLabel": "Roadmap"
+    }
+  },
+  "homePathways": {
+    "eyebrow": "Elige tu camino",
+    "title": "Llegues como llegues, tienes que saber dónde ir.",
+    "subtitle": "La home sirve tanto a quien quiere contratarme como a quien viene de un vídeo corto y quiere seguir aprendiendo sin perderse.",
+    "items": {
+      "project": {
+        "title": "Tengo un proyecto musical",
+        "description": "Cuéntame qué quieres grabar, producir o mezclar y te responderé con una propuesta realista para tu caso.",
+        "cta": "Hablemos"
+      },
+      "services": {
+        "title": "Quiero ver servicios",
+        "description": "Consulta las opciones de producción, grabación, mezcla, edición y diseño de sonido antes de contactar.",
+        "cta": "Comparar servicios"
+      },
+      "learn": {
+        "title": "Vengo a aprender producción y sonido",
+        "description": "Entra en el roadmap interactivo, marca tu progreso y sigue artículos pensados para construir criterio paso a paso.",
+        "cta": "Abrir el roadmap"
+      }
+    }
+  },
+  "homeResources": {
+    "eyebrow": "Recursos y roadmap",
+    "title": "Si vienes de un vídeo, continúa por aquí.",
+    "subtitle": "Cada artículo forma parte de un mapa más grande: fundamentos, grabación, producción, mezcla y diseño de sonido conectados para que no saltes de tutorial en tutorial sin rumbo.",
+    "ctaRoadmap": "Abrir roadmap interactivo",
+    "ctaResources": "Ver categorías",
+    "items": {
+      "start": {
+        "label": "Fundamentos",
+        "title": "Qué es el sonido",
+        "description": "El punto de entrada para entender ondas, fase, presión y escucha con una base clara."
+      },
+      "mix": {
+        "label": "Mezcla",
+        "title": "Objetivos de mezcla",
+        "description": "Antes de tocar plugins, define traducción, intención y criterio de decisión."
+      },
+      "sound": {
+        "label": "Diseño de sonido",
+        "title": "Ondas básicas y espectro",
+        "description": "Una base práctica para entender sine, saw, square y noise sin perderte en teoría vacía."
+      }
     }
   },
   "whyMe": {
-    "title": "Trabaja conmigo",
+    "title": "Servicios que conectan con tu objetivo",
     "items": {
       "production": {
         "title": "Producción",
-        "description": "Desde la preproducción hasta el producto final, te acompaño en cada paso del proceso creativo."
+        "description": "Acompañamiento para convertir ideas, demos o referencias en una producción terminada y coherente."
       },
       "mixing": {
         "title": "Mezcla",
-        "description": "Equipamiento boutique y criterio técnico para lograr un sonido competitivo y coherente."
+        "description": "Equilibrio, profundidad y decisión para que la canción traduzca bien y mantenga la intención."
       },
       "recording": {
         "title": "Grabación",
-        "description": "Estudio acondicionado acústicamente y flujo de trabajo pensado para capturar interpretaciones reales."
+        "description": "Captura cuidada de voces, guitarras e instrumentos con un flujo pensado para conseguir buenas tomas."
       },
       "resources": {
         "title": "Recursos",
-        "description": "Recursos y contenido para músicos y productores que quieren crecer con criterio."
+        "description": "Artículos, roadmap y progreso de lectura para aprender producción y sonido con orden."
       }
     }
   },
   "startToday": {
-    "title": "Empieza tu proyecto hoy",
-    "subtitle": "Producción, edición, grabación y mezcla con un flujo de trabajo ágil y eficiente.",
-    "cta": "Contáctame"
+    "title": "¿Tienes una canción, una mezcla o una idea a medio camino?",
+    "subtitle": "Cuéntame en qué punto estás y te diré qué camino tiene más sentido: producir, grabar, mezclar o preparar mejor el material antes de entrar al estudio.",
+    "cta": "Cuéntame el proyecto",
+    "secondaryCta": "Ver servicios"
   },
   "footer": {
     "brandDescription": "Estudio de sonido profesional y producción musical",
@@ -276,6 +328,22 @@
         "default": "No se ha podido crear la cuenta.",
         "emailTaken": "Este correo ya tiene una cuenta. Prueba a iniciar sesión."
       }
+    },
+    "verify": {
+      "seoTitle": "Verificar email | Guillem Vila",
+      "eyebrow": "Verificación",
+      "title": "Revisa tu correo",
+      "body": "Te hemos enviado un correo con un botón para confirmar la cuenta. Cuando la confirmes, podrás continuar con tu espacio.",
+      "verifiedTitle": "Cuenta verificada",
+      "verifiedBody": "Tu correo ya está confirmado. Ya puedes continuar y sincronizar el progreso del roadmap.",
+      "invalidTitle": "Enlace no válido o caducado",
+      "invalidBody": "Este enlace de verificación ya no es válido. Si tienes la sesión abierta, puedes pedir uno nuevo.",
+      "continue": "Continuar",
+      "resend": "Reenviar correo",
+      "resending": "Reenviando...",
+      "resendSuccess": "Te hemos reenviado el correo de verificación.",
+      "resendError": "No se ha podido reenviar el correo de verificación.",
+      "login": "Entrar"
     }
   },
   "readingProgress": {
