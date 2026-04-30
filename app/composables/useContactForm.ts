@@ -1,5 +1,5 @@
 import { ref } from "vue";
-
+import { useContactStore } from "../stores/contact";
 
 /* =========================
    Helpers (fora del composable)
@@ -21,8 +21,6 @@ interface FormData {
 ========================= */
 
 export function useContactForm() {
-  const supabase = useSupabaseClient();
-
   const formData = ref<FormData>({
     name: "",
     email: "",
@@ -87,16 +85,16 @@ export function useContactForm() {
     isSubmitting.value = true;
     submitMessage.value = "";
 
+    const contactStore = useContactStore();
+
     try {
-      const { error } = await supabase.from("contacts").insert({
+      await contactStore.submitContact({
         name: formData.value.name.trim(),
         email: formData.value.email.trim().toLowerCase(),
         phone: formData.value.phone?.trim() || null,
         service: formData.value.service,
         message: formData.value.message.trim(),
       });
-
-      if (error) throw error;
 
       submitSuccess.value = true;
       submitMessage.value =
@@ -114,8 +112,10 @@ export function useContactForm() {
       honeypot.value = "";
     } catch (err) {
       console.error(err);
+
       submitSuccess.value = false;
       submitMessage.value =
+        contactStore.message ||
         "Hi ha hagut un error. Si us plau, intenta-ho de nou o contacta'm per email.";
     } finally {
       isSubmitting.value = false;

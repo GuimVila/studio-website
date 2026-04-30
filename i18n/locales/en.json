@@ -151,7 +151,8 @@
       "placeholderEmail": "Email address",
       "button": "Resend confirmation",
       "sending": "Sending...",
-      "silentMessage": "If there is a pending subscription for this email, you will receive a new confirmation link."
+      "silentMessage": "If there is a pending subscription for this email, you will receive a new confirmation link.",
+      "error": "The confirmation email could not be resent. Please try again later."
     },
     "backHome": "Back to home",
     "seo": {

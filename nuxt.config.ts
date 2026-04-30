@@ -11,6 +11,12 @@ export default defineNuxtConfig({
     preset: "vercel",
   },
 
+  runtimeConfig: {
+    public: {
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || "https://api.guillemvila.com/api",
+    },
+  },
+
   css: ["~/assets/css/main.css"],
 
   modules: [
@@ -22,7 +28,7 @@ export default defineNuxtConfig({
     "@nuxt/ui",
     "@nuxt/test-utils",
     "motion-v/nuxt",
-    "@nuxtjs/supabase",
+    "@pinia/nuxt",
     "@nuxtjs/sitemap",
     "@nuxtjs/i18n",
   ],
@@ -38,12 +44,6 @@ export default defineNuxtConfig({
       xl: 1280,
       xxl: 1536,
     },
-  },
-
-  supabase: {
-    url: process.env.NUXT_SUPABASE_URL,
-    key: process.env.NUXT_SUPABASE_ANON_KEY,
-    redirect: false,
   },
 
   site: {

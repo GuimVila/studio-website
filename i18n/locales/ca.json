@@ -150,7 +150,8 @@
       "placeholderEmail": "Correu electrònic",
       "button": "Reenviar confirmació",
       "sending": "Enviant...",
-      "silentMessage": "Si hi ha una subscripció pendent per aquest correu, rebràs un nou enllaç de confirmació."
+      "silentMessage": "Si hi ha una subscripció pendent per aquest correu, rebràs un nou enllaç de confirmació.",
+      "error": "No s'ha pogut reenviar el correu de confirmació. Torna-ho a provar més tard."
     },
     "backHome": "Tornar a l'inici",
     "seo": {

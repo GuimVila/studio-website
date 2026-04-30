@@ -150,7 +150,8 @@
       "placeholderEmail": "Correo electrónico",
       "button": "Reenviar confirmación",
       "sending": "Enviando...",
-      "silentMessage": "Si hay una suscripción pendiente para este correo, recibirás un nuevo enlace de confirmación."
+      "silentMessage": "Si hay una suscripción pendiente para este correo, recibirás un nuevo enlace de confirmación.",
+      "error": "No se ha podido reenviar el correo de confirmación. Inténtalo de nuevo más tarde."
     },
     "backHome": "Volver al inicio",
     "seo": {

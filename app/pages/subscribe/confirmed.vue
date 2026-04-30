@@ -59,6 +59,7 @@
               tabindex="-1"
               autocomplete="off"
               class="hp-field"
+              aria-hidden="true"
             >
 
             <button class="resend-button" type="submit" :disabled="isSending">
@@ -87,96 +88,85 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-import { useRoute } from "vue-router";
-import { useI18n } from "#i18n";
+import { ref, computed, onMounted } from "vue";
+import { useRoute, useHead } from "#imports";
+import { useI18n } from "vue-i18n";
+import { useNewsletterStore } from "../../stores/newsletter";
 
 const { t } = useI18n();
-const status = ref("loading");
 
-// Reenviar confirmació
-const email = ref("");
-const honeypot = ref("");
-const isSending = ref(false);
-const resendMessage = ref("");
-
-function safeGetLastEmail() {
-  if (import.meta.server) return "";
-  try {
-    return localStorage.getItem("newsletter:lastEmail") || "";
-  } catch {
-    return "";
-  }
-}
-
-onMounted(async () => {
-  email.value = safeGetLastEmail();
-
-  const route = useRoute();
-  const token = route.query.token;
-
-  if (!token || typeof token !== "string") {
-    status.value = "missing";
-    return;
-  }
-
-  try {
-    const res = await $fetch("/api/newsletter/confirm", {
-      method: "POST",
-      body: { token },
-    });
-
-    if (res && res.ok) {
-      status.value = "success";
-      return;
-    }
-
-    const reason = res && typeof res === "object" ? res.reason : null;
-    if (reason === "expired") status.value = "expired";
-    else if (reason === "invalid") status.value = "invalid";
-    else status.value = "error";
-  } catch (e) {
-    console.error("[newsletter confirm error]", e);
-    status.value = "error";
-  }
-});
-
-async function resend() {
-  if (isSending.value) return;
-
-  // Honeypot (bots) → UX silenciosa
-  if (honeypot.value) {
-    resendMessage.value = t("confirmSubscribe.resend.silentMessage");
-    return;
-  }
-
-  const cleanEmail = (email.value || "").trim().toLowerCase();
-  if (!cleanEmail) return;
-
-  isSending.value = true;
-  resendMessage.value = "";
-
-  try {
-    await $fetch("/api/newsletter/resend-confirmation", {
-      method: "POST",
-      body: { email: cleanEmail, honeypot: honeypot.value },
-    });
-
-    // UX silenciosa (no confirmem existència)
-    resendMessage.value = t("confirmSubscribe.resend.silentMessage");
-  } catch (e) {
-    console.error("[newsletter resend error]", e);
-    resendMessage.value = t("confirmSubscribe.resend.silentMessage");
-  } finally {
-    isSending.value = false;
-  }
-}
 useHead(() => ({
   title: t("confirmSubscribe.seo.title"),
   meta: [
     { name: "description", content: t("confirmSubscribe.seo.description") },
   ],
 }));
+
+const route = useRoute();
+const newsletterStore = useNewsletterStore();
+
+const status = ref("loading");
+
+const email = ref("");
+const honeypot = ref("");
+const isSending = ref(false);
+const resendMessage = ref("");
+
+const token = computed(() => {
+  return typeof route.query.token === "string" ? route.query.token : "";
+});
+
+onMounted(async () => {
+  if (!token.value) {
+    status.value = "missing";
+    return;
+  }
+
+  try {
+    await newsletterStore.confirm(token.value);
+    status.value = "success";
+  } catch (error) {
+    console.error("Newsletter confirmation failed:", error);
+
+    const statusCode = error?.response?.status || error?.statusCode;
+
+    if (statusCode === 410) {
+      status.value = "expired";
+    } else if (statusCode === 404) {
+      status.value = "invalid";
+    } else {
+      status.value = "error";
+    }
+  }
+});
+
+async function resend() {
+  if (isSending.value) return;
+
+  if (honeypot.value) {
+    resendMessage.value = t("confirmSubscribe.resend.silentMessage");
+    return;
+  }
+
+  isSending.value = true;
+  resendMessage.value = "";
+
+  try {
+    await newsletterStore.subscribe(
+      email.value.trim().toLowerCase(),
+      honeypot.value,
+    );
+
+    resendMessage.value = t("confirmSubscribe.resend.silentMessage");
+    email.value = "";
+    honeypot.value = "";
+  } catch (error) {
+    console.error("Newsletter resend failed:", error);
+    resendMessage.value = t("confirmSubscribe.resend.error");
+  } finally {
+    isSending.value = false;
+  }
+}
 </script>
 
 <style scoped>
