@@ -3,6 +3,10 @@ import { useNewsletterStore } from "../stores/newsletter";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+type NewsletterResponse = {
+  message?: string;
+};
+
 export function useNewsletter() {
   const email = ref("");
   const honeypot = ref("");
@@ -49,10 +53,10 @@ export function useNewsletter() {
     const newsletterStore = useNewsletterStore();
 
     try {
-      const response = await newsletterStore.subscribe(
+      const response = (await newsletterStore.subscribe(
         email.value.trim().toLowerCase(),
         honeypot.value
-      );
+      )) as NewsletterResponse | null;
 
       submitSuccess.value = true;
       submitMessage.value =
