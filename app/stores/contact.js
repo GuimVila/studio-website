@@ -14,10 +14,14 @@ export const useContactStore = defineStore("contact", () => {
     message.value = "";
 
     try {
-      await api.request("/contact", {
+      const response = await api.request("/contact", {
         method: "POST",
         body: payload,
       });
+
+      if (response?.success !== true) {
+        throw new Error(response?.message || "Contact request was not accepted.");
+      }
 
       success.value = true;
       message.value =
