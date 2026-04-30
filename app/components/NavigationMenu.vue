@@ -55,6 +55,16 @@
             {{ $t("nav.contact") }}
           </LocaleLink>
         </li>
+        <li v-if="!userStore.isLoggedIn">
+          <LocaleLink to="/login" class="nav-link" @click="closeMenu">
+            {{ $t("nav.login") }}
+          </LocaleLink>
+        </li>
+        <li v-else>
+          <button class="nav-link nav-button" type="button" @click="logout">
+            {{ $t("nav.logout") }}
+          </button>
+        </li>
 
         <!-- Mobile-only language selector inside the hamburger menu -->
         <li class="nav-sep" />
@@ -85,6 +95,23 @@
           </div>
 
           <ToggleSwitch />
+
+          <LocaleLink
+            v-if="!userStore.isLoggedIn"
+            to="/login"
+            class="auth-link"
+          >
+            {{ $t("nav.login") }}
+          </LocaleLink>
+
+          <button
+            v-else
+            class="auth-link auth-button"
+            type="button"
+            @click="logout"
+          >
+            {{ $t("nav.logout") }}
+          </button>
         </div>
 
         <button
@@ -104,6 +131,7 @@ import ToggleSwitch from "~/components/ToggleSwitch.vue";
 import LanguageSelector from "~/components/LanguageSelector.vue";
 
 const menuOpen = ref(false);
+const userStore = useUserStore();
 
 function toggleMenu() {
   menuOpen.value = !menuOpen.value;
@@ -119,8 +147,15 @@ function closeMenu() {
   }
 }
 
+async function logout() {
+  await userStore.logout();
+  closeMenu();
+}
+
 // i18n for the mobile language buttons
+const route = useRoute();
 const { locale, setLocale } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
 
 const locales = [
   { code: "ca", short: "CA" },
@@ -128,11 +163,29 @@ const locales = [
   { code: "en", short: "EN" },
 ];
 
-const currentLocale = computed(() => String(locale.value || "ca"));
+const currentLocale = computed(() => {
+  const firstSegment = String(route.path || "").split("/").filter(Boolean)[0];
+  return locales.some((l) => l.code === firstSegment)
+    ? firstSegment
+    : String(locale.value || "ca");
+});
 
 async function changeLocale(code) {
   if (code === currentLocale.value) return;
-  await setLocale(code);
+
+  const localeCookie = useCookie("i18n_redirected", {
+    sameSite: "lax",
+    path: "/",
+    maxAge: 60 * 60 * 24 * 365,
+  });
+  localeCookie.value = code;
+
+  const path = switchLocalePath(code);
+  if (path) {
+    await navigateTo(path);
+  } else {
+    await setLocale(code);
+  }
   closeMenu(); // close menu after changing language
 }
 </script>
@@ -212,6 +265,43 @@ async function changeLocale(code) {
   gap: 1.5rem;
 }
 
+.nav-button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.auth-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.auth-link:hover {
+  border-color: var(--accent);
+  color: var(--accent-light);
+  transform: translateY(-1px);
+}
+
+.auth-button {
+  background: transparent;
+  cursor: pointer;
+}
+
 /* Desktop-only language selector wrapper */
 .lang-desktop {
   display: inline-flex;
@@ -249,6 +339,10 @@ async function changeLocale(code) {
 
   /* Hide desktop language selector on mobile */
   .lang-desktop {
+    display: none;
+  }
+
+  .auth-link {
     display: none;
   }
 

@@ -1,11 +1,50 @@
 <template>
   <div class="page">
     <section class="section">
-      <h1 class="section-title heading-accent">Roadmap</h1>
+      <h1 class="section-title heading-accent">{{ $t("readingProgress.roadmap.title") }}</h1>
       <p>
-        Explora aquest roadmap d'aprenentatge interactiu per descobrir els
-        recursos i passos recomanats per avançar en el teu camí d'aprenentatge.
+        {{ $t("readingProgress.roadmap.intro") }}
       </p>
+    </section>
+
+    <section class="progress-account">
+      <div>
+        <p class="eyebrow">
+          {{
+            userStore.isLoggedIn
+              ? $t("readingProgress.roadmap.synced")
+              : $t("readingProgress.roadmap.local")
+          }}
+        </p>
+        <p v-if="userStore.isLoggedIn" class="account-copy">
+          {{ $t("readingProgress.roadmap.connected") }}
+          <strong>{{ userStore.user?.email }}</strong>.
+          {{
+            isSyncing
+              ? $t("readingProgress.common.syncing")
+              : $t("readingProgress.roadmap.saved")
+          }}
+        </p>
+        <p v-else class="account-copy">
+          {{ $t("readingProgress.roadmap.localCopy") }}
+        </p>
+        <p v-if="syncError" class="sync-error">{{ syncError }}</p>
+      </div>
+
+      <div v-if="!userStore.isLoggedIn" class="account-actions">
+        <NuxtLink
+          class="btn btn-primary"
+          :to="{ path: localePath('/login'), query: { redirect: localePath('/resources/roadmap') } }"
+        >
+          {{ $t("readingProgress.roadmap.login") }}
+        </NuxtLink>
+        <NuxtLink
+          class="btn btn-secondary"
+          :to="{ path: localePath('/register'), query: { redirect: localePath('/resources/roadmap') } }"
+        >
+          {{ $t("readingProgress.roadmap.register") }}
+        </NuxtLink>
+      </div>
     </section>
 
     <RoadmapControls
@@ -22,7 +61,7 @@
       @update:hide-locked="hideLocked = $event"
       @update:focus-mode="focusMode = $event"
       @update:zoom="zoom = $event"
-      @reset="resetAll"
+      @reset="confirmReset"
       @next="goNext"
     />
 
@@ -68,14 +107,19 @@ import { ref, computed } from "vue";
 import { buildTopoIndex, getNextBestNode } from "~/utils/roadmapNext";
 import { computeFocusSet } from "~/utils/roadmapFocus";
 import { useRoadmapProgress } from "~/composables/useRoadmapProgress";
-import roadmap from "../data/roadmap.json";
+import roadmap from "../../../data/roadmap.json";
 
 const data = computed(() => roadmap || { nodes: [] });
+const userStore = useUserStore();
+const { t } = useI18n();
+const localePath = useLocalePath();
 
 const {
   completed,
   lastCompletedId,
   streak,
+  isSyncing,
+  syncError,
   isCompleted,
   setCompleted,
   canUnlock,
@@ -197,6 +241,19 @@ function toggleComplete() {
   setCompleted(id, !isCompleted(id));
 }
 
+function confirmReset() {
+  if (!import.meta.client) {
+    resetAll();
+    return;
+  }
+
+  const ok = window.confirm(
+    t("readingProgress.roadmap.confirmReset")
+  );
+
+  if (ok) resetAll();
+}
+
 /** @param {string} id */
 function jumpTo(id) {
   selectNode(id);
@@ -242,6 +299,51 @@ function onSelect(id) {
   margin-top: 2rem;
 }
 
+.progress-account {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 0 0 1.5rem;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow-1);
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.account-copy {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.account-copy strong {
+  color: var(--text);
+}
+
+.account-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.sync-error {
+  margin: 0.75rem 0 0;
+  color: #fca5a5;
+  font-size: 0.92rem;
+}
+
 @media (max-width: 768px) {
   .page {
     padding: 3rem 1.5rem;
@@ -249,6 +351,15 @@ function onSelect(id) {
 
   .header {
     margin-bottom: 2rem;
+  }
+
+  .progress-account {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .account-actions {
+    justify-content: flex-start;
   }
 }
 </style>

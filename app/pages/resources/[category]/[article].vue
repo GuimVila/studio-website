@@ -3,9 +3,48 @@
     <section class="section">
       <h1 class="section-title heading-accent">{{ doc.title }}</h1>
 
-      <NuxtLink class="back" :to="`/resources/${category}`">
-        ← Enrere
+      <NuxtLink class="back" :to="localePath(`/resources/${category}`)">
+        {{ $t("resourcesHub.back") }}
       </NuxtLink>
+
+      <div class="article-progress">
+        <div>
+          <p class="eyebrow">
+            {{
+              articleIsRead
+                ? $t("readingProgress.states.read")
+                : $t("readingProgress.states.pending")
+            }}
+          </p>
+          <p class="progress-copy">
+            {{
+              userStore.isLoggedIn
+                ? isSyncing
+                  ? $t("readingProgress.common.syncing")
+                  : $t("readingProgress.common.account")
+                : $t("readingProgress.common.local")
+            }}
+          </p>
+          <p v-if="syncError" class="sync-error">{{ syncError }}</p>
+        </div>
+
+        <div class="progress-actions">
+          <button class="progress-button" type="button" @click="toggleRead">
+            {{
+              articleIsRead
+                ? $t("readingProgress.article.markPending")
+                : $t("readingProgress.article.markRead")
+            }}
+          </button>
+          <NuxtLink
+            v-if="!userStore.isLoggedIn"
+            class="progress-link"
+            :to="loginLink"
+          >
+            {{ $t("readingProgress.common.login") }}
+          </NuxtLink>
+        </div>
+      </div>
     </section>
 
     <!-- IMPORTANT: només encapsulem el markdown -->
@@ -17,11 +56,30 @@
 
 <script setup>
 const route = useRoute();
+const userStore = useUserStore();
+const localePath = useLocalePath();
 
 const category = String(route.params.category || "").trim();
 const article = String(route.params.article || "").trim();
 
 const contentPath = `/resources/${category}/${article}`;
+const {
+  isRead,
+  setRead,
+  isSyncing,
+  syncError,
+} = useReadingProgress("article");
+
+const articleIsRead = computed(() => isRead(contentPath));
+
+const loginLink = computed(() => ({
+  path: localePath("/login"),
+  query: { redirect: route.fullPath },
+}));
+
+function toggleRead() {
+  setRead(contentPath, !articleIsRead.value);
+}
 
 const { data: doc } = await useAsyncData(
   () => `resources-doc-${contentPath}`,
@@ -81,6 +139,86 @@ if (!doc.value) {
   color: var(--accent);
   transform: translate3d(-2px, 0, 0); /* suau */
   box-shadow: var(--shadow-1);
+}
+
+.article-progress {
+  margin: 1.5rem auto 0;
+  max-width: 760px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow-1);
+  text-align: left;
+}
+
+.eyebrow {
+  margin: 0 0 0.25rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.progress-copy {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.sync-error {
+  margin: 0.5rem 0 0;
+  color: #fca5a5;
+  font-size: 0.9rem;
+}
+
+.progress-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.progress-button,
+.progress-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.progress-button {
+  border: 1px solid rgba(208, 138, 63, 0.7);
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+  color: #fff;
+}
+
+.progress-link {
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.progress-button:hover,
+.progress-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
 }
 
 /* Wrapper del markdown */
@@ -177,6 +315,15 @@ if (!doc.value) {
 @media (max-width: 768px) {
   .page {
     padding: 4rem 1.5rem;
+  }
+
+  .article-progress {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .progress-actions {
+    justify-content: flex-start;
   }
 }
 </style>

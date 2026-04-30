@@ -79,9 +79,9 @@
 
       <!-- Back -->
       <div class="back-wrap">
-        <NuxtLink class="btn btn-secondary" to="/">
+        <LocaleLink class="btn btn-secondary" to="/">
           {{ $t("confirmSubscribe.backHome") }}
-        </NuxtLink>
+        </LocaleLink>
       </div>
     </section>
   </div>

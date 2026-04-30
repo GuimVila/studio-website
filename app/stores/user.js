@@ -4,18 +4,56 @@ import { useApiStore } from "./api";
 export const useUserStore = defineStore("user", () => {
   const token = useCookie("auth_token", {
     sameSite: "lax",
-    secure: true,
+    secure: !import.meta.dev,
+    maxAge: 60 * 60 * 24 * 30,
   });
 
   const user = ref(null);
   const loading = ref(false);
+  const error = ref("");
 
   const isLoggedIn = computed(() => !!token.value);
+
+  async function register(name, email, password) {
+    const api = useApiStore();
+
+    loading.value = true;
+    error.value = "";
+
+    try {
+      const res = await api.request("/register", {
+        method: "POST",
+        body: { name, email, password },
+      });
+
+      token.value = res.token;
+      user.value = res.user;
+
+      return res;
+    } catch (err) {
+      const emailError = err?.data?.errors?.email?.[0];
+      const passwordError = err?.data?.errors?.password?.[0];
+      const emailErrorText = String(emailError || "").toLowerCase();
+
+      error.value =
+        emailErrorText.includes("taken")
+          ? "email_taken"
+          : emailError ||
+            passwordError ||
+            err?.data?.message ||
+            err?.message ||
+            "register_failed";
+      throw err;
+    } finally {
+      loading.value = false;
+    }
+  }
 
   async function login(email, password) {
     const api = useApiStore();
 
     loading.value = true;
+    error.value = "";
 
     try {
       const res = await api.request("/login", {
@@ -27,6 +65,13 @@ export const useUserStore = defineStore("user", () => {
       user.value = res.user;
 
       return res;
+    } catch (err) {
+      error.value =
+        err?.data?.message ||
+        err?.data?.errors?.email?.[0] ||
+        err?.message ||
+        "login_failed";
+      throw err;
     } finally {
       loading.value = false;
     }
@@ -69,7 +114,9 @@ export const useUserStore = defineStore("user", () => {
     token,
     user,
     loading,
+    error,
     isLoggedIn,
+    register,
     login,
     fetchUser,
     logout,

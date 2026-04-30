@@ -211,7 +211,7 @@ const nodes = rows
       fallbackSlugCount += 1;
     }
 
-    const pathStr = `/recursos/${categorySlug}/${idToPathSegment(id)}-${slug}`;
+    const pathStr = `/resources/${categorySlug}/${idToPathSegment(id)}-${slug}`;
 
     return {
       id,

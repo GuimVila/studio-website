@@ -11,7 +11,9 @@
     "resources": "Recursos",
     "subscribe": "Suscríbete",
     "contact": "Contacto",
-    "language": "Idioma"
+    "language": "Idioma",
+    "login": "Entrar",
+    "logout": "Salir"
   },
   "hero": {
     "imageAlt": "Estudio de producción musical",
@@ -209,6 +211,7 @@
   },
   "resourcesHub": {
     "title": "Recursos",
+    "back": "← Atrás",
     "roadmap": {
       "title": "Roadmap",
       "subtitle": "Mapa interactivo de aprendizaje con recursos recomendados para cada etapa"
@@ -230,6 +233,131 @@
     "seo": {
       "title": "Recursos | Guillem Vila",
       "description": "Recursos educativos de producción, mezcla, grabación, armonía y diseño de sonido, con categorías y roadmap de aprendizaje."
+    }
+  },
+  "auth": {
+    "fields": {
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre",
+      "email": "Email",
+      "emailPlaceholder": "tu{'@'}email.com",
+      "password": "Contraseña",
+      "passwordPlaceholder": "••••••••",
+      "newPasswordPlaceholder": "Mínimo 8 caracteres"
+    },
+    "login": {
+      "seoTitle": "Iniciar sesión | Guillem Vila",
+      "eyebrow": "Cuenta",
+      "title": "Entra en tu espacio",
+      "subtitle": "Guarda el progreso del roadmap, marca recursos como leídos y continúa el aprendizaje desde cualquier dispositivo.",
+      "formTitle": "Iniciar sesión",
+      "formSubtitle": "Usa tu correo y contraseña.",
+      "submit": "Entrar",
+      "submitting": "Entrando...",
+      "switchPrompt": "¿Todavía no tienes cuenta?",
+      "switchLink": "Crea una",
+      "errors": {
+        "default": "No se ha podido iniciar sesión.",
+        "invalid": "Las credenciales no son correctas."
+      }
+    },
+    "register": {
+      "seoTitle": "Crear cuenta | Guillem Vila",
+      "eyebrow": "Nueva cuenta",
+      "title": "Crea tu espacio",
+      "subtitle": "Tu progreso queda guardado y sincronizado con la cuenta. Puedes usar cualquier email, también Gmail, con una contraseña propia.",
+      "formTitle": "Registrarme",
+      "formSubtitle": "Solo necesitas nombre, email y contraseña.",
+      "submit": "Crear cuenta",
+      "submitting": "Creando...",
+      "switchPrompt": "¿Ya tienes cuenta?",
+      "switchLink": "Entra",
+      "errors": {
+        "default": "No se ha podido crear la cuenta.",
+        "emailTaken": "Este correo ya tiene una cuenta. Prueba a iniciar sesión."
+      }
+    }
+  },
+  "readingProgress": {
+    "states": {
+      "read": "Leído",
+      "pending": "Pendiente"
+    },
+    "common": {
+      "login": "Entrar",
+      "syncing": "Sincronizando...",
+      "local": "Guardado en este dispositivo.",
+      "account": "Guardado en tu cuenta.",
+      "syncError": "El progreso se ha guardado en este dispositivo, pero no se ha podido sincronizar.",
+      "loadError": "No se ha podido cargar el progreso de la cuenta. Estás viendo el progreso local."
+    },
+    "article": {
+      "markRead": "Marcar como leído",
+      "markPending": "Marcar como pendiente"
+    },
+    "category": {
+      "title": "Progreso",
+      "summary": "{read} de {total} recursos leídos.",
+      "reset": "Reiniciar categoría",
+      "confirmReset": "¿Quieres marcar todos los recursos de esta categoría como pendientes?",
+      "markRead": "Marcar leído",
+      "markPending": "Marcar pendiente",
+      "empty": "No se han encontrado artículos en esta categoría."
+    },
+    "roadmap": {
+      "title": "Roadmap",
+      "intro": "Explora este roadmap de aprendizaje interactivo para descubrir los recursos y pasos recomendados para avanzar en tu camino de aprendizaje.",
+      "synced": "Progreso sincronizado",
+      "local": "Progreso local",
+      "connected": "Conectado como",
+      "saved": "Tu progreso se guarda en la cuenta.",
+      "localCopy": "Puedes marcar recursos igualmente, pero si inicias sesión el progreso se guardará en tu cuenta y podrás recuperarlo más adelante.",
+      "login": "Entrar",
+      "register": "Crear cuenta",
+      "confirmReset": "¿Quieres reiniciar todo el progreso del roadmap? Esta acción marcará todos los recursos como pendientes.",
+      "controls": {
+        "search": "Buscar",
+        "searchPlaceholder": "ID, tema, módulo, tags...",
+        "category": "Categoría",
+        "allCategories": "Todas",
+        "focusMode": "Modo focus",
+        "hideLocked": "Ocultar bloqueados",
+        "focusHelp": "Modo focus activado: solo verás los nodos relevantes para llegar al siguiente recomendado.",
+        "next": "Llévame al siguiente",
+        "reset": "Reiniciar progreso",
+        "recommended": "Siguiente recomendado:",
+        "focusActive": "Focus activo"
+      },
+      "map": {
+        "fit": "Ajustar a pantalla",
+        "goNext": "Ir al siguiente",
+        "centerNext": "Centrar nodo siguiente recomendado",
+        "noNext": "No hay nodo recomendado",
+        "zoom": "Zoom"
+      },
+      "hud": {
+        "progress": "Progreso",
+        "streak": "Racha",
+        "streakDays": "días seguidos",
+        "remaining": "Tiempo restante",
+        "estimated": "estimado"
+      },
+      "sidebar": {
+        "objective": "Objetivo",
+        "prerequisites": "Prerequisitos",
+        "exercise": "Deliverable / ejercicio",
+        "measurable": "Resultado medible",
+        "value": "Valor (para ti)",
+        "monetization": "Monetización",
+        "cta": "CTA",
+        "completed": "Completado",
+        "available": "Disponible",
+        "locked": "Bloqueado",
+        "openArticle": "Abrir el artículo",
+        "markPending": "Marcar como pendiente",
+        "markDone": "Marcar como hecho",
+        "close": "Cerrar"
+      }
     }
   },
   "services": {

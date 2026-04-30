@@ -1,7 +1,7 @@
 <template>
   <div class="hud">
     <div class="item">
-      <div class="label">Progrés</div>
+      <div class="label">{{ t("readingProgress.roadmap.hud.progress") }}</div>
       <div class="value">{{ percent }}%</div>
       <div class="small">{{ completedCount }} / {{ totalCount }}</div>
       <div class="progress-bar">
@@ -10,20 +10,22 @@
     </div>
 
     <div class="item">
-      <div class="label">Streak</div>
+      <div class="label">{{ t("readingProgress.roadmap.hud.streak") }}</div>
       <div class="value">{{ streak }}</div>
-      <div class="small">dies seguits</div>
+      <div class="small">{{ t("readingProgress.roadmap.hud.streakDays") }}</div>
     </div>
 
     <div v-if="estimatedMinutes > 0" class="item">
-      <div class="label">Temps restant</div>
+      <div class="label">{{ t("readingProgress.roadmap.hud.remaining") }}</div>
       <div class="value">{{ formatTime(estimatedMinutes) }}</div>
-      <div class="small">estimat</div>
+      <div class="small">{{ t("readingProgress.roadmap.hud.estimated") }}</div>
     </div>
   </div>
 </template>
 
 <script setup>
+const { t } = useI18n();
+
 const props = defineProps({
   completedCount: { type: Number, required: true },
   totalCount: { type: Number, required: true },

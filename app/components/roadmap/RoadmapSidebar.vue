@@ -2,7 +2,7 @@
   <div v-if="open" class="overlay" @click.self="emit('close')">
     <aside class="panel">
       <div class="header">
-        <div class="kicker">{{ node?.category }} · {{ node?.module }}</div>
+        <div class="kicker">{{ categoryLabel(node?.category) }} · {{ node?.module }}</div>
         <h2 class="title">{{ node?.title }}</h2>
         <div class="meta">
           <span class="pill">ID: {{ node?.id }}</span>
@@ -16,12 +16,12 @@
       </div>
 
       <div v-if="node?.objective" class="section">
-        <h3>Objectiu</h3>
+        <h3>{{ t("readingProgress.roadmap.sidebar.objective") }}</h3>
         <p>{{ node.objective }}</p>
       </div>
 
       <div v-if="node?.prereqIds?.length" class="section">
-        <h3>Prerequisits</h3>
+        <h3>{{ t("readingProgress.roadmap.sidebar.prerequisites") }}</h3>
         <div class="chips">
           <button
             v-for="p in node.prereqIds"
@@ -39,28 +39,36 @@
       </div>
 
       <div v-if="node?.exercise" class="section">
-        <h3>Deliverable / exercici</h3>
+        <h3>{{ t("readingProgress.roadmap.sidebar.exercise") }}</h3>
         <p>{{ node.exercise }}</p>
       </div>
 
       <div v-if="node?.measurable" class="section">
-        <h3>Resultat mesurable</h3>
+        <h3>{{ t("readingProgress.roadmap.sidebar.measurable") }}</h3>
         <p>{{ node.measurable }}</p>
       </div>
 
       <div v-if="node?.monetization || node?.cta" class="section">
-        <h3>Valor (per tu)</h3>
+        <h3>{{ t("readingProgress.roadmap.sidebar.value") }}</h3>
         <p v-if="node?.monetization">
-          <strong>Monetització:</strong> {{ node.monetization }}
+          <strong>{{ t("readingProgress.roadmap.sidebar.monetization") }}:</strong>
+          {{ node.monetization }}
         </p>
-        <p v-if="node?.cta"><strong>CTA:</strong> {{ node.cta }}</p>
+        <p v-if="node?.cta">
+          <strong>{{ t("readingProgress.roadmap.sidebar.cta") }}:</strong>
+          {{ node.cta }}
+        </p>
       </div>
 
       <div class="footer">
         <div class="status">
           <span class="pill" :class="{ locked: !unlockable, done: completed }">
             {{
-              completed ? "Completat" : unlockable ? "Disponible" : "Bloquejat"
+              completed
+                ? t("readingProgress.roadmap.sidebar.completed")
+                : unlockable
+                  ? t("readingProgress.roadmap.sidebar.available")
+                  : t("readingProgress.roadmap.sidebar.locked")
             }}
           </span>
         </div>
@@ -69,10 +77,10 @@
           <NuxtLink
             v-if="node"
             class="btn primary"
-            :to="node.path"
+            :to="localePath(normalizeResourcePath(node.path))"
             :aria-disabled="!unlockable"
           >
-            Obre l’article
+            {{ t("readingProgress.roadmap.sidebar.openArticle") }}
           </NuxtLink>
 
           <button
@@ -81,11 +89,15 @@
             :disabled="!unlockable"
             @click="emit('toggle-complete')"
           >
-            {{ completed ? "Marca com pendent" : "Marca com fet" }}
+            {{
+              completed
+                ? t("readingProgress.roadmap.sidebar.markPending")
+                : t("readingProgress.roadmap.sidebar.markDone")
+            }}
           </button>
 
           <button class="btn ghost" type="button" @click="emit('close')">
-            Tanca
+            {{ t("readingProgress.roadmap.sidebar.close") }}
           </button>
         </div>
       </div>
@@ -95,6 +107,8 @@
 
 <script setup>
 import { onMounted, onUnmounted, watch } from "vue";
+import { resourceCategoryLabel } from "~/utils/resourceCategories";
+import { normalizeResourcePath } from "~/utils/resourceRoutes";
 
 const props = defineProps({
   open: { type: Boolean, required: true },
@@ -105,6 +119,12 @@ const props = defineProps({
 });
 
 const emit = defineEmits(["close", "toggle-complete", "jump"]);
+const localePath = useLocalePath();
+const { t } = useI18n();
+
+function categoryLabel(category) {
+  return resourceCategoryLabel(category, t);
+}
 
 function handleEscape(e) {
   if (e.key === "Escape") emit("close");

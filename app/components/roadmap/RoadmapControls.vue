@@ -1,34 +1,32 @@
 <template>
   <div class="controls">
     <div class="controls-grid">
-      <!-- Cerca -->
       <div class="field area-search">
-        <label>Cerca</label>
+        <label>{{ t("readingProgress.roadmap.controls.search") }}</label>
         <div class="input-wrapper">
-          <!-- icon + input igual -->
-
           <input
             type="search"
             inputmode="search"
             autocomplete="off"
             enterkeyhint="go"
             :value="search"
-            placeholder="ID, tema, mòdul, tags..."
+            :placeholder="t('readingProgress.roadmap.controls.searchPlaceholder')"
             @input="emit('update:search', $event.target.value)"
             @keydown.enter.prevent="nextId && emit('next')"
           >
         </div>
       </div>
 
-      <!-- Categoria -->
       <div class="field area-category">
-        <label>Categoria</label>
+        <label>{{ t("readingProgress.roadmap.controls.category") }}</label>
         <select
           :value="category"
           @change="emit('update:category', $event.target.value)"
         >
-          <option value="">Totes</option>
-          <option v-for="c in categories" :key="c" :value="c">{{ c }}</option>
+          <option value="">{{ t("readingProgress.roadmap.controls.allCategories") }}</option>
+          <option v-for="c in categories" :key="c" :value="c">
+            {{ categoryLabel(c) }}
+          </option>
         </select>
       </div>
 
@@ -43,7 +41,7 @@
               >
               <span class="slider" />
             </span>
-            Mode focus
+            {{ t("readingProgress.roadmap.controls.focusMode") }}
           </label>
 
           <label class="toggle-item">
@@ -55,17 +53,15 @@
               >
               <span class="slider" />
             </span>
-            Amaga bloquejats
+            {{ t("readingProgress.roadmap.controls.hideLocked") }}
           </label>
         </div>
 
         <div v-if="focusMode" class="focus-help">
-          Mode focus activat: només veuràs els nodes rellevants per arribar al
-          “següent recomanat”.
+          {{ t("readingProgress.roadmap.controls.focusHelp") }}
         </div>
       </div>
 
-      <!-- Accions -->
       <div class="actions area-actions">
         <button
           class="btn primary"
@@ -73,24 +69,28 @@
           :disabled="!nextId"
           @click="emit('next')"
         >
-          Porta'm al següent
+          {{ t("readingProgress.roadmap.controls.next") }}
         </button>
         <button class="btn" type="button" @click="emit('reset')">
-          Reinicia progrés
+          {{ t("readingProgress.roadmap.controls.reset") }}
         </button>
       </div>
 
-      <!-- Hint següent recomanat -->
       <div v-if="nextTitle" class="hint area-hint">
-        Següent recomanat: <strong>{{ nextTitle }}</strong>
+        {{ t("readingProgress.roadmap.controls.recommended") }}
+        <strong>{{ nextTitle }}</strong>
         <span class="small"> ({{ nextId }})</span>
-        <span v-if="focusMode" class="small focus-badge">* Focus actiu</span>
+        <span v-if="focusMode" class="small focus-badge">
+          * {{ t("readingProgress.roadmap.controls.focusActive") }}
+        </span>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { resourceCategoryLabel } from "~/utils/resourceCategories";
+
 defineProps({
   categories: { type: Array, required: true },
   search: { type: String, default: "" },
@@ -109,6 +109,12 @@ const emit = defineEmits([
   "update:hideLocked",
   "update:focusMode",
 ]);
+
+const { t } = useI18n();
+
+function categoryLabel(category) {
+  return resourceCategoryLabel(category, t);
+}
 </script>
 
 <style scoped>

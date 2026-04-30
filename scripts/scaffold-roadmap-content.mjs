@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const OUT_DIR = path.resolve("content/recursos");
+const OUT_DIR = path.resolve("content/resources");
 const ROADMAP_PATH = path.resolve("data/roadmap.json");
 
 function ensureDir(p) {

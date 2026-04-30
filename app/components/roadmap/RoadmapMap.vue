@@ -2,7 +2,7 @@
   <div class="map-shell">
     <div class="overlay" :class="{ mobile: isMobile }">
       <button class="chip" type="button" @click="fitToScreen">
-        Ajustar a pantalla
+        {{ t("readingProgress.roadmap.map.fit") }}
       </button>
 
       <button
@@ -10,11 +10,13 @@
         type="button"
         :disabled="!nextSeq"
         :title="
-          nextSeq ? `Centrar node següent recomanat` : 'No hi ha node recomanat'
+          nextSeq
+            ? t('readingProgress.roadmap.map.centerNext')
+            : t('readingProgress.roadmap.map.noNext')
         "
         @click="centerNextNode"
       >
-        Anar al següent
+        {{ t("readingProgress.roadmap.map.goNext") }}
       </button>
 
       <button
@@ -26,7 +28,7 @@
       </button>
 
       <div class="chip stat">
-        <span class="muted">Zoom</span>
+        <span class="muted">{{ t("readingProgress.roadmap.map.zoom") }}</span>
         <strong>{{ Math.round(zoomLocal * 100) }}%</strong>
       </div>
 
@@ -56,7 +58,7 @@
                 height: cluster.height + 'px',
               }"
             >
-              <div class="cluster-label">{{ cluster.category }}</div>
+              <div class="cluster-label">{{ categoryLabel(cluster.category) }}</div>
             </div>
 
             <!-- Edges -->
@@ -113,6 +115,13 @@ import {
   onBeforeUnmount,
   nextTick,
 } from "vue";
+import { resourceCategoryLabel } from "~/utils/resourceCategories";
+
+const { t } = useI18n();
+
+function categoryLabel(category) {
+  return resourceCategoryLabel(category, t);
+}
 
 const props = defineProps({
   nodes: { type: Array, required: true },

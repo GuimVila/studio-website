@@ -11,7 +11,9 @@
     "resources": "Recursos",
     "subscribe": "Subscriu-te",
     "contact": "Contacte",
-    "language": "Idioma"
+    "language": "Idioma",
+    "login": "Entrar",
+    "logout": "Sortir"
   },
   "hero": {
     "imageAlt": "Estudi de producció musical",
@@ -209,6 +211,7 @@
   },
   "resourcesHub": {
     "title": "Recursos",
+    "back": "← Enrere",
     "roadmap": {
       "title": "Roadmap",
       "subtitle": "Mapa interactiu d'aprenentatge amb recursos recomanats per a cada etapa"
@@ -230,6 +233,131 @@
     "seo": {
       "title": "Recursos | Guillem Vila",
       "description": "Recursos educatius de producció, mescla, gravació, harmonia i disseny de so, amb categories i roadmap d’aprenentatge."
+    }
+  },
+  "auth": {
+    "fields": {
+      "name": "Nom",
+      "namePlaceholder": "El teu nom",
+      "email": "Email",
+      "emailPlaceholder": "tu{'@'}email.com",
+      "password": "Contrasenya",
+      "passwordPlaceholder": "••••••••",
+      "newPasswordPlaceholder": "Mínim 8 caràcters"
+    },
+    "login": {
+      "seoTitle": "Iniciar sessió | Guillem Vila",
+      "eyebrow": "Compte",
+      "title": "Entra al teu espai",
+      "subtitle": "Guarda el progrés del roadmap, marca recursos com a llegits i continua l'aprenentatge des de qualsevol dispositiu.",
+      "formTitle": "Iniciar sessió",
+      "formSubtitle": "Fes servir el teu correu i contrasenya.",
+      "submit": "Entrar",
+      "submitting": "Entrant...",
+      "switchPrompt": "Encara no tens compte?",
+      "switchLink": "Crea'n un",
+      "errors": {
+        "default": "No s'ha pogut iniciar sessió.",
+        "invalid": "Les credencials no són correctes."
+      }
+    },
+    "register": {
+      "seoTitle": "Crear compte | Guillem Vila",
+      "eyebrow": "Nou compte",
+      "title": "Crea el teu espai",
+      "subtitle": "El teu progrés queda guardat i sincronitzat amb el compte. Pots usar qualsevol email, també Gmail, amb contrasenya pròpia.",
+      "formTitle": "Registrar-me",
+      "formSubtitle": "Només necessites nom, email i contrasenya.",
+      "submit": "Crear compte",
+      "submitting": "Creant...",
+      "switchPrompt": "Ja tens compte?",
+      "switchLink": "Entra",
+      "errors": {
+        "default": "No s'ha pogut crear el compte.",
+        "emailTaken": "Aquest correu ja té un compte. Prova d'entrar-hi."
+      }
+    }
+  },
+  "readingProgress": {
+    "states": {
+      "read": "Llegit",
+      "pending": "Pendent"
+    },
+    "common": {
+      "login": "Entrar",
+      "syncing": "Sincronitzant...",
+      "local": "Guardat en aquest dispositiu.",
+      "account": "Guardat al teu compte.",
+      "syncError": "El progrés s'ha guardat en aquest dispositiu, però no s'ha pogut sincronitzar.",
+      "loadError": "No s'ha pogut carregar el progrés del compte. Estàs veient el progrés local."
+    },
+    "article": {
+      "markRead": "Marca com llegit",
+      "markPending": "Marca com pendent"
+    },
+    "category": {
+      "title": "Progrés",
+      "summary": "{read} de {total} recursos llegits.",
+      "reset": "Reinicia categoria",
+      "confirmReset": "Vols marcar tots els recursos d'aquesta categoria com a pendents?",
+      "markRead": "Marca llegit",
+      "markPending": "Marca pendent",
+      "empty": "No s'han trobat articles en aquesta categoria."
+    },
+    "roadmap": {
+      "title": "Roadmap",
+      "intro": "Explora aquest roadmap d'aprenentatge interactiu per descobrir els recursos i passos recomanats per avançar en el teu camí d'aprenentatge.",
+      "synced": "Progrés sincronitzat",
+      "local": "Progrés local",
+      "connected": "Connectat com a",
+      "saved": "El teu progrés es guarda al compte.",
+      "localCopy": "Pots marcar recursos igualment, però si inicies sessió el progrés es guardarà al teu compte i el podràs recuperar més endavant.",
+      "login": "Entrar",
+      "register": "Crear compte",
+      "confirmReset": "Vols reiniciar tot el progrés del roadmap? Aquesta acció marcarà tots els recursos com a pendents.",
+      "controls": {
+        "search": "Cerca",
+        "searchPlaceholder": "ID, tema, mòdul, tags...",
+        "category": "Categoria",
+        "allCategories": "Totes",
+        "focusMode": "Mode focus",
+        "hideLocked": "Amaga bloquejats",
+        "focusHelp": "Mode focus activat: només veuràs els nodes rellevants per arribar al següent recomanat.",
+        "next": "Porta'm al següent",
+        "reset": "Reinicia progrés",
+        "recommended": "Següent recomanat:",
+        "focusActive": "Focus actiu"
+      },
+      "map": {
+        "fit": "Ajustar a pantalla",
+        "goNext": "Anar al següent",
+        "centerNext": "Centrar node següent recomanat",
+        "noNext": "No hi ha node recomanat",
+        "zoom": "Zoom"
+      },
+      "hud": {
+        "progress": "Progrés",
+        "streak": "Ratxa",
+        "streakDays": "dies seguits",
+        "remaining": "Temps restant",
+        "estimated": "estimat"
+      },
+      "sidebar": {
+        "objective": "Objectiu",
+        "prerequisites": "Prerequisits",
+        "exercise": "Deliverable / exercici",
+        "measurable": "Resultat mesurable",
+        "value": "Valor (per tu)",
+        "monetization": "Monetització",
+        "cta": "CTA",
+        "completed": "Completat",
+        "available": "Disponible",
+        "locked": "Bloquejat",
+        "openArticle": "Obre l'article",
+        "markPending": "Marca com pendent",
+        "markDone": "Marca com fet",
+        "close": "Tanca"
+      }
     }
   },
   "services": {

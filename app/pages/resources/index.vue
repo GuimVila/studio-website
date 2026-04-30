@@ -40,42 +40,10 @@
 <script setup>
 import { computed, onMounted } from "vue";
 import { useI18n, useLocalePath } from "#i18n";
+import { resourceCategoryLabel } from "~/utils/resourceCategories";
 
 const { t } = useI18n();
 const localePath = useLocalePath();
-
-function categoryLabel(slug) {
-  const key = `resourcesHub.categories.${slug}`;
-  const translated = t(key);
-  if (translated !== key) return translated;
-
-  // fallback (el teu codi actual de title-case)
-  const stop = new Set([
-    "de",
-    "i",
-    "a",
-    "per",
-    "del",
-    "dels",
-    "la",
-    "el",
-    "les",
-    "els",
-  ]);
-  const words = String(slug)
-    .trim()
-    .toLowerCase()
-    .replace(/[-_]+/g, " ")
-    .split(" ")
-    .filter(Boolean);
-
-  return words
-    .map((w, i) => {
-      if (i > 0 && stop.has(w)) return w;
-      return w.charAt(0).toUpperCase() + w.slice(1);
-    })
-    .join(" ");
-}
 
 const {
   data: docs,
@@ -113,7 +81,7 @@ const categories = computed(() => {
     .sort((a, b) => a[0].localeCompare(b[0]))
     .map(([slug, count]) => ({
       slug,
-      label: categoryLabel(slug),
+      label: resourceCategoryLabel(slug, t),
       count,
     }));
 });

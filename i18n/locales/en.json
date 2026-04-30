@@ -11,7 +11,9 @@
     "resources": "Resources",
     "subscribe": "Subscribe",
     "contact": "Contact",
-    "language": "Language"
+    "language": "Language",
+    "login": "Log in",
+    "logout": "Log out"
   },
   "hero": {
     "imageAlt": "Music production studio",
@@ -210,6 +212,7 @@
   },
   "resourcesHub": {
     "title": "Resources",
+    "back": "← Back",
     "roadmap": {
       "title": "Roadmap",
       "subtitle": "Interactive learning map with recommended resources for each stage"
@@ -231,6 +234,131 @@
     "seo": {
       "title": "Resources | Guillem Vila",
       "description": "Educational resources on production, mixing, recording, harmony, and sound design, organized by categories and a learning roadmap."
+    }
+  },
+  "auth": {
+    "fields": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you{'@'}email.com",
+      "password": "Password",
+      "passwordPlaceholder": "••••••••",
+      "newPasswordPlaceholder": "Minimum 8 characters"
+    },
+    "login": {
+      "seoTitle": "Log in | Guillem Vila",
+      "eyebrow": "Account",
+      "title": "Enter your space",
+      "subtitle": "Save your roadmap progress, mark resources as read, and keep learning from any device.",
+      "formTitle": "Log in",
+      "formSubtitle": "Use your email and password.",
+      "submit": "Log in",
+      "submitting": "Logging in...",
+      "switchPrompt": "Don't have an account yet?",
+      "switchLink": "Create one",
+      "errors": {
+        "default": "Could not log in.",
+        "invalid": "The credentials are not correct."
+      }
+    },
+    "register": {
+      "seoTitle": "Create account | Guillem Vila",
+      "eyebrow": "New account",
+      "title": "Create your space",
+      "subtitle": "Your progress is saved and synced with your account. You can use any email, including Gmail, with your own password.",
+      "formTitle": "Register",
+      "formSubtitle": "You only need a name, email, and password.",
+      "submit": "Create account",
+      "submitting": "Creating...",
+      "switchPrompt": "Already have an account?",
+      "switchLink": "Log in",
+      "errors": {
+        "default": "Could not create the account.",
+        "emailTaken": "This email already has an account. Try logging in."
+      }
+    }
+  },
+  "readingProgress": {
+    "states": {
+      "read": "Read",
+      "pending": "Pending"
+    },
+    "common": {
+      "login": "Log in",
+      "syncing": "Syncing...",
+      "local": "Saved on this device.",
+      "account": "Saved to your account.",
+      "syncError": "Progress has been saved on this device, but could not be synced.",
+      "loadError": "Could not load account progress. You are seeing local progress."
+    },
+    "article": {
+      "markRead": "Mark as read",
+      "markPending": "Mark as pending"
+    },
+    "category": {
+      "title": "Progress",
+      "summary": "{read} of {total} resources read.",
+      "reset": "Reset category",
+      "confirmReset": "Do you want to mark all resources in this category as pending?",
+      "markRead": "Mark read",
+      "markPending": "Mark pending",
+      "empty": "No articles found in this category."
+    },
+    "roadmap": {
+      "title": "Roadmap",
+      "intro": "Explore this interactive learning roadmap to discover recommended resources and next steps for your learning path.",
+      "synced": "Synced progress",
+      "local": "Local progress",
+      "connected": "Connected as",
+      "saved": "Your progress is saved to your account.",
+      "localCopy": "You can still mark resources, but if you log in your progress will be saved to your account and available later.",
+      "login": "Log in",
+      "register": "Create account",
+      "confirmReset": "Do you want to reset all roadmap progress? This will mark every resource as pending.",
+      "controls": {
+        "search": "Search",
+        "searchPlaceholder": "ID, topic, module, tags...",
+        "category": "Category",
+        "allCategories": "All",
+        "focusMode": "Focus mode",
+        "hideLocked": "Hide locked",
+        "focusHelp": "Focus mode is active: you will only see the nodes that matter for reaching the next recommendation.",
+        "next": "Take me to the next one",
+        "reset": "Reset progress",
+        "recommended": "Next recommendation:",
+        "focusActive": "Focus active"
+      },
+      "map": {
+        "fit": "Fit to screen",
+        "goNext": "Go to next",
+        "centerNext": "Center next recommended node",
+        "noNext": "No recommended node",
+        "zoom": "Zoom"
+      },
+      "hud": {
+        "progress": "Progress",
+        "streak": "Streak",
+        "streakDays": "days in a row",
+        "remaining": "Time remaining",
+        "estimated": "estimated"
+      },
+      "sidebar": {
+        "objective": "Objective",
+        "prerequisites": "Prerequisites",
+        "exercise": "Deliverable / exercise",
+        "measurable": "Measurable result",
+        "value": "Value (for you)",
+        "monetization": "Monetization",
+        "cta": "CTA",
+        "completed": "Completed",
+        "available": "Available",
+        "locked": "Locked",
+        "openArticle": "Open article",
+        "markPending": "Mark as pending",
+        "markDone": "Mark as done",
+        "close": "Close"
+      }
     }
   },
   "services": {

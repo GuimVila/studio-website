@@ -9,20 +9,44 @@
       :aria-label="$t('nav.language')"
       @change="onChange"
     >
-      <option value="ca">CA</option>
-      <option value="es">ES</option>
-      <option value="en">EN</option>
+      <option value="ca" :selected="current === 'ca'">CA</option>
+      <option value="es" :selected="current === 'es'">ES</option>
+      <option value="en" :selected="current === 'en'">EN</option>
     </select>
   </div>
 </template>
 
 <script setup>
+const route = useRoute();
 const { locale, setLocale } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
 
-const current = computed(() => String(locale.value || "ca"));
+const supportedLocales = ["ca", "es", "en"];
+
+const routeLocale = computed(() => {
+  const firstSegment = String(route.path || "").split("/").filter(Boolean)[0];
+  return supportedLocales.includes(firstSegment) ? firstSegment : null;
+});
+
+const current = computed(() => routeLocale.value || String(locale.value || "ca"));
 
 async function onChange(e) {
   const value = String(e?.target?.value || "ca");
+  if (value === current.value) return;
+
+  const localeCookie = useCookie("i18n_redirected", {
+    sameSite: "lax",
+    path: "/",
+    maxAge: 60 * 60 * 24 * 365,
+  });
+  localeCookie.value = value;
+
+  const path = switchLocalePath(value);
+  if (path) {
+    await navigateTo(path);
+    return;
+  }
+
   await setLocale(value);
 }
 </script>
