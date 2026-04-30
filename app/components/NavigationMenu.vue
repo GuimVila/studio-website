@@ -132,6 +132,7 @@ import LanguageSelector from "~/components/LanguageSelector.vue";
 
 const menuOpen = ref(false);
 const userStore = useUserStore();
+const localePath = useLocalePath();
 
 function toggleMenu() {
   menuOpen.value = !menuOpen.value;
@@ -150,6 +151,7 @@ function closeMenu() {
 async function logout() {
   await userStore.logout();
   closeMenu();
+  await navigateTo(localePath("/"));
 }
 
 // i18n for the mobile language buttons
