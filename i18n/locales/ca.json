@@ -27,6 +27,21 @@
       "studio": "Estudi de so · Riells i Viabrea",
       "resources": "Recursos per créixer amb criteri"
     },
+    "routes": {
+      "label": "Camins principals",
+      "project": {
+        "kicker": "Projecte",
+        "title": "Vull acabar una cançó"
+      },
+      "services": {
+        "kicker": "Serveis",
+        "title": "Necessito comparar opcions"
+      },
+      "learn": {
+        "kicker": "Aprendre",
+        "title": "Vinc d'un vídeo o article"
+      }
+    },
     "features": {
       "production": "Producció professional",
       "mixing": "Mescla i masterització",
@@ -68,6 +83,14 @@
     "eyebrow": "Recursos i roadmap",
     "title": "Si vens d’un vídeo, continua per aquí.",
     "subtitle": "Cada article forma part d’un mapa més gran: fonaments, gravació, producció, mescla i disseny de so connectats perquè no saltis de tutorial en tutorial sense rumb.",
+    "previewKicker": "Roadmap viu",
+    "previewTitle": "El recorregut complet, no una llista d'articles",
+    "previewText": "Un sistema ordenat per veure on ets, què toca després i com connecten llenguatge musical, producció, harmonia i mescla.",
+    "metrics": {
+      "disciplines": "disciplines",
+      "resources": "recursos",
+      "learning": "estimades"
+    },
     "ctaRoadmap": "Obrir roadmap interactiu",
     "ctaResources": "Veure categories",
     "items": {
@@ -373,8 +396,9 @@
       "empty": "No s'han trobat articles en aquesta categoria."
     },
     "roadmap": {
-      "title": "Roadmap",
-      "intro": "Explora aquest roadmap d'aprenentatge interactiu per descobrir els recursos i passos recomanats per avançar en el teu camí d'aprenentatge.",
+      "eyebrow": "Mapa d'aprenentatge",
+      "title": "Roadmap de producció musical",
+      "intro": "Un atlas progressiu per aprendre producció, llenguatge musical, harmonia, gravació, edició, mescla i disseny de so amb ordre, criteri i un següent pas clar.",
       "synced": "Progrés sincronitzat",
       "local": "Progrés local",
       "connected": "Connectat com a",
@@ -384,13 +408,20 @@
       "register": "Crear compte",
       "confirmReset": "Vols reiniciar tot el progrés del roadmap? Aquesta acció marcarà tots els recursos com a pendents.",
       "controls": {
+        "kicker": "Navegació",
+        "title": "Troba el teu següent pas",
+        "subtitle": "Cerca per tema, entra en una disciplina o activa el focus per veure només el camí rellevant.",
         "search": "Cerca",
         "searchPlaceholder": "ID, tema, mòdul, tags...",
         "category": "Categoria",
+        "categoryHint": "Filtra sense perdre l'ordre del mapa",
         "allCategories": "Totes",
         "focusMode": "Mode focus",
+        "focusShort": "Mostra el camí útil",
         "hideLocked": "Amaga bloquejats",
+        "hideLockedShort": "Deixa només el que pots fer",
         "focusHelp": "Mode focus activat: només veuràs els nodes rellevants per arribar al següent recomanat.",
+        "filterHelp": "Els filtres no canvien el teu progrés; només t'ajuden a llegir millor el mapa.",
         "next": "Porta'm al següent",
         "reset": "Reinicia progrés",
         "recommended": "Següent recomanat:",
@@ -402,6 +433,26 @@
         "centerNext": "Centrar node següent recomanat",
         "noNext": "No hi ha node recomanat",
         "zoom": "Zoom"
+      },
+      "atlas": {
+        "kicker": "Atlas interactiu",
+        "title": "El mapa complet del teu aprenentatge",
+        "intro": "Tria una disciplina per entrar-hi amb calma, o baixa i recorre el camí complet per mòduls. Cada targeta és una lliçó amb objectiu, exercici i progrés.",
+        "categoryIntro": "Estàs veient una disciplina filtrada. Els mòduls mantenen l'ordre recomanat i cada targeta obre el detall del pas.",
+        "available": "Disponible",
+        "completed": "Fet",
+        "locked": "Bloquejat",
+        "disciplines": "Disciplines",
+        "disciplinesTitle": "Tria una porta d'entrada",
+        "trackSummary": "{modules} mòduls · {resources} recursos",
+        "exploreTrack": "Explorar aquesta disciplina",
+        "discipline": "Disciplina",
+        "doneInTrack": "completats",
+        "moduleSummary": "{count} passos ordenats",
+        "noModule": "Sense mòdul",
+        "next": "Següent",
+        "emptyTitle": "Cap recurs coincideix",
+        "emptyBody": "Ajusta la cerca, la categoria o els filtres per tornar a veure passos del roadmap."
       },
       "hud": {
         "progress": "Progrés",
@@ -421,6 +472,9 @@
         "completed": "Completat",
         "available": "Disponible",
         "locked": "Bloquejat",
+        "completedText": "Aquest pas ja forma part del teu recorregut.",
+        "availableText": "Aquest és un bon moment per obrir-lo i treballar-lo.",
+        "lockedText": "Completa els prerequisits per desbloquejar aquest pas.",
         "openArticle": "Obre l'article",
         "markPending": "Marca com pendent",
         "markDone": "Marca com fet",

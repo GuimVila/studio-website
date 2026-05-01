@@ -32,7 +32,7 @@ defineProps({
 <style scoped>
 .service-card {
   background: var(--surface);
-  border-radius: 24px;
+  border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--border);
   transition:

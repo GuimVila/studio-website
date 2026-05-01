@@ -17,6 +17,27 @@
       </div>
 
       <div class="featured-list">
+        <LocaleLink to="/resources/roadmap" class="roadmap-preview">
+          <span class="preview-kicker">{{ $t("homeResources.previewKicker") }}</span>
+          <h3>{{ $t("homeResources.previewTitle") }}</h3>
+          <p>{{ $t("homeResources.previewText") }}</p>
+
+          <div class="preview-stats">
+            <span>
+              <strong>{{ categoryCount }}</strong>
+              {{ $t("homeResources.metrics.disciplines") }}
+            </span>
+            <span>
+              <strong>{{ nodeCount }}</strong>
+              {{ $t("homeResources.metrics.resources") }}
+            </span>
+            <span>
+              <strong>{{ estimatedHours }}h</strong>
+              {{ $t("homeResources.metrics.learning") }}
+            </span>
+          </div>
+        </LocaleLink>
+
         <LocaleLink
           v-for="item in items"
           :key="item.key"
@@ -33,7 +54,22 @@
 </template>
 
 <script setup>
+import roadmap from "../../data/roadmap.json";
+
 const { t } = useI18n();
+
+const roadmapNodes = computed(() => roadmap.nodes || []);
+const nodeCount = computed(() => roadmapNodes.value.length);
+const categoryCount = computed(
+  () => new Set(roadmapNodes.value.map((node) => node.category)).size
+);
+const estimatedHours = computed(() => {
+  const minutes = roadmapNodes.value.reduce(
+    (total, node) => total + Number(node.estMinutes || 0),
+    0
+  );
+  return Math.max(1, Math.round(minutes / 60));
+});
 
 const items = computed(() => [
   {
@@ -129,6 +165,72 @@ const items = computed(() => [
   gap: 0.8rem;
 }
 
+.roadmap-preview {
+  display: block;
+  padding: 1.25rem;
+  border: 1px solid rgba(208, 138, 63, 0.38);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(208, 138, 63, 0.14), transparent 58%),
+    var(--surface);
+  color: var(--text);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.roadmap-preview:hover {
+  transform: translateY(-3px);
+  border-color: rgba(208, 138, 63, 0.62);
+  box-shadow: var(--shadow-1);
+}
+
+.preview-kicker {
+  display: block;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.roadmap-preview h3 {
+  margin: 0.5rem 0 0.45rem;
+  font-size: 1.3rem;
+}
+
+.roadmap-preview p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.preview-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.preview-stats span {
+  display: block;
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  line-height: 1.25;
+}
+
+.preview-stats strong {
+  display: block;
+  color: var(--accent);
+  font-size: 1.25rem;
+  line-height: 1.1;
+}
+
 .featured-resource {
   display: block;
   padding: 1.15rem;
@@ -179,6 +281,10 @@ const items = computed(() => [
   .btn-main,
   .btn-ghost {
     width: 100%;
+  }
+
+  .preview-stats {
+    grid-template-columns: 1fr;
   }
 }
 </style>

@@ -10,20 +10,7 @@
           <div class="cta-actions">
             <LocaleLink to="/contact" class="cta-button">
               <span>{{ $t("startToday.cta") }}</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
+              <UIcon name="i-lucide-arrow-right" aria-hidden="true" />
             </LocaleLink>
             <LocaleLink to="/services" class="cta-button cta-button-secondary">
               <span>{{ $t("startToday.secondaryCta") }}</span>
@@ -48,9 +35,9 @@
 }
 
 .cta-card {
-  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 32px;
+  border-radius: 8px;
   padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
   position: relative;
   overflow: hidden;
@@ -74,23 +61,7 @@
 }
 
 .cta-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 50% 0%,
-    rgba(208, 138, 63, 0.08) 0%,
-    transparent 60%
-  );
-  pointer-events: none;
-}
-
-:root[data-theme="light"] .cta-card::after {
-  background: radial-gradient(
-    circle at 50% 0%,
-    rgba(208, 138, 63, 0.1) 0%,
-    transparent 60%
-  );
+  content: none;
 }
 
 .cta-content {
@@ -143,7 +114,7 @@
   font-weight: 600;
   background: linear-gradient(135deg, var(--accent-dark), var(--accent));
   color: #fff;
-  border-radius: 100px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
   text-decoration: none;
@@ -160,11 +131,13 @@
     0 0 0 1px rgba(208, 138, 63, 0.3) inset;
 }
 
-.cta-button svg {
+.cta-button :deep(svg) {
+  width: 20px;
+  height: 20px;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.cta-button:hover svg {
+.cta-button:hover :deep(svg) {
   transform: translateX(4px);
 }
 
@@ -182,7 +155,6 @@
 
 @media (max-width: 768px) {
   .cta-card {
-    border-radius: 24px;
     padding: clamp(2.5rem, 6vw, 3rem) clamp(1.5rem, 5vw, 2rem);
   }
 

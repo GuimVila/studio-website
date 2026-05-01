@@ -1,7 +1,8 @@
 <template>
   <div class="page">
-    <section class="section">
-      <h1 class="section-title heading-accent">{{ $t("readingProgress.roadmap.title") }}</h1>
+    <section class="roadmap-hero">
+      <p class="hero-kicker">{{ $t("readingProgress.roadmap.eyebrow") }}</p>
+      <h1>{{ $t("readingProgress.roadmap.title") }}</h1>
       <p>
         {{ $t("readingProgress.roadmap.intro") }}
       </p>
@@ -54,13 +55,11 @@
       :search="search"
       :category="category"
       :hide-locked="hideLocked"
-      :zoom="zoom"
       :focus-mode="focusMode"
       @update:search="search = $event"
       @update:category="category = $event"
       @update:hide-locked="hideLocked = $event"
       @update:focus-mode="focusMode = $event"
-      @update:zoom="zoom = $event"
       @reset="confirmReset"
       @next="goNext"
     />
@@ -87,6 +86,7 @@
       :is-completed="isCompleted"
       :can-unlock="canUnlock"
       @select="onSelect"
+      @filter-category="category = $event"
     />
 
     <RoadmapSidebar
@@ -269,30 +269,50 @@ function onSelect(id) {
 
 <style scoped>
 .page {
-  max-width: 1400px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 4rem 2rem;
   color: var(--text);
   position: relative;
-  isolation: isolate; /* crea un stacking context net */
+  isolation: isolate;
 }
 
-.header {
-  margin-bottom: 2.5rem;
+.roadmap-hero {
+  max-width: 880px;
+  margin: 0 0 1.5rem;
 }
 
-.header h1 {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 800;
-  margin-bottom: 0.75rem;
+.hero-kicker {
+  margin: 0 0 0.75rem;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.roadmap-hero h1 {
+  margin: 0;
+  font-size: 3.35rem;
+  font-weight: 950;
+  line-height: 1.02;
   color: var(--text);
+  background: linear-gradient(
+    135deg,
+    var(--text) 0%,
+    var(--text) 50%,
+    var(--accent) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.header p {
-  font-size: 1.05rem;
+.roadmap-hero p:not(.hero-kicker) {
+  margin: 1rem 0 0;
+  font-size: 1.08rem;
   color: var(--text-secondary);
-  line-height: 1.5;
-  max-width: 70ch;
+  line-height: 1.65;
 }
 
 .map {
@@ -308,7 +328,7 @@ function onSelect(id) {
   padding: 1.25rem;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 8px;
   box-shadow: var(--shadow-1);
 }
 
@@ -349,8 +369,8 @@ function onSelect(id) {
     padding: 3rem 1.5rem;
   }
 
-  .header {
-    margin-bottom: 2rem;
+  .roadmap-hero h1 {
+    font-size: 2.45rem;
   }
 
   .progress-account {

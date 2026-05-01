@@ -27,6 +27,21 @@
       "studio": "Audio studio · Riells i Viabrea",
       "resources": "Resources to grow with taste"
     },
+    "routes": {
+      "label": "Main paths",
+      "project": {
+        "kicker": "Project",
+        "title": "I want to finish a song"
+      },
+      "services": {
+        "kicker": "Services",
+        "title": "I need to compare options"
+      },
+      "learn": {
+        "kicker": "Learn",
+        "title": "I came from a video or article"
+      }
+    },
     "features": {
       "production": "Professional production",
       "mixing": "Mixing & mastering",
@@ -68,6 +83,14 @@
     "eyebrow": "Resources and roadmap",
     "title": "If you came from a video, continue here.",
     "subtitle": "Each article belongs to a bigger map: fundamentals, recording, production, mixing, and sound design connected so you don’t jump from tutorial to tutorial without direction.",
+    "previewKicker": "Living roadmap",
+    "previewTitle": "The full path, not a list of articles",
+    "previewText": "A structured system to see where you are, what comes next, and how music language, production, harmony, and mixing connect.",
+    "metrics": {
+      "disciplines": "disciplines",
+      "resources": "resources",
+      "learning": "estimated"
+    },
     "ctaRoadmap": "Open interactive roadmap",
     "ctaResources": "View categories",
     "items": {
@@ -374,8 +397,9 @@
       "empty": "No articles found in this category."
     },
     "roadmap": {
-      "title": "Roadmap",
-      "intro": "Explore this interactive learning roadmap to discover recommended resources and next steps for your learning path.",
+      "eyebrow": "Learning map",
+      "title": "Music production roadmap",
+      "intro": "A progressive atlas for learning production, music language, harmony, recording, editing, mixing, and sound design with structure, taste, and a clear next step.",
       "synced": "Synced progress",
       "local": "Local progress",
       "connected": "Connected as",
@@ -385,13 +409,20 @@
       "register": "Create account",
       "confirmReset": "Do you want to reset all roadmap progress? This will mark every resource as pending.",
       "controls": {
+        "kicker": "Navigation",
+        "title": "Find your next step",
+        "subtitle": "Search by topic, enter a discipline, or activate focus to see only the relevant path.",
         "search": "Search",
         "searchPlaceholder": "ID, topic, module, tags...",
         "category": "Category",
+        "categoryHint": "Filter without losing the map order",
         "allCategories": "All",
         "focusMode": "Focus mode",
+        "focusShort": "Show the useful path",
         "hideLocked": "Hide locked",
+        "hideLockedShort": "Keep only what you can do",
         "focusHelp": "Focus mode is active: you will only see the nodes that matter for reaching the next recommendation.",
+        "filterHelp": "Filters do not change your progress; they only help you read the map better.",
         "next": "Take me to the next one",
         "reset": "Reset progress",
         "recommended": "Next recommendation:",
@@ -403,6 +434,26 @@
         "centerNext": "Center next recommended node",
         "noNext": "No recommended node",
         "zoom": "Zoom"
+      },
+      "atlas": {
+        "kicker": "Interactive atlas",
+        "title": "The full map of your learning path",
+        "intro": "Choose a discipline to enter calmly, or scroll through the complete path by modules. Each card is a lesson with an objective, an exercise, and progress.",
+        "categoryIntro": "You are viewing one filtered discipline. Modules keep the recommended order and each card opens the step details.",
+        "available": "Available",
+        "completed": "Done",
+        "locked": "Locked",
+        "disciplines": "Disciplines",
+        "disciplinesTitle": "Choose an entry point",
+        "trackSummary": "{modules} modules · {resources} resources",
+        "exploreTrack": "Explore this discipline",
+        "discipline": "Discipline",
+        "doneInTrack": "completed",
+        "moduleSummary": "{count} ordered steps",
+        "noModule": "No module",
+        "next": "Next",
+        "emptyTitle": "No matching resources",
+        "emptyBody": "Adjust the search, category, or filters to see roadmap steps again."
       },
       "hud": {
         "progress": "Progress",
@@ -422,6 +473,9 @@
         "completed": "Completed",
         "available": "Available",
         "locked": "Locked",
+        "completedText": "This step is already part of your path.",
+        "availableText": "This is a good moment to open and work through it.",
+        "lockedText": "Complete the prerequisites to unlock this step.",
         "openArticle": "Open article",
         "markPending": "Mark as pending",
         "markDone": "Mark as done",

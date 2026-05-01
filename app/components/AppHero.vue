@@ -33,20 +33,7 @@
         <div class="hero-cta-group">
           <LocaleLink to="/contact" class="cta-primary">
             <span>{{ $t("hero.ctaPrimary") }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
+            <UIcon name="i-lucide-arrow-right" aria-hidden="true" />
           </LocaleLink>
 
           <LocaleLink to="/resources/roadmap" class="cta-secondary">
@@ -55,6 +42,21 @@
 
           <LocaleLink to="/services" class="cta-tertiary">
             <span>{{ $t("hero.ctaSecondary") }}</span>
+          </LocaleLink>
+        </div>
+
+        <div class="hero-route-strip" :aria-label="$t('hero.routes.label')">
+          <LocaleLink to="/contact" class="route-link">
+            <span>{{ $t("hero.routes.project.kicker") }}</span>
+            <strong>{{ $t("hero.routes.project.title") }}</strong>
+          </LocaleLink>
+          <LocaleLink to="/services" class="route-link">
+            <span>{{ $t("hero.routes.services.kicker") }}</span>
+            <strong>{{ $t("hero.routes.services.title") }}</strong>
+          </LocaleLink>
+          <LocaleLink to="/resources/roadmap" class="route-link">
+            <span>{{ $t("hero.routes.learn.kicker") }}</span>
+            <strong>{{ $t("hero.routes.learn.title") }}</strong>
           </LocaleLink>
         </div>
 
@@ -179,7 +181,7 @@ onUnmounted(() => {
 }
 
 .hero-content-wrapper {
-  max-width: 780px;
+  max-width: 860px;
 }
 
 .hero-badges {
@@ -343,6 +345,59 @@ onUnmounted(() => {
   border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
+.hero-route-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 760px;
+  margin: 0 0 1.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+:root[data-theme="light"] .hero-route-strip {
+  border-color: rgba(20, 20, 20, 0.14);
+}
+
+.route-link {
+  display: grid;
+  gap: 0.18rem;
+  padding: 0.85rem 1rem 0.85rem 0;
+  color: var(--text);
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.route-link + .route-link {
+  padding-left: 1rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+:root[data-theme="light"] .route-link + .route-link {
+  border-color: rgba(20, 20, 20, 0.14);
+}
+
+.route-link span {
+  color: var(--accent-light);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+:root[data-theme="light"] .route-link span {
+  color: var(--accent-dark);
+}
+
+.route-link strong {
+  font-size: 0.98rem;
+  line-height: 1.25;
+}
+
+.route-link:hover {
+  color: var(--accent-light);
+}
+
 :root[data-theme="light"] .hero-proof {
   border-color: rgba(20, 20, 20, 0.14);
 }
@@ -466,6 +521,25 @@ onUnmounted(() => {
     grid-template-columns: 1fr;
     max-width: none;
     border-bottom: 0;
+  }
+
+  .hero-route-strip {
+    grid-template-columns: 1fr;
+    max-width: none;
+    margin-bottom: 1.05rem;
+    border-bottom: 0;
+  }
+
+  .route-link,
+  .route-link + .route-link {
+    padding: 0.68rem 0;
+    border-left: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  :root[data-theme="light"] .route-link,
+  :root[data-theme="light"] .route-link + .route-link {
+    border-color: rgba(20, 20, 20, 0.14);
   }
 
   .proof-item,

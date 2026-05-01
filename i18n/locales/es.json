@@ -27,6 +27,21 @@
       "studio": "Estudio de sonido · Riells i Viabrea",
       "resources": "Recursos para crecer con criterio"
     },
+    "routes": {
+      "label": "Caminos principales",
+      "project": {
+        "kicker": "Proyecto",
+        "title": "Quiero terminar una canción"
+      },
+      "services": {
+        "kicker": "Servicios",
+        "title": "Necesito comparar opciones"
+      },
+      "learn": {
+        "kicker": "Aprender",
+        "title": "Vengo de un vídeo o artículo"
+      }
+    },
     "features": {
       "production": "Producción profesional",
       "mixing": "Mezcla y masterización",
@@ -68,6 +83,14 @@
     "eyebrow": "Recursos y roadmap",
     "title": "Si vienes de un vídeo, continúa por aquí.",
     "subtitle": "Cada artículo forma parte de un mapa más grande: fundamentos, grabación, producción, mezcla y diseño de sonido conectados para que no saltes de tutorial en tutorial sin rumbo.",
+    "previewKicker": "Roadmap vivo",
+    "previewTitle": "El recorrido completo, no una lista de artículos",
+    "previewText": "Un sistema ordenado para ver dónde estás, qué toca después y cómo conectan lenguaje musical, producción, armonía y mezcla.",
+    "metrics": {
+      "disciplines": "disciplinas",
+      "resources": "recursos",
+      "learning": "estimadas"
+    },
     "ctaRoadmap": "Abrir roadmap interactivo",
     "ctaResources": "Ver categorías",
     "items": {
@@ -373,8 +396,9 @@
       "empty": "No se han encontrado artículos en esta categoría."
     },
     "roadmap": {
-      "title": "Roadmap",
-      "intro": "Explora este roadmap de aprendizaje interactivo para descubrir los recursos y pasos recomendados para avanzar en tu camino de aprendizaje.",
+      "eyebrow": "Mapa de aprendizaje",
+      "title": "Roadmap de producción musical",
+      "intro": "Un atlas progresivo para aprender producción, lenguaje musical, armonía, grabación, edición, mezcla y diseño de sonido con orden, criterio y un siguiente paso claro.",
       "synced": "Progreso sincronizado",
       "local": "Progreso local",
       "connected": "Conectado como",
@@ -384,13 +408,20 @@
       "register": "Crear cuenta",
       "confirmReset": "¿Quieres reiniciar todo el progreso del roadmap? Esta acción marcará todos los recursos como pendientes.",
       "controls": {
+        "kicker": "Navegación",
+        "title": "Encuentra tu siguiente paso",
+        "subtitle": "Busca por tema, entra en una disciplina o activa el focus para ver solo el camino relevante.",
         "search": "Buscar",
         "searchPlaceholder": "ID, tema, módulo, tags...",
         "category": "Categoría",
+        "categoryHint": "Filtra sin perder el orden del mapa",
         "allCategories": "Todas",
         "focusMode": "Modo focus",
+        "focusShort": "Muestra el camino útil",
         "hideLocked": "Ocultar bloqueados",
+        "hideLockedShort": "Deja solo lo que puedes hacer",
         "focusHelp": "Modo focus activado: solo verás los nodos relevantes para llegar al siguiente recomendado.",
+        "filterHelp": "Los filtros no cambian tu progreso; solo te ayudan a leer mejor el mapa.",
         "next": "Llévame al siguiente",
         "reset": "Reiniciar progreso",
         "recommended": "Siguiente recomendado:",
@@ -402,6 +433,26 @@
         "centerNext": "Centrar nodo siguiente recomendado",
         "noNext": "No hay nodo recomendado",
         "zoom": "Zoom"
+      },
+      "atlas": {
+        "kicker": "Atlas interactivo",
+        "title": "El mapa completo de tu aprendizaje",
+        "intro": "Elige una disciplina para entrar con calma, o baja y recorre el camino completo por módulos. Cada tarjeta es una lección con objetivo, ejercicio y progreso.",
+        "categoryIntro": "Estás viendo una disciplina filtrada. Los módulos mantienen el orden recomendado y cada tarjeta abre el detalle del paso.",
+        "available": "Disponible",
+        "completed": "Hecho",
+        "locked": "Bloqueado",
+        "disciplines": "Disciplinas",
+        "disciplinesTitle": "Elige una puerta de entrada",
+        "trackSummary": "{modules} módulos · {resources} recursos",
+        "exploreTrack": "Explorar esta disciplina",
+        "discipline": "Disciplina",
+        "doneInTrack": "completados",
+        "moduleSummary": "{count} pasos ordenados",
+        "noModule": "Sin módulo",
+        "next": "Siguiente",
+        "emptyTitle": "No hay recursos coincidentes",
+        "emptyBody": "Ajusta la búsqueda, la categoría o los filtros para volver a ver pasos del roadmap."
       },
       "hud": {
         "progress": "Progreso",
@@ -421,6 +472,9 @@
         "completed": "Completado",
         "available": "Disponible",
         "locked": "Bloqueado",
+        "completedText": "Este paso ya forma parte de tu recorrido.",
+        "availableText": "Este es un buen momento para abrirlo y trabajarlo.",
+        "lockedText": "Completa los prerequisitos para desbloquear este paso.",
         "openArticle": "Abrir el artículo",
         "markPending": "Marcar como pendiente",
         "markDone": "Marcar como hecho",

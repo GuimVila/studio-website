@@ -14,10 +14,18 @@
           class="pathway"
           :to="item.to"
         >
-          <span class="pathway-index">{{ item.index }}</span>
+          <span class="pathway-top">
+            <span class="pathway-index">{{ item.index }}</span>
+            <span class="pathway-icon">
+              <UIcon :name="item.icon" aria-hidden="true" />
+            </span>
+          </span>
           <h3>{{ item.title }}</h3>
           <p>{{ item.description }}</p>
-          <span class="pathway-cta">{{ item.cta }}</span>
+          <span class="pathway-cta">
+            {{ item.cta }}
+            <UIcon name="i-lucide-arrow-right" aria-hidden="true" />
+          </span>
         </LocaleLink>
       </div>
     </div>
@@ -34,6 +42,7 @@ const items = computed(() => [
     title: t("homePathways.items.project.title"),
     description: t("homePathways.items.project.description"),
     cta: t("homePathways.items.project.cta"),
+    icon: "i-lucide-mic-2",
     to: "/contact",
   },
   {
@@ -42,6 +51,7 @@ const items = computed(() => [
     title: t("homePathways.items.services.title"),
     description: t("homePathways.items.services.description"),
     cta: t("homePathways.items.services.cta"),
+    icon: "i-lucide-sliders-horizontal",
     to: "/services",
   },
   {
@@ -50,6 +60,7 @@ const items = computed(() => [
     title: t("homePathways.items.learn.title"),
     description: t("homePathways.items.learn.description"),
     cta: t("homePathways.items.learn.cta"),
+    icon: "i-lucide-route",
     to: "/resources/roadmap",
   },
 ]);
@@ -101,6 +112,7 @@ const items = computed(() => [
 }
 
 .pathway {
+  position: relative;
   min-height: 260px;
   display: flex;
   flex-direction: column;
@@ -113,6 +125,18 @@ const items = computed(() => [
     transform 0.25s ease,
     border-color 0.25s ease,
     box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.pathway::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.25s ease;
 }
 
 .pathway:hover {
@@ -121,10 +145,38 @@ const items = computed(() => [
   box-shadow: var(--shadow-1);
 }
 
+.pathway:hover::before {
+  transform: scaleY(1);
+}
+
+.pathway-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
 .pathway-index {
   color: var(--accent);
   font-size: 0.85rem;
   font-weight: 850;
+}
+
+.pathway-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--accent);
+  background: var(--surface-2);
+}
+
+.pathway-icon :deep(svg) {
+  width: 20px;
+  height: 20px;
 }
 
 .pathway h3 {
@@ -139,10 +191,23 @@ const items = computed(() => [
 }
 
 .pathway-cta {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
   margin-top: auto;
   padding-top: 1.25rem;
   color: var(--accent-light);
   font-weight: 850;
+}
+
+.pathway-cta :deep(svg) {
+  width: 17px;
+  height: 17px;
+  transition: transform 0.2s ease;
+}
+
+.pathway:hover .pathway-cta :deep(svg) {
+  transform: translateX(3px);
 }
 
 @media (max-width: 900px) {
