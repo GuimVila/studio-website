@@ -263,8 +263,10 @@ const categories = computed(() => {
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(260px, 0.7fr);
+  grid-template-rows: minmax(0, 1fr) auto;
   gap: 1rem;
   min-height: 320px;
+  align-items: center;
   overflow: hidden;
   padding: 1.5rem;
   color: var(--text);
@@ -281,7 +283,7 @@ const categories = computed(() => {
 }
 
 .roadmap-copy {
-  align-self: end;
+  align-self: center;
   max-width: 560px;
   position: relative;
   z-index: 2;
@@ -403,12 +405,12 @@ const categories = computed(() => {
 }
 
 .stats {
-  position: absolute;
-  left: 1.5rem;
-  right: 1.5rem;
-  bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+  grid-column: 1 / -1;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  max-width: 560px;
+  max-width: none;
+  margin-top: 0.25rem;
 }
 
 .stats span,
@@ -595,10 +597,7 @@ const categories = computed(() => {
   }
 
   .stats {
-    position: static;
     grid-template-columns: 1fr;
-    max-width: none;
-    margin-top: 1rem;
   }
 
   .cards {
@@ -611,6 +610,15 @@ const categories = computed(() => {
 }
 
 @media (min-width: 769px) and (max-width: 1120px) {
+  .featured,
+  .roadmap-card {
+    grid-template-columns: 1fr;
+  }
+
+  .map-preview {
+    min-height: 220px;
+  }
+
   .cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

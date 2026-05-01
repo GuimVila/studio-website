@@ -33,10 +33,17 @@
       </div>
 
       <div v-else class="stage-scroll">
-        <div class="stage-canvas" :style="{ '--map-scale': zoom }">
+        <div
+          class="stage-canvas"
+          :style="{
+            width: canvasSize.width + 'px',
+            height: canvasSize.height + 'px',
+            '--map-scale': zoom,
+          }"
+        >
           <svg
             class="branch-lines"
-            viewBox="0 0 1000 640"
+            :viewBox="`0 0 ${canvasSize.width} ${canvasSize.height}`"
             preserveAspectRatio="none"
             aria-hidden="true"
           >
@@ -48,6 +55,20 @@
             />
           </svg>
 
+          <div
+            v-for="track in visibleTrackLabels"
+            :key="track.category"
+            class="track-label"
+            :style="{
+              left: track.x + 'px',
+              top: track.y + 'px',
+              '--track-color': track.color,
+            }"
+          >
+            <span>{{ track.index }}</span>
+            {{ categoryLabel(track.category) }}
+          </div>
+
           <button
             v-for="module in positionedModules"
             :key="module.key"
@@ -56,8 +77,8 @@
             type="button"
             :class="moduleClass(module)"
             :style="{
-              left: module.x + '%',
-              top: module.y + '%',
+              left: module.x + 'px',
+              top: module.y + 'px',
               '--track-color': module.color,
             }"
             @click="selectModule(module)"
@@ -83,7 +104,7 @@
             </span>
 
             <span v-if="module.status === 'locked'" class="locked-by">
-              {{ lockedLabel(module) }}
+              {{ t("readingProgress.roadmap.quest.locked") }}
             </span>
           </button>
         </div>
@@ -126,58 +147,23 @@ const trackColors = [
   "#f87171",
 ];
 
-const layoutPointsByIndex = [
-  [
-    { x: 10, y: 52 },
-    { x: 24, y: 52 },
-    { x: 38, y: 52 },
-    { x: 52, y: 52 },
-  ],
-  [
-    { x: 24, y: 30 },
-    { x: 38, y: 24 },
-    { x: 52, y: 28 },
-    { x: 66, y: 22 },
-  ],
-  [
-    { x: 46, y: 12 },
-    { x: 60, y: 12 },
-    { x: 74, y: 16 },
-    { x: 88, y: 20 },
-  ],
-  [
-    { x: 52, y: 42 },
-    { x: 66, y: 40 },
-    { x: 80, y: 44 },
-    { x: 91, y: 49 },
-  ],
-  [
-    { x: 26, y: 73 },
-    { x: 40, y: 78 },
-    { x: 54, y: 74 },
-    { x: 68, y: 79 },
-  ],
-  [
-    { x: 56, y: 66 },
-    { x: 69, y: 69 },
-    { x: 82, y: 66 },
-    { x: 91, y: 72 },
-  ],
-  [
-    { x: 66, y: 57 },
-    { x: 76, y: 57 },
-    { x: 85, y: 59 },
-    { x: 92, y: 54 },
-    { x: 94, y: 46 },
-  ],
-  [
-    { x: 66, y: 32 },
-    { x: 76, y: 30 },
-    { x: 86, y: 34 },
-    { x: 92, y: 28 },
-    { x: 94, y: 36 },
-  ],
-];
+const minimumCanvasSize = {
+  width: 1320,
+  height: 980,
+};
+
+const categoryLayouts = {
+  fonaments: { x: 150, y: 520, step: 260 },
+  "llenguatge-musical": { x: 620, y: 285, step: 260 },
+  harmonia: { x: 1080, y: 130, step: 260 },
+  produccio: { x: 1180, y: 455, step: 260 },
+  gravacio: { x: 620, y: 790, step: 260 },
+  edicio: { x: 1450, y: 945, step: 260 },
+  mescla: { x: 1740, y: 655, step: 245 },
+  "disseny-de-so": { x: 2020, y: 285, step: 245 },
+};
+
+const laneWave = [0, -22, 18, -14, 14];
 
 const moduleRefs = new Map();
 
@@ -352,14 +338,17 @@ const positionedModules = computed(() => {
   const positions = new Map();
   for (const [category, categoryModules] of byCategory.entries()) {
     const categoryIndex = categoryOrder.value.indexOf(category);
-    const points = layoutPointsByIndex[categoryIndex] || [];
+    const layout = categoryLayouts[category] || {
+      x: 160,
+      y: 150 + Math.max(0, categoryIndex) * 150,
+      step: 260,
+    };
 
     categoryModules.forEach((module, moduleIndex) => {
-      const fallback = {
-        x: 12 + moduleIndex * 14,
-        y: 18 + Math.max(0, categoryIndex) * 8,
-      };
-      positions.set(module.key, points[moduleIndex] || fallback);
+      positions.set(module.key, {
+        x: layout.x + moduleIndex * layout.step,
+        y: layout.y + laneWave[moduleIndex % laneWave.length],
+      });
     });
   }
 
@@ -379,6 +368,39 @@ const positionedModules = computed(() => {
   });
 });
 
+const visibleTrackLabels = computed(() => {
+  const tracks = [];
+
+  for (const categoryName of categoryOrder.value) {
+    const categoryModules = positionedModules.value.filter(
+      (module) => module.category === categoryName
+    );
+    if (!categoryModules.length) continue;
+
+    tracks.push({
+      category: categoryName,
+      color: categoryColor(categoryName),
+      index: String(categoryOrder.value.indexOf(categoryName) + 1).padStart(2, "0"),
+      x: Math.max(24, Math.min(...categoryModules.map((module) => module.x)) - 96),
+      y: Math.max(22, Math.min(...categoryModules.map((module) => module.y)) - 98),
+    });
+  }
+
+  return tracks;
+});
+
+const canvasSize = computed(() => {
+  if (!positionedModules.value.length) return minimumCanvasSize;
+
+  const maxX = Math.max(...positionedModules.value.map((module) => module.x));
+  const maxY = Math.max(...positionedModules.value.map((module) => module.y));
+
+  return {
+    width: Math.max(minimumCanvasSize.width, maxX + 260),
+    height: Math.max(minimumCanvasSize.height, maxY + 190),
+  };
+});
+
 const visibleModuleMap = computed(() => {
   const map = new Map();
   for (const module of positionedModules.value) map.set(module.key, module);
@@ -396,13 +418,13 @@ function edgePath(edge) {
   const to = visibleModuleMap.value.get(edge.to);
   if (!from || !to) return "";
 
-  const sx = from.x * 10;
-  const sy = from.y * 6.4;
-  const tx = to.x * 10;
-  const ty = to.y * 6.4;
+  const sx = from.x;
+  const sy = from.y;
+  const tx = to.x;
+  const ty = to.y;
   const distance = Math.max(80, Math.abs(tx - sx));
-  const c1x = sx + distance * 0.38;
-  const c2x = tx - distance * 0.38;
+  const c1x = sx + distance * 0.52;
+  const c2x = tx - distance * 0.48;
 
   return `M ${sx} ${sy} C ${c1x} ${sy}, ${c2x} ${ty}, ${tx} ${ty}`;
 }
@@ -577,13 +599,13 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 .stage-scroll {
   overflow: auto;
   padding: 1rem;
+  min-height: 620px;
+  max-height: min(76vh, 900px);
   -webkit-overflow-scrolling: touch;
 }
 
 .stage-canvas {
   position: relative;
-  width: 1280px;
-  height: 820px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background:
@@ -613,16 +635,42 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   pointer-events: none;
 }
 
+.track-label {
+  position: absolute;
+  z-index: 1;
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
+  min-height: 34px;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid color-mix(in srgb, var(--track-color) 50%, var(--border));
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--track-color) 13%, transparent), transparent),
+    color-mix(in srgb, var(--surface) 88%, black);
+  color: var(--text);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-1);
+  pointer-events: none;
+}
+
+.track-label span {
+  color: var(--track-color);
+}
+
 .edge {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.18);
+  stroke: rgba(255, 255, 255, 0.12);
   stroke-width: 2.2;
   stroke-linecap: round;
   stroke-dasharray: 9 10;
 }
 
 :root[data-theme="light"] .edge {
-  stroke: rgba(20, 20, 20, 0.18);
+  stroke: rgba(20, 20, 20, 0.12);
 }
 
 .edge.completed {
@@ -640,8 +688,8 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 .quest-node {
   position: absolute;
   z-index: 2;
-  width: 178px;
-  min-height: 126px;
+  width: 198px;
+  height: 138px;
   display: flex;
   flex-direction: column;
   gap: 0.42rem;
@@ -651,11 +699,12 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   border-radius: 8px;
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--track-color) 13%, transparent), transparent 46%),
-    var(--surface);
+    color-mix(in srgb, var(--surface) 96%, #050505);
   color: var(--text);
   text-align: left;
   cursor: pointer;
   box-shadow: var(--shadow-1);
+  overflow: hidden;
   transition:
     transform 0.2s ease,
     border-color 0.2s ease,
@@ -670,7 +719,7 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 }
 
 .quest-node.locked {
-  opacity: 0.58;
+  opacity: 0.72;
 }
 
 .quest-node.completed {
@@ -723,6 +772,10 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   color: var(--text);
   font-size: 0.98rem;
   line-height: 1.18;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .node-progress {
@@ -746,11 +799,20 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 
 .node-meta {
   color: var(--text-secondary);
+  white-space: nowrap;
 }
 
 .locked-by {
   margin-top: auto;
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.22rem 0.46rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
   color: var(--text-secondary);
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .empty-state {
@@ -780,15 +842,11 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 
   .stage-scroll {
     padding: 0.75rem;
-  }
-
-  .stage-canvas {
-    width: 1080px;
-    height: 760px;
+    min-height: 560px;
   }
 
   .quest-node {
-    width: 164px;
+    width: 184px;
   }
 }
 </style>

@@ -330,36 +330,38 @@ function onHideLockedChange(event) {
   display: flex;
   align-items: center;
   min-width: 0;
+  min-height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .input-shell :deep(svg) {
-  position: absolute;
-  left: 0.95rem;
+  position: relative;
+  flex: 0 0 auto;
+  margin-left: 0.95rem;
   width: 18px;
   height: 18px;
   color: var(--accent);
   pointer-events: none;
 }
 
-input[type="search"],
-select {
+input[type="search"] {
   width: 100%;
   max-width: 100%;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: transparent;
+  border: 0;
   border-radius: 8px;
-  padding: 0.88rem 1rem;
+  padding: 0.88rem 1rem 0.88rem 0.7rem;
   color: var(--text);
   outline: none;
   font-family: inherit;
-  transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-  padding-left: 2.75rem;
 }
 
-input[type="search"]:focus,
-select:focus {
+.input-shell:focus-within {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(208, 138, 63, 0.15);
 }
