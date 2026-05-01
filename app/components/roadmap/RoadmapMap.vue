@@ -1,153 +1,93 @@
 <template>
-  <div class="atlas-shell">
-    <div class="atlas-intro">
+  <div class="quest-shell">
+    <div class="quest-intro">
       <div>
-        <p class="atlas-kicker">{{ t("readingProgress.roadmap.atlas.kicker") }}</p>
+        <p class="quest-kicker">{{ t("readingProgress.roadmap.quest.kicker") }}</p>
         <h2>
           {{
             category
               ? categoryLabel(category)
-              : t("readingProgress.roadmap.atlas.title")
+              : t("readingProgress.roadmap.quest.title")
           }}
         </h2>
         <p>
           {{
             category
               ? t("readingProgress.roadmap.atlas.categoryIntro")
-              : t("readingProgress.roadmap.atlas.intro")
+              : t("readingProgress.roadmap.quest.intro")
           }}
         </p>
       </div>
 
       <div class="legend" aria-label="Roadmap legend">
-        <span><i class="dot available" />{{ t("readingProgress.roadmap.atlas.available") }}</span>
-        <span><i class="dot done" />{{ t("readingProgress.roadmap.atlas.completed") }}</span>
-        <span><i class="dot locked" />{{ t("readingProgress.roadmap.atlas.locked") }}</span>
+        <span><i class="dot available" />{{ t("readingProgress.roadmap.quest.available") }}</span>
+        <span><i class="dot done" />{{ t("readingProgress.roadmap.quest.completed") }}</span>
+        <span><i class="dot locked" />{{ t("readingProgress.roadmap.quest.locked") }}</span>
       </div>
     </div>
 
-    <section
-      v-if="showOverview"
-      class="tracks-overview"
-      aria-labelledby="roadmap-tracks-title"
-    >
-      <div class="overview-head">
-        <p class="atlas-kicker">{{ t("readingProgress.roadmap.atlas.disciplines") }}</p>
-        <h3 id="roadmap-tracks-title">
-          {{ t("readingProgress.roadmap.atlas.disciplinesTitle") }}
-        </h3>
+    <section class="quest-stage" aria-live="polite">
+      <div v-if="!positionedModules.length" class="empty-state">
+        <h3>{{ t("readingProgress.roadmap.quest.emptyTitle") }}</h3>
+        <p>{{ t("readingProgress.roadmap.quest.emptyBody") }}</p>
       </div>
 
-      <div class="track-grid">
-        <button
-          v-for="(track, index) in trackSummaries"
-          :key="track.category"
-          class="track-card"
-          type="button"
-          :style="{ '--track-color': track.color }"
-          @click="emit('filter-category', track.category)"
-        >
-          <span class="track-number">{{ String(index + 1).padStart(2, "0") }}</span>
-          <h4>{{ categoryLabel(track.category) }}</h4>
-          <p>
-            {{
-              t("readingProgress.roadmap.atlas.trackSummary", {
-                modules: track.modules.length,
-                resources: track.total,
-              })
-            }}
-          </p>
-
-          <div class="mini-progress">
-            <span :style="{ width: track.percent + '%' }" />
-          </div>
-
-          <div class="track-meta">
-            <span>{{ track.completed }} / {{ track.total }}</span>
-            <span>{{ track.percent }}%</span>
-          </div>
-
-          <div class="module-preview">
-            <span v-for="module in track.modules.slice(0, 3)" :key="module">
-              {{ module }}
-            </span>
-          </div>
-
-          <strong>{{ t("readingProgress.roadmap.atlas.exploreTrack") }}</strong>
-        </button>
-      </div>
-    </section>
-
-    <section class="journey-board" aria-live="polite">
-      <div v-if="!renderedGroups.length" class="empty-state">
-        <h3>{{ t("readingProgress.roadmap.atlas.emptyTitle") }}</h3>
-        <p>{{ t("readingProgress.roadmap.atlas.emptyBody") }}</p>
-      </div>
-
-      <article
-        v-for="group in renderedGroups"
-        :key="group.category"
-        class="track-section"
-        :style="{ '--track-color': group.color }"
-      >
-        <header class="track-header">
-          <div>
-            <span class="atlas-kicker">{{ t("readingProgress.roadmap.atlas.discipline") }}</span>
-            <h3>{{ categoryLabel(group.category) }}</h3>
-          </div>
-          <div class="track-score">
-            <strong>{{ group.completed }} / {{ group.total }}</strong>
-            <span>{{ t("readingProgress.roadmap.atlas.doneInTrack") }}</span>
-          </div>
-        </header>
-
-        <div class="modules">
-          <section
-            v-for="module in group.modules"
-            :key="`${group.category}-${module.name}`"
-            class="module-block"
+      <div v-else class="stage-scroll">
+        <div class="stage-canvas" :style="{ '--map-scale': zoom }">
+          <svg
+            class="branch-lines"
+            viewBox="0 0 1000 640"
+            preserveAspectRatio="none"
+            aria-hidden="true"
           >
-            <aside class="module-meta">
-              <span class="module-count">
-                {{ module.completed }} / {{ module.nodes.length }}
+            <path
+              v-for="edge in visibleEdges"
+              :key="edge.key"
+              :d="edgePath(edge)"
+              :class="edgeClass(edge)"
+            />
+          </svg>
+
+          <button
+            v-for="module in positionedModules"
+            :key="module.key"
+            :ref="(el) => setModuleRef(module, el)"
+            class="quest-node"
+            type="button"
+            :class="moduleClass(module)"
+            :style="{
+              left: module.x + '%',
+              top: module.y + '%',
+              '--track-color': module.color,
+            }"
+            @click="selectModule(module)"
+          >
+            <span class="node-top">
+              <span class="node-id">{{ module.shortId }}</span>
+              <span v-if="isHighlightedModule(module)" class="next-badge">
+                {{ t("readingProgress.roadmap.quest.next") }}
               </span>
-              <h4>{{ module.name }}</h4>
-              <p>
-                {{
-                  t("readingProgress.roadmap.atlas.moduleSummary", {
-                    count: module.nodes.length,
-                  })
-                }}
-              </p>
-            </aside>
+            </span>
 
-            <div class="lesson-list">
-              <button
-                v-for="node in module.nodes"
-                :key="node.id"
-                :ref="(el) => setNodeRef(node.id, el)"
-                class="lesson-card"
-                type="button"
-                :class="nodeClass(node)"
-                @click="emit('select', node.id)"
-              >
-                <span class="lesson-seq">{{ node.id }}</span>
-                <span v-if="isNext(node)" class="next-badge">
-                  {{ t("readingProgress.roadmap.atlas.next") }}
-                </span>
+            <span class="node-category">{{ categoryLabel(module.category) }}</span>
+            <strong>{{ module.name }}</strong>
 
-                <h5>{{ node.title }}</h5>
-                <p v-if="node.objective">{{ node.objective }}</p>
+            <span class="node-progress">
+              <span :style="{ width: module.percent + '%' }" />
+            </span>
 
-                <div class="lesson-footer">
-                  <span>{{ statusLabel(node) }}</span>
-                  <span v-if="node.estMinutes">~{{ node.estMinutes }} min</span>
-                </div>
-              </button>
-            </div>
-          </section>
+            <span class="node-meta">
+              {{ module.completed }} / {{ module.total }}
+              ·
+              {{ t("readingProgress.roadmap.quest.moduleSteps", { count: module.total }) }}
+            </span>
+
+            <span v-if="module.status === 'locked'" class="locked-by">
+              {{ lockedLabel(module) }}
+            </span>
+          </button>
         </div>
-      </article>
+      </div>
     </section>
   </div>
 </template>
@@ -167,6 +107,7 @@ const props = defineProps({
   focusIds: { type: Array, default: null },
   highlightEdges: { type: Array, default: null },
   highlightId: { type: [String, null], default: null },
+  activeId: { type: [String, null], default: null },
   nextSeq: { type: [Number, null], default: null },
   isCompleted: { type: Function, required: true },
   canUnlock: { type: Function, required: true },
@@ -185,11 +126,60 @@ const trackColors = [
   "#f87171",
 ];
 
-const nodeRefs = new Map();
+const layoutPointsByIndex = [
+  [
+    { x: 10, y: 52 },
+    { x: 24, y: 52 },
+    { x: 38, y: 52 },
+    { x: 52, y: 52 },
+  ],
+  [
+    { x: 24, y: 30 },
+    { x: 38, y: 24 },
+    { x: 52, y: 28 },
+    { x: 66, y: 22 },
+  ],
+  [
+    { x: 46, y: 12 },
+    { x: 60, y: 12 },
+    { x: 74, y: 16 },
+    { x: 88, y: 20 },
+  ],
+  [
+    { x: 52, y: 42 },
+    { x: 66, y: 40 },
+    { x: 80, y: 44 },
+    { x: 91, y: 49 },
+  ],
+  [
+    { x: 26, y: 73 },
+    { x: 40, y: 78 },
+    { x: 54, y: 74 },
+    { x: 68, y: 79 },
+  ],
+  [
+    { x: 56, y: 66 },
+    { x: 69, y: 69 },
+    { x: 82, y: 66 },
+    { x: 91, y: 72 },
+  ],
+  [
+    { x: 66, y: 57 },
+    { x: 76, y: 57 },
+    { x: 85, y: 59 },
+    { x: 92, y: 54 },
+    { x: 94, y: 46 },
+  ],
+  [
+    { x: 66, y: 32 },
+    { x: 76, y: 30 },
+    { x: 86, y: 34 },
+    { x: 92, y: 28 },
+    { x: 94, y: 36 },
+  ],
+];
 
-function setNodeRef(id, el) {
-  if (el) nodeRefs.set(normId(id), el);
-}
+const moduleRefs = new Map();
 
 function normId(id) {
   return String(id || "")
@@ -197,8 +187,22 @@ function normId(id) {
     .toUpperCase();
 }
 
+function moduleKeyFor(node) {
+  return `${String(node.category || "Altres")}|||${String(
+    node.module || t("readingProgress.roadmap.atlas.noModule")
+  )}`;
+}
+
 function categoryLabel(category) {
   return resourceCategoryLabel(category, t);
+}
+
+function sortedBySeq(nodes) {
+  return [...nodes].sort((a, b) => {
+    const seqA = Number.isFinite(a.seq) ? a.seq : 999999;
+    const seqB = Number.isFinite(b.seq) ? b.seq : 999999;
+    return seqA - seqB;
+  });
 }
 
 const allNodesSorted = computed(() => sortedBySeq(props.nodes || []));
@@ -222,25 +226,107 @@ const focusSet = computed(() => {
   return new Set(props.focusIds.map(normId));
 });
 
-function matchesFilters(node) {
-  if (!node) return false;
-
-  if (focusSet.value && !focusSet.value.has(normId(node.id))) return false;
-  if (!focusSet.value && props.category && node.category !== props.category) {
-    return false;
+const moduleByNodeId = computed(() => {
+  const map = new Map();
+  for (const module of modules.value) {
+    for (const node of module.nodes) map.set(normId(node.id), module.key);
   }
+  return map;
+});
+
+const modules = computed(() => {
+  const groups = new Map();
+
+  for (const node of allNodesSorted.value) {
+    const key = moduleKeyFor(node);
+    if (!groups.has(key)) {
+      groups.set(key, {
+        key,
+        category: String(node.category || "Altres"),
+        name: String(node.module || t("readingProgress.roadmap.atlas.noModule")),
+        seq: Number.isFinite(node.seq) ? node.seq : 999999,
+        nodes: [],
+      });
+    }
+    const group = groups.get(key);
+    group.nodes.push(node);
+    group.seq = Math.min(group.seq, Number.isFinite(node.seq) ? node.seq : 999999);
+  }
+
+  return Array.from(groups.values())
+    .sort((a, b) => a.seq - b.seq)
+    .map((module, index) => {
+      const nodes = sortedBySeq(module.nodes);
+      const completed = nodes.filter((node) => props.isCompleted(node.id)).length;
+      const total = nodes.length;
+      const incompleteNodes = nodes.filter((node) => !props.isCompleted(node.id));
+      const availableNodes = incompleteNodes.filter((node) => props.canUnlock(node));
+      const isDone = total > 0 && completed === total;
+      const isStarted = completed > 0;
+      const status = isDone
+        ? "completed"
+        : availableNodes.length || isStarted
+          ? "available"
+          : "locked";
+      const nextNode = availableNodes[0] || incompleteNodes[0] || nodes[0] || null;
+
+      return {
+        ...module,
+        index,
+        nodes,
+        completed,
+        total,
+        percent: total ? Math.round((completed / total) * 100) : 0,
+        status,
+        nextNode,
+        color: categoryColor(module.category),
+      };
+    });
+});
+
+const moduleMap = computed(() => {
+  const map = new Map();
+  for (const module of modules.value) map.set(module.key, module);
+  return map;
+});
+
+const moduleEdges = computed(() => {
+  const nodeToModule = new Map();
+  for (const module of modules.value) {
+    for (const node of module.nodes) nodeToModule.set(normId(node.id), module.key);
+  }
+
+  const edges = new Map();
+  for (const node of allNodesSorted.value) {
+    const to = nodeToModule.get(normId(node.id));
+    for (const prereq of node.prereqIds || []) {
+      const from = nodeToModule.get(normId(prereq));
+      if (from && to && from !== to) {
+        edges.set(`${from}=>${to}`, { key: `${from}=>${to}`, from, to });
+      }
+    }
+  }
+
+  return Array.from(edges.values());
+});
+
+function moduleMatchesFilters(module) {
+  if (!module) return false;
+
+  if (focusSet.value) {
+    return module.nodes.some((node) => focusSet.value.has(normId(node.id)));
+  }
+
+  if (props.category && module.category !== props.category) return false;
 
   const q = String(props.search || "")
     .trim()
     .toLowerCase();
   if (q) {
     const haystack = [
-      node.id,
-      node.title,
-      node.objective,
-      node.module,
-      node.category,
-      node.tags,
+      module.category,
+      module.name,
+      module.nodes.map((node) => [node.id, node.title, node.objective, node.tags].join(" ")).join(" "),
     ]
       .filter(Boolean)
       .join(" ")
@@ -249,114 +335,140 @@ function matchesFilters(node) {
     if (!haystack.includes(q)) return false;
   }
 
-  if (props.hideLocked && !props.isCompleted(node.id) && !props.canUnlock(node)) {
-    return false;
-  }
+  if (props.hideLocked && module.status === "locked") return false;
 
   return true;
 }
 
-const visibleNodes = computed(() => sortedBySeq((props.nodes || []).filter(matchesFilters)));
+const visibleModules = computed(() => modules.value.filter(moduleMatchesFilters));
 
-const showOverview = computed(
-  () => !props.category && !props.search.trim() && !focusSet.value
-);
-
-const trackSummaries = computed(() =>
-  categoryOrder.value.map((category) => {
-    const nodes = allNodesSorted.value.filter((node) => node.category === category);
-    const modules = Array.from(new Set(nodes.map((node) => node.module).filter(Boolean)));
-    const completed = nodes.filter((node) => props.isCompleted(node.id)).length;
-    const total = nodes.length;
-
-    return {
-      category,
-      modules,
-      completed,
-      total,
-      percent: total ? Math.round((completed / total) * 100) : 0,
-      color: categoryColor(category),
-    };
-  })
-);
-
-const renderedGroups = computed(() => {
-  const groups = new Map();
-
-  for (const node of visibleNodes.value) {
-    const categoryName = String(node.category || "Altres");
-    if (!groups.has(categoryName)) {
-      groups.set(categoryName, {
-        category: categoryName,
-        color: categoryColor(categoryName),
-        nodes: [],
-      });
-    }
-    groups.get(categoryName).nodes.push(node);
+const positionedModules = computed(() => {
+  const byCategory = new Map();
+  for (const module of modules.value) {
+    if (!byCategory.has(module.category)) byCategory.set(module.category, []);
+    byCategory.get(module.category).push(module);
   }
 
-  return Array.from(groups.values()).map((group) => {
-    const moduleMap = new Map();
-    for (const node of group.nodes) {
-      const moduleName = String(node.module || t("readingProgress.roadmap.atlas.noModule"));
-      if (!moduleMap.has(moduleName)) moduleMap.set(moduleName, []);
-      moduleMap.get(moduleName).push(node);
-    }
+  const positions = new Map();
+  for (const [category, categoryModules] of byCategory.entries()) {
+    const categoryIndex = categoryOrder.value.indexOf(category);
+    const points = layoutPointsByIndex[categoryIndex] || [];
 
-    const modules = Array.from(moduleMap.entries()).map(([name, nodes]) => ({
-      name,
-      nodes,
-      completed: nodes.filter((node) => props.isCompleted(node.id)).length,
-    }));
+    categoryModules.forEach((module, moduleIndex) => {
+      const fallback = {
+        x: 12 + moduleIndex * 14,
+        y: 18 + Math.max(0, categoryIndex) * 8,
+      };
+      positions.set(module.key, points[moduleIndex] || fallback);
+    });
+  }
+
+  return visibleModules.value.map((module) => {
+    const point = positions.get(module.key) || { x: 50, y: 50 };
+    const categoryIndex = categoryOrder.value.indexOf(module.category);
+    const categoryModules = byCategory.get(module.category) || [];
+    const moduleIndex = categoryModules.findIndex((item) => item.key === module.key);
 
     return {
-      ...group,
-      modules,
-      total: group.nodes.length,
-      completed: group.nodes.filter((node) => props.isCompleted(node.id)).length,
+      ...module,
+      ...point,
+      shortId: `${String(categoryIndex + 1).padStart(2, "0")}.${String(
+        moduleIndex + 1
+      ).padStart(2, "0")}`,
     };
   });
 });
 
-function sortedBySeq(nodes) {
-  return [...nodes].sort((a, b) => {
-    const seqA = Number.isFinite(a.seq) ? a.seq : 999999;
-    const seqB = Number.isFinite(b.seq) ? b.seq : 999999;
-    return seqA - seqB;
-  });
+const visibleModuleMap = computed(() => {
+  const map = new Map();
+  for (const module of positionedModules.value) map.set(module.key, module);
+  return map;
+});
+
+const visibleEdges = computed(() =>
+  moduleEdges.value.filter(
+    (edge) => visibleModuleMap.value.has(edge.from) && visibleModuleMap.value.has(edge.to)
+  )
+);
+
+function edgePath(edge) {
+  const from = visibleModuleMap.value.get(edge.from);
+  const to = visibleModuleMap.value.get(edge.to);
+  if (!from || !to) return "";
+
+  const sx = from.x * 10;
+  const sy = from.y * 6.4;
+  const tx = to.x * 10;
+  const ty = to.y * 6.4;
+  const distance = Math.max(80, Math.abs(tx - sx));
+  const c1x = sx + distance * 0.38;
+  const c2x = tx - distance * 0.38;
+
+  return `M ${sx} ${sy} C ${c1x} ${sy}, ${c2x} ${ty}, ${tx} ${ty}`;
 }
 
-function isNext(node) {
-  return props.highlightId && normId(node.id) === normId(props.highlightId);
-}
-
-function nodeClass(node) {
-  const completed = props.isCompleted(node.id);
-  const unlockable = props.canUnlock(node);
+function edgeClass(edge) {
+  const from = moduleMap.value.get(edge.from);
+  const to = moduleMap.value.get(edge.to);
   return {
-    completed,
-    locked: !completed && !unlockable,
-    available: !completed && unlockable,
-    highlighted: isNext(node),
+    edge: true,
+    completed: from?.status === "completed" && to?.status !== "locked",
+    highlighted:
+      isHighlightedModule(from) ||
+      isHighlightedModule(to) ||
+      isActiveModule(from) ||
+      isActiveModule(to),
   };
 }
 
-function statusLabel(node) {
-  if (props.isCompleted(node.id)) {
-    return t("readingProgress.roadmap.atlas.completed");
-  }
+function setModuleRef(module, el) {
+  if (!el) return;
+  moduleRefs.set(module.key, el);
+  for (const node of module.nodes) moduleRefs.set(normId(node.id), el);
+}
 
-  if (props.canUnlock(node)) {
-    return t("readingProgress.roadmap.atlas.available");
-  }
+function selectModule(module) {
+  if (!module?.nextNode) return;
+  emit("select", module.nextNode.id);
+}
 
-  return t("readingProgress.roadmap.atlas.locked");
+function isHighlightedModule(module) {
+  if (!module || !props.highlightId) return false;
+  return module.key === moduleByNodeId.value.get(normId(props.highlightId));
+}
+
+function isActiveModule(module) {
+  if (!module || !props.activeId) return false;
+  return module.key === moduleByNodeId.value.get(normId(props.activeId));
+}
+
+function moduleClass(module) {
+  return {
+    completed: module.status === "completed",
+    available: module.status === "available",
+    locked: module.status === "locked",
+    highlighted: isHighlightedModule(module),
+    active: isActiveModule(module),
+  };
+}
+
+function lockedLabel(module) {
+  const blockers = moduleEdges.value
+    .filter((edge) => edge.to === module.key)
+    .map((edge) => moduleMap.value.get(edge.from))
+    .filter((from) => from && from.status !== "completed")
+    .slice(0, 2);
+
+  if (!blockers.length) return t("readingProgress.roadmap.quest.locked");
+  return t("readingProgress.roadmap.quest.lockedBy", {
+    modules: blockers.map((item) => item.name).join(", "),
+  });
 }
 
 async function scrollToNode(id) {
   await nextTick();
-  const el = nodeRefs.get(normId(id));
-  el?.scrollIntoView?.({ behavior: "smooth", block: "center", inline: "nearest" });
+  const el = moduleRefs.get(normId(id)) || moduleRefs.get(String(id));
+  el?.scrollIntoView?.({ behavior: "smooth", block: "center", inline: "center" });
 }
 
 function fitToScreen() {
@@ -373,22 +485,21 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 </script>
 
 <style scoped>
-.atlas-shell {
+.quest-shell {
   display: grid;
-  gap: 1.5rem;
+  gap: 1rem;
   min-width: 0;
 }
 
-.atlas-intro,
-.tracks-overview,
-.track-section {
+.quest-intro,
+.quest-stage {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--surface);
   box-shadow: var(--shadow-1);
 }
 
-.atlas-intro {
+.quest-intro {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 1.5rem;
@@ -396,7 +507,7 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   padding: 1.5rem;
 }
 
-.atlas-kicker {
+.quest-kicker {
   margin: 0 0 0.45rem;
   color: var(--accent);
   font-size: 0.78rem;
@@ -405,29 +516,17 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   text-transform: uppercase;
 }
 
-.atlas-intro h2,
-.overview-head h3,
-.track-header h3 {
+.quest-intro h2 {
   margin: 0;
   color: var(--text);
+  font-size: 2rem;
   line-height: 1.08;
 }
 
-.atlas-intro h2 {
-  font-size: 2rem;
-}
-
-.atlas-intro p:not(.atlas-kicker),
-.overview-head p,
-.track-card p,
-.module-meta p,
-.lesson-card p {
-  color: var(--text-secondary);
-}
-
-.atlas-intro p:not(.atlas-kicker) {
+.quest-intro p:not(.quest-kicker) {
   max-width: 74ch;
   margin: 0.75rem 0 0;
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -470,321 +569,198 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   background: #6b7280;
 }
 
-.tracks-overview {
-  padding: 1.5rem;
-}
-
-.overview-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: end;
-  margin-bottom: 1rem;
-}
-
-.overview-head h3 {
-  font-size: 1.45rem;
-}
-
-.track-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.85rem;
-}
-
-.track-card {
+.quest-stage {
   position: relative;
-  display: flex;
-  min-height: 270px;
-  flex-direction: column;
-  align-items: stretch;
+  overflow: hidden;
+}
+
+.stage-scroll {
+  overflow: auto;
   padding: 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.stage-canvas {
+  position: relative;
+  width: 1280px;
+  height: 820px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--track-color) 13%, transparent), transparent 42%),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(208, 138, 63, 0.06), transparent 38%),
     var(--surface-2);
+  background-size: 40px 40px, 40px 40px, auto, auto;
+  transform: scale(var(--map-scale));
+  transform-origin: top left;
+}
+
+:root[data-theme="light"] .stage-canvas {
+  background:
+    linear-gradient(rgba(20, 20, 20, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 20, 20, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(208, 138, 63, 0.08), transparent 38%),
+    var(--surface-2);
+  background-size: 40px 40px, 40px 40px, auto, auto;
+}
+
+.branch-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.edge {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 9 10;
+}
+
+:root[data-theme="light"] .edge {
+  stroke: rgba(20, 20, 20, 0.18);
+}
+
+.edge.completed {
+  stroke: rgba(208, 138, 63, 0.52);
+  stroke-dasharray: none;
+}
+
+.edge.highlighted {
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-dasharray: none;
+  filter: drop-shadow(0 0 8px rgba(208, 138, 63, 0.45));
+}
+
+.quest-node {
+  position: absolute;
+  z-index: 2;
+  width: 178px;
+  min-height: 126px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem;
+  transform: translate(-50%, -50%);
+  padding: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--track-color) 13%, transparent), transparent 46%),
+    var(--surface);
   color: var(--text);
   text-align: left;
   cursor: pointer;
+  box-shadow: var(--shadow-1);
   transition:
     transform 0.2s ease,
     border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
 }
 
-.track-card:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--track-color) 62%, var(--border));
+.quest-node:hover {
+  transform: translate(-50%, calc(-50% - 4px));
+  border-color: color-mix(in srgb, var(--track-color) 65%, var(--border));
   box-shadow: var(--shadow-2);
 }
 
-.track-number {
+.quest-node.locked {
+  opacity: 0.58;
+}
+
+.quest-node.completed {
+  border-color: color-mix(in srgb, var(--track-color) 72%, var(--border));
+}
+
+.quest-node.highlighted,
+.quest-node.active {
+  border-color: var(--track-color);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--track-color) 24%, transparent),
+    var(--shadow-2);
+}
+
+.node-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.node-id,
+.node-category,
+.next-badge,
+.node-meta,
+.locked-by {
+  font-size: 0.74rem;
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.node-id {
   color: var(--track-color);
-  font-weight: 900;
-  font-size: 0.86rem;
 }
 
-.track-card h4 {
-  margin: 0.75rem 0 0.45rem;
-  font-size: 1.08rem;
-  line-height: 1.15;
+.next-badge {
+  padding: 0.2rem 0.42rem;
+  border-radius: 999px;
+  background: var(--track-color);
+  color: #0a0a0a;
 }
 
-.track-card p {
-  margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.45;
+.node-category {
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-.mini-progress {
-  height: 6px;
-  margin-top: 1rem;
+.quest-node strong {
+  color: var(--text);
+  font-size: 0.98rem;
+  line-height: 1.18;
+}
+
+.node-progress {
+  display: block;
+  height: 5px;
   overflow: hidden;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
 }
 
-:root[data-theme="light"] .mini-progress {
+:root[data-theme="light"] .node-progress {
   background: rgba(20, 20, 20, 0.08);
 }
 
-.mini-progress span {
+.node-progress span {
   display: block;
   height: 100%;
   border-radius: inherit;
   background: var(--track-color);
 }
 
-.track-meta {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.45rem;
+.node-meta {
   color: var(--text-secondary);
-  font-size: 0.85rem;
 }
 
-.module-preview {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin-top: 1rem;
-}
-
-.module-preview span {
-  max-width: 100%;
-  padding: 0.28rem 0.48rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  color: var(--text-secondary);
-  font-size: 0.74rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.track-card strong {
+.locked-by {
   margin-top: auto;
-  padding-top: 1rem;
-  color: var(--track-color);
-  font-size: 0.92rem;
-}
-
-.journey-board {
-  display: grid;
-  gap: 1rem;
-}
-
-.track-section {
-  overflow: hidden;
-}
-
-.track-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: end;
-  padding: 1.4rem 1.5rem;
-  border-bottom: 1px solid var(--border);
-  background:
-    linear-gradient(90deg, color-mix(in srgb, var(--track-color) 12%, transparent), transparent 62%),
-    var(--surface);
-}
-
-.track-header h3 {
-  font-size: 1.65rem;
-}
-
-.track-score {
-  min-width: 118px;
-  text-align: right;
-}
-
-.track-score strong {
-  display: block;
-  color: var(--track-color);
-  font-size: 1.2rem;
-}
-
-.track-score span {
   color: var(--text-secondary);
-  font-size: 0.82rem;
-}
-
-.modules {
-  display: grid;
-}
-
-.module-block {
-  display: grid;
-  grid-template-columns: minmax(190px, 0.28fr) minmax(0, 1fr);
-  gap: 1rem;
-  padding: 1.1rem 1.5rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.module-block:last-child {
-  border-bottom: 0;
-}
-
-.module-meta {
-  position: sticky;
-  top: 92px;
-  align-self: start;
-}
-
-.module-count {
-  display: inline-flex;
-  min-height: 28px;
-  align-items: center;
-  padding: 0.25rem 0.55rem;
-  border: 1px solid color-mix(in srgb, var(--track-color) 50%, var(--border));
-  border-radius: 999px;
-  color: var(--track-color);
-  font-size: 0.78rem;
-  font-weight: 850;
-}
-
-.module-meta h4 {
-  margin: 0.75rem 0 0.5rem;
-  color: var(--text);
-  font-size: 1.06rem;
-  line-height: 1.22;
-}
-
-.module-meta p {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.45;
-}
-
-.lesson-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
-}
-
-.lesson-card {
-  position: relative;
-  display: flex;
-  min-height: 178px;
-  flex-direction: column;
-  align-items: stretch;
-  padding: 1rem;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface-2);
-  color: var(--text);
-  text-align: left;
-  cursor: pointer;
-  transition:
-    transform 0.18s ease,
-    border-color 0.18s ease,
-    box-shadow 0.18s ease,
-    opacity 0.18s ease;
-}
-
-.lesson-card:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--track-color) 62%, var(--border));
-  box-shadow: var(--shadow-1);
-}
-
-.lesson-card.locked {
-  opacity: 0.54;
-}
-
-.lesson-card.completed {
-  border-color: color-mix(in srgb, var(--track-color) 70%, var(--border));
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--track-color) 10%, transparent), transparent),
-    var(--surface-2);
-}
-
-.lesson-card.highlighted {
-  border-color: var(--track-color);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--track-color) 22%, transparent);
-}
-
-.lesson-seq {
-  color: var(--track-color);
-  font-size: 0.78rem;
-  font-weight: 900;
-}
-
-.next-badge {
-  position: absolute;
-  top: 0.8rem;
-  right: 0.8rem;
-  padding: 0.22rem 0.5rem;
-  border-radius: 999px;
-  background: var(--track-color);
-  color: #0a0a0a;
-  font-size: 0.7rem;
-  font-weight: 900;
-}
-
-.lesson-card h5 {
-  margin: 0.65rem 0 0.45rem;
-  padding-right: 3.2rem;
-  color: var(--text);
-  font-size: 1rem;
-  line-height: 1.22;
-}
-
-.lesson-card p {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.42;
-}
-
-.lesson-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-top: auto;
-  padding-top: 0.9rem;
-  color: var(--text-secondary);
-  font-size: 0.82rem;
-}
-
-.lesson-card.available .lesson-footer span:first-child {
-  color: #6ea8fe;
-}
-
-.lesson-card.completed .lesson-footer span:first-child {
-  color: var(--track-color);
 }
 
 .empty-state {
   padding: 2rem;
-  border: 1px dashed var(--border);
-  border-radius: 8px;
   text-align: center;
 }
 
 .empty-state h3 {
   margin: 0 0 0.5rem;
+  color: var(--text);
 }
 
 .empty-state p {
@@ -792,24 +768,9 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   color: var(--text-secondary);
 }
 
-@media (max-width: 1100px) {
-  .track-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .lesson-list {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 820px) {
-  .atlas-intro,
-  .track-header,
-  .module-block {
+  .quest-intro {
     grid-template-columns: 1fr;
-  }
-
-  .atlas-intro {
     padding: 1.2rem;
   }
 
@@ -817,40 +778,17 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
     justify-content: flex-start;
   }
 
-  .track-grid {
-    grid-template-columns: 1fr;
+  .stage-scroll {
+    padding: 0.75rem;
   }
 
-  .track-card {
-    min-height: auto;
+  .stage-canvas {
+    width: 1080px;
+    height: 760px;
   }
 
-  .track-header,
-  .module-block,
-  .tracks-overview {
-    padding: 1.15rem;
-  }
-
-  .track-score {
-    text-align: left;
-  }
-
-  .module-meta {
-    position: static;
-  }
-
-  .lesson-card {
-    min-height: 0;
-  }
-
-  .lesson-card h5 {
-    padding-right: 0;
-  }
-
-  .next-badge {
-    position: static;
-    align-self: flex-start;
-    margin-top: 0.45rem;
+  .quest-node {
+    width: 164px;
   }
 }
 </style>

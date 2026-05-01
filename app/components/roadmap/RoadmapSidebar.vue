@@ -32,6 +32,29 @@
       </header>
 
       <div class="panel-body">
+        <section v-if="moduleNodes.length > 1" class="section module-section">
+          <div class="section-icon">
+            <UIcon name="i-lucide-list-checks" aria-hidden="true" />
+          </div>
+          <div>
+            <h3>{{ t("readingProgress.roadmap.sidebar.moduleLessons") }}</h3>
+            <div class="module-list">
+              <button
+                v-for="item in moduleNodes"
+                :key="item.id"
+                class="module-item"
+                type="button"
+                :class="moduleItemClass(item)"
+                @click="emit('jump', item.id)"
+              >
+                <span class="module-item-id">{{ item.id }}</span>
+                <strong>{{ item.title }}</strong>
+                <small>{{ moduleItemStatus(item) }}</small>
+              </button>
+            </div>
+          </div>
+        </section>
+
         <section
           v-for="item in detailItems"
           :key="item.key"
@@ -145,6 +168,8 @@ const props = defineProps({
   completed: { type: Boolean, required: true },
   unlockable: { type: Boolean, required: true },
   isCompleted: { type: Function, required: true },
+  canUnlockNode: { type: Function, default: null },
+  moduleNodes: { type: Array, default: () => [] },
 });
 
 const emit = defineEmits(["close", "toggle-complete", "jump"]);
@@ -197,6 +222,24 @@ const statusText = computed(() => {
   if (props.unlockable) return t("readingProgress.roadmap.sidebar.availableText");
   return t("readingProgress.roadmap.sidebar.lockedText");
 });
+
+function canOpenNode(node) {
+  return Boolean(props.isCompleted(node.id) || props.canUnlockNode?.(node));
+}
+
+function moduleItemStatus(node) {
+  if (props.isCompleted(node.id)) return t("readingProgress.roadmap.sidebar.completed");
+  if (canOpenNode(node)) return t("readingProgress.roadmap.sidebar.available");
+  return t("readingProgress.roadmap.sidebar.locked");
+}
+
+function moduleItemClass(node) {
+  return {
+    active: props.node?.id === node.id,
+    done: props.isCompleted(node.id),
+    locked: !canOpenNode(node),
+  };
+}
 
 function categoryLabel(category) {
   return resourceCategoryLabel(category, t);
@@ -489,6 +532,71 @@ watch(
 .chip.done {
   border-color: rgba(208, 138, 63, 0.48);
   color: var(--accent);
+}
+
+.module-list {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.module-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.12rem 0.65rem;
+  align-items: center;
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.module-item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(208, 138, 63, 0.45);
+}
+
+.module-item.active {
+  border-color: var(--accent);
+  background: rgba(208, 138, 63, 0.08);
+}
+
+.module-item.locked {
+  opacity: 0.62;
+}
+
+.module-item.done {
+  border-color: rgba(208, 138, 63, 0.42);
+}
+
+.module-item-id {
+  grid-row: span 2;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.module-item strong {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.module-item small {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 800;
 }
 
 .action-bar {

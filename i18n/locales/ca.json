@@ -286,12 +286,41 @@
   },
   "resourcesHub": {
     "title": "Recursos",
+    "eyebrow": "Biblioteca d'estudi",
+    "intro": "Articles, exercicis i guies per consultar per tema. Aquesta pàgina és la biblioteca; el roadmap és el mapa de progressió.",
     "back": "← Enrere",
     "roadmap": {
-      "title": "Roadmap",
-      "subtitle": "Mapa interactiu d'aprenentatge amb recursos recomanats per a cada etapa"
+      "kicker": "Mapa de progrés",
+      "title": "Roadmap interactiu",
+      "subtitle": "Un recorregut visual amb branques, prerequisits i passos desbloquejables per avançar amb ordre.",
+      "compact": "Obrir el roadmap com a camí interactiu"
     },
+    "library": {
+      "kicker": "Consulta ràpida",
+      "title": "Recursos per apartats",
+      "subtitle": "Entra directament a una disciplina quan busques un article concret o vols repassar un bloc."
+    },
+    "stats": {
+      "disciplines": "disciplines",
+      "steps": "passos",
+      "estimated": "estimades",
+      "categories": "categories",
+      "resources": "recursos"
+    },
+    "categoriesEyebrow": "Apartats",
+    "categoriesTitle": "Tots els recursos per disciplina",
+    "categoriesIntro": "Cada apartat funciona com una prestatgeria: articles ordenats, progrés de lectura i accés ràpid.",
     "categoryCount": "{count} recurs en aquesta categoria | {count} recursos en aquesta categoria",
+    "categoryDescriptions": {
+      "disseny-de-so": "Síntesi, modulació, FX, resampling, foley i integració sonora.",
+      "edicio": "Comping, neteja, edició temporal i preparació perquè la mescla flueixi.",
+      "fonaments": "Acústica, percepció, àudio digital, flux de senyal i escolta crítica.",
+      "gravacio": "Cadena de captura, fase, sala, acústica i gestió de sessions.",
+      "harmonia": "Acords, funcions, voice leading, arranjament i harmonia aplicada.",
+      "llenguatge-musical": "Pitch, intervals, escales, ritme, expressió i anàlisi musical.",
+      "mescla": "Static mix, EQ, dinàmica, espai, estèreo, mixbus i traducció.",
+      "produccio": "Preproducció, visió, arranjament, MIDI, instruments i entregables."
+    },
     "categories": {
       "disseny-de-so": "Disseny de so",
       "edicio": "Edició",
@@ -398,7 +427,7 @@
     "roadmap": {
       "eyebrow": "Mapa d'aprenentatge",
       "title": "Roadmap de producció musical",
-      "intro": "Un atlas progressiu per aprendre producció, llenguatge musical, harmonia, gravació, edició, mescla i disseny de so amb ordre, criteri i un següent pas clar.",
+      "intro": "Un mapa de progressió per aprendre producció, llenguatge musical, harmonia, gravació, edició, mescla i disseny de so amb branques, prerequisits i un següent pas clar.",
       "synced": "Progrés sincronitzat",
       "local": "Progrés local",
       "connected": "Connectat com a",
@@ -454,6 +483,19 @@
         "emptyTitle": "Cap recurs coincideix",
         "emptyBody": "Ajusta la cerca, la categoria o els filtres per tornar a veure passos del roadmap."
       },
+      "quest": {
+        "kicker": "Mapa de progressió",
+        "title": "Camí principal i branques",
+        "intro": "Avança per mòduls: cada node obre un bloc d'articles i les línies mostren què desbloqueja què.",
+        "available": "Disponible",
+        "completed": "Completat",
+        "locked": "Bloquejat",
+        "moduleSteps": "{count} passos",
+        "next": "Següent",
+        "lockedBy": "Abans: {modules}",
+        "emptyTitle": "Cap camí visible",
+        "emptyBody": "Ajusta la cerca, la disciplina o els filtres per tornar a veure el mapa."
+      },
       "hud": {
         "progress": "Progrés",
         "streak": "Ratxa",
@@ -475,6 +517,7 @@
         "completedText": "Aquest pas ja forma part del teu recorregut.",
         "availableText": "Aquest és un bon moment per obrir-lo i treballar-lo.",
         "lockedText": "Completa els prerequisits per desbloquejar aquest pas.",
+        "moduleLessons": "Articles d'aquest mòdul",
         "openArticle": "Obre l'article",
         "markPending": "Marca com pendent",
         "markDone": "Marca com fet",

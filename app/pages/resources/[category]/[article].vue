@@ -3,9 +3,9 @@
     <section class="section">
       <h1 class="section-title heading-accent">{{ doc.title }}</h1>
 
-      <NuxtLink class="back" :to="localePath(`/resources/${category}`)">
+      <button class="back" type="button" @click="goBack">
         {{ $t("resourcesHub.back") }}
-      </NuxtLink>
+      </button>
 
       <div class="article-progress">
         <div>
@@ -56,6 +56,7 @@
 
 <script setup>
 const route = useRoute();
+const router = useRouter();
 const userStore = useUserStore();
 const localePath = useLocalePath();
 
@@ -76,6 +77,15 @@ const loginLink = computed(() => ({
   path: localePath("/login"),
   query: { redirect: route.fullPath },
 }));
+
+function goBack() {
+  if (import.meta.client && window.history.state?.back) {
+    router.back();
+    return;
+  }
+
+  navigateTo(localePath(`/resources/${category}`));
+}
 
 function toggleRead() {
   setRead(contentPath, !articleIsRead.value);
@@ -115,7 +125,9 @@ if (!doc.value) {
   border-radius: 50px;
 
   color: var(--text);
+  font: inherit;
   font-weight: 500;
+  cursor: pointer;
 
   text-decoration: none !important; /* blinda contra styles del markdown i globals */
   transition:

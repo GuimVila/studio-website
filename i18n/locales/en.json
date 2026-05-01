@@ -287,12 +287,41 @@
   },
   "resourcesHub": {
     "title": "Resources",
+    "eyebrow": "Study library",
+    "intro": "Articles, exercises, and guides organized by topic. This page is the library; the roadmap is the progression map.",
     "back": "← Back",
     "roadmap": {
-      "title": "Roadmap",
-      "subtitle": "Interactive learning map with recommended resources for each stage"
+      "kicker": "Progress map",
+      "title": "Interactive roadmap",
+      "subtitle": "A visual path with branches, prerequisites, and unlockable steps so you can move forward with structure.",
+      "compact": "Open the roadmap as an interactive path"
     },
+    "library": {
+      "kicker": "Quick lookup",
+      "title": "Resources by section",
+      "subtitle": "Jump straight into a discipline when you need a specific article or want to review a block."
+    },
+    "stats": {
+      "disciplines": "disciplines",
+      "steps": "steps",
+      "estimated": "estimated",
+      "categories": "categories",
+      "resources": "resources"
+    },
+    "categoriesEyebrow": "Sections",
+    "categoriesTitle": "All resources by discipline",
+    "categoriesIntro": "Each section works like a shelf: ordered articles, reading progress, and fast access.",
     "categoryCount": "{count} resource in this category | {count} resources in this category",
+    "categoryDescriptions": {
+      "disseny-de-so": "Synthesis, modulation, FX, resampling, foley, and sound integration.",
+      "edicio": "Comping, cleanup, timing edits, and preparation so the mix can flow.",
+      "fonaments": "Acoustics, perception, digital audio, signal flow, and critical listening.",
+      "gravacio": "Capture chain, phase, room, acoustics, and session management.",
+      "harmonia": "Chords, functions, voice leading, arrangement, and applied harmony.",
+      "llenguatge-musical": "Pitch, intervals, scales, rhythm, expression, and music analysis.",
+      "mescla": "Static mix, EQ, dynamics, space, stereo, mixbus, and translation.",
+      "produccio": "Preproduction, vision, arrangement, MIDI, instruments, and deliverables."
+    },
     "categories": {
       "disseny-de-so": "Sound design",
       "edicio": "Editing",
@@ -399,7 +428,7 @@
     "roadmap": {
       "eyebrow": "Learning map",
       "title": "Music production roadmap",
-      "intro": "A progressive atlas for learning production, music language, harmony, recording, editing, mixing, and sound design with structure, taste, and a clear next step.",
+      "intro": "A progression map for learning production, music language, harmony, recording, editing, mixing, and sound design with branches, prerequisites, and a clear next step.",
       "synced": "Synced progress",
       "local": "Local progress",
       "connected": "Connected as",
@@ -455,6 +484,19 @@
         "emptyTitle": "No matching resources",
         "emptyBody": "Adjust the search, category, or filters to see roadmap steps again."
       },
+      "quest": {
+        "kicker": "Progression map",
+        "title": "Main path and branches",
+        "intro": "Move through modules: each node opens a block of articles and the lines show what unlocks what.",
+        "available": "Available",
+        "completed": "Completed",
+        "locked": "Locked",
+        "moduleSteps": "{count} steps",
+        "next": "Next",
+        "lockedBy": "Before: {modules}",
+        "emptyTitle": "No visible path",
+        "emptyBody": "Adjust the search, discipline, or filters to see the map again."
+      },
       "hud": {
         "progress": "Progress",
         "streak": "Streak",
@@ -476,6 +518,7 @@
         "completedText": "This step is already part of your path.",
         "availableText": "This is a good moment to open and work through it.",
         "lockedText": "Complete the prerequisites to unlock this step.",
+        "moduleLessons": "Articles in this module",
         "openArticle": "Open article",
         "markPending": "Mark as pending",
         "markDone": "Mark as done",

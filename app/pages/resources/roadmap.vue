@@ -35,13 +35,13 @@
       <div v-if="!userStore.isLoggedIn" class="account-actions">
         <NuxtLink
           class="btn btn-primary"
-          :to="{ path: localePath('/login'), query: { redirect: localePath('/resources/roadmap') } }"
+          :to="{ path: localePath('/login'), query: { redirect: route.fullPath } }"
         >
           {{ $t("readingProgress.roadmap.login") }}
         </NuxtLink>
         <NuxtLink
           class="btn btn-secondary"
-          :to="{ path: localePath('/register'), query: { redirect: localePath('/resources/roadmap') } }"
+          :to="{ path: localePath('/register'), query: { redirect: route.fullPath } }"
         >
           {{ $t("readingProgress.roadmap.register") }}
         </NuxtLink>
@@ -82,6 +82,7 @@
       :focus-ids="focusIds"
       :highlight-edges="highlightEdges"
       :highlight-id="nextId"
+      :active-id="selectedId"
       :next-seq="nextSeq"
       :is-completed="isCompleted"
       :can-unlock="canUnlock"
@@ -95,7 +96,9 @@
       :completed="selectedNode ? isCompleted(selectedNode.id) : false"
       :unlockable="selectedNode ? canUnlock(selectedNode) : false"
       :is-completed="isCompleted"
-      @close="sidebarOpen = false"
+      :can-unlock-node="canUnlock"
+      :module-nodes="selectedModuleNodes"
+      @close="closeSidebar"
       @toggle-complete="toggleComplete"
       @jump="jumpTo"
     />
@@ -103,13 +106,15 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, nextTick, onMounted, watch } from "vue";
 import { buildTopoIndex, getNextBestNode } from "~/utils/roadmapNext";
 import { computeFocusSet } from "~/utils/roadmapFocus";
 import { useRoadmapProgress } from "~/composables/useRoadmapProgress";
 import roadmap from "../../../data/roadmap.json";
 
 const data = computed(() => roadmap || { nodes: [] });
+const route = useRoute();
+const router = useRouter();
 const userStore = useUserStore();
 const { t } = useI18n();
 const localePath = useLocalePath();
@@ -136,11 +141,16 @@ const completedUpper = computed(() => {
   return s;
 });
 
-const search = ref("");
-const category = ref("");
-const hideLocked = ref(false);
+function queryValue(key) {
+  const value = route.query[key];
+  return Array.isArray(value) ? String(value[0] || "") : String(value || "");
+}
+
+const search = ref(queryValue("q"));
+const category = ref(queryValue("cat"));
+const hideLocked = ref(queryValue("hide") === "1");
 const zoom = ref(1);
-const focusMode = ref(false);
+const focusMode = ref(queryValue("focus") === "1");
 
 const categories = computed(() =>
   Array.from(new Set((data.value.nodes || []).map((n) => n.category))).sort()
@@ -209,7 +219,8 @@ const estimatedMinutes = computed(() => {
 });
 
 const sidebarOpen = ref(false);
-const selectedId = ref(null);
+const selectedId = ref(queryValue("node") || null);
+const syncingRoute = ref(false);
 
 const selectedNode = computed(() => {
   if (!selectedId.value) return null;
@@ -220,10 +231,33 @@ const selectedNode = computed(() => {
   );
 });
 
+const selectedModuleNodes = computed(() => {
+  if (!selectedNode.value) return [];
+  return sortedBySeq(
+    (data.value.nodes || []).filter(
+      (node) =>
+        node.category === selectedNode.value.category &&
+        node.module === selectedNode.value.module
+    )
+  );
+});
+
+function sortedBySeq(nodes) {
+  return [...nodes].sort((a, b) => {
+    const seqA = Number.isFinite(a.seq) ? a.seq : 999999;
+    const seqB = Number.isFinite(b.seq) ? b.seq : 999999;
+    return seqA - seqB;
+  });
+}
+
 /** @param {string} id */
 function selectNode(id) {
   selectedId.value = id;
   sidebarOpen.value = true;
+}
+
+function closeSidebar() {
+  sidebarOpen.value = false;
 }
 
 const mapRef = ref(null);
@@ -265,6 +299,63 @@ function onSelect(id) {
   selectNode(id);
   mapRef.value?.scrollToNode?.(id);
 }
+
+function syncQuery() {
+  if (!import.meta.client || syncingRoute.value) return;
+
+  const query = { ...route.query };
+  delete query.q;
+  delete query.cat;
+  delete query.hide;
+  delete query.focus;
+  delete query.node;
+
+  if (search.value.trim()) query.q = search.value.trim();
+  if (category.value) query.cat = category.value;
+  if (hideLocked.value) query.hide = "1";
+  if (focusMode.value) query.focus = "1";
+  if (sidebarOpen.value && selectedId.value) query.node = selectedId.value;
+
+  router.replace({ query });
+}
+
+function applyRouteQuery() {
+  syncingRoute.value = true;
+  search.value = queryValue("q");
+  category.value = queryValue("cat");
+  hideLocked.value = queryValue("hide") === "1";
+  focusMode.value = queryValue("focus") === "1";
+
+  const node = queryValue("node");
+  if (node) {
+    selectedId.value = node;
+    sidebarOpen.value = true;
+    nextTick(() => mapRef.value?.scrollToNode?.(node));
+  } else if (sidebarOpen.value) {
+    sidebarOpen.value = false;
+  }
+
+  nextTick(() => {
+    syncingRoute.value = false;
+  });
+}
+
+watch(
+  () => route.query,
+  () => applyRouteQuery()
+);
+
+watch(
+  [search, category, hideLocked, focusMode, selectedId, sidebarOpen],
+  () => syncQuery()
+);
+
+onMounted(() => {
+  if (selectedId.value) {
+    sidebarOpen.value = true;
+    nextTick(() => mapRef.value?.scrollToNode?.(selectedId.value));
+  }
+});
 </script>
 
 <style scoped>

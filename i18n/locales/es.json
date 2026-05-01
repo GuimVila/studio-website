@@ -286,12 +286,41 @@
   },
   "resourcesHub": {
     "title": "Recursos",
+    "eyebrow": "Biblioteca de estudio",
+    "intro": "Artículos, ejercicios y guías para consultar por tema. Esta página es la biblioteca; el roadmap es el mapa de progresión.",
     "back": "← Atrás",
     "roadmap": {
-      "title": "Roadmap",
-      "subtitle": "Mapa interactivo de aprendizaje con recursos recomendados para cada etapa"
+      "kicker": "Mapa de progreso",
+      "title": "Roadmap interactivo",
+      "subtitle": "Un recorrido visual con ramas, prerequisitos y pasos desbloqueables para avanzar con orden.",
+      "compact": "Abrir el roadmap como camino interactivo"
     },
+    "library": {
+      "kicker": "Consulta rápida",
+      "title": "Recursos por apartados",
+      "subtitle": "Entra directamente en una disciplina cuando buscas un artículo concreto o quieres repasar un bloque."
+    },
+    "stats": {
+      "disciplines": "disciplinas",
+      "steps": "pasos",
+      "estimated": "estimadas",
+      "categories": "categorías",
+      "resources": "recursos"
+    },
+    "categoriesEyebrow": "Apartados",
+    "categoriesTitle": "Todos los recursos por disciplina",
+    "categoriesIntro": "Cada apartado funciona como una estantería: artículos ordenados, progreso de lectura y acceso rápido.",
     "categoryCount": "{count} recurso en esta categoría | {count} recursos en esta categoría",
+    "categoryDescriptions": {
+      "disseny-de-so": "Síntesis, modulación, FX, resampling, foley e integración sonora.",
+      "edicio": "Comping, limpieza, edición temporal y preparación para que la mezcla fluya.",
+      "fonaments": "Acústica, percepción, audio digital, flujo de señal y escucha crítica.",
+      "gravacio": "Cadena de captura, fase, sala, acústica y gestión de sesiones.",
+      "harmonia": "Acordes, funciones, voice leading, arreglo y armonía aplicada.",
+      "llenguatge-musical": "Pitch, intervalos, escalas, ritmo, expresión y análisis musical.",
+      "mescla": "Static mix, EQ, dinámica, espacio, estéreo, mixbus y traducción.",
+      "produccio": "Preproducción, visión, arreglo, MIDI, instrumentos y entregables."
+    },
     "categories": {
       "disseny-de-so": "Diseño de sonido",
       "edicio": "Edición",
@@ -398,7 +427,7 @@
     "roadmap": {
       "eyebrow": "Mapa de aprendizaje",
       "title": "Roadmap de producción musical",
-      "intro": "Un atlas progresivo para aprender producción, lenguaje musical, armonía, grabación, edición, mezcla y diseño de sonido con orden, criterio y un siguiente paso claro.",
+      "intro": "Un mapa de progresión para aprender producción, lenguaje musical, armonía, grabación, edición, mezcla y diseño de sonido con ramas, prerequisitos y un siguiente paso claro.",
       "synced": "Progreso sincronizado",
       "local": "Progreso local",
       "connected": "Conectado como",
@@ -454,6 +483,19 @@
         "emptyTitle": "No hay recursos coincidentes",
         "emptyBody": "Ajusta la búsqueda, la categoría o los filtros para volver a ver pasos del roadmap."
       },
+      "quest": {
+        "kicker": "Mapa de progresión",
+        "title": "Camino principal y ramas",
+        "intro": "Avanza por módulos: cada nodo abre un bloque de artículos y las líneas muestran qué desbloquea qué.",
+        "available": "Disponible",
+        "completed": "Completado",
+        "locked": "Bloqueado",
+        "moduleSteps": "{count} pasos",
+        "next": "Siguiente",
+        "lockedBy": "Antes: {modules}",
+        "emptyTitle": "No hay camino visible",
+        "emptyBody": "Ajusta la búsqueda, la disciplina o los filtros para volver a ver el mapa."
+      },
       "hud": {
         "progress": "Progreso",
         "streak": "Racha",
@@ -475,6 +517,7 @@
         "completedText": "Este paso ya forma parte de tu recorrido.",
         "availableText": "Este es un buen momento para abrirlo y trabajarlo.",
         "lockedText": "Completa los prerequisitos para desbloquear este paso.",
+        "moduleLessons": "Artículos de este módulo",
         "openArticle": "Abrir el artículo",
         "markPending": "Marcar como pendiente",
         "markDone": "Marcar como hecho",
