@@ -176,8 +176,10 @@
     }
   },
   "gallery": {
+    "eyebrow": "Estudio visual",
     "title": "Galería",
     "subtitle": "Una muestra visual del estudio. Equipamiento y sesiones de trabajo.",
+    "note": "Una galería pensada para transmitir espacio, textura y proceso sin depender de una cuadrícula rígida.",
     "images": {
       "controlRoom": "Sala principal de control",
       "analogRack": "Rack analógico",

@@ -176,8 +176,10 @@
     }
   },
   "gallery": {
+    "eyebrow": "Visual studio",
     "title": "Gallery",
     "subtitle": "A visual selection of the studio. Gear and work sessions.",
+    "note": "A gallery designed to convey space, texture, and process without relying on a rigid grid.",
     "images": {
       "controlRoom": "Main control room",
       "analogRack": "Analog rack",

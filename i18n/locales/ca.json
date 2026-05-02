@@ -176,8 +176,10 @@
     }
   },
   "gallery": {
+    "eyebrow": "Estudi visual",
     "title": "Galeria",
     "subtitle": "Una mostra visual de l'estudi. Equipaments i sessions de treball.",
+    "note": "Una galeria pensada per transmetre espai, textura i procés sense dependre d’una graella rígida.",
     "images": {
       "controlRoom": "Sala principal de control",
       "analogRack": "Rack analògic",
