@@ -7,6 +7,7 @@
     "dev": "npm run sync:roadmap && nuxt dev",
     "build": "npm run sync:roadmap && nuxt build",
     "generate": "npm run sync:roadmap && nuxt generate",
+    "notify:resource": "node scripts/notify-new-resource.mjs",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "test": "vitest",
