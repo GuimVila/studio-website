@@ -45,35 +45,6 @@
           </LocaleLink>
         </div>
 
-        <div class="hero-route-strip" :aria-label="$t('hero.routes.label')">
-          <LocaleLink to="/contact" class="route-link">
-            <span>{{ $t("hero.routes.project.kicker") }}</span>
-            <strong>{{ $t("hero.routes.project.title") }}</strong>
-          </LocaleLink>
-          <LocaleLink to="/services" class="route-link">
-            <span>{{ $t("hero.routes.services.kicker") }}</span>
-            <strong>{{ $t("hero.routes.services.title") }}</strong>
-          </LocaleLink>
-          <LocaleLink to="/resources/roadmap" class="route-link">
-            <span>{{ $t("hero.routes.learn.kicker") }}</span>
-            <strong>{{ $t("hero.routes.learn.title") }}</strong>
-          </LocaleLink>
-        </div>
-
-        <div class="hero-proof">
-          <div class="proof-item">
-            <strong>10+</strong>
-            <span>{{ $t("hero.stats.experience") }}</span>
-          </div>
-          <div class="proof-item">
-            <strong>{{ $t("hero.stats.studioLabel") }}</strong>
-            <span>{{ $t("hero.stats.studio") }}</span>
-          </div>
-          <div class="proof-item">
-            <strong>{{ $t("hero.stats.resourcesLabel") }}</strong>
-            <span>{{ $t("hero.stats.resources") }}</span>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -181,7 +152,7 @@ onUnmounted(() => {
 }
 
 .hero-content-wrapper {
-  max-width: 860px;
+  max-width: 780px;
 }
 
 .hero-badges {
@@ -223,9 +194,9 @@ onUnmounted(() => {
 }
 
 .hero-title {
-  max-width: 760px;
+  max-width: 740px;
   margin: 0 0 1.15rem;
-  font-size: 5rem;
+  font-size: clamp(3.8rem, 6vw, 5rem);
   font-weight: 930;
   line-height: 1.02;
   letter-spacing: 0;
@@ -266,7 +237,7 @@ onUnmounted(() => {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 0;
 }
 
 .cta-primary,
@@ -335,103 +306,6 @@ onUnmounted(() => {
 .cta-tertiary:hover {
   border-color: rgba(255, 255, 255, 0.32);
   background: rgba(255, 255, 255, 0.12);
-}
-
-.hero-proof {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  max-width: 660px;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-.hero-route-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  max-width: 760px;
-  margin: 0 0 1.35rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-:root[data-theme="light"] .hero-route-strip {
-  border-color: rgba(20, 20, 20, 0.14);
-}
-
-.route-link {
-  display: grid;
-  gap: 0.18rem;
-  padding: 0.85rem 1rem 0.85rem 0;
-  color: var(--text);
-  transition:
-    color 0.2s ease,
-    background 0.2s ease;
-}
-
-.route-link + .route-link {
-  padding-left: 1rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-:root[data-theme="light"] .route-link + .route-link {
-  border-color: rgba(20, 20, 20, 0.14);
-}
-
-.route-link span {
-  color: var(--accent-light);
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-:root[data-theme="light"] .route-link span {
-  color: var(--accent-dark);
-}
-
-.route-link strong {
-  font-size: 0.98rem;
-  line-height: 1.25;
-}
-
-.route-link:hover {
-  color: var(--accent-light);
-}
-
-:root[data-theme="light"] .hero-proof {
-  border-color: rgba(20, 20, 20, 0.14);
-}
-
-.proof-item {
-  padding: 1rem 1.1rem 1rem 0;
-}
-
-.proof-item + .proof-item {
-  padding-left: 1.1rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-:root[data-theme="light"] .proof-item + .proof-item {
-  border-color: rgba(20, 20, 20, 0.14);
-}
-
-.proof-item strong {
-  display: block;
-  color: var(--text);
-  font-size: 1.2rem;
-  line-height: 1.2;
-}
-
-.proof-item span {
-  display: block;
-  margin-top: 0.25rem;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.86rem;
-  line-height: 1.4;
-}
-
-:root[data-theme="light"] .proof-item span {
-  color: rgba(20, 20, 20, 0.62);
 }
 
 @media (max-width: 1100px) {
@@ -505,7 +379,7 @@ onUnmounted(() => {
     display: grid;
     grid-template-columns: 1fr;
     gap: 0.65rem;
-    margin-bottom: 1.1rem;
+    margin-bottom: 0;
   }
 
   .cta-primary,
@@ -517,51 +391,11 @@ onUnmounted(() => {
     font-size: 0.94rem;
   }
 
-  .hero-proof {
-    grid-template-columns: 1fr;
-    max-width: none;
-    border-bottom: 0;
-  }
-
-  .hero-route-strip {
-    grid-template-columns: 1fr;
-    max-width: none;
-    margin-bottom: 1.05rem;
-    border-bottom: 0;
-  }
-
-  .route-link,
-  .route-link + .route-link {
-    padding: 0.68rem 0;
-    border-left: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-  }
-
-  :root[data-theme="light"] .route-link,
-  :root[data-theme="light"] .route-link + .route-link {
-    border-color: rgba(20, 20, 20, 0.14);
-  }
-
-  .proof-item,
-  .proof-item + .proof-item {
-    padding: 0.72rem 0;
-    border-left: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-  }
-
-  :root[data-theme="light"] .proof-item,
-  :root[data-theme="light"] .proof-item + .proof-item {
-    border-color: rgba(20, 20, 20, 0.14);
-  }
 }
 
 @media (max-width: 420px) {
   .hero-title {
     font-size: 2.3rem;
-  }
-
-  .hero-proof {
-    display: none;
   }
 }
 </style>
