@@ -27,6 +27,11 @@ defineProps({
   align-items: stretch;
 }
 
+.gallery-grid :deep(.gallery-item) {
+  grid-column: span 4;
+  min-height: 280px;
+}
+
 .gallery-grid :deep(.gallery-item:nth-child(1)) {
   grid-column: span 7;
   grid-row: span 2;
@@ -41,6 +46,22 @@ defineProps({
 
 .gallery-grid :deep(.gallery-item:nth-child(4)),
 .gallery-grid :deep(.gallery-item:nth-child(5)) {
+  grid-column: span 6;
+  min-height: 320px;
+}
+
+.gallery-grid :deep(.gallery-item:nth-child(6n + 6)) {
+  grid-column: span 8;
+  min-height: 360px;
+}
+
+.gallery-grid :deep(.gallery-item:nth-child(6n + 7)) {
+  grid-column: span 4;
+  min-height: 360px;
+}
+
+.gallery-grid :deep(.gallery-item:nth-child(6n + 8)),
+.gallery-grid :deep(.gallery-item:nth-child(6n + 9)) {
   grid-column: span 6;
   min-height: 320px;
 }

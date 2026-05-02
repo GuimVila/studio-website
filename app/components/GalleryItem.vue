@@ -5,7 +5,7 @@
       :alt="image.alt"
       :loading="featured ? 'eager' : 'lazy'"
       :fetchpriority="featured ? 'high' : 'auto'"
-      sizes="100vw md:50vw lg:58vw"
+      :sizes="imageSizes"
       width="1200"
       height="900"
       format="webp"
@@ -27,6 +27,10 @@ const props = defineProps({
 });
 
 const paddedIndex = computed(() => String(props.index).padStart(2, "0"));
+
+const imageSizes = computed(() =>
+  props.featured ? "100vw md:100vw lg:58vw" : "100vw md:50vw lg:33vw"
+);
 </script>
 
 <style scoped>
