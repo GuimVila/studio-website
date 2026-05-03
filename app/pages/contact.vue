@@ -68,10 +68,16 @@
               <option value="edicio">
                 {{ $t("contact.form.services.editing") }}
               </option>
+              <option value="collaboracio">
+                {{ $t("contact.form.services.collaboration") }}
+              </option>
               <option value="altre">
                 {{ $t("contact.form.services.other") }}
               </option>
             </select>
+            <p v-if="formData.service === 'collaboracio'" class="form-hint">
+              {{ $t("contact.form.collaborationHint") }}
+            </p>
           </div>
 
           <div class="form-group">
@@ -141,9 +147,11 @@
 </template>
 
 <script setup>
+import { watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { useContactForm } from "~/composables/useContactForm";
 
+const route = useRoute();
 const { t } = useI18n();
 
 const {
@@ -154,6 +162,31 @@ const {
   submitForm,
   honeypot,
 } = useContactForm();
+
+const serviceValues = new Set([
+  "mescla",
+  "gravacio",
+  "produccio",
+  "edicio",
+  "collaboracio",
+  "altre",
+]);
+
+function serviceQueryValue() {
+  const value = route.query.service;
+  return Array.isArray(value) ? String(value[0] || "") : String(value || "");
+}
+
+watch(
+  () => route.query.service,
+  () => {
+    const service = serviceQueryValue();
+    if (serviceValues.has(service)) {
+      formData.value.service = service;
+    }
+  },
+  { immediate: true }
+);
 
 useHead(() => ({
   title: t("contact.seo.title"),
@@ -188,6 +221,13 @@ useHead(() => ({
   font-weight: 600;
 }
 
+.form-hint {
+  margin: 0.55rem 0 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -202,6 +242,20 @@ useHead(() => ({
   transition:
     border-color 0.3s,
     box-shadow 0.3s;
+}
+
+.form-group select {
+  appearance: none;
+  padding-right: 3rem;
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--text-secondary) 50%),
+    linear-gradient(135deg, var(--text-secondary) 50%, transparent 50%);
+  background-position:
+    calc(100% - 1.15rem) 50%,
+    calc(100% - 0.78rem) 50%;
+  background-repeat: no-repeat;
+  background-size: 0.38rem 0.38rem, 0.38rem 0.38rem;
 }
 
 .form-group input:focus,

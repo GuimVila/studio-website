@@ -268,10 +268,12 @@
         "recording": "Gravació",
         "production": "Producció",
         "editing": "Edició",
+        "collaboration": "Col·laboració en recursos",
         "other": "Altres"
       },
       "messageLabel": "Missatge *",
       "messagePlaceholder": "Explica el teu projecte, objectius, terminis, etc.",
+      "collaborationHint": "Explica quina àrea domines, què voldries aportar i adjunta algun enllaç o mostra si en tens.",
       "submit": "Enviar missatge",
       "sending": "Enviant..."
     },
@@ -289,13 +291,27 @@
   "resourcesHub": {
     "title": "Recursos",
     "eyebrow": "Biblioteca d'estudi",
-    "intro": "Articles, exercicis i guies per consultar per tema. Aquesta pàgina és la biblioteca; el roadmap és el mapa de progressió.",
+    "intro": "Articles, exercicis i guies per consultar per tema. Aquesta pàgina és la biblioteca; la guia d'estudi t'ajuda a decidir per on continuar.",
     "back": "← Enrere",
     "roadmap": {
-      "kicker": "Mapa de progrés",
-      "title": "Roadmap interactiu",
-      "subtitle": "Un recorregut visual amb branques, prerequisits i passos desbloquejables per avançar amb ordre.",
-      "compact": "Obrir el roadmap com a camí interactiu"
+      "kicker": "Guia d'estudi",
+      "title": "Per on continuo?",
+      "subtitle": "Tria una intenció i rep una seqüència curta d'articles per avançar sense perdre't.",
+    "compact": "Obrir la guia d'estudi"
+    },
+    "collaboration": {
+      "kicker": "Convocatòria oberta",
+      "title": "Vols col·laborar amb els recursos?",
+      "body": "Si domines una àrea concreta i vols proposar articles, revisar contingut o aportar exercicis, escriu-me. Mantindré el criteri editorial, però vull que la biblioteca pugui créixer amb veus sòlides.",
+      "cta": "Proposar col·laboració",
+      "areasLabel": "Àrees de col·laboració",
+      "areas": {
+        "language": "Llenguatge",
+        "harmony": "Harmonia",
+        "mixing": "Mescla",
+        "soundDesign": "Disseny de so",
+        "production": "Producció"
+      }
     },
     "library": {
       "kicker": "Consulta ràpida",
@@ -415,7 +431,11 @@
     },
     "article": {
       "markRead": "Marca com llegit",
-      "markPending": "Marca com pendent"
+      "markPending": "Marca com pendent",
+      "continueKicker": "Continua aprenent",
+      "continueTitle": "Després d'aquest article",
+      "continueIntro": "Et proposo uns quants passos propers perquè no hagis de tornar a buscar per on seguir.",
+      "openGuide": "Obrir la guia d'estudi"
     },
     "category": {
       "title": "Progrés",
@@ -427,9 +447,9 @@
       "empty": "No s'han trobat articles en aquesta categoria."
     },
     "roadmap": {
-      "eyebrow": "Mapa d'aprenentatge",
-      "title": "Roadmap de producció musical",
-      "intro": "Un mapa de progressió per aprendre producció, llenguatge musical, harmonia, gravació, edició, mescla i disseny de so amb branques, prerequisits i un següent pas clar.",
+      "eyebrow": "Guia d'estudi",
+      "title": "Per on continuo?",
+      "intro": "Tria què vols aconseguir i rep una seqüència curta d'articles. Sense mapa complicat: només el següent pas, alternatives útils i progrés guardat.",
       "synced": "Progrés sincronitzat",
       "local": "Progrés local",
       "connected": "Connectat com a",
@@ -437,7 +457,63 @@
       "localCopy": "Pots marcar recursos igualment, però si inicies sessió el progrés es guardarà al teu compte i el podràs recuperar més endavant.",
       "login": "Entrar",
       "register": "Crear compte",
-      "confirmReset": "Vols reiniciar tot el progrés del roadmap? Aquesta acció marcarà tots els recursos com a pendents.",
+      "confirmReset": "Vols reiniciar tot el progrés de la guia? Aquesta acció marcarà tots els recursos com a pendents.",
+      "guide": {
+        "chooseKicker": "Punt d'entrada",
+        "chooseTitle": "Què vols fer ara?",
+        "chooseIntro": "Tria un objectiu. Començar des de zero mostra tot el recorregut; la resta són dreceres per una necessitat concreta.",
+        "pathMeta": "{pending} pendents · {count} recursos",
+        "currentPath": "Camí triat",
+        "completedInPath": "recursos completats en aquest camí",
+        "reset": "Reinicia progrés",
+        "searchKicker": "Consulta puntual",
+        "searchTitle": "Vens d'un vídeo o tens un dubte concret?",
+        "searchIntro": "Això no és un camí d'estudi: obre la cerca només quan vulguis trobar un concepte concret.",
+        "searchOpen": "Buscar concepte",
+        "searchClose": "Tancar cerca",
+        "searchLabel": "Buscar un concepte concret",
+        "searchPlaceholder": "Fase, EQ, compressió, harmonia...",
+        "searchHint": "Si vens d'un vídeo, escriu el concepte i obre directament l'article més proper.",
+        "nextKicker": "Següent recomanat",
+        "openArticle": "Obrir article",
+        "minutes": "{count} min",
+        "allDoneKicker": "Camí completat",
+        "allDoneTitle": "Ja tens aquest camí al dia",
+        "allDoneBody": "Pots triar un altre objectiu o buscar un concepte concret.",
+        "listKicker": "Seqüència",
+        "listTitle": "Articles recomanats",
+        "listIntro": "Una llista curta, ordenada i accionable. Després de cada article pots marcar-lo com llegit i continuar.",
+        "searchResults": "Resultats de cerca",
+        "searchResultsIntro": "Articles que encaixen amb el concepte que has escrit.",
+        "emptyTitle": "No hi ha resultats",
+        "emptyBody": "Prova amb una paraula més general o tria un altre camí.",
+        "paths": {
+          "start": {
+            "title": "Començar des de zero",
+            "description": "Tot el recorregut ordenat, dels fonaments fins a producció, harmonia, mescla i disseny de so."
+          },
+          "song": {
+            "title": "Vull acabar una cançó",
+            "description": "Producció, gravació, edició i mescla amb una orientació pràctica cap a acabar material."
+          },
+          "mix": {
+            "title": "Vull millorar les mescles",
+            "description": "Static mix, EQ, dinàmica, espai, estèreo i criteri per prendre decisions."
+          },
+          "theory": {
+            "title": "Vull entendre música",
+            "description": "Llenguatge musical, harmonia i eines per analitzar i escriure amb més criteri."
+          },
+          "sound": {
+            "title": "Vull dissenyar sons",
+            "description": "Síntesi, modulació, textures i recursos sonors aplicats a producció."
+          },
+          "video": {
+            "title": "Vinc d'un vídeo",
+            "description": "Busca el concepte que acabes de veure i continua amb articles relacionats."
+          }
+        }
+      },
       "controls": {
         "kicker": "Navegació",
         "title": "Troba el teu següent pas",
@@ -463,7 +539,9 @@
         "goNext": "Anar al següent",
         "centerNext": "Centrar node següent recomanat",
         "noNext": "No hi ha node recomanat",
-        "zoom": "Zoom"
+        "zoom": "Zoom",
+        "zoomIn": "Apropar",
+        "zoomOut": "Allunyar"
       },
       "atlas": {
         "kicker": "Atlas interactiu",

@@ -99,6 +99,21 @@
       </NuxtLink>
     </section>
 
+    <section class="collab-panel">
+      <div>
+        <p class="card-kicker">{{ $t("resourcesHub.collaboration.kicker") }}</p>
+        <h2>{{ $t("resourcesHub.collaboration.title") }}</h2>
+        <p>{{ $t("resourcesHub.collaboration.body") }}</p>
+      </div>
+
+      <div class="collab-actions">
+        <NuxtLink class="collab-link" :to="collaborationContactLink">
+          {{ $t("resourcesHub.collaboration.cta") }}
+          <UIcon name="i-lucide-arrow-right" aria-hidden="true" />
+        </NuxtLink>
+      </div>
+    </section>
+
     <p v-if="!pending && !categories.length" class="debug">
       {{
         $t("resourcesHub.debug.noCategories", { count: (docs || []).length })
@@ -115,6 +130,11 @@ import roadmap from "../../../data/roadmap.json";
 
 const { t } = useI18n();
 const localePath = useLocalePath();
+
+const collaborationContactLink = computed(() => ({
+  path: localePath("/contact"),
+  query: { service: "collaboracio" },
+}));
 
 const categoryOrder = [
   "fonaments",
@@ -570,6 +590,64 @@ const categories = computed(() => {
   font-weight: 900;
 }
 
+.collab-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.25rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(208, 138, 63, 0.12), transparent 52%),
+    var(--surface);
+  box-shadow: var(--shadow-1);
+}
+
+.collab-panel h2 {
+  margin: 0.35rem 0 0.6rem;
+  color: var(--text);
+  font-size: 1.65rem;
+  line-height: 1.1;
+}
+
+.collab-panel p:not(.card-kicker) {
+  max-width: 70ch;
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.collab-actions {
+  justify-self: end;
+}
+
+.collab-link {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(208, 138, 63, 0.62);
+  border-radius: 999px;
+  background: rgba(208, 138, 63, 0.1);
+  color: var(--accent);
+  font-weight: 900;
+  text-decoration: none;
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease;
+}
+
+.collab-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(208, 138, 63, 0.82);
+  background: rgba(208, 138, 63, 0.16);
+}
+
 .debug {
   margin-top: 2rem;
   font-size: 0.9rem;
@@ -588,7 +666,8 @@ const categories = computed(() => {
 
   .featured,
   .roadmap-card,
-  .section-head {
+  .section-head,
+  .collab-panel {
     grid-template-columns: 1fr;
   }
 
@@ -606,6 +685,10 @@ const categories = computed(() => {
 
   .card {
     min-height: 0;
+  }
+
+  .collab-actions {
+    justify-self: start;
   }
 }
 

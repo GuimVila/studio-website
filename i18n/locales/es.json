@@ -268,10 +268,12 @@
         "recording": "Grabación",
         "production": "Producción",
         "editing": "Edición",
+        "collaboration": "Colaboración en recursos",
         "other": "Otros"
       },
       "messageLabel": "Mensaje *",
       "messagePlaceholder": "Cuéntame tu proyecto, objetivos, plazos, etc.",
+      "collaborationHint": "Cuenta qué área dominas, qué te gustaría aportar y añade algún enlace o muestra si tienes.",
       "submit": "Enviar mensaje",
       "sending": "Enviando..."
     },
@@ -289,13 +291,27 @@
   "resourcesHub": {
     "title": "Recursos",
     "eyebrow": "Biblioteca de estudio",
-    "intro": "Artículos, ejercicios y guías para consultar por tema. Esta página es la biblioteca; el roadmap es el mapa de progresión.",
+    "intro": "Artículos, ejercicios y guías para consultar por tema. Esta página es la biblioteca; la guía de estudio te ayuda a decidir por dónde continuar.",
     "back": "← Atrás",
     "roadmap": {
-      "kicker": "Mapa de progreso",
-      "title": "Roadmap interactivo",
-      "subtitle": "Un recorrido visual con ramas, prerequisitos y pasos desbloqueables para avanzar con orden.",
-      "compact": "Abrir el roadmap como camino interactivo"
+      "kicker": "Guía de estudio",
+      "title": "¿Por dónde sigo?",
+      "subtitle": "Elige una intención y recibe una secuencia corta de artículos para avanzar sin perderte.",
+      "compact": "Abrir la guía de estudio"
+    },
+    "collaboration": {
+      "kicker": "Convocatoria abierta",
+      "title": "¿Quieres colaborar con los recursos?",
+      "body": "Si dominas un área concreta y quieres proponer artículos, revisar contenido o aportar ejercicios, escríbeme. Mantendré el criterio editorial, pero quiero que la biblioteca pueda crecer con voces sólidas.",
+      "cta": "Proponer colaboración",
+      "areasLabel": "Áreas de colaboración",
+      "areas": {
+        "language": "Lenguaje",
+        "harmony": "Armonía",
+        "mixing": "Mezcla",
+        "soundDesign": "Diseño de sonido",
+        "production": "Producción"
+      }
     },
     "library": {
       "kicker": "Consulta rápida",
@@ -415,7 +431,11 @@
     },
     "article": {
       "markRead": "Marcar como leído",
-      "markPending": "Marcar como pendiente"
+      "markPending": "Marcar como pendiente",
+      "continueKicker": "Sigue aprendiendo",
+      "continueTitle": "Después de este artículo",
+      "continueIntro": "Te propongo unos pasos cercanos para que no tengas que volver a buscar por dónde seguir.",
+      "openGuide": "Abrir la guía de estudio"
     },
     "category": {
       "title": "Progreso",
@@ -427,9 +447,9 @@
       "empty": "No se han encontrado artículos en esta categoría."
     },
     "roadmap": {
-      "eyebrow": "Mapa de aprendizaje",
-      "title": "Roadmap de producción musical",
-      "intro": "Un mapa de progresión para aprender producción, lenguaje musical, armonía, grabación, edición, mezcla y diseño de sonido con ramas, prerequisitos y un siguiente paso claro.",
+      "eyebrow": "Guía de estudio",
+      "title": "¿Por dónde sigo?",
+      "intro": "Elige qué quieres conseguir y recibe una secuencia corta de artículos. Sin mapa complicado: solo el siguiente paso, alternativas útiles y progreso guardado.",
       "synced": "Progreso sincronizado",
       "local": "Progreso local",
       "connected": "Conectado como",
@@ -437,7 +457,63 @@
       "localCopy": "Puedes marcar recursos igualmente, pero si inicias sesión el progreso se guardará en tu cuenta y podrás recuperarlo más adelante.",
       "login": "Entrar",
       "register": "Crear cuenta",
-      "confirmReset": "¿Quieres reiniciar todo el progreso del roadmap? Esta acción marcará todos los recursos como pendientes.",
+      "confirmReset": "¿Quieres reiniciar todo el progreso de la guía? Esta acción marcará todos los recursos como pendientes.",
+      "guide": {
+        "chooseKicker": "Punto de entrada",
+        "chooseTitle": "¿Qué quieres hacer ahora?",
+        "chooseIntro": "Elige un objetivo. Empezar desde cero muestra todo el recorrido; el resto son atajos para una necesidad concreta.",
+        "pathMeta": "{pending} pendientes · {count} recursos",
+        "currentPath": "Camino elegido",
+        "completedInPath": "recursos completados en este camino",
+        "reset": "Reiniciar progreso",
+        "searchKicker": "Consulta puntual",
+        "searchTitle": "¿Vienes de un vídeo o tienes una duda concreta?",
+        "searchIntro": "Esto no es un camino de estudio: abre la búsqueda solo cuando quieras encontrar un concepto concreto.",
+        "searchOpen": "Buscar concepto",
+        "searchClose": "Cerrar búsqueda",
+        "searchLabel": "Buscar un concepto concreto",
+        "searchPlaceholder": "Fase, EQ, compresión, armonía...",
+        "searchHint": "Si vienes de un vídeo, escribe el concepto y abre directamente el artículo más cercano.",
+        "nextKicker": "Siguiente recomendado",
+        "openArticle": "Abrir artículo",
+        "minutes": "{count} min",
+        "allDoneKicker": "Camino completado",
+        "allDoneTitle": "Ya tienes este camino al día",
+        "allDoneBody": "Puedes elegir otro objetivo o buscar un concepto concreto.",
+        "listKicker": "Secuencia",
+        "listTitle": "Artículos recomendados",
+        "listIntro": "Una lista corta, ordenada y accionable. Después de cada artículo puedes marcarlo como leído y continuar.",
+        "searchResults": "Resultados de búsqueda",
+        "searchResultsIntro": "Artículos que encajan con el concepto que has escrito.",
+        "emptyTitle": "No hay resultados",
+        "emptyBody": "Prueba con una palabra más general o elige otro camino.",
+        "paths": {
+          "start": {
+            "title": "Empezar desde cero",
+            "description": "Todo el recorrido ordenado, desde los fundamentos hasta producción, armonía, mezcla y diseño de sonido."
+          },
+          "song": {
+            "title": "Quiero terminar una canción",
+            "description": "Producción, grabación, edición y mezcla con una orientación práctica hacia acabar material."
+          },
+          "mix": {
+            "title": "Quiero mejorar mis mezclas",
+            "description": "Static mix, EQ, dinámica, espacio, estéreo y criterio para tomar decisiones."
+          },
+          "theory": {
+            "title": "Quiero entender música",
+            "description": "Lenguaje musical, armonía y herramientas para analizar y escribir con más criterio."
+          },
+          "sound": {
+            "title": "Quiero diseñar sonidos",
+            "description": "Síntesis, modulación, texturas y recursos sonoros aplicados a producción."
+          },
+          "video": {
+            "title": "Vengo de un vídeo",
+            "description": "Busca el concepto que acabas de ver y continúa con artículos relacionados."
+          }
+        }
+      },
       "controls": {
         "kicker": "Navegación",
         "title": "Encuentra tu siguiente paso",
@@ -463,7 +539,9 @@
         "goNext": "Ir al siguiente",
         "centerNext": "Centrar nodo siguiente recomendado",
         "noNext": "No hay nodo recomendado",
-        "zoom": "Zoom"
+        "zoom": "Zoom",
+        "zoomIn": "Acercar",
+        "zoomOut": "Alejar"
       },
       "atlas": {
         "kicker": "Atlas interactivo",

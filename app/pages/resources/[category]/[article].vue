@@ -51,14 +51,42 @@
     <div class="prose">
       <ContentRenderer :value="doc" />
     </div>
+
+    <section v-if="recommendedArticles.length" class="continue-panel">
+      <p class="eyebrow">{{ $t("readingProgress.article.continueKicker") }}</p>
+      <h2>{{ $t("readingProgress.article.continueTitle") }}</h2>
+      <p>{{ $t("readingProgress.article.continueIntro") }}</p>
+
+      <div class="continue-list">
+        <NuxtLink
+          v-for="node in recommendedArticles"
+          :key="node.id"
+          class="continue-card"
+          :to="resourceNodePath(node)"
+        >
+          <span>{{ node.id }} · {{ roadmapCategoryLabel(node.category) }}</span>
+          <strong>{{ node.title }}</strong>
+          <small>{{ node.module }}</small>
+        </NuxtLink>
+      </div>
+
+      <NuxtLink class="guide-link" :to="localePath('/resources/roadmap')">
+        {{ $t("readingProgress.article.openGuide") }}
+        <UIcon name="i-lucide-arrow-right" aria-hidden="true" />
+      </NuxtLink>
+    </section>
   </article>
 </template>
 
 <script setup>
+import { resourceCategoryLabel } from "~/utils/resourceCategories";
+import roadmap from "../../../../data/roadmap.json";
+
 const route = useRoute();
 const router = useRouter();
 const userStore = useUserStore();
 const localePath = useLocalePath();
+const { t } = useI18n();
 
 const category = String(route.params.category || "").trim();
 const article = String(route.params.article || "").trim();
@@ -100,6 +128,50 @@ const { data: doc } = await useAsyncData(
 
 if (!doc.value) {
   throw createError({ statusCode: 404, statusMessage: "Not found" });
+}
+
+const roadmapNodes = computed(() =>
+  [...(roadmap.nodes || [])].sort((a, b) => {
+    const seqA = Number.isFinite(a.seq) ? a.seq : 999999;
+    const seqB = Number.isFinite(b.seq) ? b.seq : 999999;
+    return seqA - seqB || String(a.id).localeCompare(String(b.id));
+  })
+);
+
+const currentRoadmapNode = computed(() =>
+  roadmapNodes.value.find((node) => String(node.path || "") === contentPath)
+);
+
+const recommendedArticles = computed(() => {
+  const current = currentRoadmapNode.value;
+  if (!current) return [];
+
+  const afterCurrent = roadmapNodes.value.filter((node) => {
+    if (String(node.id) === String(current.id)) return false;
+    return Number(node.seq || 0) > Number(current.seq || 0);
+  });
+
+  const sameModule = afterCurrent.filter(
+    (node) => node.category === current.category && node.module === current.module
+  );
+  const sameCategory = afterCurrent.filter(
+    (node) => node.category === current.category && node.module !== current.module
+  );
+
+  const unique = new Map();
+  for (const node of [...sameModule, ...sameCategory]) {
+    unique.set(String(node.id), node);
+  }
+
+  return Array.from(unique.values()).slice(0, 3);
+});
+
+function resourceNodePath(node) {
+  return localePath(node.path || "/resources/roadmap");
+}
+
+function roadmapCategoryLabel(category) {
+  return resourceCategoryLabel(category, t);
 }
 </script>
 
@@ -236,6 +308,86 @@ if (!doc.value) {
 /* Wrapper del markdown */
 .prose {
   margin-top: 1.5rem;
+}
+
+.continue-panel {
+  margin-top: 3rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+}
+
+.continue-panel h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.8rem;
+  line-height: 1.15;
+}
+
+.continue-panel > p:not(.eyebrow) {
+  margin: 0.65rem 0 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.continue-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.continue-card {
+  display: grid;
+  gap: 0.3rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.continue-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(208, 138, 63, 0.58);
+}
+
+.continue-card span {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.continue-card strong {
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+.continue-card small {
+  color: var(--text-secondary);
+}
+
+.guide-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 42px;
+  margin-top: 1rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(208, 138, 63, 0.62);
+  border-radius: 999px;
+  background: rgba(208, 138, 63, 0.1);
+  color: var(--accent);
+  font-weight: 850;
+  text-decoration: none;
 }
 
 /* Estils del contingut: ARA només afecten el markdown */

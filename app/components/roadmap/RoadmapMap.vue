@@ -27,12 +27,40 @@
     </div>
 
     <section class="quest-stage" aria-live="polite">
+      <div v-if="positionedModules.length" class="map-toolbar">
+        <button
+          type="button"
+          :title="t('readingProgress.roadmap.map.zoomOut')"
+          :aria-label="t('readingProgress.roadmap.map.zoomOut')"
+          @click="zoomOut"
+        >
+          <UIcon name="i-lucide-minus" aria-hidden="true" />
+        </button>
+        <span>{{ zoomPercent }}%</span>
+        <button
+          type="button"
+          :title="t('readingProgress.roadmap.map.zoomIn')"
+          :aria-label="t('readingProgress.roadmap.map.zoomIn')"
+          @click="zoomIn"
+        >
+          <UIcon name="i-lucide-plus" aria-hidden="true" />
+        </button>
+        <button
+          type="button"
+          :title="t('readingProgress.roadmap.map.fit')"
+          :aria-label="t('readingProgress.roadmap.map.fit')"
+          @click="fitCanvas"
+        >
+          <UIcon name="i-lucide-maximize-2" aria-hidden="true" />
+        </button>
+      </div>
+
       <div v-if="!positionedModules.length" class="empty-state">
         <h3>{{ t("readingProgress.roadmap.quest.emptyTitle") }}</h3>
         <p>{{ t("readingProgress.roadmap.quest.emptyBody") }}</p>
       </div>
 
-      <div v-else class="stage-scroll">
+      <div v-else ref="stageScroll" class="stage-scroll">
         <div
           class="stage-canvas"
           :style="{
@@ -114,7 +142,7 @@
 </template>
 
 <script setup>
-import { computed, nextTick } from "vue";
+import { computed, nextTick, ref } from "vue";
 import { resourceCategoryLabel } from "~/utils/resourceCategories";
 
 const { t } = useI18n();
@@ -164,8 +192,12 @@ const categoryLayouts = {
 };
 
 const laneWave = [0, -22, 18, -14, 14];
+const minZoom = 0.35;
+const maxZoom = 1.2;
+const zoomStep = 0.1;
 
 const moduleRefs = new Map();
+const stageScroll = ref(null);
 
 function normId(id) {
   return String(id || "")
@@ -229,6 +261,7 @@ const modules = computed(() => {
       groups.set(key, {
         key,
         category: String(node.category || "Altres"),
+        categorySlug: String(node.categorySlug || node.category || "altres"),
         name: String(node.module || t("readingProgress.roadmap.atlas.noModule")),
         seq: Number.isFinite(node.seq) ? node.seq : 999999,
         nodes: [],
@@ -338,7 +371,10 @@ const positionedModules = computed(() => {
   const positions = new Map();
   for (const [category, categoryModules] of byCategory.entries()) {
     const categoryIndex = categoryOrder.value.indexOf(category);
-    const layout = categoryLayouts[category] || {
+    const categorySlug = String(categoryModules[0]?.categorySlug || category)
+      .trim()
+      .toLowerCase();
+    const layout = categoryLayouts[categorySlug] || {
       x: 160,
       y: 150 + Math.max(0, categoryIndex) * 150,
       step: 260,
@@ -396,10 +432,42 @@ const canvasSize = computed(() => {
   const maxY = Math.max(...positionedModules.value.map((module) => module.y));
 
   return {
-    width: Math.max(minimumCanvasSize.width, maxX + 260),
-    height: Math.max(minimumCanvasSize.height, maxY + 190),
+    width: Math.max(minimumCanvasSize.width, maxX + 340),
+    height: Math.max(minimumCanvasSize.height, maxY + 260),
   };
 });
+
+const zoomPercent = computed(() => Math.round(props.zoom * 100));
+
+function clampZoom(value) {
+  return Math.min(maxZoom, Math.max(minZoom, Number(value.toFixed(2))));
+}
+
+function setZoom(value) {
+  emit("update:zoom", clampZoom(value));
+}
+
+function zoomIn() {
+  setZoom(props.zoom + zoomStep);
+}
+
+function zoomOut() {
+  setZoom(props.zoom - zoomStep);
+}
+
+async function fitCanvas() {
+  await nextTick();
+  const el = stageScroll.value;
+  if (!el) return;
+
+  const fit = Math.min(
+    (el.clientWidth - 32) / canvasSize.value.width,
+    (el.clientHeight - 32) / canvasSize.value.height
+  );
+
+  setZoom(fit);
+  el.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+}
 
 const visibleModuleMap = computed(() => {
   const map = new Map();
@@ -596,12 +664,55 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   overflow: hidden;
 }
 
+.map-toolbar {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  z-index: 8;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  box-shadow: var(--shadow-1);
+  backdrop-filter: blur(14px);
+}
+
+.map-toolbar button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.map-toolbar button:hover {
+  background: var(--surface-2);
+  color: var(--accent);
+}
+
+.map-toolbar span {
+  min-width: 44px;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 850;
+  text-align: center;
+}
+
 .stage-scroll {
   overflow: auto;
   padding: 1rem;
   min-height: 620px;
   max-height: min(76vh, 900px);
   -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable both-edges;
 }
 
 .stage-canvas {
@@ -688,11 +799,11 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 .quest-node {
   position: absolute;
   z-index: 2;
-  width: 198px;
-  height: 138px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.42rem;
+  width: 220px;
+  height: 164px;
+  display: grid;
+  grid-template-rows: auto auto minmax(2.35rem, auto) auto auto auto;
+  gap: 0.34rem;
   transform: translate(-50%, -50%);
   padding: 0.85rem;
   border: 1px solid var(--border);
@@ -771,11 +882,12 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 .quest-node strong {
   color: var(--text);
   font-size: 0.98rem;
-  line-height: 1.18;
+  line-height: 1.16;
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  min-height: 2.3rem;
 }
 
 .node-progress {
@@ -799,11 +911,11 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
 
 .node-meta {
   color: var(--text-secondary);
+  font-size: 0.72rem;
   white-space: nowrap;
 }
 
 .locked-by {
-  margin-top: auto;
   display: inline-flex;
   align-self: flex-start;
   padding: 0.22rem 0.46rem;
@@ -846,7 +958,8 @@ defineExpose({ scrollToNode, fitToScreen, centerNextNode });
   }
 
   .quest-node {
-    width: 184px;
+    width: 198px;
+    height: 160px;
   }
 }
 </style>

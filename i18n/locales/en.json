@@ -269,10 +269,12 @@
         "recording": "Recording",
         "production": "Production",
         "editing": "Editing",
+        "collaboration": "Resource collaboration",
         "other": "Other"
       },
       "messageLabel": "Message *",
       "messagePlaceholder": "Describe your project, goals, timeline, etc.",
+      "collaborationHint": "Tell me which area you know well, what you would like to contribute, and add a link or sample if you have one.",
       "submit": "Send message",
       "sending": "Sending..."
     },
@@ -290,13 +292,27 @@
   "resourcesHub": {
     "title": "Resources",
     "eyebrow": "Study library",
-    "intro": "Articles, exercises, and guides organized by topic. This page is the library; the roadmap is the progression map.",
+    "intro": "Articles, exercises, and guides organized by topic. This page is the library; the study guide helps you decide what to read next.",
     "back": "← Back",
     "roadmap": {
-      "kicker": "Progress map",
-      "title": "Interactive roadmap",
-      "subtitle": "A visual path with branches, prerequisites, and unlockable steps so you can move forward with structure.",
-      "compact": "Open the roadmap as an interactive path"
+      "kicker": "Study guide",
+      "title": "What should I read next?",
+      "subtitle": "Choose an intention and get a short article sequence so you can move forward without getting lost.",
+      "compact": "Open the study guide"
+    },
+    "collaboration": {
+      "kicker": "Open call",
+      "title": "Want to collaborate on the resources?",
+      "body": "If you know a specific area well and want to propose articles, review content, or contribute exercises, write to me. I will keep the editorial filter, but I want the library to grow with solid voices.",
+      "cta": "Propose a collaboration",
+      "areasLabel": "Collaboration areas",
+      "areas": {
+        "language": "Music language",
+        "harmony": "Harmony",
+        "mixing": "Mixing",
+        "soundDesign": "Sound design",
+        "production": "Production"
+      }
     },
     "library": {
       "kicker": "Quick lookup",
@@ -416,7 +432,11 @@
     },
     "article": {
       "markRead": "Mark as read",
-      "markPending": "Mark as pending"
+      "markPending": "Mark as pending",
+      "continueKicker": "Keep learning",
+      "continueTitle": "After this article",
+      "continueIntro": "Here are a few nearby next steps so you do not have to search for where to continue.",
+      "openGuide": "Open the study guide"
     },
     "category": {
       "title": "Progress",
@@ -428,9 +448,9 @@
       "empty": "No articles found in this category."
     },
     "roadmap": {
-      "eyebrow": "Learning map",
-      "title": "Music production roadmap",
-      "intro": "A progression map for learning production, music language, harmony, recording, editing, mixing, and sound design with branches, prerequisites, and a clear next step.",
+      "eyebrow": "Study guide",
+      "title": "What should I read next?",
+      "intro": "Choose what you want to achieve and get a short article sequence. No complicated map: just the next step, useful alternatives, and saved progress.",
       "synced": "Synced progress",
       "local": "Local progress",
       "connected": "Connected as",
@@ -438,7 +458,63 @@
       "localCopy": "You can still mark resources, but if you log in your progress will be saved to your account and available later.",
       "login": "Log in",
       "register": "Create account",
-      "confirmReset": "Do you want to reset all roadmap progress? This will mark every resource as pending.",
+      "confirmReset": "Do you want to reset all guide progress? This will mark every resource as pending.",
+      "guide": {
+        "chooseKicker": "Entry point",
+        "chooseTitle": "What do you want to do now?",
+        "chooseIntro": "Choose a goal. Start from zero shows the whole route; the other options are shortcuts for a specific need.",
+        "pathMeta": "{pending} pending · {count} resources",
+        "currentPath": "Selected path",
+        "completedInPath": "resources completed in this path",
+        "reset": "Reset progress",
+        "searchKicker": "Quick lookup",
+        "searchTitle": "Coming from a video or looking for one concept?",
+        "searchIntro": "This is not a study path: open search only when you want to find a specific concept.",
+        "searchOpen": "Search concept",
+        "searchClose": "Close search",
+        "searchLabel": "Search for a specific concept",
+        "searchPlaceholder": "Phase, EQ, compression, harmony...",
+        "searchHint": "If you came from a video, type the concept and open the closest article.",
+        "nextKicker": "Next recommendation",
+        "openArticle": "Open article",
+        "minutes": "{count} min",
+        "allDoneKicker": "Path completed",
+        "allDoneTitle": "This path is up to date",
+        "allDoneBody": "You can choose another goal or search for a specific concept.",
+        "listKicker": "Sequence",
+        "listTitle": "Recommended articles",
+        "listIntro": "A short, ordered, actionable list. After each article, mark it as read and continue.",
+        "searchResults": "Search results",
+        "searchResultsIntro": "Articles that match the concept you typed.",
+        "emptyTitle": "No results",
+        "emptyBody": "Try a broader word or choose another path.",
+        "paths": {
+          "start": {
+            "title": "Start from zero",
+            "description": "The full route in order, from fundamentals to production, harmony, mixing, and sound design."
+          },
+          "song": {
+            "title": "I want to finish a song",
+            "description": "Production, recording, editing, and mixing with a practical focus on finishing material."
+          },
+          "mix": {
+            "title": "I want better mixes",
+            "description": "Static mix, EQ, dynamics, space, stereo, and decision-making criteria."
+          },
+          "theory": {
+            "title": "I want to understand music",
+            "description": "Music language, harmony, and tools for analyzing and writing with more intention."
+          },
+          "sound": {
+            "title": "I want to design sounds",
+            "description": "Synthesis, modulation, textures, and sound resources applied to production."
+          },
+          "video": {
+            "title": "I came from a video",
+            "description": "Search the concept you just watched and continue with related articles."
+          }
+        }
+      },
       "controls": {
         "kicker": "Navigation",
         "title": "Find your next step",
@@ -464,7 +540,9 @@
         "goNext": "Go to next",
         "centerNext": "Center next recommended node",
         "noNext": "No recommended node",
-        "zoom": "Zoom"
+        "zoom": "Zoom",
+        "zoomIn": "Zoom in",
+        "zoomOut": "Zoom out"
       },
       "atlas": {
         "kicker": "Interactive atlas",
