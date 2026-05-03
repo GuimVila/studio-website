@@ -289,7 +289,7 @@ const guidePaths = [
   },
   {
     id: "sound",
-    icon: "i-lucide-waveform",
+    icon: "i-lucide-audio-waveform",
     slugs: ["disseny-de-so", "produccio"],
     titleKey: "readingProgress.roadmap.guide.paths.sound.title",
     descriptionKey: "readingProgress.roadmap.guide.paths.sound.description",
