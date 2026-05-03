@@ -55,12 +55,12 @@
             {{ $t("nav.contact") }}
           </LocaleLink>
         </li>
-        <li v-if="!userStore.isLoggedIn">
+        <li v-if="!userStore.isLoggedIn" class="nav-auth-mobile">
           <LocaleLink to="/login" class="nav-link" @click="closeMenu">
             {{ $t("nav.login") }}
           </LocaleLink>
         </li>
-        <li v-else>
+        <li v-else class="nav-auth-mobile">
           <button class="nav-link nav-button" type="button" @click="logout">
             {{ $t("nav.logout") }}
           </button>
@@ -275,6 +275,10 @@ async function changeLocale(code) {
   cursor: pointer;
 }
 
+.nav-auth-mobile {
+  display: none;
+}
+
 .auth-link {
   display: inline-flex;
   align-items: center;
@@ -346,6 +350,10 @@ async function changeLocale(code) {
 
   .auth-link {
     display: none;
+  }
+
+  .nav-auth-mobile {
+    display: block;
   }
 
   /* Links become hamburger panel */

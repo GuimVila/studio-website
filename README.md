@@ -79,6 +79,13 @@ node ./scripts/sync-roadmap-public.mjs
 
 ### 4) Notify newsletter subscribers about a new resource
 
+Mark the resource explicitly in its frontmatter:
+
+```yaml
+newsletter: true
+excerpt: "Short, clear summary for the email."
+```
+
 First preview the payload without sending email:
 
 ```bash
@@ -103,7 +110,7 @@ Alternatively, use admin credentials:
 NEWSLETTER_ADMIN_EMAIL="admin@example.com" NEWSLETTER_ADMIN_PASSWORD="password" npm run notify:resource -- content/resources/fonaments/ft-01-example.md --send
 ```
 
-The Laravel backend deduplicates sends by `resource_key`, so the same resource cannot be sent twice accidentally.
+The script sends only the single file passed in the command, and `--send` requires `newsletter: true`. The Laravel backend also deduplicates sends by `resource_key`, so the same resource cannot be sent twice accidentally.
 
 ### Run everything (recommended)
 

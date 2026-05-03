@@ -300,6 +300,10 @@ async function main() {
     throw new Error("Aquest recurs té newsletter: false. Usa --force si el vols enviar igualment.");
   }
 
+  if (args.send && !args.force && !getBooleanFlag(data, "newsletter")) {
+    throw new Error("Per enviar, afegeix newsletter: true al frontmatter del recurs.");
+  }
+
   const apiBase = (process.env.NUXT_PUBLIC_API_BASE || DEFAULT_API_BASE).replace(/\/$/, "");
   const payload = buildPayload(filePath, data, body);
 
