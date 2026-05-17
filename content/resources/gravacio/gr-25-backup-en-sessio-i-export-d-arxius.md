@@ -1,6 +1,7 @@
 ---
 id: "GR-25"
 title: "Backup en sessió i export d'arxius"
+excerpt: "Evitar pèrdues i poder reprendre en qualsevol lloc."
 category: "Gravació"
 categorySlug: "gravacio"
 module: "Gestió de sessions"
@@ -15,19 +16,3 @@ tags: "gravació, gestió, sessions, backup, sessió, export, d'arxius"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Evitar pèrdues i poder reprendre en qualsevol lloc.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Crea backup incremental i prova restauració
-
-## Resultat mesurable
-Restauració exitosa en 5 min
-
-## Notes
-
-

@@ -1,6 +1,7 @@
 ---
 id: "ME-15"
 title: "EQ per gènere: punts típics (sense dogmes)"
+excerpt: "Usar punts de partida per accelerar, mantenint criteri."
 category: "Mescla"
 categorySlug: "mescla"
 module: "EQ"
@@ -15,19 +16,3 @@ tags: "mescla, per, gènere, punts, típics, sense, dogmes"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Usar punts de partida per accelerar, mantenint criteri.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Crea un preset 'starting point' per 2 estils
-
-## Resultat mesurable
-Presets que acceleren (no que imposen)
-
-## Notes
-
-

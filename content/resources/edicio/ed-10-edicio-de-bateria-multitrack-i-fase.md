@@ -1,6 +1,7 @@
 ---
 id: "ED-10"
 title: "Edició de bateria: multitrack i fase"
+excerpt: "Editar bateries sense destruir fase i pegada."
 category: "Edició"
 categorySlug: "edicio"
 module: "Edició temporal"
@@ -15,19 +16,3 @@ tags: "edició, temporal, bateria, multitrack, fase"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Editar bateries sense destruir fase i pegada.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Edita 8 compassos i comprova correlació
-
-## Resultat mesurable
-Bateria alineada i coherent
-
-## Notes
-
-

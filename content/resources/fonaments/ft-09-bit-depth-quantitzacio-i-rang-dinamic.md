@@ -1,6 +1,7 @@
 ---
 id: "FT-09"
 title: "Bit depth, quantització i rang dinàmic"
+excerpt: "Relacionar bit depth amb soroll de quantització i rang dinàmic."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Àudio digital"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, àudio, digital, bit, depth, quantització, rang
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Relacionar bit depth amb soroll de quantització i rang dinàmic.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Calcula rang dinàmic 16/24-bit i quan té sentit
-
-## Resultat mesurable
-Tria 16/24-bit segons cas d'ús
-
-## Notes
-
-

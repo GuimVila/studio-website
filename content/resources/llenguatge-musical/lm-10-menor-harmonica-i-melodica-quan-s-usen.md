@@ -1,6 +1,7 @@
 ---
 id: "LM-10"
 title: "Menor harmònica i melòdica (quan s'usen)"
+excerpt: "Distingir usos i color harmònic de cada variant."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Escales i modes"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, escales, modes, menor, harmònica, melòdica, quan, 
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Distingir usos i color harmònic de cada variant.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Analitza 2 exemples en cançons (o crea'n)
-
-## Resultat mesurable
-Identifica variant correcta en context
-
-## Notes
-
-

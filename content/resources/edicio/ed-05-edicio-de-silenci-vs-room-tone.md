@@ -1,6 +1,7 @@
 ---
 id: "ED-05"
 title: "Edició de silenci vs room tone"
+excerpt: "Mantenir naturalitat afegint room tone quan cal."
 category: "Edició"
 categorySlug: "edicio"
 module: "Comping i neteja"
@@ -15,19 +16,3 @@ tags: "edició, comping, neteja, silenci, room, tone"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Mantenir naturalitat afegint room tone quan cal.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Crea un pool de room tone i aplica'l
-
-## Resultat mesurable
-Transicions naturals
-
-## Notes
-
-

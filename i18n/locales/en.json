@@ -17,14 +17,14 @@
   },
   "hero": {
     "imageAlt": "Music production studio",
-    "title": "Production, mixing, and resources to take your sound further",
-    "subtitle": "I work with artists and producers who want to finish songs with taste, a competitive sound, and a clear process. If you came from a video, the roadmap and resources are here so you can keep learning.",
+    "title": "Bring your music to life",
+    "subtitle": "I support artists and music projects through recording, production, and mixing. On this website, you will also find resources about sound, music, and production.",
     "ctaPrimary": "Tell me about your project",
     "ctaSecondary": "View services",
     "ctaRoadmap": "Explore resources",
     "badges": {
       "artist": "Artist",
-      "studio": "Audio studio · Riells i Viabrea",
+      "studio": "Riells i Viabrea",
       "resources": "Resources to grow with taste"
     },
     "routes": {
@@ -51,7 +51,7 @@
       "experience": "Years producing, recording, and mixing",
       "projects": "Completed projects",
       "quality": "Quality guaranteed",
-      "resources": "Articles and exercises to keep moving",
+      "resources": "Articles and resources to keep moving",
       "studioLabel": "Studio",
       "studio": "Production, recording, and mixing",
       "resourcesLabel": "Roadmap"
@@ -59,7 +59,7 @@
   },
   "homePathways": {
     "eyebrow": "Choose your path",
-    "title": "However you arrive, the next step should be obvious.",
+    "title": "An entry point for each need",
     "subtitle": "The home page now serves both people who want to work with me and people coming from a short video who want to keep learning without getting lost.",
     "items": {
       "project": {
@@ -73,7 +73,7 @@
         "cta": "Compare services"
       },
       "learn": {
-        "title": "I’m here to learn production and audio",
+        "title": "I want to browse the resources",
         "description": "Open the interactive roadmap, track your progress, and follow articles designed to build taste step by step.",
         "cta": "Open the roadmap"
       }
@@ -82,10 +82,10 @@
   "homeResources": {
     "eyebrow": "Resources and roadmap",
     "title": "If you came from a video, continue here.",
-    "subtitle": "Each article belongs to a bigger map: fundamentals, recording, production, mixing, and sound design connected so you don’t jump from tutorial to tutorial without direction.",
-    "previewKicker": "Living roadmap",
-    "previewTitle": "The full path, not a list of articles",
-    "previewText": "A structured system to see where you are, what comes next, and how music language, production, harmony, and mixing connect.",
+    "subtitle": "Here you will find articles and resources organized by topic, designed to help you keep learning in a clear and progressive way.",
+    "previewKicker": "Study guide",
+    "previewTitle": "A structured way to keep learning",
+    "previewText": "The study guide suggests a path through related resources and can help you find the next step.",
     "metrics": {
       "disciplines": "disciplines",
       "resources": "resources",
@@ -112,7 +112,7 @@
     }
   },
   "whyMe": {
-    "title": "Services connected to your goal",
+    "title": "Services",
     "items": {
       "production": {
         "title": "Production",
@@ -292,7 +292,7 @@
   "resourcesHub": {
     "title": "Resources",
     "eyebrow": "Study library",
-    "intro": "Articles, exercises, and guides organized by topic. This page is the library; the study guide helps you decide what to read next.",
+    "intro": "Articles and resources about music, sound, and production, organized by topic. The study guide can help you find the next step.",
     "back": "← Back",
     "roadmap": {
       "kicker": "Study guide",
@@ -303,7 +303,7 @@
     "collaboration": {
       "kicker": "Open call",
       "title": "Want to collaborate on the resources?",
-      "body": "If you know a specific area well and want to propose articles, review content, or contribute exercises, write to me. I will keep the editorial filter, but I want the library to grow with solid voices.",
+      "body": "If you know a specific area well and want to propose articles, review content, or contribute resources, write to me. I will keep the editorial filter, but I want the library to grow with solid voices.",
       "cta": "Propose a collaboration",
       "areasLabel": "Collaboration areas",
       "areas": {
@@ -338,7 +338,7 @@
       "harmonia": "Chords, functions, voice leading, arrangement, and applied harmony.",
       "llenguatge-musical": "Pitch, intervals, scales, rhythm, expression, and music analysis.",
       "mescla": "Static mix, EQ, dynamics, space, stereo, mixbus, and translation.",
-      "produccio": "Preproduction, vision, arrangement, MIDI, instruments, and deliverables."
+      "produccio": "Preproduction, vision, arrangement, MIDI, instruments, and workflow."
     },
     "categories": {
       "disseny-de-so": "Sound design",
@@ -547,7 +547,7 @@
       "atlas": {
         "kicker": "Interactive atlas",
         "title": "The full map of your learning path",
-        "intro": "Choose a discipline to enter calmly, or scroll through the complete path by modules. Each card is a lesson with an objective, an exercise, and progress.",
+        "intro": "Choose a discipline to enter calmly, or scroll through the complete path by modules. Each card is a lesson with an objective and progress.",
         "categoryIntro": "You are viewing one filtered discipline. Modules keep the recommended order and each card opens the step details.",
         "available": "Available",
         "completed": "Done",
@@ -587,7 +587,6 @@
       "sidebar": {
         "objective": "Objective",
         "prerequisites": "Prerequisites",
-        "exercise": "Deliverable / exercise",
         "measurable": "Measurable result",
         "value": "Value (for you)",
         "monetization": "Monetization",

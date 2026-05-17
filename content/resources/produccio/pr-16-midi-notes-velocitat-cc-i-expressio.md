@@ -1,6 +1,7 @@
 ---
 id: "PR-16"
 title: "MIDI: notes, velocitat, CC i expressió"
+excerpt: "Fer parts MIDI més humanes i expressives."
 category: "Producció"
 categorySlug: "produccio"
 module: "MIDI i instruments"
@@ -15,19 +16,3 @@ tags: "producció, midi, instruments, notes, velocitat, expressió"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Fer parts MIDI més humanes i expressives.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Humanitza una part amb velocitat+CC
-
-## Resultat mesurable
-Part amb variació natural
-
-## Notes
-
-

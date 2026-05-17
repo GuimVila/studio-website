@@ -1,6 +1,7 @@
 ---
 id: "LM-29"
 title: "Plantilla / pack premium per al mòdul: Expressió i anàlisi"
+excerpt: "Accelerar el workflow amb recursos reutilitzables i consistents."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Expressió i anàlisi"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, expressió, anàlisi, plantilla, pack, premium, per,
 monetization: "Producte digital"
 cta: "Mini-curs: 'Analitza com un productor'"
 ---
-
-## Objectiu
-Accelerar el workflow amb recursos reutilitzables i consistents.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Pack (templates/presets) + guia d'ús
-
-## Resultat mesurable
-Implementa el pack en una sessió real
-
-## Notes
-Punt natural per ingressos passius; afegeix upsell a consultoria.
-

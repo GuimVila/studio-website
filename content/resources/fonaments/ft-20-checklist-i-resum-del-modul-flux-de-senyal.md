@@ -1,6 +1,7 @@
 ---
 id: "FT-20"
 title: "Checklist i resum del mòdul: Flux de senyal"
+excerpt: "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Flux de senyal"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, flux, senyal, checklist, resum, del, mòdul"
 monetization: "Lead magnet"
 cta: "Checklist 'routing i gain staging' (PDF)"
 ---
-
-## Objectiu
-Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Checklist imprimible + 10 preguntes d'autoavaluació
-
-## Resultat mesurable
-Completa checklist i obté ≥80% al quiz
-
-## Notes
-Ideal per captar email i segmentar interessos.
-

@@ -1,6 +1,7 @@
 ---
 id: "DS-11"
 title: "Mod matrix i rutes típiques"
+excerpt: "Organitzar modulacions sense perdre't."
 category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Modulació i moviment"
@@ -15,19 +16,3 @@ tags: "disseny, modulació, moviment, mod, matrix, rutes, típiques"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Organitzar modulacions sense perdre't.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Documenta 5 rutes (source→dest) i què aporten
-
-## Resultat mesurable
-5 rutes comprensibles
-
-## Notes
-
-

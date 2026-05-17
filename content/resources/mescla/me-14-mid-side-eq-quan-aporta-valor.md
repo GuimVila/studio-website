@@ -1,6 +1,7 @@
 ---
 id: "ME-14"
 title: "Mid/Side EQ: quan aporta valor"
+excerpt: "Fer neteja i amplada sense trencar mono-compatibilitat."
 category: "Mescla"
 categorySlug: "mescla"
 module: "EQ"
@@ -15,19 +16,3 @@ tags: "mescla, mid/side, quan, aporta, valor"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Fer neteja i amplada sense trencar mono-compatibilitat.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Aplica M/S en un bus i comprova mono
-
-## Resultat mesurable
-Amplada controlada i mono OK
-
-## Notes
-
-

@@ -1,6 +1,7 @@
 ---
 id: "LM-03"
 title: "Intervals: qualitat i número (3a M, 5a J...)"
+excerpt: "Construir i reconèixer intervals per lectura i oïda."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Pitch i intervals"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, pitch, intervals, qualitat, número"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Construir i reconèixer intervals per lectura i oïda.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Taula d'intervals + 20 exemples escrits
-
-## Resultat mesurable
-Construeix intervals amb 90% d'encert
-
-## Notes
-
-

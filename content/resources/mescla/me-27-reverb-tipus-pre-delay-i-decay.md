@@ -1,6 +1,7 @@
 ---
 id: "ME-27"
 title: "Reverb: tipus, pre-delay i decay"
+excerpt: "Crear profunditat i cola sense enfangar."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Espai i estèreo"
@@ -15,19 +16,3 @@ tags: "mescla, espai, estèreo, reverb, tipus, pre-delay, decay"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Crear profunditat i cola sense enfangar.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Configura 2 reverbs (plate + room) i sends
-
-## Resultat mesurable
-Profunditat sense perdre claredat
-
-## Notes
-
-

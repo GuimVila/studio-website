@@ -1,6 +1,7 @@
 ---
 id: "ME-09"
 title: "EQ correctiu vs creatiu"
+excerpt: "Separar neteja de coloració per decisions consistents."
 category: "Mescla"
 categorySlug: "mescla"
 module: "EQ"
@@ -15,19 +16,3 @@ tags: "mescla, correctiu, creatiu"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Separar neteja de coloració per decisions consistents.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Marca 5 moviments correctius i 3 creatius en una pista
-
-## Resultat mesurable
-Explica el 'per què' de cada moviment
-
-## Notes
-
-

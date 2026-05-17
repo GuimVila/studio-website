@@ -1,6 +1,7 @@
 ---
 id: "LM-01"
 title: "Notes, enharmonia i noms (Do#/Reb)"
+excerpt: "Nomenar notes correctament i entendre enharmonia."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Pitch i intervals"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, pitch, intervals, notes, enharmonia, noms, do#/reb"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Nomenar notes correctament i entendre enharmonia.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Exercici: escriu 12 notes cromàtiques en 2 maneres
-
-## Resultat mesurable
-Escriu cromàtica asc/desc sense errors
-
-## Notes
-
-

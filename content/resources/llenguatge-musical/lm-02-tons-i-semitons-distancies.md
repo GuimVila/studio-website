@@ -1,6 +1,7 @@
 ---
 id: "LM-02"
 title: "Tons i semitons (distàncies)"
+excerpt: "Entendre la unitat de distància que construeix escales i acords."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Pitch i intervals"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, pitch, intervals, tons, semitons, distàncies"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Entendre la unitat de distància que construeix escales i acords.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Marca tons/semitons en un teclat virtual o paper
-
-## Resultat mesurable
-Identifica distàncies en 10/10 casos
-
-## Notes
-
-

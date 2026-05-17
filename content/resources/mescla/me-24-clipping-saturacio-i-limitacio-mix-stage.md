@@ -1,6 +1,7 @@
 ---
 id: "ME-24"
 title: "Clipping, saturació i limitació (mix stage)"
+excerpt: "Afegir densitat i loudness sense destruir."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Dinàmica"
@@ -15,19 +16,3 @@ tags: "mescla, dinàmica, clipping, saturació, limitació, mix, stage"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Afegir densitat i loudness sense destruir.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Aplica soft clip vs limiter en drums i compara
-
-## Resultat mesurable
-Més densitat amb distorsió controlada
-
-## Notes
-
-

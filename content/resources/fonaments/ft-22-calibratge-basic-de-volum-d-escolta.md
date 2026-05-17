@@ -1,6 +1,7 @@
 ---
 id: "FT-22"
 title: "Calibratge bàsic de volum d'escolta"
+excerpt: "Establir un punt de treball consistent per decisions repetibles."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Escolta crítica i workflow"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, escolta, crítica, workflow, calibratge, bàsic,
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Establir un punt de treball consistent per decisions repetibles.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Defineix el teu 'volum de referència' i documenta'l
-
-## Resultat mesurable
-Volum repetible per A/B i referències
-
-## Notes
-
-

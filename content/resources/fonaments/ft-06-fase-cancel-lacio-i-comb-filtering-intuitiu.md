@@ -1,6 +1,7 @@
 ---
 id: "FT-06"
 title: "Fase, cancel·lació i comb filtering (intuïtiu)"
+excerpt: "Reconèixer problemes de fase abans de gravar/mesclar."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Acústica i percepció"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, acústica, percepció, fase, cancellació, comb,
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Reconèixer problemes de fase abans de gravar/mesclar.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Demostració amb dos senyals i inversió de polaritat
-
-## Resultat mesurable
-Detecta cancel·lació en un exemple real
-
-## Notes
-
-

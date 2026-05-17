@@ -1,6 +1,7 @@
 ---
 id: "ME-30"
 title: "Estèreo: pan law, widener i riscos"
+excerpt: "Augmentar amplada mantenint compatibilitat mono."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Espai i estèreo"
@@ -15,19 +16,3 @@ tags: "mescla, espai, estèreo, pan, law, widener, riscos"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Augmentar amplada mantenint compatibilitat mono.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Test mono i correlació després de wideners
-
-## Resultat mesurable
-Mono compatible; correlació saludable
-
-## Notes
-
-

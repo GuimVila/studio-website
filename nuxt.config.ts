@@ -33,6 +33,12 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
   ],
 
+  mdc: {
+    headings: {
+      anchorLinks: false,
+    },
+  },
+
   image: {
     format: ["avif", "webp", "jpeg"],
     quality: 70,

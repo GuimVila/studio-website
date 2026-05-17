@@ -1,6 +1,7 @@
 ---
 id: "PR-04"
 title: "Mapa d'energia (builds, drops, descansos)"
+excerpt: "Planificar macro-dinàmica per mantenir interès."
 category: "Producció"
 categorySlug: "produccio"
 module: "Preproducció i visió"
@@ -15,19 +16,3 @@ tags: "producció, preproducció, visió, mapa, d'energia, builds, drops, descan
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Planificar macro-dinàmica per mantenir interès.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Dibuixa un energy map de 1 cançó
-
-## Resultat mesurable
-Energy map complet per seccions
-
-## Notes
-
-

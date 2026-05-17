@@ -1,6 +1,7 @@
 ---
 id: "ED-15"
 title: "Afinació correctiva: quan és necessari"
+excerpt: "Decidir grau d'afinació segons gènere i intenció."
 category: "Edició"
 categorySlug: "edicio"
 module: "Edició tonal"
@@ -15,19 +16,3 @@ tags: "edició, tonal, afinació, correctiva, quan, necessari"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Decidir grau d'afinació segons gènere i intenció.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Defineix una política d'afinació per 2 estils
-
-## Resultat mesurable
-Criteris clars per estil
-
-## Notes
-
-

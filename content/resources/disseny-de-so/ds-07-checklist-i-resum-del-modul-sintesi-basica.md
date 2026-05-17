@@ -1,6 +1,7 @@
 ---
 id: "DS-07"
 title: "Checklist i resum del mòdul: Síntesi bàsica"
+excerpt: "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc."
 category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Síntesi bàsica"
@@ -15,19 +16,3 @@ tags: "disseny, síntesi, bàsica, checklist, resum, del, mòdul"
 monetization: "Lead magnet"
 cta: "Guia 'patching en 6 passos' (PDF)"
 ---
-
-## Objectiu
-Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Checklist imprimible + 10 preguntes d'autoavaluació
-
-## Resultat mesurable
-Completa checklist i obté ≥80% al quiz
-
-## Notes
-Ideal per captar email i segmentar interessos.
-

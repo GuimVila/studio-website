@@ -1,6 +1,7 @@
 ---
 id: "ED-22"
 title: "Consolidació, align i export de pistes"
+excerpt: "Deixar el projecte 'mix-ready' i portable."
 category: "Edició"
 categorySlug: "edicio"
 module: "Preparació per mescla"
@@ -15,19 +16,3 @@ tags: "edició, preparació, per, mescla, consolidació, align, export, pistes"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Deixar el projecte 'mix-ready' i portable.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Consolida i exporta stems alineats a 0:00
-
-## Resultat mesurable
-Stems alineats i importables
-
-## Notes
-
-

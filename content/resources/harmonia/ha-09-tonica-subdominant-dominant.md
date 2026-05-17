@@ -1,6 +1,7 @@
 ---
 id: "HA-09"
 title: "Tònica, subdominant, dominant"
+excerpt: "Entendre el 'per què' de la tensió i resolució."
 category: "Harmonia"
 categorySlug: "harmonia"
 module: "Funcions harmòniques"
@@ -15,19 +16,3 @@ tags: "harmonia, funcions, harmòniques, tònica, subdominant, dominant"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Entendre el 'per què' de la tensió i resolució.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Classifica 20 acords dins d'una tonalitat
-
-## Resultat mesurable
-Classificació amb 80% d'encert
-
-## Notes
-
-

@@ -1,6 +1,7 @@
 ---
 id: "PR-09"
 title: "Registre i espai (arranjament espectral)"
+excerpt: "Evitar enmascarament amb decisions d'octava abans d'EQ."
 category: "Producció"
 categorySlug: "produccio"
 module: "Arranjament"
@@ -15,19 +16,3 @@ tags: "producció, arranjament, registre, espai, espectral"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Evitar enmascarament amb decisions d'octava abans d'EQ.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Re-voicing: mou 3 parts una octava i compara
-
-## Resultat mesurable
-Millora claredat sense plugins
-
-## Notes
-
-

@@ -1,6 +1,7 @@
 ---
 id: "LM-18"
 title: "Figures rítmiques i subdivisions"
+excerpt: "Dominar subdivisions per programació i edició."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Ritme i temps"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, ritme, temps, figures, rítmiques, subdivisions"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Dominar subdivisions per programació i edició.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Escriu/programma un patró amb 8è, 16è, tresets
-
-## Resultat mesurable
-Subdivisions correctes en el grid
-
-## Notes
-
-

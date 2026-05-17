@@ -1,6 +1,7 @@
 ---
 id: "HA-27"
 title: "Harmonia i mescla: enmascarament per notes"
+excerpt: "Detectar conflictes per harmònics i registres."
 category: "Harmonia"
 categorySlug: "harmonia"
 module: "Harmonia moderna aplicada"
@@ -15,19 +16,3 @@ tags: "harmonia, moderna, aplicada, mescla, enmascarament, per, notes"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Detectar conflictes per harmònics i registres.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Analitza un acord 'muddy' i resol amb revoicing
-
-## Resultat mesurable
-Redueix low-mid sense EQ primer
-
-## Notes
-
-

@@ -1,6 +1,7 @@
 ---
 id: "LM-09"
 title: "Escales major i menor natural (patrons)"
+excerpt: "Construir les escales diatòniques essencials."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Escales i modes"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, escales, modes, major, menor, natural, patrons"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Construir les escales diatòniques essencials.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Construeix 6 escales (3 majors, 3 menors)
-
-## Resultat mesurable
-Construeix sense mirar taules
-
-## Notes
-
-

@@ -12,7 +12,6 @@ export type RoadmapNode = {
   path: string;
 
   objective?: string;
-  exercise?: string;
   resourceType?: string;
   monetization?: string;
   cta?: string;

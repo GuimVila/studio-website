@@ -1,6 +1,7 @@
 ---
 id: "LM-15"
 title: "Plantilla / pack premium per al mòdul: Escales i modes"
+excerpt: "Accelerar el workflow amb recursos reutilitzables i consistents."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Escales i modes"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, escales, modes, plantilla, pack, premium, per, mòdu
 monetization: "Producte digital"
 cta: "Pack de MIDI clips (escales + riffs)"
 ---
-
-## Objectiu
-Accelerar el workflow amb recursos reutilitzables i consistents.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Pack (templates/presets) + guia d'ús
-
-## Resultat mesurable
-Implementa el pack en una sessió real
-
-## Notes
-Punt natural per ingressos passius; afegeix upsell a consultoria.
-

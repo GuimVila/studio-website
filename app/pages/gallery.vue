@@ -10,9 +10,6 @@
           </p>
         </div>
 
-        <p class="gallery-note">
-          {{ t("gallery.note") }}
-        </p>
       </div>
 
       <GalleryGrid :images="images" />
@@ -27,10 +24,10 @@ import GalleryGrid from "~/components/GalleryGrid.vue";
 const { t } = useI18n();
 
 const images = [
-  { src: "/images/foto4_galeria.jpg", alt: t("gallery.images.controlRoom") },
-  { src: "/images/foto8_galeria.jpg", alt: t("gallery.images.analogRack") },
+  { src: "/images/services/produccio.png", alt: t("gallery.images.controlRoom") },
+  { src: "/images/services/mescla.png", alt: t("gallery.images.analogRack") },
   { src: "/images/foto3_galeria.jpg", alt: t("gallery.images.instruments") },
-  { src: "/images/foto1_galeria.jpg", alt: t("gallery.images.gearDetail") },
+  { src: "/images/services/gravacio.png", alt: t("gallery.images.gearDetail") },
   {
     src: "/images/foto7_galeria.jpg",
     alt: t("gallery.images.acousticTreatment"),
@@ -64,10 +61,6 @@ useHead(() => ({
 }
 
 .gallery-head {
-  display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(260px, 0.35fr);
-  gap: clamp(1.5rem, 5vw, 4rem);
-  align-items: end;
   margin-bottom: clamp(1.5rem, 4vw, 2.6rem);
 }
 
@@ -97,8 +90,7 @@ useHead(() => ({
   background-clip: text;
 }
 
-.gallery-copy p:not(.gallery-kicker),
-.gallery-note {
+.gallery-copy p:not(.gallery-kicker) {
   color: var(--text-secondary);
   font-size: clamp(1rem, 1.7vw, 1.14rem);
   line-height: 1.65;
@@ -107,12 +99,6 @@ useHead(() => ({
 .gallery-copy p:not(.gallery-kicker) {
   max-width: 680px;
   margin: 1.2rem 0 0;
-}
-
-.gallery-note {
-  margin: 0;
-  padding-left: 1.2rem;
-  border-left: 2px solid var(--accent);
 }
 
 @media (max-width: 860px) {
@@ -125,18 +111,8 @@ useHead(() => ({
     padding-top: clamp(2.2rem, 8vw, 3.5rem);
   }
 
-  .gallery-head {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
   .gallery-copy h1 {
     font-size: clamp(3rem, 16vw, 4.4rem);
-  }
-
-  .gallery-note {
-    padding-left: 0;
-    border-left: 0;
   }
 }
 </style>

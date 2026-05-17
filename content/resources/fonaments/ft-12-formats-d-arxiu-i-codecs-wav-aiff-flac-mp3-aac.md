@@ -1,6 +1,7 @@
 ---
 id: "FT-12"
 title: "Formats d'arxiu i còdecs (WAV/AIFF/FLAC/MP3/AAC)"
+excerpt: "Escollir format segons edició, arxiu i distribució."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Àudio digital"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, àudio, digital, formats, d'arxiu, còdecs, wav/
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Escollir format segons edició, arxiu i distribució.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Taula 'destí → format → paràmetres'
-
-## Resultat mesurable
-Export correcte per streaming i vídeo
-
-## Notes
-
-

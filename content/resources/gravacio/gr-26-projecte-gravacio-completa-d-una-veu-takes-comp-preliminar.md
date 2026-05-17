@@ -1,6 +1,7 @@
 ---
 id: "GR-26"
 title: "Projecte: gravació completa d'una veu (takes→comp preliminar)"
+excerpt: "Aplicar flux professional de gravació vocal."
 category: "Gravació"
 categorySlug: "gravacio"
 module: "Gestió de sessions"
@@ -15,19 +16,3 @@ tags: "gravació, gestió, sessions, projecte, completa, d'una, veu, takes→com
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Aplicar flux professional de gravació vocal.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Grava 3 takes, comp preliminar, export stems
-
-## Resultat mesurable
-Pistes netes i utilitzables per mix
-
-## Notes
-
-

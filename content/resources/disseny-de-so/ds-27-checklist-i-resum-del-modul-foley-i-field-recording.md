@@ -1,6 +1,7 @@
 ---
 id: "DS-27"
 title: "Checklist i resum del mòdul: Foley i field recording"
+excerpt: "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc."
 category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Foley i field recording"
@@ -15,19 +16,3 @@ tags: "disseny, foley, field, recording, checklist, resum, del, mòdul"
 monetization: "Lead magnet"
 cta: "Checklist de field recording (PDF)"
 ---
-
-## Objectiu
-Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Checklist imprimible + 10 preguntes d'autoavaluació
-
-## Resultat mesurable
-Completa checklist i obté ≥80% al quiz
-
-## Notes
-Ideal per captar email i segmentar interessos.
-

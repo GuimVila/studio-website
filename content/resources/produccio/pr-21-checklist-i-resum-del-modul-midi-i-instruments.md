@@ -1,6 +1,7 @@
 ---
 id: "PR-21"
 title: "Checklist i resum del mòdul: MIDI i instruments"
+excerpt: "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc."
 category: "Producció"
 categorySlug: "produccio"
 module: "MIDI i instruments"
@@ -15,19 +16,3 @@ tags: "producció, midi, instruments, checklist, resum, del, mòdul"
 monetization: "Lead magnet"
 cta: "Guia 'humanització MIDI' (PDF)"
 ---
-
-## Objectiu
-Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Checklist imprimible + 10 preguntes d'autoavaluació
-
-## Resultat mesurable
-Completa checklist i obté ≥80% al quiz
-
-## Notes
-Ideal per captar email i segmentar interessos.
-

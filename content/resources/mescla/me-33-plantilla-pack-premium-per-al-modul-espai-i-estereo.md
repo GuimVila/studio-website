@@ -1,6 +1,7 @@
 ---
 id: "ME-33"
 title: "Plantilla / pack premium per al mòdul: Espai i estèreo"
+excerpt: "Accelerar el workflow amb recursos reutilitzables i consistents."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Espai i estèreo"
@@ -15,19 +16,3 @@ tags: "mescla, espai, estèreo, plantilla, pack, premium, per, mòdul"
 monetization: "Producte digital"
 cta: "Pack de reverbs/delays (presets)"
 ---
-
-## Objectiu
-Accelerar el workflow amb recursos reutilitzables i consistents.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Pack (templates/presets) + guia d'ús
-
-## Resultat mesurable
-Implementa el pack en una sessió real
-
-## Notes
-Punt natural per ingressos passius; afegeix upsell a consultoria.
-

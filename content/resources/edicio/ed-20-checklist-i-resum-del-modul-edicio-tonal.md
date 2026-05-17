@@ -1,6 +1,7 @@
 ---
 id: "ED-20"
 title: "Checklist i resum del mòdul: Edició tonal"
+excerpt: "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc."
 category: "Edició"
 categorySlug: "edicio"
 module: "Edició tonal"
@@ -15,19 +16,3 @@ tags: "edició, tonal, checklist, resum, del, mòdul"
 monetization: "Lead magnet"
 cta: "Checklist 'afinació natural' (PDF)"
 ---
-
-## Objectiu
-Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Checklist imprimible + 10 preguntes d'autoavaluació
-
-## Resultat mesurable
-Completa checklist i obté ≥80% al quiz
-
-## Notes
-Ideal per captar email i segmentar interessos.
-

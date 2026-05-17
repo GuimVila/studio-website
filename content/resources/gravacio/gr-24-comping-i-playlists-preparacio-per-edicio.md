@@ -1,6 +1,7 @@
 ---
 id: "GR-24"
 title: "Comping i playlists (preparació per edició)"
+excerpt: "Deixar material llest per l'editor sense pèrdues."
 category: "Gravació"
 categorySlug: "gravacio"
 module: "Gestió de sessions"
@@ -15,19 +16,3 @@ tags: "gravació, gestió, sessions, comping, playlists, preparació, per, edici
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Deixar material llest per l'editor sense pèrdues.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Crea un comp preliminar i exporta notes
-
-## Resultat mesurable
-Comp coherent i documentat
-
-## Notes
-
-

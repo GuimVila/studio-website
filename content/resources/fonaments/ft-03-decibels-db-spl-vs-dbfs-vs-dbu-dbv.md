@@ -1,6 +1,7 @@
 ---
 id: "FT-03"
 title: "Decibels: dB SPL vs dBFS vs dBu/dBV"
+excerpt: "No barrejar escales de nivell i entendre què mesura cadascuna."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Acústica i percepció"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, acústica, percepció, decibels, spl, dbfs, dbu/
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-No barrejar escales de nivell i entendre què mesura cadascuna.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Taula comparativa i 5 exemples d'ús real
-
-## Resultat mesurable
-Tria la unitat correcta en 5/5 casos
-
-## Notes
-
-

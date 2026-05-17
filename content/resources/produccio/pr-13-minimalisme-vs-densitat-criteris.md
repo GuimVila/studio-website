@@ -1,6 +1,7 @@
 ---
 id: "PR-13"
 title: "Minimalisme vs densitat: criteris"
+excerpt: "Decidir quan sumar i quan restar amb criteri."
 category: "Producció"
 categorySlug: "produccio"
 module: "Arranjament"
@@ -15,19 +16,3 @@ tags: "producció, arranjament, minimalisme, densitat, criteris"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Decidir quan sumar i quan restar amb criteri.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Versió A (minimal) i B (dense) del mateix loop
-
-## Resultat mesurable
-2 versions amb identitat clara
-
-## Notes
-
-

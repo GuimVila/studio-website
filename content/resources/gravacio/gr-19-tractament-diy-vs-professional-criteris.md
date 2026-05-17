@@ -1,6 +1,7 @@
 ---
 id: "GR-19"
 title: "Tractament DIY vs professional: criteris"
+excerpt: "Prioritzar inversions segons impacte real."
 category: "Gravació"
 categorySlug: "gravacio"
 module: "Sala i acústica"
@@ -15,19 +16,3 @@ tags: "gravació, sala, acústica, tractament, diy, professional, criteris"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Prioritzar inversions segons impacte real.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Llista prioritzada de 5 millores amb cost/impacte
-
-## Resultat mesurable
-Pla d'acció realista
-
-## Notes
-
-

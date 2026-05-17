@@ -1,6 +1,7 @@
 ---
 id: "ME-06"
 title: "Automatització bàsica de balances"
+excerpt: "Fer que la cançó respiri i evolucioni."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Preparació i static mix"
@@ -15,19 +16,3 @@ tags: "mescla, preparació, static, mix, automatització, bàsica, balances"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Fer que la cançó respiri i evolucioni.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Automatitza 3 moments clau (chorus lift, breakdown)
-
-## Resultat mesurable
-Evolució clara en 3 seccions
-
-## Notes
-
-

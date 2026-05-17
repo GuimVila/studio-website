@@ -1,6 +1,7 @@
 ---
 id: "ME-12"
 title: "Enmascarament: kick vs bass, veu vs guitars"
+excerpt: "Resoldre conflictes per prioritat i arranjament."
 category: "Mescla"
 categorySlug: "mescla"
 module: "EQ"
@@ -15,19 +16,3 @@ tags: "mescla, enmascarament, kick, bass, veu, guitars"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Resoldre conflictes per prioritat i arranjament.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Soluciona 2 parelles d'enmascarament i A/B
-
-## Resultat mesurable
-Més claredat amb mínims moviments
-
-## Notes
-
-

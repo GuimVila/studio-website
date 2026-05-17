@@ -1,6 +1,7 @@
 ---
 id: "LM-13"
 title: "Relació escala→acords bàsics (triades)"
+excerpt: "Connectar escales amb construcció d'acords per producció."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Escales i modes"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, escales, modes, relació, escala→acords, bàsics, 
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Connectar escales amb construcció d'acords per producció.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Construeix triades diatòniques en 2 tonalitats
-
-## Resultat mesurable
-Camp harmònic correcte en 2 claus
-
-## Notes
-
-

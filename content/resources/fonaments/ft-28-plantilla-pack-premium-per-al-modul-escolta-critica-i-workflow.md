@@ -1,6 +1,7 @@
 ---
 id: "FT-28"
 title: "Plantilla / pack premium per al mòdul: Escolta crítica i workflow"
+excerpt: "Accelerar el workflow amb recursos reutilitzables i consistents."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Escolta crítica i workflow"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, escolta, crítica, workflow, plantilla, pack, pr
 monetization: "Producte digital"
 cta: "Notion/Google Sheet de tracking de pràctica i projectes"
 ---
-
-## Objectiu
-Accelerar el workflow amb recursos reutilitzables i consistents.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Pack (templates/presets) + guia d'ús
-
-## Resultat mesurable
-Implementa el pack en una sessió real
-
-## Notes
-Punt natural per ingressos passius; afegeix upsell a consultoria.
-

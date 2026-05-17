@@ -1,6 +1,7 @@
 ---
 id: "ME-38"
 title: "Projecte: mescla completa amb referència (abans/després)"
+excerpt: "Completar una mescla i documentar el procés."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Mixbus i traducció"
@@ -15,19 +16,3 @@ tags: "mescla, mixbus, traducció, projecte, completa, amb, referència, abans/d
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Completar una mescla i documentar el procés.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Mescla final + notes + comparativa A/B
-
-## Resultat mesurable
-Mescla final lliurable
-
-## Notes
-
-

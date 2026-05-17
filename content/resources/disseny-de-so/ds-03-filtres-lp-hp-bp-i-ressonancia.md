@@ -1,6 +1,7 @@
 ---
 id: "DS-03"
 title: "Filtres (LP/HP/BP) i ressonància"
+excerpt: "Esculpir timbre i crear moviment amb cutoff/res."
 category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Síntesi bàsica"
@@ -15,19 +16,3 @@ tags: "disseny, síntesi, bàsica, filtres, lp/hp/bp, ressonància"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Esculpir timbre i crear moviment amb cutoff/res.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Automatitza cutoff en 8 compassos i grava
-
-## Resultat mesurable
-Moviment musical, no aleatori
-
-## Notes
-
-

@@ -13,6 +13,8 @@ export default defineContentConfig({
         level: z.number().optional(),
         seq: z.number().optional(),
         tags: z.string().optional(),
+        subtitle: z.string().optional(),
+        excerpt: z.string().optional(),
         resourceType: z.string().optional(),
         estMinutes: z.number().nullable().optional(),
         monetization: z.string().optional(),

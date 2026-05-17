@@ -1,6 +1,7 @@
 ---
 id: "GR-10"
 title: "Tècniques estèreo (XY, ORTF, AB, MS)"
+excerpt: "Conèixer opcions i trade-offs de coherència/fase."
 category: "Gravació"
 categorySlug: "gravacio"
 module: "Tècniques i fase"
@@ -15,19 +16,3 @@ tags: "gravació, tècniques, fase, estèreo, ortf"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Conèixer opcions i trade-offs de coherència/fase.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Munta 2 tècniques (o simula) i compara
-
-## Resultat mesurable
-Explica diferències amb vocabulari precís
-
-## Notes
-
-

@@ -1,6 +1,7 @@
 ---
 id: "PR-19"
 title: "Selecció de plugins i limitació del 'toolset'"
+excerpt: "Reduir fricció decidint un set de tools per categoria."
 category: "Producció"
 categorySlug: "produccio"
 module: "MIDI i instruments"
@@ -15,19 +16,3 @@ tags: "producció, midi, instruments, selecció, plugins, limitació, del, tools
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Reduir fricció decidint un set de tools per categoria.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Defineix 1 EQ, 1 comp, 1 reverb, 1 saturació 'defaults'
-
-## Resultat mesurable
-Toolset documentat
-
-## Notes
-
-

@@ -1,6 +1,7 @@
 ---
 id: "ME-35"
 title: "Mixbus processing: quan, quant i per què"
+excerpt: "Evitar overprocessing al master durant la mescla."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Mixbus i traducció"
@@ -15,19 +16,3 @@ tags: "mescla, mixbus, traducció, processing, quan, quant, per, què"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Evitar overprocessing al master durant la mescla.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-A/B amb i sense mixbus chain; decideix
-
-## Resultat mesurable
-Chain justificat o descartat
-
-## Notes
-
-

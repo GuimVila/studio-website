@@ -1,6 +1,7 @@
 ---
 id: "ED-07"
 title: "Plantilla / pack premium per al mòdul: Comping i neteja"
+excerpt: "Accelerar el workflow amb recursos reutilitzables i consistents."
 category: "Edició"
 categorySlug: "edicio"
 module: "Comping i neteja"
@@ -15,19 +16,3 @@ tags: "edició, comping, neteja, plantilla, pack, premium, per, mòdul"
 monetization: "Producte digital"
 cta: "Pack de macros/shortcuts + plantilla d'edició"
 ---
-
-## Objectiu
-Accelerar el workflow amb recursos reutilitzables i consistents.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Pack (templates/presets) + guia d'ús
-
-## Resultat mesurable
-Implementa el pack en una sessió real
-
-## Notes
-Punt natural per ingressos passius; afegeix upsell a consultoria.
-

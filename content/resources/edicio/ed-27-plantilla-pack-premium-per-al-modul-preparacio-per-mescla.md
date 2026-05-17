@@ -1,6 +1,7 @@
 ---
 id: "ED-27"
 title: "Plantilla / pack premium per al mòdul: Preparació per mescla"
+excerpt: "Accelerar el workflow amb recursos reutilitzables i consistents."
 category: "Edició"
 categorySlug: "edicio"
 module: "Preparació per mescla"
@@ -15,19 +16,3 @@ tags: "edició, preparació, per, mescla, plantilla, pack, premium, mòdul"
 monetization: "Producte digital"
 cta: "Plantilla d'edició + checklist per assistent"
 ---
-
-## Objectiu
-Accelerar el workflow amb recursos reutilitzables i consistents.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Pack (templates/presets) + guia d'ús
-
-## Resultat mesurable
-Implementa el pack en una sessió real
-
-## Notes
-Punt natural per ingressos passius; afegeix upsell a consultoria.
-

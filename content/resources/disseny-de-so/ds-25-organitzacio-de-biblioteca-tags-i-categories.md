@@ -1,6 +1,7 @@
 ---
 id: "DS-25"
 title: "Organització de biblioteca: tags i categories"
+excerpt: "Trobar sons ràpid i reutilitzar-los."
 category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Foley i field recording"
@@ -15,19 +16,3 @@ tags: "disseny, foley, field, recording, organització, biblioteca, tags, catego
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Trobar sons ràpid i reutilitzar-los.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Crea una taxonomia i aplica-la a 30 clips
-
-## Resultat mesurable
-Biblioteca navegable
-
-## Notes
-
-

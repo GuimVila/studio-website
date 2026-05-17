@@ -1,6 +1,7 @@
 ---
 id: "ME-32"
 title: "Checklist i resum del mòdul: Espai i estèreo"
+excerpt: "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Espai i estèreo"
@@ -15,19 +16,3 @@ tags: "mescla, espai, estèreo, checklist, resum, del, mòdul"
 monetization: "Lead magnet"
 cta: "Guia 'reverb i delay' (PDF)"
 ---
-
-## Objectiu
-Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Checklist imprimible + 10 preguntes d'autoavaluació
-
-## Resultat mesurable
-Completa checklist i obté ≥80% al quiz
-
-## Notes
-Ideal per captar email i segmentar interessos.
-

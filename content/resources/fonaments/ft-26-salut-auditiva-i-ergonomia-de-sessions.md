@@ -1,6 +1,7 @@
 ---
 id: "FT-26"
 title: "Salut auditiva i ergonomia de sessions"
+excerpt: "Treballar segur i mantenir criteri d'escolta a llarg termini."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Escolta crítica i workflow"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, escolta, crítica, workflow, salut, auditiva, er
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Treballar segur i mantenir criteri d'escolta a llarg termini.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Defineix pauses, nivells i límits d'exposició
-
-## Resultat mesurable
-Planifica descansos i nivells segurs
-
-## Notes
-
-

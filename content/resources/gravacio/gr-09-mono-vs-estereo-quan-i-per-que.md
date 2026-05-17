@@ -1,6 +1,7 @@
 ---
 id: "GR-09"
 title: "Mono vs estèreo: quan i per què"
+excerpt: "Escollir microfonia mono/estèreo segons objectiu."
 category: "Gravació"
 categorySlug: "gravacio"
 module: "Tècniques i fase"
@@ -15,19 +16,3 @@ tags: "gravació, tècniques, fase, mono, estèreo, quan, per, què"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Escollir microfonia mono/estèreo segons objectiu.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Comparativa: 1 font en mono i en estèreo
-
-## Resultat mesurable
-Decisionària: 3 criteris clars
-
-## Notes
-
-

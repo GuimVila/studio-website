@@ -1,6 +1,7 @@
 ---
 id: "LM-12"
 title: "Modes (Iònic, Dòric, Frigi...) en context"
+excerpt: "Entendre modes com a 'centre tonal' i no com una llista."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Escales i modes"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, escales, modes, iònic, dòric, frigi, context"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Entendre modes com a 'centre tonal' i no com una llista.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Reharmonitza un vamp i prova 3 modes
-
-## Resultat mesurable
-Descriu diferències auditives entre 3 modes
-
-## Notes
-
-

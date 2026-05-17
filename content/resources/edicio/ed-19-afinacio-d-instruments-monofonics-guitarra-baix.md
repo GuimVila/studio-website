@@ -1,6 +1,7 @@
 ---
 id: "ED-19"
 title: "Afinació d'instruments monofònics (guitarra/baix)"
+excerpt: "Corregir notes puntuals sense destrossar transients."
 category: "Edició"
 categorySlug: "edicio"
 module: "Edició tonal"
@@ -15,19 +16,3 @@ tags: "edició, tonal, afinació, d'instruments, monofònics, guitarra/baix"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Corregir notes puntuals sense destrossar transients.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Corregeix 5 notes problemàtiques i valida
-
-## Resultat mesurable
-Correcció transparent
-
-## Notes
-
-

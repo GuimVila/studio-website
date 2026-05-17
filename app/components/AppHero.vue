@@ -20,8 +20,10 @@
     <div class="hero-container">
       <div class="hero-content-wrapper">
         <div class="hero-badges">
-          <span class="badge">{{ $t("hero.badges.studio") }}</span>
-          <span class="badge badge-accent">{{ $t("hero.badges.resources") }}</span>
+          <span class="badge">
+            <UIcon name="i-lucide-map-pin" aria-hidden="true" />
+            {{ $t("hero.badges.studio") }}
+          </span>
         </div>
 
         <h1 class="hero-title">
@@ -36,7 +38,7 @@
             <UIcon name="i-lucide-arrow-right" aria-hidden="true" />
           </LocaleLink>
 
-          <LocaleLink to="/resources/roadmap" class="cta-secondary">
+          <LocaleLink to="/resources" class="cta-secondary">
             <span>{{ $t("hero.ctaRoadmap") }}</span>
           </LocaleLink>
 
@@ -165,6 +167,7 @@ onUnmounted(() => {
 .badge {
   display: inline-flex;
   align-items: center;
+  gap: 0.4rem;
   min-height: 34px;
   padding: 0.45rem 0.85rem;
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -175,22 +178,16 @@ onUnmounted(() => {
   font-weight: 750;
 }
 
-.badge-accent {
-  border-color: rgba(208, 138, 63, 0.45);
-  background: rgba(208, 138, 63, 0.14);
-  color: var(--accent-light);
+.badge :deep(svg) {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
 }
 
 :root[data-theme="light"] .badge {
   border-color: rgba(20, 20, 20, 0.14);
   background: rgba(20, 20, 20, 0.06);
   color: rgba(20, 20, 20, 0.82);
-}
-
-:root[data-theme="light"] .badge-accent {
-  border-color: rgba(208, 138, 63, 0.5);
-  background: rgba(208, 138, 63, 0.16);
-  color: var(--accent-dark);
 }
 
 .hero-title {

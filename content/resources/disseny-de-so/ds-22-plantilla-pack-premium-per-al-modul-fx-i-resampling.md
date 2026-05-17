@@ -1,6 +1,7 @@
 ---
 id: "DS-22"
 title: "Plantilla / pack premium per al mòdul: FX i resampling"
+excerpt: "Accelerar el workflow amb recursos reutilitzables i consistents."
 category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "FX i resampling"
@@ -15,19 +16,3 @@ tags: "disseny, resampling, plantilla, pack, premium, per, mòdul"
 monetization: "Producte digital"
 cta: "Sample pack original (one-shots + textures)"
 ---
-
-## Objectiu
-Accelerar el workflow amb recursos reutilitzables i consistents.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Pack (templates/presets) + guia d'ús
-
-## Resultat mesurable
-Implementa el pack en una sessió real
-
-## Notes
-Punt natural per ingressos passius; afegeix upsell a consultoria.
-

@@ -1,6 +1,7 @@
 ---
 id: "HA-07"
 title: "Checklist i resum del mòdul: Construcció d'acords"
+excerpt: "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc."
 category: "Harmonia"
 categorySlug: "harmonia"
 module: "Construcció d'acords"
@@ -15,19 +16,3 @@ tags: "harmonia, construcció, d'acords, checklist, resum, del, mòdul"
 monetization: "Lead magnet"
 cta: "Taula d'acords (PDF) + pràctica guiada"
 ---
-
-## Objectiu
-Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Checklist imprimible + 10 preguntes d'autoavaluació
-
-## Resultat mesurable
-Completa checklist i obté ≥80% al quiz
-
-## Notes
-Ideal per captar email i segmentar interessos.
-

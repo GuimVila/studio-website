@@ -1,6 +1,7 @@
 ---
 id: "ED-02"
 title: "Comping: selecció de takes i coherència"
+excerpt: "Construir una interpretació coherent a partir de takes."
 category: "Edició"
 categorySlug: "edicio"
 module: "Comping i neteja"
@@ -15,19 +16,3 @@ tags: "edició, comping, neteja, selecció, takes, coherència"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Construir una interpretació coherent a partir de takes.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Comp de 1 veu amb notes de decisions
-
-## Resultat mesurable
-Comp fluid sense salts evidents
-
-## Notes
-
-

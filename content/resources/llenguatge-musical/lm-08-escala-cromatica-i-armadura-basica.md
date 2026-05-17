@@ -1,6 +1,7 @@
 ---
 id: "LM-08"
 title: "Escala cromàtica i armadura bàsica"
+excerpt: "Entendre l'univers de 12 notes i la seva representació."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Escales i modes"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, escales, modes, escala, cromàtica, armadura, bàsic
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Entendre l'univers de 12 notes i la seva representació.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Escriu cromàtica en 3 punts de partida
-
-## Resultat mesurable
-0 errors en cromàtica
-
-## Notes
-
-

@@ -1,6 +1,7 @@
 ---
 id: "ED-25"
 title: "Projecte: edició completa d'una cançó curta (30–60 pistes)"
+excerpt: "Aplicar comping+timing+pitch+prep en un cas real."
 category: "Edició"
 categorySlug: "edicio"
 module: "Preparació per mescla"
@@ -15,19 +16,3 @@ tags: "edició, preparació, per, mescla, projecte, completa, d'una, cançó, cu
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Aplicar comping+timing+pitch+prep en un cas real.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Entrega una sessió mix-ready + changelog
-
-## Resultat mesurable
-Sessió lliurable a un mixer
-
-## Notes
-
-

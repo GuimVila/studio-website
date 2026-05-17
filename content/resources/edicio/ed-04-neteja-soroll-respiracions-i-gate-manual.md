@@ -1,6 +1,7 @@
 ---
 id: "ED-04"
 title: "Neteja: soroll, respiracions i gate manual"
+excerpt: "Deixar pistes netes sense sonar artificial."
 category: "Edició"
 categorySlug: "edicio"
 module: "Comping i neteja"
@@ -15,19 +16,3 @@ tags: "edició, comping, neteja, soroll, respiracions, gate, manual"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Deixar pistes netes sense sonar artificial.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Edita respiracions i soroll en 1 estrofa
-
-## Resultat mesurable
-Neteja natural sense bombeig
-
-## Notes
-
-

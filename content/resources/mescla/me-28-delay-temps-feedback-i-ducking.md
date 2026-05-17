@@ -1,6 +1,7 @@
 ---
 id: "ME-28"
 title: "Delay: temps, feedback i ducking"
+excerpt: "Afegir dimensió rítmica sense tapar la veu."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Espai i estèreo"
@@ -15,19 +16,3 @@ tags: "mescla, espai, estèreo, delay, temps, feedback, ducking"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Afegir dimensió rítmica sense tapar la veu.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Delay 1/8 i 1/4 amb ducking; compara
-
-## Resultat mesurable
-Delay audible però no molest
-
-## Notes
-
-

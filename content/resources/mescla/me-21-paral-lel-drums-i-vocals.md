@@ -1,6 +1,7 @@
 ---
 id: "ME-21"
 title: "Paral·lel: drums i vocals"
+excerpt: "Augmentar energia mantenint transients."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Dinàmica"
@@ -15,19 +16,3 @@ tags: "mescla, dinàmica, parallel, drums, vocals"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Augmentar energia mantenint transients.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Configura paral·lel i ajusta blend a l'oïda
-
-## Resultat mesurable
-Més energia sense distorsió molesta
-
-## Notes
-
-

@@ -166,11 +166,15 @@ const nodes = rows
     const seq = toInt(getFirst(r, ["Seq", "SEQ", "seq"])) ?? 0;
     const level = toInt(getFirst(r, ["Nivell", "Nivel", "Level"])) ?? 0;
 
-    const resourceType = getFirst(r, [
+    const rawResourceType = getFirst(r, [
       "Tipus de recurs",
       "Tipus",
       "Resource Type",
     ]);
+    const resourceType =
+      cleanText(rawResourceType).toLowerCase() === "exercici"
+        ? "Article"
+        : rawResourceType;
     const monetization = getFirst(r, [
       "Monetització suggerida",
       "Monetitzacio suggerida",
@@ -227,12 +231,6 @@ const nodes = rows
       path: pathStr,
 
       objective,
-      exercise: getFirst(r, [
-        "Deliverable / exercici",
-        "Deliverable",
-        "Exercise",
-        "Exercici",
-      ]),
       resourceType,
       monetization,
       cta,

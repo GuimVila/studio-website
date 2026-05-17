@@ -1,6 +1,7 @@
 ---
 id: "HA-25"
 title: "Acords quartals i clusters (ús controlat)"
+excerpt: "Afegir modernitat sense perdre definició."
 category: "Harmonia"
 categorySlug: "harmonia"
 module: "Harmonia moderna aplicada"
@@ -15,19 +16,3 @@ tags: "harmonia, moderna, aplicada, acords, quartals, clusters, controlat"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Afegir modernitat sense perdre definició.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Crea 6 voicings quartals i compara registres
-
-## Resultat mesurable
-6 voicings utilitzables
-
-## Notes
-
-

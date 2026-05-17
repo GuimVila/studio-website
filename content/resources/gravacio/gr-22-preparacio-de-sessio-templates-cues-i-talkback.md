@@ -1,6 +1,7 @@
 ---
 id: "GR-22"
 title: "Preparació de sessió: templates, cues i talkback"
+excerpt: "Reduir fricció i mantenir l'artista en flow."
 category: "Gravació"
 categorySlug: "gravacio"
 module: "Gestió de sessions"
@@ -15,19 +16,3 @@ tags: "gravació, gestió, sessions, preparació, sessió, templates, cues, talk
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Reduir fricció i mantenir l'artista en flow.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Configura talkback/cues i salva plantilla
-
-## Resultat mesurable
-Sessió preparada en <10 min
-
-## Notes
-
-

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Ona de pressio i forma d'ona</title>
+  <desc id="desc">Diagrama que relaciona compressions i rarefaccions amb una forma d'ona senoidal.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f1710"/>
+      <stop offset="1" stop-color="#0b0b0b"/>
+    </linearGradient>
+    <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d08a3f"/>
+      <stop offset="0.55" stop-color="#f1c99a"/>
+      <stop offset="1" stop-color="#d08a3f"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="620" rx="28" fill="url(#bg)"/>
+  <g opacity="0.18" stroke="#ffffff" stroke-width="1">
+    <path d="M80 90H1120M80 170H1120M80 250H1120M80 330H1120M80 410H1120M80 490H1120"/>
+    <path d="M140 60V560M260 60V560M380 60V560M500 60V560M620 60V560M740 60V560M860 60V560M980 60V560"/>
+  </g>
+  <text x="82" y="78" fill="#f1c99a" font-family="Arial, sans-serif" font-size="26" font-weight="800">Pressio al llarg del temps</text>
+  <text x="82" y="112" fill="#b9b0a8" font-family="Arial, sans-serif" font-size="18">El microfon tradueix petites variacions de pressio en senyal electric.</text>
+  <path d="M90 315C160 180 230 180 300 315S440 450 510 315S650 180 720 315S860 450 930 315S1070 180 1140 315" fill="none" stroke="url(#wave)" stroke-width="10" stroke-linecap="round" filter="url(#glow)"/>
+  <line x1="90" y1="315" x2="1140" y2="315" stroke="#ffffff" stroke-width="2" opacity="0.35" stroke-dasharray="10 12"/>
+  <g fill="#d08a3f" opacity="0.26">
+    <rect x="210" y="145" width="105" height="350" rx="18"/>
+    <rect x="630" y="145" width="105" height="350" rx="18"/>
+    <rect x="1050" y="145" width="70" height="350" rx="18"/>
+  </g>
+  <g fill="#ffffff" opacity="0.85" font-family="Arial, sans-serif" font-size="20" font-weight="700">
+    <text x="218" y="525">compressio</text>
+    <text x="628" y="525">compressio</text>
+    <text x="408" y="145">rarefaccio</text>
+    <text x="826" y="145">rarefaccio</text>
+  </g>
+  <g stroke="#f1c99a" stroke-width="3" opacity="0.85">
+    <path d="M300 315L372 315"/>
+    <path d="M372 315l-16 -10M372 315l-16 10"/>
+    <path d="M720 315L792 315"/>
+    <path d="M792 315l-16 -10M792 315l-16 10"/>
+  </g>
+</svg>

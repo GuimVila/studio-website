@@ -1,6 +1,7 @@
 ---
 id: "PR-20"
 title: "Commit decisions: printing, resampling i congelar"
+excerpt: "Acelerar i evitar indecisió mantenint control."
 category: "Producció"
 categorySlug: "produccio"
 module: "MIDI i instruments"
@@ -15,19 +16,3 @@ tags: "producció, midi, instruments, commit, decisions, printing, resampling, c
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Acelerar i evitar indecisió mantenint control.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Imprimeix 3 pistes amb FX i arxiva l'original
-
-## Resultat mesurable
-Projecte més lleuger i decisions fixes
-
-## Notes
-
-

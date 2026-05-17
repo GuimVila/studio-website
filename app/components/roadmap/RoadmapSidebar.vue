@@ -185,12 +185,6 @@ const detailItems = computed(() =>
       value: props.node?.objective,
     },
     {
-      key: "exercise",
-      icon: "i-lucide-clipboard-check",
-      title: t("readingProgress.roadmap.sidebar.exercise"),
-      value: props.node?.exercise,
-    },
-    {
       key: "measurable",
       icon: "i-lucide-chart-no-axes-column-increasing",
       title: t("readingProgress.roadmap.sidebar.measurable"),

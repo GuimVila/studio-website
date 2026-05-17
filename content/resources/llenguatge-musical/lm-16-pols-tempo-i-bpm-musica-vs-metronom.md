@@ -1,6 +1,7 @@
 ---
 id: "LM-16"
 title: "Pols, tempo i BPM (música vs metrònom)"
+excerpt: "Diferenciar tempo estable, feel i variacions intencionades."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Ritme i temps"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, ritme, temps, pols, tempo, bpm, música, metrònom"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Diferenciar tempo estable, feel i variacions intencionades.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Analitza BPM real de 3 temes i compara
-
-## Resultat mesurable
-Estima BPM i identifica variacions
-
-## Notes
-
-

@@ -1,6 +1,7 @@
 ---
 id: "FT-15"
 title: "Nivells: mic/line/instrument i impedància (pràctic)"
+excerpt: "Evitar errors de connexió i guany a l'entrada."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Flux de senyal"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, flux, senyal, nivells, mic/line/instrument, impe
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Evitar errors de connexió i guany a l'entrada.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Mapa de connexions del teu estudi i 3 casos típics
-
-## Resultat mesurable
-Configura entrada correcta sense distorsió
-
-## Notes
-
-

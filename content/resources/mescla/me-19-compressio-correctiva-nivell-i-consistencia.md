@@ -1,6 +1,7 @@
 ---
 id: "ME-19"
 title: "Compressió correctiva (nivell i consistència)"
+excerpt: "Controlar dinàmica sense matar transients."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Dinàmica"
@@ -15,19 +16,3 @@ tags: "mescla, dinàmica, compressió, correctiva, nivell, consistència"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Controlar dinàmica sense matar transients.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Compressa una veu amb objectiu concret i A/B
-
-## Resultat mesurable
-Veu estable sense sonar ofegada
-
-## Notes
-
-

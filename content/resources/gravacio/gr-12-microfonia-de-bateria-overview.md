@@ -1,6 +1,7 @@
 ---
 id: "GR-12"
 title: "Microfonia de bateria (overview)"
+excerpt: "Planificar mics prioritzant kick/snare/overheads segons gènere."
 category: "Gravació"
 categorySlug: "gravacio"
 module: "Tècniques i fase"
@@ -15,19 +16,3 @@ tags: "gravació, tècniques, fase, microfonia, bateria, overview"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Planificar mics prioritzant kick/snare/overheads segons gènere.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Dissenya 2 layouts (mínim vs complet)
-
-## Resultat mesurable
-Layout coherent amb pressupost
-
-## Notes
-
-

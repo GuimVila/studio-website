@@ -1,6 +1,7 @@
 ---
 id: "GR-23"
 title: "Take management i etiquetatge"
+excerpt: "Evitar confusió i accelerar comping/edició."
 category: "Gravació"
 categorySlug: "gravacio"
 module: "Gestió de sessions"
@@ -15,19 +16,3 @@ tags: "gravació, gestió, sessions, take, management, etiquetatge"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Evitar confusió i accelerar comping/edició.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Sistema de noms + markers; aplica a 1 sessió
-
-## Resultat mesurable
-Takes rastrejables i ordenats
-
-## Notes
-
-

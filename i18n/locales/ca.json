@@ -17,14 +17,14 @@
   },
   "hero": {
     "imageAlt": "Estudi de producció musical",
-    "title": "Producció, mescla i recursos per portar el teu so més lluny",
-    "subtitle": "Treballo amb artistes i productors que volen acabar cançons amb criteri, so competitiu i un procés clar. Si vens d’un vídeo, també tens el roadmap i els recursos per continuar aprenent.",
+    "title": "Dona vida a la teva música",
+    "subtitle": "Acompanyo artistes i projectes musicals en processos de gravació, producció i mescla. En aquest web també hi trobaràs recursos sobre so, música i producció.",
     "ctaPrimary": "Explica’m el teu projecte",
     "ctaSecondary": "Veure serveis",
     "ctaRoadmap": "Explorar recursos",
     "badges": {
       "artist": "Artista",
-      "studio": "Estudi de so · Riells i Viabrea",
+      "studio": "Riells i Viabrea",
       "resources": "Recursos per créixer amb criteri"
     },
     "routes": {
@@ -51,7 +51,7 @@
       "experience": "Anys produint, gravant i mesclant",
       "projects": "Projectes completats",
       "quality": "Qualitat garantida",
-      "resources": "Articles i exercicis per avançar",
+      "resources": "Articles i recursos per avançar",
       "studioLabel": "Estudi",
       "studio": "Producció, gravació i mescla",
       "resourcesLabel": "Roadmap"
@@ -59,7 +59,7 @@
   },
   "homePathways": {
     "eyebrow": "Tria el teu camí",
-    "title": "Arribis com arribis, has de saber on anar.",
+    "title": "Un punt d’entrada per a cada necessitat",
     "subtitle": "La home serveix tant a qui vol contractar-me com a qui ve d’un vídeo curt i vol continuar aprenent sense perdre’s.",
     "items": {
       "project": {
@@ -68,12 +68,12 @@
         "cta": "Parlem-ne"
       },
       "services": {
-        "title": "Vull veure serveis",
+        "title": "Vull veure els serveis",
         "description": "Consulta les opcions de producció, gravació, mescla, edició i disseny de so abans de contactar.",
         "cta": "Comparar serveis"
       },
       "learn": {
-        "title": "Vinc a aprendre producció i so",
+        "title": "Vull consultar els recursos",
         "description": "Entra al roadmap interactiu, marca el progrés i segueix articles pensats per construir criteri pas a pas.",
         "cta": "Obrir el roadmap"
       }
@@ -82,10 +82,10 @@
   "homeResources": {
     "eyebrow": "Recursos i roadmap",
     "title": "Si vens d’un vídeo, continua per aquí.",
-    "subtitle": "Cada article forma part d’un mapa més gran: fonaments, gravació, producció, mescla i disseny de so connectats perquè no saltis de tutorial en tutorial sense rumb.",
-    "previewKicker": "Roadmap viu",
-    "previewTitle": "El recorregut complet, no una llista d'articles",
-    "previewText": "Un sistema ordenat per veure on ets, què toca després i com connecten llenguatge musical, producció, harmonia i mescla.",
+    "subtitle": "Aquí trobaràs articles i recursos organitzats per temes, pensats per continuar aprenent de manera clara i progressiva.",
+    "previewKicker": "Guia d’estudi",
+    "previewTitle": "Una manera ordenada de continuar aprenent",
+    "previewText": "La guia d’estudi et proposa un recorregut entre recursos relacionats i et pot ajudar a trobar el següent pas.",
     "metrics": {
       "disciplines": "disciplines",
       "resources": "recursos",
@@ -112,7 +112,7 @@
     }
   },
   "whyMe": {
-    "title": "Serveis que connecten amb el teu objectiu",
+    "title": "Serveis",
     "items": {
       "production": {
         "title": "Producció",
@@ -134,7 +134,7 @@
   },
   "startToday": {
     "title": "Tens una cançó, una mescla o una idea a mig camí?",
-    "subtitle": "Explica’m en quin punt estàs i et diré quin camí té més sentit: produir, gravar, mesclar o preparar millor el material abans d’entrar a estudi.",
+    "subtitle": "Explica’m en quin punt estàs i et diré quin camí té més sentit: produir, gravar, mesclar o preparar millor el material abans d’entrar a l’estudi.",
     "cta": "Explica’m el projecte",
     "secondaryCta": "Mirar serveis"
   },
@@ -291,7 +291,7 @@
   "resourcesHub": {
     "title": "Recursos",
     "eyebrow": "Biblioteca d'estudi",
-    "intro": "Articles, exercicis i guies per consultar per tema. Aquesta pàgina és la biblioteca; la guia d'estudi t'ajuda a decidir per on continuar.",
+    "intro": "Articles i recursos sobre música, so i producció, organitzats per temes. La guia d’estudi et pot ajudar a trobar el següent pas.",
     "back": "← Enrere",
     "roadmap": {
       "kicker": "Guia d'estudi",
@@ -302,7 +302,7 @@
     "collaboration": {
       "kicker": "Convocatòria oberta",
       "title": "Vols col·laborar amb els recursos?",
-      "body": "Si domines una àrea concreta i vols proposar articles, revisar contingut o aportar exercicis, escriu-me. Mantindré el criteri editorial, però vull que la biblioteca pugui créixer amb veus sòlides.",
+      "body": "Si domines una àrea concreta i vols proposar articles, revisar contingut o aportar recursos, escriu-me. Mantindré el criteri editorial, però vull que la biblioteca pugui créixer amb veus sòlides.",
       "cta": "Proposar col·laboració",
       "areasLabel": "Àrees de col·laboració",
       "areas": {
@@ -337,7 +337,7 @@
       "harmonia": "Acords, funcions, voice leading, arranjament i harmonia aplicada.",
       "llenguatge-musical": "Pitch, intervals, escales, ritme, expressió i anàlisi musical.",
       "mescla": "Static mix, EQ, dinàmica, espai, estèreo, mixbus i traducció.",
-      "produccio": "Preproducció, visió, arranjament, MIDI, instruments i entregables."
+      "produccio": "Preproducció, visió, arranjament, MIDI, instruments i workflow."
     },
     "categories": {
       "disseny-de-so": "Disseny de so",
@@ -546,7 +546,7 @@
       "atlas": {
         "kicker": "Atlas interactiu",
         "title": "El mapa complet del teu aprenentatge",
-        "intro": "Tria una disciplina per entrar-hi amb calma, o baixa i recorre el camí complet per mòduls. Cada targeta és una lliçó amb objectiu, exercici i progrés.",
+        "intro": "Tria una disciplina per entrar-hi amb calma, o baixa i recorre el camí complet per mòduls. Cada targeta és una lliçó amb objectiu i progrés.",
         "categoryIntro": "Estàs veient una disciplina filtrada. Els mòduls mantenen l'ordre recomanat i cada targeta obre el detall del pas.",
         "available": "Disponible",
         "completed": "Fet",
@@ -586,7 +586,6 @@
       "sidebar": {
         "objective": "Objectiu",
         "prerequisites": "Prerequisits",
-        "exercise": "Deliverable / exercici",
         "measurable": "Resultat mesurable",
         "value": "Valor (per tu)",
         "monetization": "Monetització",

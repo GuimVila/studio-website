@@ -1,6 +1,7 @@
 ---
 id: "PR-02"
 title: "Anàlisi de referències (estructura, timbre, energia)"
+excerpt: "Desxifrar per què una referència funciona i traduir-ho a accions."
 category: "Producció"
 categorySlug: "produccio"
 module: "Preproducció i visió"
@@ -15,19 +16,3 @@ tags: "producció, preproducció, visió, anàlisi, referències, estructura, ti
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Desxifrar per què una referència funciona i traduir-ho a accions.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Full d'anàlisi de 2 referències
-
-## Resultat mesurable
-2 anàlisis amb decisions aplicables
-
-## Notes
-
-

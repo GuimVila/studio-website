@@ -1,6 +1,7 @@
 ---
 id: "DS-12"
 title: "FM (introducció): índex, carriers i moduladors"
+excerpt: "Generar timbres metàl·lics/bells sense caos."
 category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Modulació i moviment"
@@ -15,19 +16,3 @@ tags: "disseny, modulació, moviment, introducció, índex, carriers, moduladors
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Generar timbres metàl·lics/bells sense caos.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Crea 3 patches FM (bell, bass, perc)
-
-## Resultat mesurable
-3 patches FM utilitzables
-
-## Notes
-
-

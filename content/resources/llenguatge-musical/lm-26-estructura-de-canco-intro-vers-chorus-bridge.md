@@ -1,6 +1,7 @@
 ---
 id: "LM-26"
 title: "Estructura de cançó (intro/vers/chorus/bridge)"
+excerpt: "Identificar estructures i patrons per producció."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Expressió i anàlisi"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, expressió, anàlisi, estructura, cançó, intro/ver
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Identificar estructures i patrons per producció.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Mapa estructural de 3 temes referència
-
-## Resultat mesurable
-3 mapes complets i comparables
-
-## Notes
-
-

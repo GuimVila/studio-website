@@ -1,6 +1,7 @@
 ---
 id: "DS-18"
 title: "Granular (introducció)"
+excerpt: "Crear atmosferes i textures a partir d'àudio."
 category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "FX i resampling"
@@ -15,19 +16,3 @@ tags: "disseny, resampling, granular, introducció"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Crear atmosferes i textures a partir d'àudio.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Granularitza una veu i crea un pad
-
-## Resultat mesurable
-Pad granular controlat
-
-## Notes
-
-

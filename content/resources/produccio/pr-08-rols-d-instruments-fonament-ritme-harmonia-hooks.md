@@ -1,6 +1,7 @@
 ---
 id: "PR-08"
 title: "Rols d'instruments (fonament, ritme, harmonia, hooks)"
+excerpt: "Assignar funcions clares per evitar 'massa coses' al mateix lloc."
 category: "Producció"
 categorySlug: "produccio"
 module: "Arranjament"
@@ -15,19 +16,3 @@ tags: "producció, arranjament, rols, d'instruments, fonament, ritme, harmonia, 
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Assignar funcions clares per evitar 'massa coses' al mateix lloc.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Etiqueta rols en 2 referències i replica-ho
-
-## Resultat mesurable
-Mapa de rols sense solapaments greus
-
-## Notes
-
-

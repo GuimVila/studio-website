@@ -32,6 +32,7 @@ function mdTemplate(n) {
   return `---
 id: "${esc(n.id)}"
 title: "${esc(n.title)}"
+excerpt: "${esc(n.objective)}"
 category: "${esc(n.category)}"
 categorySlug: "${esc(n.categorySlug)}"
 module: "${esc(n.module)}"
@@ -47,20 +48,7 @@ monetization: "${esc(n.monetization)}"
 cta: "${esc(n.cta)}"
 ---
 
-## Objectiu
-${n.objective || ""}
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-${n.exercise || ""}
-
-## Resultat mesurable
-${n.measurable || ""}
-
-## Notes
-${n.notes || ""}
+<!-- Escriu aquí el contingut de l'article. Pots afegir apartats amb ## i una secció final "## Referències" si fas servir fonts. -->
 
 `;
 }

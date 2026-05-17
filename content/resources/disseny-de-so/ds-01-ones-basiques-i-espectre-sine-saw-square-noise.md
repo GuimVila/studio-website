@@ -1,6 +1,7 @@
 ---
 id: "DS-01"
 title: "Ones bàsiques i espectre (sine/saw/square/noise)"
+excerpt: "Relacionar forma d'ona amb harmònics i ús musical."
 category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Síntesi bàsica"
@@ -15,19 +16,3 @@ tags: "disseny, síntesi, bàsica, ones, bàsiques, espectre, sine/saw/square/no
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Relacionar forma d'ona amb harmònics i ús musical.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Crea 5 patches: sub, lead, pad, pluck, noise fx
-
-## Resultat mesurable
-5 patches diferenciats
-
-## Notes
-
-

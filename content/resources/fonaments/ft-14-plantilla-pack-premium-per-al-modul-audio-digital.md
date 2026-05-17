@@ -1,6 +1,7 @@
 ---
 id: "FT-14"
 title: "Plantilla / pack premium per al mòdul: Àudio digital"
+excerpt: "Accelerar el workflow amb recursos reutilitzables i consistents."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Àudio digital"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, àudio, digital, plantilla, pack, premium, per, 
 monetization: "Producte digital"
 cta: "Pack de presets d'export per DAW"
 ---
-
-## Objectiu
-Accelerar el workflow amb recursos reutilitzables i consistents.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Pack (templates/presets) + guia d'ús
-
-## Resultat mesurable
-Implementa el pack en una sessió real
-
-## Notes
-Punt natural per ingressos passius; afegeix upsell a consultoria.
-

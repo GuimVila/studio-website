@@ -1,6 +1,7 @@
 ---
 id: "ED-12"
 title: "Timing vocal: consonants, entrades i respiració"
+excerpt: "Ajustar timing vocal sense sonar tallat."
 category: "Edició"
 categorySlug: "edicio"
 module: "Edició temporal"
@@ -15,19 +16,3 @@ tags: "edició, temporal, timing, vocal, consonants, entrades, respiració"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Ajustar timing vocal sense sonar tallat.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Alinea 1 frase amb atenció a consonants
-
-## Resultat mesurable
-Timing ajustat i natural
-
-## Notes
-
-

@@ -1,6 +1,7 @@
 ---
 id: "FT-08"
 title: "Mostreig i Nyquist (aliasing)"
+excerpt: "Entendre el mostreig i per què apareix l'aliasing."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Àudio digital"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, àudio, digital, mostreig, nyquist, aliasing"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Entendre el mostreig i per què apareix l'aliasing.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Explica Nyquist i crea un exemple d'aliasing al DAW
-
-## Resultat mesurable
-Defineix Nyquist i aliasing correctament
-
-## Notes
-
-

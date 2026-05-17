@@ -1,6 +1,7 @@
 ---
 id: "ED-17"
 title: "Edició de formants i naturalitat"
+excerpt: "Evitar veu 'petita/gran' per canvis de formant."
 category: "Edició"
 categorySlug: "edicio"
 module: "Edició tonal"
@@ -15,19 +16,3 @@ tags: "edició, tonal, formants, naturalitat"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Evitar veu 'petita/gran' per canvis de formant.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Corregeix 5 notes i ajusta formants si cal
-
-## Resultat mesurable
-No hi ha 'chipmunk' ni enfosquiment estrany
-
-## Notes
-
-

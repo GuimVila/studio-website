@@ -1,6 +1,7 @@
 ---
 id: "ED-01"
 title: "Filosofia d'edició: transparent vs creativa"
+excerpt: "Saber quan editar i quan respectar la interpretació."
 category: "Edició"
 categorySlug: "edicio"
 module: "Comping i neteja"
@@ -15,19 +16,3 @@ tags: "edició, comping, neteja, filosofia, d'edició, transparent, creativa"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Saber quan editar i quan respectar la interpretació.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Decideix 5 casos: editar/no editar i per què
-
-## Resultat mesurable
-Criteris consistents documentats
-
-## Notes
-
-

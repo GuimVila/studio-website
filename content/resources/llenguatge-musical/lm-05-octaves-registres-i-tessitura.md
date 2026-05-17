@@ -1,6 +1,7 @@
 ---
 id: "LM-05"
 title: "Octaves, registres i tessitura"
+excerpt: "Entendre registre per evitar enmascarament i arranjament pobre."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Pitch i intervals"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, pitch, intervals, octaves, registres, tessitura"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Entendre registre per evitar enmascarament i arranjament pobre.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Analitza 2 temes: registre de baix/veu/pads
-
-## Resultat mesurable
-Proposa 2 canvis de registre justificats
-
-## Notes
-
-

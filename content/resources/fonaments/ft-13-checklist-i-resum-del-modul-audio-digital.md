@@ -1,6 +1,7 @@
 ---
 id: "FT-13"
 title: "Checklist i resum del mòdul: Àudio digital"
+excerpt: "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Àudio digital"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, àudio, digital, checklist, resum, del, mòdul"
 monetization: "Lead magnet"
 cta: "Guia imprimible 'formats i export' (PDF)"
 ---
-
-## Objectiu
-Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Checklist imprimible + 10 preguntes d'autoavaluació
-
-## Resultat mesurable
-Completa checklist i obté ≥80% al quiz
-
-## Notes
-Ideal per captar email i segmentar interessos.
-

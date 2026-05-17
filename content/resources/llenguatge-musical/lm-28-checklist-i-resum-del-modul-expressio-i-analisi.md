@@ -1,6 +1,7 @@
 ---
 id: "LM-28"
 title: "Checklist i resum del mòdul: Expressió i anàlisi"
+excerpt: "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Expressió i anàlisi"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, expressió, anàlisi, checklist, resum, del, mòdul"
 monetization: "Lead magnet"
 cta: "Plantilla d'anàlisi de cançons (PDF)"
 ---
-
-## Objectiu
-Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Checklist imprimible + 10 preguntes d'autoavaluació
-
-## Resultat mesurable
-Completa checklist i obté ≥80% al quiz
-
-## Notes
-Ideal per captar email i segmentar interessos.
-

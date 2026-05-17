@@ -1,6 +1,7 @@
 ---
 id: "DS-09"
 title: "LFO: formes, velocitat i sincronització"
+excerpt: "Crear moviment coherent amb el tempo."
 category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Modulació i moviment"
@@ -15,19 +16,3 @@ tags: "disseny, modulació, moviment, lfo, formes, velocitat, sincronització"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Crear moviment coherent amb el tempo.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Aplica 3 LFOs (tremolo, filter wobble, pan)
-
-## Resultat mesurable
-3 modulacions sincronitzades
-
-## Notes
-
-

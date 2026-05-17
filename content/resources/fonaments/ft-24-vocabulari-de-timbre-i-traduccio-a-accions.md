@@ -1,6 +1,7 @@
 ---
 id: "FT-24"
 title: "Vocabulari de timbre i traducció a accions"
+excerpt: "Convertir adjectius en moviments (EQ, dinàmica, espai)."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Escolta crítica i workflow"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, escolta, crítica, workflow, vocabulari, timbre,
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Convertir adjectius en moviments (EQ, dinàmica, espai).
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Mapa: 'boxy→freqs' 'harsh→freqs' etc.
-
-## Resultat mesurable
-3 decisions concretes a partir d'una descripció
-
-## Notes
-
-

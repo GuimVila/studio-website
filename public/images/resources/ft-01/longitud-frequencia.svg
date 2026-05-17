@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Longitud d'ona i frequencia</title>
+  <desc id="desc">Comparacio entre una ona greu i una ona aguda, amb longituds d'ona diferents.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#182117"/>
+      <stop offset="1" stop-color="#0b0b0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="620" rx="28" fill="url(#bg)"/>
+  <g opacity="0.15" stroke="#ffffff" stroke-width="1">
+    <path d="M80 220H1120M80 440H1120"/>
+    <path d="M160 100V520M280 100V520M400 100V520M520 100V520M640 100V520M760 100V520M880 100V520M1000 100V520"/>
+  </g>
+  <text x="82" y="78" fill="#f1c99a" font-family="Arial, sans-serif" font-size="26" font-weight="800">Frequencia i longitud d'ona</text>
+  <text x="82" y="112" fill="#b9b0a8" font-family="Arial, sans-serif" font-size="18">Quan la frequencia puja, la longitud d'ona es fa mes curta si el medi no canvia.</text>
+  <path d="M100 220C220 95 340 95 460 220S700 345 820 220S1060 95 1180 220" fill="none" stroke="#d08a3f" stroke-width="9" stroke-linecap="round"/>
+  <path d="M100 440C140 365 180 365 220 440S300 515 340 440S420 365 460 440S540 515 580 440S660 365 700 440S780 515 820 440S900 365 940 440S1020 515 1060 440S1140 365 1180 440" fill="none" stroke="#8fd35f" stroke-width="8" stroke-linecap="round"/>
+  <g fill="#ffffff" font-family="Arial, sans-serif">
+    <text x="92" y="174" font-size="22" font-weight="800">greu: menys cicles per segon</text>
+    <text x="92" y="394" font-size="22" font-weight="800">agut: mes cicles per segon</text>
+  </g>
+  <g stroke="#f1c99a" stroke-width="3" fill="none">
+    <path d="M100 295H460"/>
+    <path d="M100 295l18 -10M100 295l18 10M460 295l-18 -10M460 295l-18 10"/>
+  </g>
+  <text x="218" y="332" fill="#f1c99a" font-family="Arial, sans-serif" font-size="20" font-weight="800">longitud d'ona llarga</text>
+  <g stroke="#8fd35f" stroke-width="3" fill="none">
+    <path d="M100 548H220"/>
+    <path d="M100 548l18 -10M100 548l18 10M220 548l-18 -10M220 548l-18 10"/>
+  </g>
+  <text x="260" y="555" fill="#8fd35f" font-family="Arial, sans-serif" font-size="20" font-weight="800">longitud d'ona curta</text>
+</svg>

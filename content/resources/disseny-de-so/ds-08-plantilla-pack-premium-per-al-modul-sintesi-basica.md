@@ -1,6 +1,7 @@
 ---
 id: "DS-08"
 title: "Plantilla / pack premium per al mòdul: Síntesi bàsica"
+excerpt: "Accelerar el workflow amb recursos reutilitzables i consistents."
 category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Síntesi bàsica"
@@ -15,19 +16,3 @@ tags: "disseny, síntesi, bàsica, plantilla, pack, premium, per, mòdul"
 monetization: "Producte digital"
 cta: "Pack de presets (sub/lead/pad/pluck)"
 ---
-
-## Objectiu
-Accelerar el workflow amb recursos reutilitzables i consistents.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Pack (templates/presets) + guia d'ús
-
-## Resultat mesurable
-Implementa el pack en una sessió real
-
-## Notes
-Punt natural per ingressos passius; afegeix upsell a consultoria.
-

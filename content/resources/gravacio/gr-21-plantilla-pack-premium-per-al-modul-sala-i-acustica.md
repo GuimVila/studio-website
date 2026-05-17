@@ -1,6 +1,7 @@
 ---
 id: "GR-21"
 title: "Plantilla / pack premium per al mòdul: Sala i acústica"
+excerpt: "Accelerar el workflow amb recursos reutilitzables i consistents."
 category: "Gravació"
 categorySlug: "gravacio"
 module: "Sala i acústica"
@@ -15,19 +16,3 @@ tags: "gravació, sala, acústica, plantilla, pack, premium, per, mòdul"
 monetization: "Producte digital"
 cta: "Servei: diagnosi acústica online (1h)"
 ---
-
-## Objectiu
-Accelerar el workflow amb recursos reutilitzables i consistents.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Pack (templates/presets) + guia d'ús
-
-## Resultat mesurable
-Implementa el pack en una sessió real
-
-## Notes
-Punt natural per ingressos passius; afegeix upsell a consultoria.
-

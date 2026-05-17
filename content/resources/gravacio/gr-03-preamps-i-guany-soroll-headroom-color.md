@@ -1,6 +1,7 @@
 ---
 id: "GR-03"
 title: "Preamps i guany: soroll, headroom, color"
+excerpt: "Ajustar guany per maximitzar SNR sense clip."
 category: "Gravació"
 categorySlug: "gravacio"
 module: "Cadena de captura"
@@ -15,19 +16,3 @@ tags: "gravació, cadena, captura, preamps, guany, soroll, headroom, color"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Ajustar guany per maximitzar SNR sense clip.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Set de nivells: pic -12 dBFS i sense soroll crític
-
-## Resultat mesurable
-Nivells consistents a 3 preses
-
-## Notes
-
-

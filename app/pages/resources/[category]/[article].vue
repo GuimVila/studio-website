@@ -1,7 +1,10 @@
 <template>
   <article class="page">
-    <section class="section">
+    <section class="section article-header">
       <h1 class="section-title heading-accent">{{ doc.title }}</h1>
+      <p v-if="articleSubtitle" class="article-subtitle">
+        {{ articleSubtitle }}
+      </p>
 
       <button class="back" type="button" @click="goBack">
         {{ $t("resourcesHub.back") }}
@@ -130,6 +133,10 @@ if (!doc.value) {
   throw createError({ statusCode: 404, statusMessage: "Not found" });
 }
 
+const articleSubtitle = computed(() =>
+  String(doc.value?.subtitle || doc.value?.excerpt || "").trim()
+);
+
 const roadmapNodes = computed(() =>
   [...(roadmap.nodes || [])].sort((a, b) => {
     const seqA = Number.isFinite(a.seq) ? a.seq : 999999;
@@ -179,8 +186,27 @@ function roadmapCategoryLabel(category) {
 .page {
   max-width: 900px;
   margin: 0 auto;
-  padding: 6rem 2rem;
+  padding: 4.75rem 2rem 6rem;
   color: var(--text);
+}
+
+.article-header {
+  max-width: 900px;
+  padding: 2.75rem 0 1rem;
+}
+
+.article-header .section-title {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.article-subtitle {
+  max-width: 760px;
+  margin: 1.1rem auto 0;
+  color: var(--text-secondary);
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  font-weight: 650;
+  line-height: 1.55;
 }
 
 /* Botó enrere: no el centrem ni el movem del teu layout */
@@ -189,7 +215,7 @@ function roadmapCategoryLabel(category) {
   align-items: center;
   gap: 0.5rem;
 
-  margin-top: 1rem; /* sota el títol */
+  margin-top: 1.65rem;
   padding: 0.75rem 1.5rem;
 
   background: var(--surface);
@@ -226,7 +252,7 @@ function roadmapCategoryLabel(category) {
 }
 
 .article-progress {
-  margin: 1.5rem auto 0;
+  margin: 1.25rem auto 0;
   max-width: 760px;
   display: flex;
   justify-content: space-between;
@@ -307,7 +333,8 @@ function roadmapCategoryLabel(category) {
 
 /* Wrapper del markdown */
 .prose {
-  margin-top: 1.5rem;
+  max-width: 760px;
+  margin: 2.75rem auto 0;
 }
 
 .continue-panel {
@@ -392,11 +419,31 @@ function roadmapCategoryLabel(category) {
 
 /* Estils del contingut: ARA només afecten el markdown */
 .prose :deep(h2) {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: clamp(1.55rem, 3vw, 2.05rem);
+  font-weight: 850;
+  margin-top: 2.75rem;
+  margin-bottom: 0.9rem;
   color: var(--text);
+  line-height: 1.12;
+}
+
+.prose :deep(h2 a[href^="#"]) {
+  color: inherit;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.prose :deep(h2 a[href^="#"]::before) {
+  display: none !important;
+  content: none !important;
+}
+
+.prose :deep(h2:first-child) {
+  padding-top: 0;
+  border-top: 0;
+  margin-top: 0;
 }
 
 .prose :deep(h3) {
@@ -434,6 +481,18 @@ function roadmapCategoryLabel(category) {
   border: 1px solid var(--border);
 }
 
+.prose :deep(.formula-line) {
+  margin: 0.75rem 0 1.6rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(208, 138, 63, 0.3);
+  border-radius: 12px;
+  background: rgba(208, 138, 63, 0.08);
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 750;
+  line-height: 1.5;
+}
+
 .prose :deep(pre) {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -455,6 +514,75 @@ function roadmapCategoryLabel(category) {
   margin: 2rem 0;
   font-style: italic;
   color: var(--text-secondary);
+}
+
+.prose :deep(hr) {
+  margin: 2.75rem 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+.prose :deep(figure) {
+  margin: 2rem 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+}
+
+.prose :deep(figure img),
+.prose :deep(figure video) {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #0b0b0b;
+}
+
+.prose :deep(figcaption) {
+  padding: 0.85rem 1rem 1rem;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  border-top: 1px solid var(--border);
+}
+
+.prose :deep(.article-note),
+.prose :deep(.video-card) {
+  margin: 2rem 0;
+  padding: 1.15rem;
+  border: 1px solid rgba(208, 138, 63, 0.35);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at top left, rgba(208, 138, 63, 0.16), transparent 34%),
+    var(--surface);
+  box-shadow: var(--shadow-1);
+}
+
+.prose :deep(.article-note p),
+.prose :deep(.video-card p) {
+  margin-bottom: 0.75rem;
+}
+
+.prose :deep(.article-note p:last-child),
+.prose :deep(.video-card p:last-child) {
+  margin-bottom: 0;
+}
+
+.prose :deep(.video-card strong) {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--text);
+  font-size: 1.15rem;
+}
+
+.prose :deep(.video-card video) {
+  display: block;
+  width: 100%;
+  margin: 1rem 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #0b0b0b;
 }
 
 .prose :deep(strong) {
@@ -479,6 +607,10 @@ function roadmapCategoryLabel(category) {
 @media (max-width: 768px) {
   .page {
     padding: 4rem 1.5rem;
+  }
+
+  .article-header {
+    padding-top: 2rem;
   }
 
   .article-progress {

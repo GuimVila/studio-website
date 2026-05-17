@@ -1,6 +1,7 @@
 ---
 id: "PR-03"
 title: "Decidir tempo, tonalitat i centre emocional"
+excerpt: "Fixar paràmetres base abans de construir arranjament."
 category: "Producció"
 categorySlug: "produccio"
 module: "Preproducció i visió"
@@ -9,25 +10,9 @@ seq: 90
 slug: "decidir-tempo-tonalitat-i-centre-emocional"
 path: "/resources/produccio/pr-03-decidir-tempo-tonalitat-i-centre-emocional"
 prereqIds: ["FT-28", "LM-20", "PR-02"]
-resourceType: "Exercici"
+resourceType: "Article"
 estMinutes: 30
 tags: "producció, preproducció, visió, decidir, tempo, tonalitat, centre, emocional"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Fixar paràmetres base abans de construir arranjament.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Prova 3 BPM i 2 tonalitats; tria i justifica
-
-## Resultat mesurable
-Decisió justificada i documentada
-
-## Notes
-
-

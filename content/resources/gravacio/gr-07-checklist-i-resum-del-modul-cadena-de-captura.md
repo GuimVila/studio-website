@@ -1,6 +1,7 @@
 ---
 id: "GR-07"
 title: "Checklist i resum del mòdul: Cadena de captura"
+excerpt: "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc."
 category: "Gravació"
 categorySlug: "gravacio"
 module: "Cadena de captura"
@@ -15,19 +16,3 @@ tags: "gravació, cadena, captura, checklist, resum, del, mòdul"
 monetization: "Lead magnet"
 cta: "Checklist de cadena de gravació (PDF)"
 ---
-
-## Objectiu
-Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Checklist imprimible + 10 preguntes d'autoavaluació
-
-## Resultat mesurable
-Completa checklist i obté ≥80% al quiz
-
-## Notes
-Ideal per captar email i segmentar interessos.
-

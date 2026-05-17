@@ -17,14 +17,14 @@
   },
   "hero": {
     "imageAlt": "Estudio de producción musical",
-    "title": "Producción, mezcla y recursos para llevar tu sonido más lejos",
-    "subtitle": "Trabajo con artistas y productores que quieren terminar canciones con criterio, sonido competitivo y un proceso claro. Si vienes de un vídeo, también tienes el roadmap y los recursos para seguir aprendiendo.",
+    "title": "Da vida a tu música",
+    "subtitle": "Acompaño a artistas y proyectos musicales en procesos de grabación, producción y mezcla. En esta web también encontrarás recursos sobre sonido, música y producción.",
     "ctaPrimary": "Cuéntame tu proyecto",
     "ctaSecondary": "Ver servicios",
     "ctaRoadmap": "Explorar recursos",
     "badges": {
       "artist": "Artista",
-      "studio": "Estudio de sonido · Riells i Viabrea",
+      "studio": "Riells i Viabrea",
       "resources": "Recursos para crecer con criterio"
     },
     "routes": {
@@ -51,7 +51,7 @@
       "experience": "Años produciendo, grabando y mezclando",
       "projects": "Proyectos completados",
       "quality": "Calidad garantizada",
-      "resources": "Artículos y ejercicios para avanzar",
+      "resources": "Artículos y recursos para avanzar",
       "studioLabel": "Estudio",
       "studio": "Producción, grabación y mezcla",
       "resourcesLabel": "Roadmap"
@@ -59,7 +59,7 @@
   },
   "homePathways": {
     "eyebrow": "Elige tu camino",
-    "title": "Llegues como llegues, tienes que saber dónde ir.",
+    "title": "Un punto de entrada para cada necesidad",
     "subtitle": "La home sirve tanto a quien quiere contratarme como a quien viene de un vídeo corto y quiere seguir aprendiendo sin perderse.",
     "items": {
       "project": {
@@ -68,12 +68,12 @@
         "cta": "Hablemos"
       },
       "services": {
-        "title": "Quiero ver servicios",
+        "title": "Quiero ver los servicios",
         "description": "Consulta las opciones de producción, grabación, mezcla, edición y diseño de sonido antes de contactar.",
         "cta": "Comparar servicios"
       },
       "learn": {
-        "title": "Vengo a aprender producción y sonido",
+        "title": "Quiero consultar los recursos",
         "description": "Entra en el roadmap interactivo, marca tu progreso y sigue artículos pensados para construir criterio paso a paso.",
         "cta": "Abrir el roadmap"
       }
@@ -82,10 +82,10 @@
   "homeResources": {
     "eyebrow": "Recursos y roadmap",
     "title": "Si vienes de un vídeo, continúa por aquí.",
-    "subtitle": "Cada artículo forma parte de un mapa más grande: fundamentos, grabación, producción, mezcla y diseño de sonido conectados para que no saltes de tutorial en tutorial sin rumbo.",
-    "previewKicker": "Roadmap vivo",
-    "previewTitle": "El recorrido completo, no una lista de artículos",
-    "previewText": "Un sistema ordenado para ver dónde estás, qué toca después y cómo conectan lenguaje musical, producción, armonía y mezcla.",
+    "subtitle": "Aquí encontrarás artículos y recursos organizados por temas, pensados para seguir aprendiendo de manera clara y progresiva.",
+    "previewKicker": "Guía de estudio",
+    "previewTitle": "Una manera ordenada de seguir aprendiendo",
+    "previewText": "La guía de estudio te propone un recorrido entre recursos relacionados y puede ayudarte a encontrar el siguiente paso.",
     "metrics": {
       "disciplines": "disciplinas",
       "resources": "recursos",
@@ -112,7 +112,7 @@
     }
   },
   "whyMe": {
-    "title": "Servicios que conectan con tu objetivo",
+    "title": "Servicios",
     "items": {
       "production": {
         "title": "Producción",
@@ -291,7 +291,7 @@
   "resourcesHub": {
     "title": "Recursos",
     "eyebrow": "Biblioteca de estudio",
-    "intro": "Artículos, ejercicios y guías para consultar por tema. Esta página es la biblioteca; la guía de estudio te ayuda a decidir por dónde continuar.",
+    "intro": "Artículos y recursos sobre música, sonido y producción, organizados por temas. La guía de estudio puede ayudarte a encontrar el siguiente paso.",
     "back": "← Atrás",
     "roadmap": {
       "kicker": "Guía de estudio",
@@ -302,7 +302,7 @@
     "collaboration": {
       "kicker": "Convocatoria abierta",
       "title": "¿Quieres colaborar con los recursos?",
-      "body": "Si dominas un área concreta y quieres proponer artículos, revisar contenido o aportar ejercicios, escríbeme. Mantendré el criterio editorial, pero quiero que la biblioteca pueda crecer con voces sólidas.",
+      "body": "Si dominas un área concreta y quieres proponer artículos, revisar contenido o aportar recursos, escríbeme. Mantendré el criterio editorial, pero quiero que la biblioteca pueda crecer con voces sólidas.",
       "cta": "Proponer colaboración",
       "areasLabel": "Áreas de colaboración",
       "areas": {
@@ -337,7 +337,7 @@
       "harmonia": "Acordes, funciones, voice leading, arreglo y armonía aplicada.",
       "llenguatge-musical": "Pitch, intervalos, escalas, ritmo, expresión y análisis musical.",
       "mescla": "Static mix, EQ, dinámica, espacio, estéreo, mixbus y traducción.",
-      "produccio": "Preproducción, visión, arreglo, MIDI, instrumentos y entregables."
+      "produccio": "Preproducción, visión, arreglo, MIDI, instrumentos y workflow."
     },
     "categories": {
       "disseny-de-so": "Diseño de sonido",
@@ -546,7 +546,7 @@
       "atlas": {
         "kicker": "Atlas interactivo",
         "title": "El mapa completo de tu aprendizaje",
-        "intro": "Elige una disciplina para entrar con calma, o baja y recorre el camino completo por módulos. Cada tarjeta es una lección con objetivo, ejercicio y progreso.",
+        "intro": "Elige una disciplina para entrar con calma, o baja y recorre el camino completo por módulos. Cada tarjeta es una lección con objetivo y progreso.",
         "categoryIntro": "Estás viendo una disciplina filtrada. Los módulos mantienen el orden recomendado y cada tarjeta abre el detalle del paso.",
         "available": "Disponible",
         "completed": "Hecho",
@@ -586,7 +586,6 @@
       "sidebar": {
         "objective": "Objetivo",
         "prerequisites": "Prerequisitos",
-        "exercise": "Deliverable / ejercicio",
         "measurable": "Resultado medible",
         "value": "Valor (para ti)",
         "monetization": "Monetización",

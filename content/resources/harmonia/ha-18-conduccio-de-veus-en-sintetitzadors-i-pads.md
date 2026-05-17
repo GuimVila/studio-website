@@ -1,6 +1,7 @@
 ---
 id: "HA-18"
 title: "Conducció de veus en sintetitzadors i pads"
+excerpt: "Evitar 'saltirons' i millorar suavitat en producció."
 category: "Harmonia"
 categorySlug: "harmonia"
 module: "Voice leading i arranjament"
@@ -15,19 +16,3 @@ tags: "harmonia, voice, leading, arranjament, conducció, veus, sintetitzadors, 
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Evitar 'saltirons' i millorar suavitat en producció.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Programa un pad amb voice leading suau
-
-## Resultat mesurable
-Pad sense salts > 5 semitons
-
-## Notes
-
-

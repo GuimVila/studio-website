@@ -1,6 +1,7 @@
 ---
 id: "PR-12"
 title: "Transicions: fills, risers, drops, silencis"
+excerpt: "Connectar seccions sense 'enganxar' parts de forma brusca."
 category: "Producció"
 categorySlug: "produccio"
 module: "Arranjament"
@@ -15,19 +16,3 @@ tags: "producció, arranjament, transicions, fills, risers, drops, silencis"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Connectar seccions sense 'enganxar' parts de forma brusca.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Construeix 3 transicions diferents
-
-## Resultat mesurable
-3 transicions funcionals
-
-## Notes
-
-

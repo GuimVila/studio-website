@@ -1,6 +1,7 @@
 ---
 id: "FT-19"
 title: "PDC, lookahead i compensacions (què pot fallar)"
+excerpt: "Detectar desajustos temporals per plugins i rutes."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Flux de senyal"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, flux, senyal, pdc, lookahead, compensacions, qu�
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Detectar desajustos temporals per plugins i rutes.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Test: plugin lookahead en paral·lel i corregeix
-
-## Resultat mesurable
-Evita flams per paral·lel mal alineat
-
-## Notes
-
-

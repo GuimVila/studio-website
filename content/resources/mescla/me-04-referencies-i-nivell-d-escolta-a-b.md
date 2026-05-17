@@ -1,6 +1,7 @@
 ---
 id: "ME-04"
 title: "Referències i nivell d'escolta (A/B)"
+excerpt: "Comparar amb honestedat i ajustar percepció."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Preparació i static mix"
@@ -15,19 +16,3 @@ tags: "mescla, preparació, static, mix, referències, nivell, d'escolta, a/b"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Comparar amb honestedat i ajustar percepció.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Match de loudness i comparació per seccions
-
-## Resultat mesurable
-Decisions basades en A/B just
-
-## Notes
-
-

@@ -1,6 +1,7 @@
 ---
 id: "HA-01"
 title: "Triades: major, menor, disminuït, augmentat"
+excerpt: "Construir triades a partir d'intervals."
 category: "Harmonia"
 categorySlug: "harmonia"
 module: "Construcció d'acords"
@@ -15,19 +16,3 @@ tags: "harmonia, construcció, d'acords, triades, major, menor, disminuït, augm
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Construir triades a partir d'intervals.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Construeix 16 triades en diferents arrels
-
-## Resultat mesurable
-16/16 triades correctes
-
-## Notes
-
-

@@ -1,6 +1,7 @@
 ---
 id: "PR-18"
 title: "Baix: sub, mid-bass i articulació"
+excerpt: "Construir baix que es tradueixi a diferents sistemes."
 category: "Producció"
 categorySlug: "produccio"
 module: "MIDI i instruments"
@@ -15,19 +16,3 @@ tags: "producció, midi, instruments, baix, sub, mid-bass, articulació"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Construir baix que es tradueixi a diferents sistemes.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Dissenya 2 versions de baix (sub-heavy vs mid-forward)
-
-## Resultat mesurable
-Traducció acceptable en auriculars i altaveus
-
-## Notes
-
-

@@ -1,6 +1,7 @@
 ---
 id: "DS-19"
 title: "Convolució i IRs: espais i textures"
+excerpt: "Aplicar IRs per espai realista o disseny creatiu."
 category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "FX i resampling"
@@ -15,19 +16,3 @@ tags: "disseny, resampling, convolució, irs, espais, textures"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Aplicar IRs per espai realista o disseny creatiu.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Prova 3 IRs i documenta usos
-
-## Resultat mesurable
-3 IRs triats amb criteri
-
-## Notes
-
-

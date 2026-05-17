@@ -1,6 +1,7 @@
 ---
 id: "ME-05"
 title: "Workflow: ordre d'operacions (macro→micro)"
+excerpt: "Evitar perdre't: balanç, problemes, color, detall."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Preparació i static mix"
@@ -15,19 +16,3 @@ tags: "mescla, preparació, static, mix, workflow, ordre, d'operacions, macro→
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Evitar perdre't: balanç, problemes, color, detall.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Aplicar un checklist d'ordre a una sessió
-
-## Resultat mesurable
-Mescla avança sense 'loop' infinit
-
-## Notes
-
-

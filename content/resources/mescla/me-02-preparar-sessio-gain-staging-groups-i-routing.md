@@ -1,6 +1,7 @@
 ---
 id: "ME-02"
 title: "Preparar sessió: gain staging, groups i routing"
+excerpt: "Construir una sessió clara abans de tocar plugins."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Preparació i static mix"
@@ -15,19 +16,3 @@ tags: "mescla, preparació, static, mix, preparar, sessió, gain, staging, group
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Construir una sessió clara abans de tocar plugins.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Organitza una sessió: colors, buses, headroom
-
-## Resultat mesurable
-Sessió llesta en <20 min
-
-## Notes
-
-

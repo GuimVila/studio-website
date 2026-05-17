@@ -1,6 +1,7 @@
 ---
 id: "HA-28"
 title: "Projecte: progressió completa + top line"
+excerpt: "Aplicar harmonia per composar una secció completa."
 category: "Harmonia"
 categorySlug: "harmonia"
 module: "Harmonia moderna aplicada"
@@ -15,19 +16,3 @@ tags: "harmonia, moderna, aplicada, projecte, progressió, completa, top, line"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Aplicar harmonia per composar una secció completa.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Escriu 16 compassos + melodia i exporta stems
-
-## Resultat mesurable
-Demo exportable i coherent
-
-## Notes
-
-

@@ -1,6 +1,7 @@
 ---
 id: "LM-20"
 title: "Swing i microtiming"
+excerpt: "Entendre swing, feel i quan NO quantitzar."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Ritme i temps"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, ritme, temps, swing, microtiming"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Entendre swing, feel i quan NO quantitzar.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-A/B quantitzat vs humanitzat i documenta
-
-## Resultat mesurable
-Defineix una regla de quantització per gènere
-
-## Notes
-
-

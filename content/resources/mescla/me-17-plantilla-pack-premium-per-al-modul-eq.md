@@ -1,6 +1,7 @@
 ---
 id: "ME-17"
 title: "Plantilla / pack premium per al mòdul: EQ"
+excerpt: "Accelerar el workflow amb recursos reutilitzables i consistents."
 category: "Mescla"
 categorySlug: "mescla"
 module: "EQ"
@@ -15,19 +16,3 @@ tags: "mescla, plantilla, pack, premium, per, mòdul"
 monetization: "Producte digital"
 cta: "Pack de presets d'EQ (estils) + guia"
 ---
-
-## Objectiu
-Accelerar el workflow amb recursos reutilitzables i consistents.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Pack (templates/presets) + guia d'ús
-
-## Resultat mesurable
-Implementa el pack en una sessió real
-
-## Notes
-Punt natural per ingressos passius; afegeix upsell a consultoria.
-

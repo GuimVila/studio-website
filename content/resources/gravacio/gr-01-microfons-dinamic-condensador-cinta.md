@@ -1,6 +1,7 @@
 ---
 id: "GR-01"
 title: "Micròfons: dinàmic, condensador, cinta"
+excerpt: "Seleccionar micro per font i context."
 category: "Gravació"
 categorySlug: "gravacio"
 module: "Cadena de captura"
@@ -15,19 +16,3 @@ tags: "gravació, cadena, captura, micròfons, dinàmic, condensador, cinta"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Seleccionar micro per font i context.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Tria micro per 6 fonts i justifica
-
-## Resultat mesurable
-6 decisions coherents
-
-## Notes
-
-

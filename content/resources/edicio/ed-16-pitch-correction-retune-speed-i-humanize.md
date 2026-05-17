@@ -1,6 +1,7 @@
 ---
 id: "ED-16"
 title: "Pitch correction: retune speed i humanize"
+excerpt: "Controlar naturalitat vs efecte."
 category: "Edició"
 categorySlug: "edicio"
 module: "Edició tonal"
@@ -15,19 +16,3 @@ tags: "edició, tonal, pitch, correction, retune, speed, humanize"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Controlar naturalitat vs efecte.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-A/B 3 valors i documenta el punt òptim
-
-## Resultat mesurable
-Afinació sense artifacts excessius
-
-## Notes
-
-

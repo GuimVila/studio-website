@@ -1,6 +1,7 @@
 ---
 id: "HA-21"
 title: "Tensió planificada: suspensions i anticipacions"
+excerpt: "Programar tensió micro dins d'una progressió."
 category: "Harmonia"
 categorySlug: "harmonia"
 module: "Voice leading i arranjament"
@@ -15,19 +16,3 @@ tags: "harmonia, voice, leading, arranjament, tensió, planificada, suspensions,
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Programar tensió micro dins d'una progressió.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Afegeix 4 suspensions/anticipacions en 8 compassos
-
-## Resultat mesurable
-Tensió perceptible sense 'embrutar'
-
-## Notes
-
-

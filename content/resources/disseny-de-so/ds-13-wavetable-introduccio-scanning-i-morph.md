@@ -1,6 +1,7 @@
 ---
 id: "DS-13"
 title: "Wavetable (introducció): scanning i morph"
+excerpt: "Crear timbres evolutius amb coherència."
 category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Modulació i moviment"
@@ -15,19 +16,3 @@ tags: "disseny, modulació, moviment, wavetable, introducció, scanning, morph"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Crear timbres evolutius amb coherència.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Crea un pad evolutiu amb 2 automatitzacions
-
-## Resultat mesurable
-Pad amb evolució suau
-
-## Notes
-
-

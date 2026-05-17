@@ -1,6 +1,7 @@
 ---
 id: "HA-06"
 title: "Relació acord→espectre (registre i densitat)"
+excerpt: "Entendre com el voicing afecta la mescla i claredat."
 category: "Harmonia"
 categorySlug: "harmonia"
 module: "Construcció d'acords"
@@ -15,19 +16,3 @@ tags: "harmonia, construcció, d'acords, relació, acord→espectre, registre, d
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Entendre com el voicing afecta la mescla i claredat.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Comparativa: mateix acord en 3 registres
-
-## Resultat mesurable
-Tria registre adequat per context
-
-## Notes
-
-

@@ -1,6 +1,7 @@
 ---
 id: "ME-34"
 title: "Bussing: drums bus, vocal bus, music bus"
+excerpt: "Controlar grups per coherència i velocitat."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Mixbus i traducció"
@@ -15,19 +16,3 @@ tags: "mescla, mixbus, traducció, bussing, drums, bus, vocal, music"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Controlar grups per coherència i velocitat.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Configura buses i aplica 1 process per bus
-
-## Resultat mesurable
-Mix més cohesionat
-
-## Notes
-
-

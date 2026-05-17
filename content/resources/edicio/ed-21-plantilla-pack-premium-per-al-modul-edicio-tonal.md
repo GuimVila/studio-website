@@ -1,6 +1,7 @@
 ---
 id: "ED-21"
 title: "Plantilla / pack premium per al mòdul: Edició tonal"
+excerpt: "Accelerar el workflow amb recursos reutilitzables i consistents."
 category: "Edició"
 categorySlug: "edicio"
 module: "Edició tonal"
@@ -15,19 +16,3 @@ tags: "edició, tonal, plantilla, pack, premium, per, mòdul"
 monetization: "Producte digital"
 cta: "Servei: edició vocal pro (per cançó)"
 ---
-
-## Objectiu
-Accelerar el workflow amb recursos reutilitzables i consistents.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Pack (templates/presets) + guia d'ús
-
-## Resultat mesurable
-Implementa el pack en una sessió real
-
-## Notes
-Punt natural per ingressos passius; afegeix upsell a consultoria.
-

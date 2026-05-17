@@ -1,6 +1,7 @@
 ---
 id: "GR-08"
 title: "Plantilla / pack premium per al mòdul: Cadena de captura"
+excerpt: "Accelerar el workflow amb recursos reutilitzables i consistents."
 category: "Gravació"
 categorySlug: "gravacio"
 module: "Cadena de captura"
@@ -15,19 +16,3 @@ tags: "gravació, cadena, captura, plantilla, pack, premium, per, mòdul"
 monetization: "Producte digital"
 cta: "Guia premium: set-ups per veu/guitarra/bateria"
 ---
-
-## Objectiu
-Accelerar el workflow amb recursos reutilitzables i consistents.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Pack (templates/presets) + guia d'ús
-
-## Resultat mesurable
-Implementa el pack en una sessió real
-
-## Notes
-Punt natural per ingressos passius; afegeix upsell a consultoria.
-

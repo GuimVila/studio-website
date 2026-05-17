@@ -1,6 +1,7 @@
 ---
 id: "LM-24"
 title: "Dinàmica musical vs volum tècnic"
+excerpt: "Separar expressió (musical) de nivell (tècnic)."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Expressió i anàlisi"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, expressió, anàlisi, dinàmica, volum, tècnic"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Separar expressió (musical) de nivell (tècnic).
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Analitza 2 interpretacions i apunta diferències
-
-## Resultat mesurable
-Descriu 3 recursos d'expressió
-
-## Notes
-
-

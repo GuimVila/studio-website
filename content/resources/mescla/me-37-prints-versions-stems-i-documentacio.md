@@ -1,6 +1,7 @@
 ---
 id: "ME-37"
 title: "Prints: versions, stems i documentació"
+excerpt: "Entregar mescla de forma professional."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Mixbus i traducció"
@@ -15,19 +16,3 @@ tags: "mescla, mixbus, traducció, prints, versions, stems, documentació"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Entregar mescla de forma professional.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Exporta mix, instrumental, acapella, stems i notes
-
-## Resultat mesurable
-Paquet d'entrega complet
-
-## Notes
-
-

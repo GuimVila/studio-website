@@ -1,6 +1,7 @@
 ---
 id: "ED-24"
 title: "Naming, colors, groups i markers per mixer"
+excerpt: "Facilitar la vida al mixer i reduir costos/temps."
 category: "Edició"
 categorySlug: "edicio"
 module: "Preparació per mescla"
@@ -15,19 +16,3 @@ tags: "edició, preparació, per, mescla, naming, colors, groups, markers, mixer
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Facilitar la vida al mixer i reduir costos/temps.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Reorganitza una sessió i fes captura de pantalla
-
-## Resultat mesurable
-Sessió llegible en 60 segons
-
-## Notes
-
-

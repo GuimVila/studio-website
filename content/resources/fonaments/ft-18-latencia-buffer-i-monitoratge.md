@@ -1,6 +1,7 @@
 ---
 id: "FT-18"
 title: "Latència, buffer i monitoratge"
+excerpt: "Optimitzar latència per gravar i potència per mesclar."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Flux de senyal"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, flux, senyal, latència, buffer, monitoratge"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Optimitzar latència per gravar i potència per mesclar.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Prova 64/256/1024 i anota ms + sensació
-
-## Resultat mesurable
-Tria buffer segons tasca
-
-## Notes
-
-

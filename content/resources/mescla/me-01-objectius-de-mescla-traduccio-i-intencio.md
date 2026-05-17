@@ -1,6 +1,7 @@
 ---
 id: "ME-01"
 title: "Objectius de mescla: traducció i intenció"
+excerpt: "Definir què vol dir 'sonar bé' segons gènere i referència."
 category: "Mescla"
 categorySlug: "mescla"
 module: "Preparació i static mix"
@@ -15,19 +16,3 @@ tags: "mescla, preparació, static, mix, objectius, traducció, intenció"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Definir què vol dir 'sonar bé' segons gènere i referència.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Escriu 5 objectius mesurables per una mescla
-
-## Resultat mesurable
-Objectius clars i verificables
-
-## Notes
-
-

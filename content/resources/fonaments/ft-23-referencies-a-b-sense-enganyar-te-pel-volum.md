@@ -1,6 +1,7 @@
 ---
 id: "FT-23"
 title: "Referències A/B (sense enganyar-te pel volum)"
+excerpt: "Comparar amb criteri: nivell, temps, seccions."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Escolta crítica i workflow"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, escolta, crítica, workflow, referències, a/b, 
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Comparar amb criteri: nivell, temps, seccions.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Configura un sistema A/B i fes 5 comparacions guiades
-
-## Resultat mesurable
-Decisions basades en comparació justa
-
-## Notes
-
-

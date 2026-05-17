@@ -1,6 +1,7 @@
 ---
 id: "FT-10"
 title: "Dither: quan i com aplicar-lo"
+excerpt: "Evitar degradació en reduir bit depth i exportar."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
 module: "Àudio digital"
@@ -15,19 +16,3 @@ tags: "fonaments, transversals, àudio, digital, dither, quan, com, aplicar-lo"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Evitar degradació en reduir bit depth i exportar.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Exporta 24→16 amb i sense dither i compara
-
-## Resultat mesurable
-Sap explicar quan NO cal dither
-
-## Notes
-
-

@@ -1,6 +1,7 @@
 ---
 id: "LM-06"
 title: "Afinació i desviacions (cents)"
+excerpt: "Entendre cents per afinació vocal/instrument i sintetitzadors."
 category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Pitch i intervals"
@@ -15,19 +16,3 @@ tags: "llenguatge, musical, pitch, intervals, afinació, desviacions, cents"
 monetization: "Free"
 cta: ""
 ---
-
-## Objectiu
-Entendre cents per afinació vocal/instrument i sintetitzadors.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Ajusta un oscil·lador ±20 cents i descriu l'efecte
-
-## Resultat mesurable
-Explica cents i batiments
-
-## Notes
-
-

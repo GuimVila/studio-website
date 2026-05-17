@@ -1,6 +1,7 @@
 ---
 id: "HA-29"
 title: "Checklist i resum del mòdul: Harmonia moderna aplicada"
+excerpt: "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc."
 category: "Harmonia"
 categorySlug: "harmonia"
 module: "Harmonia moderna aplicada"
@@ -15,19 +16,3 @@ tags: "harmonia, moderna, aplicada, checklist, resum, del, mòdul"
 monetization: "Lead magnet"
 cta: "Plantilla 'harmonia en capes' (PDF)"
 ---
-
-## Objectiu
-Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.
-
-## Contingut
-- (Escriu el contingut aquí)
-
-## Exercici / Deliverable
-Checklist imprimible + 10 preguntes d'autoavaluació
-
-## Resultat mesurable
-Completa checklist i obté ≥80% al quiz
-
-## Notes
-Ideal per captar email i segmentar interessos.
-

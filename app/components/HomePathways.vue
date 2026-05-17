@@ -4,7 +4,6 @@
       <div class="section-kicker">{{ $t("homePathways.eyebrow") }}</div>
       <div class="section-head">
         <h2 id="pathways-title">{{ $t("homePathways.title") }}</h2>
-        <p>{{ $t("homePathways.subtitle") }}</p>
       </div>
 
       <div class="pathway-grid">
@@ -87,10 +86,6 @@ const items = computed(() => [
 }
 
 .section-head {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
-  gap: 2rem;
-  align-items: end;
   margin-bottom: 1.7rem;
 }
 
