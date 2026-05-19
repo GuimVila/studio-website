@@ -173,7 +173,262 @@ Tot i això, un augment físic de l’amplitud o de l’SPL no implica necessàr
 
 ## 5. Fase i polaritat
 
+Quan una ona sonora es repeteix periòdicament, cada cicle passa successivament per diferents estats: màxima compressió, retorn al punt d’equilibri, màxima rarefacció i nou retorn a l’equilibri. La fase descriu en quin punt d’aquest cicle es troba l’ona en un instant determinat.[1][3]
 
+Quan dues ones tenen la mateixa freqüència però no coincideixen exactament en el temps, diem que existeix un desplaçament de fase entre elles.[1][3]
+
+Com que un cicle complet representa una oscil·lació sencera, sovint es descriu la fase utilitzant graus angulars.[1]
+
+- 0° → inici del cicle
+- 90° → quart de cicle
+- 180° → mig cicle
+- 360° → final del cicle i retorn al punt inicial
+
+Matemàticament, aquesta relació es pot entendre de manera similar a un moviment circular: un cicle complet equival a una rotació completa de 360°.[1]
+
+Un desplaçament de fase no implica necessàriament que les ones siguin diferents, sinó que una d’elles es troba temporalment avançada o retardada respecte a l’altra.
+
+<figure>
+  <img 
+    src="/images/resources/ft-01/phase_shift.webp" 
+    alt="Comparació entre dues ones amb la mateixa freqüència però desplaçades temporalment."
+  />
+  <figcaption>
+    Dues ones poden tenir la mateixa freqüència i amplitud però trobar-se desalineades temporalment. Aquest desplaçament temporal correspon a una diferència de fase.
+  </figcaption>
+</figure>
+
+La polaritat, en canvi, descriu la direcció positiva o negativa de l’oscil·lació respecte al punt d’equilibri del senyal.
+
+Invertir la polaritat significa invertir verticalment l’ona: les compressions passen a correspondre a rarefaccions i viceversa.[2][3]
+
+<div class='article-note'>
+<p>A diferència d’un desplaçament de fase, una inversió de polaritat no introdueix cap retard temporal. El senyal continua produint-se exactament en el mateix instant; només canvia el signe de l’oscil·lació.</p>
+</div>
+
+<figure>
+  <img 
+    src="/images/resources/ft-01/polarity_inversion.webp" 
+    alt="Comparació entre una ona original i la mateixa ona amb la polaritat invertida."
+  />
+  <figcaption>
+    Una inversió de polaritat no modifica el moment temporal en què es produeix l’ona, sinó la direcció de les variacions de pressió respecte al punt d’equilibri.
+  </figcaption>
+</figure>
+
+En àudio és habitual parlar informalment d’“invertir la fase”. En molts casos, però, el que realment s’està invertint és la polaritat del senyal.[2][3]
+
+Tot i que una inversió de polaritat pot generar cancel·lacions similars a determinats desplaçaments de fase, físicament no són el mateix fenomen.
+
+Quan dues ones interactuen entre elles, la relació de fase i polaritat pot provocar reforços, cancel·lacions parcials o cancel·lacions gairebé completes.[1][3]
+
+En un altaveu convencional, una variació positiva del senyal elèctric acostuma a provocar un desplaçament cap endavant del diafragma, comprimint l’aire situat davant del transductor. Una variació negativa provoca el moviment contrari, generant una rarefacció.
+
+Si dues ones iguals arriben al mateix punt amb polaritats oposades, una intentarà generar una compressió mentre l’altra generarà simultàniament una rarefacció. En aquest cas, les variacions de pressió tendeixen a compensar-se mútuament, produint una cancel·lació parcial o gairebé completa.[1][3]
+
+<div class='article-note'>
+<p><strong>Idea clau:</strong> quan diferents ones sonores coincideixen en l’espai, el que realment se suma o es cancel·la són les variacions de pressió que cadascuna genera en el medi.</p>
+</div>
+
+Una manera molt senzilla d’experimentar aquests conceptes és provar-los directament en un DAW.
+
+Si dupliques una mateixa pista i inverteixes la polaritat d’una de les dues còpies, les variacions de pressió de tots dos senyals tendiran a oposar-se. Si els dos senyals són idèntics i estan perfectament alineats en el temps, gran part del contingut pot cancel·lar-se gairebé completament.
+
+En canvi, si mantens la mateixa polaritat però desplaces lleugerament una de les pistes cap endavant o cap enrere uns mil·lisegons, el que modificaràs serà la relació de fase entre els dos senyals.[2][3]
+
+En aquest cas, no desapareixerà necessàriament tot el so, però sí que poden aparèixer reforços i cancel·lacions parcials en diferents freqüències.
+
+## 6. Interferència: suma i cancel·lació
+
+Quan diferents ones sonores coincideixen en un mateix espai, les seves variacions de pressió interactuen entre elles. Aquest fenomen s’anomena interferència.[1][3]
+
+La manera com aquestes ones interactuen depèn de diversos factors, entre els quals destaquen la freqüència, l’amplitud, la fase, la polaritat i la relació temporal entre els senyals. Quan dues o més ones coincideixen, les seves variacions de pressió no romanen independents, sinó que se superposen i generen un nou resultat acústic.[1][3]
+
+Quan dues ones arriben alineades i les seves variacions de pressió coincideixen en la mateixa direcció, les amplituds tendeixen a sumar-se. Aquest fenomen s’anomena interferència constructiva.[1][3]
+
+En aquest cas, les compressions coincideixen amb compressions i les rarefaccions coincideixen amb rarefaccions, de manera que les variacions de pressió resultants són més grans que les originals.
+
+<figure>
+  <img 
+    src="/images/resources/ft-01/constructive_interference.webp" 
+    alt="Suma de dues ones alineades produint una amplitud resultant més gran."
+  />
+  <figcaption>
+    Quan dues ones coincideixen alineades en fase i polaritat, les seves variacions de pressió tendeixen a sumar-se, generant una amplitud resultant més gran.
+  </figcaption>
+</figure>
+
+Quan dues ones no coincideixen perfectament però tampoc es troben completament oposades, apareixen reforços i cancel·lacions parcials.[1][3]
+
+En aquesta situació, algunes parts de les ones tendeixen a sumar-se mentre que altres tendeixen a compensar-se mútuament. El resultat és una alteració del contingut espectral i de la distribució energètica del senyal.
+
+Aquest fenomen és especialment important en acústica i producció musical, ja que petites diferències temporals poden modificar considerablement la resposta en freqüència percebuda.[2][3]
+
+<figure>
+  <img 
+    src="/images/resources/ft-01/partial_phase_interference.webp" 
+    alt="Interferència parcial causada per un desplaçament temporal entre dues ones."
+  />
+  <figcaption>
+    Quan dues ones es troben parcialment desfasades, algunes freqüències tendeixen a reforçar-se mentre que altres tendeixen a cancel·lar-se parcialment.
+  </figcaption>
+</figure>
+
+Quan una ona intenta generar una compressió mentre l’altra genera simultàniament una rarefacció equivalent, les variacions de pressió tendeixen a compensar-se mútuament. Aquest fenomen s’anomena interferència destructiva.[1][3]
+
+Si les dues ones són pràcticament idèntiques i arriben perfectament oposades, la cancel·lació pot arribar a ser gairebé completa.
+
+<figure>
+  <img 
+    src="/images/resources/ft-01/destructive_interference.webp" 
+    alt="Cancel·lació produïda per dues ones iguals amb polaritats oposades."
+  />
+  <figcaption>
+    Quan dues ones coincideixen amb variacions de pressió oposades, les seves amplituds tendeixen a compensar-se mútuament, produint una cancel·lació parcial o gairebé completa.
+  </figcaption>
+</figure>
+
+Quan el desplaçament temporal entre dues ones és molt petit, diferents freqüències es reforcen o es cancel·len en punts diferents de l’espectre. El resultat és una successió regular de reforços i cancel·lacions coneguda com a filtratge en pinta (_comb filtering_).[1][3]
+
+Aquest fenomen és habitual en situacions com la captació amb múltiples micròfons, reflexions primerenques dins d’una sala o duplicacions temporals molt curtes entre senyals similars.[2][3]
+
+<div class='article-note'>
+<p><strong>Idea clau:</strong> la interferència no és un fenomen abstracte ni exclusivament digital. És una conseqüència física directa de la superposició de variacions de pressió en el temps i l’espai.</p>
+</div>
+
+## 7. Representació del so en el temps
+
+Quan representem un senyal d’àudio en un editor o un DAW, habitualment no veiem directament les compressions i rarefaccions físiques de l’aire. El que veiem és una representació gràfica de com varia el senyal al llarg del temps.[1][3]
+
+Aquesta representació s’anomena forma d’ona (waveform).
+
+<figure>
+  <img 
+    src="/images/resources/ft-01/waveform_representation.webp" 
+    alt="Relació entre una ona sonora longitudinal i la seva representació temporal en forma d’ona."
+  />
+  <figcaption>
+    Una forma d’ona és una representació temporal de les variacions del senyal. Les compressions i rarefaccions físiques del medi poden representar-se visualment com oscil·lacions positives i negatives al llarg del temps.
+  </figcaption>
+</figure>
+
+En una representació temporal del so:
+
+- l’eix horitzontal representa el temps;
+- l’eix vertical representa l’amplitud del senyal.[1][3]
+
+Quan el senyal es troba per sobre del punt central, representa una variació positiva respecte al punt d’equilibri; quan es troba per sota, representa una variació negativa.
+
+En un sistema acústic o electroacústic, aquestes variacions es corresponen amb canvis de pressió o amb variacions equivalents del senyal elèctric que representa aquesta pressió.[1][3]
+
+Cada oscil·lació completa de la forma d’ona correspon a un cicle complet del senyal.
+
+Les freqüències baixes generen menys cicles en un mateix interval temporal, mentre que les freqüències altes en generen més. De la mateixa manera, amplituds més grans produeixen oscil·lacions verticals més pronunciades.[1][3]
+
+<div class='article-note'>
+<p><strong>Idea clau:</strong> una forma d’ona no mostra directament “com sona” un àudio, sinó com varia el senyal al llarg del temps.</p>
+</div>
+
+Tot i que la representació temporal és fonamental per entendre el comportament físic i temporal del senyal, sovint resulta insuficient per analitzar-ne el contingut freqüencial. Per aquest motiu, en producció i acústica també s’utilitzen representacions basades en l’espectre de freqüències.[1][2][3]
+
+<div class='article-note'>
+<p><strong>Per aprofundir:</strong> les formes d’ona bàsiques —sinusoïdal, quadrada, triangular o dent de serra— tenen propietats físiques i espectrals diferents. Les explorarem amb més detall a <em>DS-01 — Ones bàsiques i formes d’ona</em>.</p>
+</div>
+
+## 8. Com representem el so en freqüència
+
+Una forma d’ona mostra com varia el senyal al llarg del temps. En canvi, una representació espectral mostra quina energia hi ha distribuïda entre diferents freqüències.[1][2][3]
+
+Aquesta diferència és fonamental. Una representació temporal permet observar aspectes relacionats amb la durada, la periodicitat o l’amplitud del senyal, mentre que una representació en freqüència permet analitzar-ne el contingut espectral.
+
+En un analitzador d’espectre o en molts equalitzadors moderns, l’eix horitzontal representa les freqüències: les baixes freqüències apareixen a l’esquerra i les altes freqüències a la dreta.[2][3]
+
+L’eix vertical acostuma a representar el nivell o l’energia relativa de cada freqüència.
+
+<figure>
+  <img 
+    src="/images/resources/ft-01/spectrum_representation.webp" 
+    alt="Representació espectral d’un senyal ordenada de freqüències greus a freqüències agudes."
+  />
+  <figcaption>
+    Una representació espectral mostra la distribució energètica d’un senyal entre diferents freqüències. Les freqüències greus apareixen a l’esquerra i les agudes a la dreta, mentre que l’alçada indica el nivell o energia relativa de cada zona.
+  </figcaption>
+</figure>
+
+Aquest tipus de representació és especialment útil per identificar:
+
+- acumulacions de greus;
+- ressonàncies;
+- presència d’harmònics;
+- desequilibris espectrals;
+- o conflictes entre diferents elements d’una mescla.
+
+<div class='article-note'>
+<p><strong>Idea clau:</strong> una forma d’ona mostra com varia un senyal en el temps; una representació espectral mostra quines freqüències formen aquest senyal.</p>
+</div>
+
+Els espectrogrames combinen informació temporal i freqüencial en una sola representació visual.[2][3]
+
+En un espectrograma:
+
+- l’eix horitzontal representa el temps;
+- l’eix vertical representa la freqüència;
+- i el color o la brillantor indiquen la intensitat relativa de cada component freqüencial.
+
+A diferència d’una forma d’ona, un espectrograma permet observar com evoluciona el contingut espectral d’un so al llarg del temps.
+
+<figure>
+  <img 
+    src="/images/resources/ft-01/spectrogram_representation.webp" 
+    alt="Representació espectrogràfica d’un senyal mostrant l’evolució temporal de les freqüències."
+  />
+  <figcaption>
+    Un espectrograma combina informació temporal i freqüencial en una sola representació visual. La intensitat de cada freqüència es representa mitjançant variacions de color o brillantor.
+  </figcaption>
+</figure>
+
+Aquest tipus de representacions es basen en mètodes matemàtics que permeten descompondre un senyal complex en múltiples components freqüencials més simples, com les ones sinusoidals.[1][3]
+
+Sense entrar encara en profunditat matemàtica, aquesta idea és la base de gran part de l’anàlisi moderna d’àudio, acústica i processament digital del senyal.
+
+Aquestes representacions són fonamentals en acústica, producció musical, restauració d’àudio i disseny sonor, ja que permeten visualitzar aspectes del senyal que sovint resulten difícils de percebre únicament amb l’oïda.[2][3]
+
+## 9. Per què tot això importa en gravació, mescla i producció
+
+Tots els conceptes que hem vist fins ara —freqüència, longitud d’ona, amplitud, fase, polaritat o representació espectral— tenen conseqüències directes en qualsevol procés de gravació, producció o mescla.[2][3]
+
+Quan capturem o reproduïm so, no treballem amb entitats abstractes, sinó amb ones que interactuen físicament en el temps i l’espai.
+
+En una gravació amb múltiples micròfons, per exemple, un mateix esdeveniment sonor arriba a cada micròfon en instants lleugerament diferents. Aquestes petites diferències temporals modifiquen la relació de fase entre els senyals i poden provocar reforços, cancel·lacions parcials o filtratge en pinta (comb filtering).[2][3]
+
+Aquest fenomen és especialment evident en:
+
+- bateries enregistrades amb múltiples micròfons;
+- combinacions de micròfon proper i micròfon d’ambient;
+- gravacions estèreo;
+- o sistemes amb subgreus separats físicament dels monitors principals.
+
+Per aquest motiu, en gravació amb múltiples micròfons sovint es treballa l’alineació temporal i espacial entre senyals relacionats. La posició dels micròfons, la distància respecte a la font sonora o els petits ajustos temporals durant l’edició o la mescla poden modificar considerablement la relació de fase i, en conseqüència, el resultat tonal i espacial de la gravació.
+
+Situacions aparentment simples, com combinar un senyal DI amb un amplificador microfonat, també poden introduir desplaçaments temporals suficients per alterar considerablement el resultat final.
+
+La relació entre fase, temps i longitud d’ona és especialment crítica en freqüències greus, ja que les longituds d’ona llargues interactuen intensament amb les dimensions físiques de la sala.[1][3]
+
+Per aquest motiu, petites variacions de posició poden modificar radicalment la percepció dels greus en un estudi o una sala d’escolta.
+
+La polaritat també té implicacions pràctiques importants. Una inversió accidental de polaritat entre dos senyals relacionats pot provocar cancel·lacions importants, especialment quan els senyals comparteixen gran part del contingut espectral.
+
+Al mateix temps, eines com els equalitzadors, els analitzadors espectrals o els espectrogrames permeten observar visualment aspectes del senyal que sovint són difícils d’identificar únicament amb l’oïda.
+
+Una representació temporal pot revelar transitoris, periodicitat o problemes d’edició. Una representació espectral pot ajudar a detectar acumulacions freqüencials, ressonàncies o desequilibris tonals. Un espectrograma, en canvi, permet observar simultàniament l’evolució temporal i espectral del senyal.[2][3]
+
+<div class='article-note'>
+<p><strong>Idea clau:</strong> entendre el so vol dir entendre alhora el fenomen físic, els seus paràmetres bàsics i les diferents maneres de representar-lo.</p>
+</div>
+
+Una forma d’ona, una EQ, un analitzador d’espectre o un espectrograma no són el so en si: són finestres diferents sobre el mateix fenomen.
+
+Comprendre aquestes relacions és fonamental no només per treballar amb més precisió tècnica, sinó també per desenvolupar una intuïció auditiva més profunda sobre com interactua el so dins d’un espai, una gravació o una mescla.[2][3]
 
 ## Vídeo de referència
 
@@ -194,4 +449,3 @@ Tot i això, un augment físic de l’amplitud o de l’SPL no implica necessàr
 [2] Howard, D. M., & Angus, J. (2017). Acoustics and Psychoacoustics (5a ed.). Routledge.
 
 [3] Rossing, T. D., Moore, F. R., & Wheeler, P. A. (2002). The Science of Sound (3a ed.). Addison-Wesley.
-
