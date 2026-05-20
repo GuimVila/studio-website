@@ -1,6 +1,6 @@
 ---
 id: "FT-01"
-title: "El so: propagació, freqüència i representació."
+title: "El so: propagació, freqüència i representació"
 excerpt: "Entendre el so com una ona i què implica fase i polaritat."
 category: "Fonaments transversals"
 categorySlug: "fonaments"
@@ -25,9 +25,9 @@ Des del punt de vista físic, el so és una pertorbació mecànica que es propag
 
 Des del punt de vista perceptiu, el so és l’experiència auditiva produïda quan aquestes variacions arriben a l’oïda i són interpretades pel cervell.[1][2]
 
-Tot i que aquestes dues idees estan estretament relacionades, no són exactament equivalents. El fenomen físic pot existir encara que ningú el percebi, mentre que diferents espècies o sistemes de mesura poden interpretar-lo o detectar-lo de maneres diverses.
+Tot i que aquestes dues idees estan estretament relacionades, no són exactament equivalents. El fenomen físic pot existir encara que ningú el percebi, encara que diferents espècies o sistemes de mesura poden interpretar-lo o detectar-lo de maneres diverses.
 
-La manera com el so es propaga depèn del medi. En gasos i líquids, es manifesta principalment com variacions de pressió i densitat. En sòlids, en canvi, també poden aparèixer deformacions mecàniques internes del material, i la propagació esdevé més complexa.[1][3]
+La manera com el so es propaga depèn del medi. En gasos i líquids, es manifesta principalment com a variacions de pressió i densitat. En sòlids, en canvi, també poden aparèixer deformacions mecàniques internes del material i la propagació esdevé més complexa.[1][3]
 
 En l’aire —el medi amb què treballem habitualment en producció musical i acústica— el so es propaga principalment mitjançant compressions i rarefaccions longitudinals de pressió produïdes pel moviment oscil·latori de les partícules del medi.
 
@@ -113,7 +113,7 @@ Aquest punt és fonamental en acústica de sales. Moltes freqüències greus ten
 
 Això no vol dir, però, que una ona de 60 Hz només pugui recórrer 5,72 metres. La longitud d’ona no indica fins on arriba un so, sinó quant espai físic ocupa un cicle complet de l’ona mentre es propaga.
 
-Una ona sonora pot continuar avançant molt més enllà de la seva longitud d’ona, sempre que encara conservi prou energia per ser detectable o audible. En aquest sentit, la longitud d’ona descriu la mida espacial del patró d’oscil·lació, no la distància màxima de propagació.
+Una ona sonora pot continuar avançant molt més enllà de la seva longitud d’ona, sempre que conservi prou energia per ser detectable o audible. En aquest sentit, la longitud d’ona descriu la mida espacial del patró d’oscil·lació, no la distància màxima de propagació.
 
 De fet, les freqüències greus sovint es perceben a distàncies molt més grans que les freqüències agudes.[2][3] Això es deu principalment a dos factors. D’una banda, l’aire absorbeix molt més les freqüències altes que les baixes, de manera que els aguts perden energia més ràpidament mentre es propaguen. De l’altra, les longituds d’ona llargues difracten més fàcilment al voltant d’obstacles com edificis, arbres o cantonades. [3]
 
@@ -168,7 +168,7 @@ Tot i això, un augment físic de l’amplitud o de l’SPL no implica necessàr
 </figure>
 
 <div class='article-note'>
-<p><strong>Idea clau:</strong> la freqüència determina cada quant es repeteix una oscil·lació; l’amplitud determina la magnitud de les variacions de pressió associades a aquesta oscil·lació.</p>
+<p><strong>Idea clau:</strong> la freqüència determina cada quan es repeteix una oscil·lació; l’amplitud determina la magnitud de les variacions de pressió associades a aquesta oscil·lació.</p>
 </div>
 
 ## 5. Fase i polaritat
@@ -246,7 +246,7 @@ La manera com aquestes ones interactuen depèn de diversos factors, entre els qu
 
 Quan dues ones arriben alineades i les seves variacions de pressió coincideixen en la mateixa direcció, les amplituds tendeixen a sumar-se. Aquest fenomen s’anomena interferència constructiva.[1][3]
 
-En aquest cas, les compressions coincideixen amb compressions i les rarefaccions coincideixen amb rarefaccions, de manera que les variacions de pressió resultants són més grans que les originals.
+En aquest cas, les compressions coincideixen amb compressions i les rarefaccions amb rarefaccions, de manera que les variacions de pressió resultants són més grans que les originals.
 
 <figure>
   <img 
@@ -288,7 +288,7 @@ Si les dues ones són pràcticament idèntiques i arriben perfectament oposades,
   </figcaption>
 </figure>
 
-Quan el desplaçament temporal entre dues ones és molt petit, diferents freqüències es reforcen o es cancel·len en punts diferents de l’espectre. El resultat és una successió regular de reforços i cancel·lacions coneguda com a filtratge en pinta (_comb filtering_).[1][3]
+Quan el desplaçament temporal entre dues ones és molt petit, diferents freqüències es reforcen o es cancel·len en punts diferents de l’espectre. El resultat és una successió regular de reforços i cancel·lacions coneguda com a filtratge en pinta (comb filtering).[1][3]
 
 Aquest fenomen és habitual en situacions com la captació amb múltiples micròfons, reflexions primerenques dins d’una sala o duplicacions temporals molt curtes entre senyals similars.[2][3]
 
@@ -341,7 +341,7 @@ Una forma d’ona mostra com varia el senyal al llarg del temps. En canvi, una r
 
 Aquesta diferència és fonamental. Una representació temporal permet observar aspectes relacionats amb la durada, la periodicitat o l’amplitud del senyal, mentre que una representació en freqüència permet analitzar-ne el contingut espectral.
 
-En un analitzador d’espectre o en molts equalitzadors moderns, l’eix horitzontal representa les freqüències: les baixes freqüències apareixen a l’esquerra i les altes freqüències a la dreta.[2][3]
+En un analitzador d’espectre o en molts equalitzadors moderns, l’eix horitzontal representa les freqüències: les baixes freqüències apareixen a l’esquerra i les altes a la dreta.[2][3]
 
 L’eix vertical acostuma a representar el nivell o l’energia relativa de cada freqüència.
 
@@ -357,11 +357,11 @@ L’eix vertical acostuma a representar el nivell o l’energia relativa de cada
 
 Aquest tipus de representació és especialment útil per identificar:
 
-- acumulacions de greus;
-- ressonàncies;
-- presència d’harmònics;
-- desequilibris espectrals;
-- o conflictes entre diferents elements d’una mescla.
+- acumulacions de greus
+- ressonàncies
+- presència d’harmònics
+- desequilibris espectrals
+- o conflictes entre diferents elements d’una mescla
 
 <div class='article-note'>
 <p><strong>Idea clau:</strong> una forma d’ona mostra com varia un senyal en el temps; una representació espectral mostra quines freqüències formen aquest senyal.</p>
@@ -371,9 +371,9 @@ Els espectrogrames combinen informació temporal i freqüencial en una sola repr
 
 En un espectrograma:
 
-- l’eix horitzontal representa el temps;
-- l’eix vertical representa la freqüència;
-- i el color o la brillantor indiquen la intensitat relativa de cada component freqüencial.
+- l’eix horitzontal representa el temps
+- l’eix vertical representa la freqüència
+- i el color o la brillantor indiquen la intensitat relativa de cada component freqüencial
 
 A diferència d’una forma d’ona, un espectrograma permet observar com evoluciona el contingut espectral d’un so al llarg del temps.
 
@@ -397,16 +397,16 @@ Aquestes representacions són fonamentals en acústica, producció musical, rest
 
 Tots els conceptes que hem vist fins ara —freqüència, longitud d’ona, amplitud, fase, polaritat o representació espectral— tenen conseqüències directes en qualsevol procés de gravació, producció o mescla.[2][3]
 
-Quan capturem o reproduïm so, no treballem amb entitats abstractes, sinó amb ones que interactuen físicament en el temps i l’espai.
+Quan capturem o reproduïm so, no treballem amb entitats abstractes, sinó amb ones que interactuen físicament en el temps i en l’espai.
 
 En una gravació amb múltiples micròfons, per exemple, un mateix esdeveniment sonor arriba a cada micròfon en instants lleugerament diferents. Aquestes petites diferències temporals modifiquen la relació de fase entre els senyals i poden provocar reforços, cancel·lacions parcials o filtratge en pinta (comb filtering).[2][3]
 
 Aquest fenomen és especialment evident en:
 
-- bateries enregistrades amb múltiples micròfons;
-- combinacions de micròfon proper i micròfon d’ambient;
-- gravacions estèreo;
-- o sistemes amb subgreus separats físicament dels monitors principals.
+- bateries enregistrades amb múltiples micròfons
+- combinacions de micròfon proper i micròfon d’ambient
+- gravacions estèreo
+- o sistemes amb subgreus separats físicament dels monitors principals
 
 Per aquest motiu, en gravació amb múltiples micròfons sovint es treballa l’alineació temporal i espacial entre senyals relacionats. La posició dels micròfons, la distància respecte a la font sonora o els petits ajustos temporals durant l’edició o la mescla poden modificar considerablement la relació de fase i, en conseqüència, el resultat tonal i espacial de la gravació.
 
