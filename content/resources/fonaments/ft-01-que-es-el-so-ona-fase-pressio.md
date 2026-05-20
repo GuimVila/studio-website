@@ -387,7 +387,7 @@ A diferència d’una forma d’ona, un espectrograma permet observar com evoluc
   </figcaption>
 </figure>
 
-Aquest tipus de representacions es basen en mètodes matemàtics que permeten descompondre un senyal complex en múltiples components freqüencials més simples, com les ones sinusoidals.[1][3]
+Aquest tipus de representacions es basen en mètodes matemàtics que permeten descompondre un senyal complex en múltiples components freqüencials més simples, com les ones sinusoïdals.[1][3]
 
 Sense entrar encara en profunditat matemàtica, aquesta idea és la base de gran part de l’anàlisi moderna d’àudio, acústica i processament digital del senyal.
 
