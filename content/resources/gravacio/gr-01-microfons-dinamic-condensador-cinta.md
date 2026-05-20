@@ -6,10 +6,10 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Cadena de captura"
 level: 0
-seq: 117
+seq: 115
 slug: "microfons-dinamic-condensador-cinta"
 path: "/resources/gravacio/gr-01-microfons-dinamic-condensador-cinta"
-prereqIds: ["FT-15"]
+prereqIds: ["FT-13"]
 resourceType: "Article"
 estMinutes: 30
 tags: "gravació, cadena, captura, micròfons, dinàmic, condensador, cinta"

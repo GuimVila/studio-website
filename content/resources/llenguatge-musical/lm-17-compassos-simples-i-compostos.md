@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Ritme i temps"
 level: 0
-seq: 45
+seq: 43
 slug: "compassos-simples-i-compostos"
 path: "/resources/llenguatge-musical/lm-17-compassos-simples-i-compostos"
 prereqIds: ["LM-08", "LM-16"]

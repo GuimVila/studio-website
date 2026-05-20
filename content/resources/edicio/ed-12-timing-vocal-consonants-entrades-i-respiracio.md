@@ -6,7 +6,7 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Edició temporal"
 level: 1
-seq: 156
+seq: 154
 slug: "timing-vocal-consonants-entrades-i-respiracio"
 path: "/resources/edicio/ed-12-timing-vocal-consonants-entrades-i-respiracio"
 prereqIds: ["ED-01", "LM-23", "ED-11"]

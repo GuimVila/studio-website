@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Ritme i temps"
 level: 0
-seq: 48
+seq: 46
 slug: "swing-i-microtiming"
 path: "/resources/llenguatge-musical/lm-20-swing-i-microtiming"
 prereqIds: ["LM-08", "LM-19"]

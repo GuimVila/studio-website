@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Foley i field recording"
 level: 2
-seq: 236
+seq: 234
 slug: "organitzacio-de-biblioteca-tags-i-categories"
 path: "/resources/disseny-de-so/ds-25-organitzacio-de-biblioteca-tags-i-categories"
 prereqIds: ["DS-16", "GR-01", "DS-24"]

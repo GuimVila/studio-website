@@ -6,7 +6,7 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Comping i neteja"
 level: 0
-seq: 149
+seq: 147
 slug: "edicio-de-silenci-vs-room-tone"
 path: "/resources/edicio/ed-05-edicio-de-silenci-vs-room-tone"
 prereqIds: ["GR-22", "ED-04"]

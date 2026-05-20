@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Escales i modes"
 level: 0
-seq: 42
+seq: 40
 slug: "checklist-i-resum-del-modul-escales-i-modes"
 path: "/resources/llenguatge-musical/lm-14-checklist-i-resum-del-modul-escales-i-modes"
 prereqIds: ["LM-13"]

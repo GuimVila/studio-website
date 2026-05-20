@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Expressió i anàlisi"
 level: 1
-seq: 56
+seq: 54
 slug: "checklist-i-resum-del-modul-expressio-i-analisi"
 path: "/resources/llenguatge-musical/lm-28-checklist-i-resum-del-modul-expressio-i-analisi"
 prereqIds: ["LM-27"]

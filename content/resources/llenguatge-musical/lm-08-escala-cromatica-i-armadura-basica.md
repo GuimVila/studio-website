@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Escales i modes"
 level: 0
-seq: 36
+seq: 34
 slug: "escala-cromatica-i-armadura-basica"
 path: "/resources/llenguatge-musical/lm-08-escala-cromatica-i-armadura-basica"
 prereqIds: ["LM-01"]

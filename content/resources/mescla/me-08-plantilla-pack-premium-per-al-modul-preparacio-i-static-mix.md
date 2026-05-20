@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Preparació i static mix"
 level: 0
-seq: 179
+seq: 177
 slug: "plantilla-pack-premium-per-al-modul-preparacio-i-static-mix"
 path: "/resources/mescla/me-08-plantilla-pack-premium-per-al-modul-preparacio-i-static-mix"
 prereqIds: ["ME-07"]

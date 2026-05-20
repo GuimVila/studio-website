@@ -6,7 +6,7 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Comping i neteja"
 level: 0
-seq: 147
+seq: 145
 slug: "crossfades-i-pops-clicks"
 path: "/resources/edicio/ed-03-crossfades-i-pops-clicks"
 prereqIds: ["GR-22", "ED-02"]

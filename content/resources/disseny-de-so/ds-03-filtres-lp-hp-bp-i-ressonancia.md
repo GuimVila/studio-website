@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Síntesi bàsica"
 level: 0
-seq: 214
+seq: 212
 slug: "filtres-lp-hp-bp-i-ressonancia"
 path: "/resources/disseny-de-so/ds-03-filtres-lp-hp-bp-i-ressonancia"
 prereqIds: ["FT-01", "DS-02"]

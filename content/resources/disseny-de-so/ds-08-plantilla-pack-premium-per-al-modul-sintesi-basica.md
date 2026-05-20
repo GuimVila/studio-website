@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Síntesi bàsica"
 level: 0
-seq: 219
+seq: 217
 slug: "plantilla-pack-premium-per-al-modul-sintesi-basica"
 path: "/resources/disseny-de-so/ds-08-plantilla-pack-premium-per-al-modul-sintesi-basica"
 prereqIds: ["DS-07"]

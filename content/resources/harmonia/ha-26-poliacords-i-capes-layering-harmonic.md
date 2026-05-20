@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Harmonia moderna aplicada"
 level: 2
-seq: 83
+seq: 81
 slug: "poliacords-i-capes-layering-harmonic"
 path: "/resources/harmonia/ha-26-poliacords-i-capes-layering-harmonic"
 prereqIds: ["HA-17", "HA-25"]

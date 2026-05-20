@@ -6,7 +6,7 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Comping i neteja"
 level: 0
-seq: 150
+seq: 148
 slug: "checklist-i-resum-del-modul-comping-i-neteja"
 path: "/resources/edicio/ed-06-checklist-i-resum-del-modul-comping-i-neteja"
 prereqIds: ["ED-05"]

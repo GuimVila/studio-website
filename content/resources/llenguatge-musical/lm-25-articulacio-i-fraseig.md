@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Expressió i anàlisi"
 level: 1
-seq: 53
+seq: 51
 slug: "articulacio-i-fraseig"
 path: "/resources/llenguatge-musical/lm-25-articulacio-i-fraseig"
 prereqIds: ["LM-16", "LM-24"]

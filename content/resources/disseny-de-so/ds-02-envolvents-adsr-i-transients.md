@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Síntesi bàsica"
 level: 0
-seq: 213
+seq: 211
 slug: "envolvents-adsr-i-transients"
 path: "/resources/disseny-de-so/ds-02-envolvents-adsr-i-transients"
 prereqIds: ["FT-01", "DS-01"]

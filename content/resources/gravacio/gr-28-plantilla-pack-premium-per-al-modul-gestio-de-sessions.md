@@ -6,7 +6,7 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Gestió de sessions"
 level: 2
-seq: 144
+seq: 142
 slug: "plantilla-pack-premium-per-al-modul-gestio-de-sessions"
 path: "/resources/gravacio/gr-28-plantilla-pack-premium-per-al-modul-gestio-de-sessions"
 prereqIds: ["GR-27"]

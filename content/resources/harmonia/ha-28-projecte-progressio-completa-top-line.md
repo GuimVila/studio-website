@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Harmonia moderna aplicada"
 level: 2
-seq: 85
+seq: 83
 slug: "projecte-progressio-completa-top-line"
 path: "/resources/harmonia/ha-28-projecte-progressio-completa-top-line"
 prereqIds: ["HA-17", "HA-27"]

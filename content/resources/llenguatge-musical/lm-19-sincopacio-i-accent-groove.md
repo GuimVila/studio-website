@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Ritme i temps"
 level: 0
-seq: 47
+seq: 45
 slug: "sincopacio-i-accent-groove"
 path: "/resources/llenguatge-musical/lm-19-sincopacio-i-accent-groove"
 prereqIds: ["LM-08", "LM-18"]

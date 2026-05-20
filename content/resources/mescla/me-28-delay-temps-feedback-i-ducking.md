@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Espai i estèreo"
 level: 1
-seq: 199
+seq: 197
 slug: "delay-temps-feedback-i-ducking"
 path: "/resources/mescla/me-28-delay-temps-feedback-i-ducking"
 prereqIds: ["ME-18", "ME-27"]

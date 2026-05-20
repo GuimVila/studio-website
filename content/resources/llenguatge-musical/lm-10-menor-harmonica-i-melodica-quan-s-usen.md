@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Escales i modes"
 level: 0
-seq: 38
+seq: 36
 slug: "menor-harmonica-i-melodica-quan-s-usen"
 path: "/resources/llenguatge-musical/lm-10-menor-harmonica-i-melodica-quan-s-usen"
 prereqIds: ["LM-01", "LM-09"]

@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "EQ"
 level: 1
-seq: 181
+seq: 179
 slug: "filtres-hp-lp-i-pendents"
 path: "/resources/mescla/me-10-filtres-hp-lp-i-pendents"
 prereqIds: ["ME-01", "ME-09"]

@@ -6,10 +6,10 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Cadena de captura"
 level: 0
-seq: 119
+seq: 117
 slug: "preamps-i-guany-soroll-headroom-color"
 path: "/resources/gravacio/gr-03-preamps-i-guany-soroll-headroom-color"
-prereqIds: ["FT-15", "GR-02"]
+prereqIds: ["FT-13", "GR-02"]
 resourceType: "Tutorial"
 estMinutes: 30
 tags: "gravació, cadena, captura, preamps, guany, soroll, headroom, color"

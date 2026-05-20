@@ -6,7 +6,7 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Edició temporal"
 level: 1
-seq: 152
+seq: 150
 slug: "warp-elastic-audio-principis-i-riscos"
 path: "/resources/edicio/ed-08-warp-elastic-audio-principis-i-riscos"
 prereqIds: ["ED-01", "LM-23"]

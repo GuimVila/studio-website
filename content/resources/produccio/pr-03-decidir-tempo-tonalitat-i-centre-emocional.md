@@ -6,10 +6,10 @@ category: "Producció"
 categorySlug: "produccio"
 module: "Preproducció i visió"
 level: 0
-seq: 90
+seq: 88
 slug: "decidir-tempo-tonalitat-i-centre-emocional"
 path: "/resources/produccio/pr-03-decidir-tempo-tonalitat-i-centre-emocional"
-prereqIds: ["FT-28", "LM-20", "PR-02"]
+prereqIds: ["FT-26", "LM-20", "PR-02"]
 resourceType: "Article"
 estMinutes: 30
 tags: "producció, preproducció, visió, decidir, tempo, tonalitat, centre, emocional"

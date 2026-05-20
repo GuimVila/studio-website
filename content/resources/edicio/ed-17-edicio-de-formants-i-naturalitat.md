@@ -6,7 +6,7 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Edició tonal"
 level: 1
-seq: 161
+seq: 159
 slug: "edicio-de-formants-i-naturalitat"
 path: "/resources/edicio/ed-17-edicio-de-formants-i-naturalitat"
 prereqIds: ["ED-08", "LM-06", "ED-16"]

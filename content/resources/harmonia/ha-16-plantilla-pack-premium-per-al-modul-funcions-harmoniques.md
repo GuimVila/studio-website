@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Funcions harmòniques"
 level: 1
-seq: 73
+seq: 71
 slug: "plantilla-pack-premium-per-al-modul-funcions-harmoniques"
 path: "/resources/harmonia/ha-16-plantilla-pack-premium-per-al-modul-funcions-harmoniques"
 prereqIds: ["HA-15"]

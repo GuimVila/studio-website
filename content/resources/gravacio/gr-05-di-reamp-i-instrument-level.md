@@ -6,10 +6,10 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Cadena de captura"
 level: 0
-seq: 121
+seq: 119
 slug: "di-reamp-i-instrument-level"
 path: "/resources/gravacio/gr-05-di-reamp-i-instrument-level"
-prereqIds: ["FT-15", "GR-04"]
+prereqIds: ["FT-13", "GR-04"]
 resourceType: "Tutorial"
 estMinutes: 35
 tags: "gravació, cadena, captura, reamp, instrument, level"

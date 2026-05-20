@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Voice leading i arranjament"
 level: 1
-seq: 77
+seq: 75
 slug: "contrapunt-basic-intro"
 path: "/resources/harmonia/ha-20-contrapunt-basic-intro"
 prereqIds: ["HA-09", "HA-19"]

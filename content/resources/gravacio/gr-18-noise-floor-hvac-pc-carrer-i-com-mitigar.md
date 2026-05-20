@@ -6,7 +6,7 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Sala i acústica"
 level: 1
-seq: 134
+seq: 132
 slug: "noise-floor-hvac-pc-carrer-i-com-mitigar"
 path: "/resources/gravacio/gr-18-noise-floor-hvac-pc-carrer-i-com-mitigar"
 prereqIds: ["GR-09", "GR-17"]

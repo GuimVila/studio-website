@@ -6,7 +6,7 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Comping i neteja"
 level: 0
-seq: 148
+seq: 146
 slug: "neteja-soroll-respiracions-i-gate-manual"
 path: "/resources/edicio/ed-04-neteja-soroll-respiracions-i-gate-manual"
 prereqIds: ["GR-22", "ED-03"]

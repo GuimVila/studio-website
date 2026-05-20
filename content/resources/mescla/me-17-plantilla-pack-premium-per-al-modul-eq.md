@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "EQ"
 level: 1
-seq: 188
+seq: 186
 slug: "plantilla-pack-premium-per-al-modul-eq"
 path: "/resources/mescla/me-17-plantilla-pack-premium-per-al-modul-eq"
 prereqIds: ["ME-16"]

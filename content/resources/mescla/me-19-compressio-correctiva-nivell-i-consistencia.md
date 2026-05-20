@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Dinàmica"
 level: 1
-seq: 190
+seq: 188
 slug: "compressio-correctiva-nivell-i-consistencia"
 path: "/resources/mescla/me-19-compressio-correctiva-nivell-i-consistencia"
 prereqIds: ["ME-09", "ME-18"]

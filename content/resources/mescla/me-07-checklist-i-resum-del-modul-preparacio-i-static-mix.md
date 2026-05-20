@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Preparació i static mix"
 level: 0
-seq: 178
+seq: 176
 slug: "checklist-i-resum-del-modul-preparacio-i-static-mix"
 path: "/resources/mescla/me-07-checklist-i-resum-del-modul-preparacio-i-static-mix"
 prereqIds: ["ME-06"]

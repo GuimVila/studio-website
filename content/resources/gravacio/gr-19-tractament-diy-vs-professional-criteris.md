@@ -6,7 +6,7 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Sala i acústica"
 level: 1
-seq: 135
+seq: 133
 slug: "tractament-diy-vs-professional-criteris"
 path: "/resources/gravacio/gr-19-tractament-diy-vs-professional-criteris"
 prereqIds: ["GR-09", "GR-18"]

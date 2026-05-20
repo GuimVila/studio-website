@@ -6,7 +6,7 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Sala i acústica"
 level: 1
-seq: 133
+seq: 131
 slug: "posicio-de-font-i-micro-dins-la-sala"
 path: "/resources/gravacio/gr-17-posicio-de-font-i-micro-dins-la-sala"
 prereqIds: ["GR-09", "GR-16"]

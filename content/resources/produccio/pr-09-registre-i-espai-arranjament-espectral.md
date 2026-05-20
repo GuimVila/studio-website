@@ -6,7 +6,7 @@ category: "Producció"
 categorySlug: "produccio"
 module: "Arranjament"
 level: 1
-seq: 96
+seq: 94
 slug: "registre-i-espai-arranjament-espectral"
 path: "/resources/produccio/pr-09-registre-i-espai-arranjament-espectral"
 prereqIds: ["PR-01", "HA-01", "PR-08"]

@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Espai i estèreo"
 level: 1
-seq: 202
+seq: 200
 slug: "automation-d-efectes-throws-momentums"
 path: "/resources/mescla/me-31-automation-d-efectes-throws-momentums"
 prereqIds: ["ME-18", "ME-30"]

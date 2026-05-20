@@ -6,10 +6,10 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Preparació i static mix"
 level: 0
-seq: 177
+seq: 175
 slug: "automatitzacio-basica-de-balances"
 path: "/resources/mescla/me-06-automatitzacio-basica-de-balances"
-prereqIds: ["ED-27", "FT-28", "ME-05"]
+prereqIds: ["ED-27", "FT-26", "ME-05"]
 resourceType: "Tutorial"
 estMinutes: 35
 tags: "mescla, preparació, static, mix, automatització, bàsica, balances"

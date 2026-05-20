@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Voice leading i arranjament"
 level: 1
-seq: 80
+seq: 78
 slug: "plantilla-pack-premium-per-al-modul-voice-leading-i-arranjament"
 path: "/resources/harmonia/ha-23-plantilla-pack-premium-per-al-modul-voice-leading-i-arranjament"
 prereqIds: ["HA-22"]

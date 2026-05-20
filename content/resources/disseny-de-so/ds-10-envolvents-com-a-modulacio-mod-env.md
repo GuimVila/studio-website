@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Modulació i moviment"
 level: 1
-seq: 221
+seq: 219
 slug: "envolvents-com-a-modulacio-mod-env"
 path: "/resources/disseny-de-so/ds-10-envolvents-com-a-modulacio-mod-env"
 prereqIds: ["DS-01", "DS-09"]

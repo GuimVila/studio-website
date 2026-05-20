@@ -6,7 +6,7 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Edició temporal"
 level: 1
-seq: 157
+seq: 155
 slug: "checklist-i-resum-del-modul-edicio-temporal"
 path: "/resources/edicio/ed-13-checklist-i-resum-del-modul-edicio-temporal"
 prereqIds: ["ED-12"]

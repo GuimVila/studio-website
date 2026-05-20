@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Pitch i intervals"
 level: 0
-seq: 34
+seq: 32
 slug: "afinacio-i-desviacions-cents"
 path: "/resources/llenguatge-musical/lm-06-afinacio-i-desviacions-cents"
 prereqIds: ["FT-01", "LM-05"]

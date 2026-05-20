@@ -6,10 +6,10 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Preparació i static mix"
 level: 0
-seq: 176
+seq: 174
 slug: "workflow-ordre-d-operacions-macro-micro"
 path: "/resources/mescla/me-05-workflow-ordre-d-operacions-macro-micro"
-prereqIds: ["ED-27", "FT-28", "ME-04"]
+prereqIds: ["ED-27", "FT-26", "ME-04"]
 resourceType: "Checklist"
 estMinutes: 25
 tags: "mescla, preparació, static, mix, workflow, ordre, d'operacions, macro→micro"

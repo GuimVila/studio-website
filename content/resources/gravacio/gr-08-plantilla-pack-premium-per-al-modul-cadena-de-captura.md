@@ -6,7 +6,7 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Cadena de captura"
 level: 0
-seq: 124
+seq: 122
 slug: "plantilla-pack-premium-per-al-modul-cadena-de-captura"
 path: "/resources/gravacio/gr-08-plantilla-pack-premium-per-al-modul-cadena-de-captura"
 prereqIds: ["GR-07"]

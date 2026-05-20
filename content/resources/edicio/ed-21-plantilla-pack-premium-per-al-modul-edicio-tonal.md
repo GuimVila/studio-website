@@ -6,7 +6,7 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Edició tonal"
 level: 1
-seq: 165
+seq: 163
 slug: "plantilla-pack-premium-per-al-modul-edicio-tonal"
 path: "/resources/edicio/ed-21-plantilla-pack-premium-per-al-modul-edicio-tonal"
 prereqIds: ["ED-20"]

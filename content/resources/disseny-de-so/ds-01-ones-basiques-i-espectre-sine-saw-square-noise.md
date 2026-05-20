@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Síntesi bàsica"
 level: 0
-seq: 212
+seq: 210
 slug: "ones-basiques-i-espectre-sine-saw-square-noise"
 path: "/resources/disseny-de-so/ds-01-ones-basiques-i-espectre-sine-saw-square-noise"
 prereqIds: ["FT-01"]

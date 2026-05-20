@@ -6,7 +6,7 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Gestió de sessions"
 level: 2
-seq: 138
+seq: 136
 slug: "preparacio-de-sessio-templates-cues-i-talkback"
 path: "/resources/gravacio/gr-22-preparacio-de-sessio-templates-cues-i-talkback"
 prereqIds: ["GR-16"]

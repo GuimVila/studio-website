@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Escales i modes"
 level: 0
-seq: 40
+seq: 38
 slug: "modes-ionic-doric-frigi-en-context"
 path: "/resources/llenguatge-musical/lm-12-modes-ionic-doric-frigi-en-context"
 prereqIds: ["LM-01", "LM-11"]

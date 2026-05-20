@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "FX i resampling"
 level: 1
-seq: 231
+seq: 229
 slug: "layering-combinar-fonts-per-un-sol-so"
 path: "/resources/disseny-de-so/ds-20-layering-combinar-fonts-per-un-sol-so"
 prereqIds: ["DS-09", "DS-19"]

@@ -6,7 +6,7 @@ category: "Producció"
 categorySlug: "produccio"
 module: "MIDI i instruments"
 level: 1
-seq: 109
+seq: 107
 slug: "plantilla-pack-premium-per-al-modul-midi-i-instruments"
 path: "/resources/produccio/pr-22-plantilla-pack-premium-per-al-modul-midi-i-instruments"
 prereqIds: ["PR-21"]

@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Ritme i temps"
 level: 0
-seq: 51
+seq: 49
 slug: "plantilla-pack-premium-per-al-modul-ritme-i-temps"
 path: "/resources/llenguatge-musical/lm-23-plantilla-pack-premium-per-al-modul-ritme-i-temps"
 prereqIds: ["LM-22"]

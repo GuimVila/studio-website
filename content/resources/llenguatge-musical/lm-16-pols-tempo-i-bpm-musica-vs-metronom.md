@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Ritme i temps"
 level: 0
-seq: 44
+seq: 42
 slug: "pols-tempo-i-bpm-musica-vs-metronom"
 path: "/resources/llenguatge-musical/lm-16-pols-tempo-i-bpm-musica-vs-metronom"
 prereqIds: ["LM-08"]

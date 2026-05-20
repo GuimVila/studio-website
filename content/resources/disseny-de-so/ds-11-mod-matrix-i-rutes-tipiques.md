@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Modulació i moviment"
 level: 1
-seq: 222
+seq: 220
 slug: "mod-matrix-i-rutes-tipiques"
 path: "/resources/disseny-de-so/ds-11-mod-matrix-i-rutes-tipiques"
 prereqIds: ["DS-01", "DS-10"]

@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "EQ"
 level: 1
-seq: 185
+seq: 183
 slug: "mid-side-eq-quan-aporta-valor"
 path: "/resources/mescla/me-14-mid-side-eq-quan-aporta-valor"
 prereqIds: ["ME-01", "ME-13"]

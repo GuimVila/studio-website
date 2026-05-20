@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Pitch i intervals"
 level: 0
-seq: 32
+seq: 30
 slug: "intervals-a-l-oida-melodic-vs-harmonic"
 path: "/resources/llenguatge-musical/lm-04-intervals-a-l-oida-melodic-vs-harmonic"
 prereqIds: ["FT-01", "LM-03"]

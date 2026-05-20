@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "EQ"
 level: 1
-seq: 182
+seq: 180
 slug: "detectar-i-tractar-ressonancies"
 path: "/resources/mescla/me-11-detectar-i-tractar-ressonancies"
 prereqIds: ["ME-01", "ME-10"]

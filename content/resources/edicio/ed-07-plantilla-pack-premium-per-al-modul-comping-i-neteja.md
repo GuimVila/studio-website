@@ -6,7 +6,7 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Comping i neteja"
 level: 0
-seq: 151
+seq: 149
 slug: "plantilla-pack-premium-per-al-modul-comping-i-neteja"
 path: "/resources/edicio/ed-07-plantilla-pack-premium-per-al-modul-comping-i-neteja"
 prereqIds: ["ED-06"]

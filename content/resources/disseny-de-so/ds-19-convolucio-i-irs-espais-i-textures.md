@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "FX i resampling"
 level: 1
-seq: 230
+seq: 228
 slug: "convolucio-i-irs-espais-i-textures"
 path: "/resources/disseny-de-so/ds-19-convolucio-i-irs-espais-i-textures"
 prereqIds: ["DS-09", "DS-18"]

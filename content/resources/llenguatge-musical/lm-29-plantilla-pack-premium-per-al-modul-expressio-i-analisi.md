@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Expressió i anàlisi"
 level: 1
-seq: 57
+seq: 55
 slug: "plantilla-pack-premium-per-al-modul-expressio-i-analisi"
 path: "/resources/llenguatge-musical/lm-29-plantilla-pack-premium-per-al-modul-expressio-i-analisi"
 prereqIds: ["LM-28"]

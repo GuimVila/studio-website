@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Voice leading i arranjament"
 level: 1
-seq: 78
+seq: 76
 slug: "tensio-planificada-suspensions-i-anticipacions"
 path: "/resources/harmonia/ha-21-tensio-planificada-suspensions-i-anticipacions"
 prereqIds: ["HA-09", "HA-20"]

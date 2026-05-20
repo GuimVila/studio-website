@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Espai i estèreo"
 level: 1
-seq: 200
+seq: 198
 slug: "depth-staging-front-mid-back"
 path: "/resources/mescla/me-29-depth-staging-front-mid-back"
 prereqIds: ["ME-18", "ME-28"]

@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Foley i field recording"
 level: 2
-seq: 238
+seq: 236
 slug: "checklist-i-resum-del-modul-foley-i-field-recording"
 path: "/resources/disseny-de-so/ds-27-checklist-i-resum-del-modul-foley-i-field-recording"
 prereqIds: ["DS-26"]

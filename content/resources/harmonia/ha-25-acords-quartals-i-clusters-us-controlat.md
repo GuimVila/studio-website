@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Harmonia moderna aplicada"
 level: 2
-seq: 82
+seq: 80
 slug: "acords-quartals-i-clusters-us-controlat"
 path: "/resources/harmonia/ha-25-acords-quartals-i-clusters-us-controlat"
 prereqIds: ["HA-17", "HA-24"]

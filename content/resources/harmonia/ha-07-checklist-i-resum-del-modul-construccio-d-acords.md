@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Construcció d'acords"
 level: 0
-seq: 64
+seq: 62
 slug: "checklist-i-resum-del-modul-construccio-d-acords"
 path: "/resources/harmonia/ha-07-checklist-i-resum-del-modul-construccio-d-acords"
 prereqIds: ["HA-06"]

@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Modulació i moviment"
 level: 1
-seq: 224
+seq: 222
 slug: "wavetable-introduccio-scanning-i-morph"
 path: "/resources/disseny-de-so/ds-13-wavetable-introduccio-scanning-i-morph"
 prereqIds: ["DS-01", "DS-12"]

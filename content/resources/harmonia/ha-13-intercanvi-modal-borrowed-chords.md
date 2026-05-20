@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Funcions harmòniques"
 level: 1
-seq: 70
+seq: 68
 slug: "intercanvi-modal-borrowed-chords"
 path: "/resources/harmonia/ha-13-intercanvi-modal-borrowed-chords"
 prereqIds: ["HA-01", "HA-12"]

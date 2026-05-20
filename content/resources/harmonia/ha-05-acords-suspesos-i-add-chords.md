@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Construcció d'acords"
 level: 0
-seq: 62
+seq: 60
 slug: "acords-suspesos-i-add-chords"
 path: "/resources/harmonia/ha-05-acords-suspesos-i-add-chords"
 prereqIds: ["LM-03", "HA-04"]

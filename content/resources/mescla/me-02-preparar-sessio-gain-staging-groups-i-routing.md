@@ -6,10 +6,10 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Preparació i static mix"
 level: 0
-seq: 173
+seq: 171
 slug: "preparar-sessio-gain-staging-groups-i-routing"
 path: "/resources/mescla/me-02-preparar-sessio-gain-staging-groups-i-routing"
-prereqIds: ["ED-27", "FT-28", "ME-01"]
+prereqIds: ["ED-27", "FT-26", "ME-01"]
 resourceType: "Tutorial"
 estMinutes: 45
 tags: "mescla, preparació, static, mix, preparar, sessió, gain, staging, groups, routing"

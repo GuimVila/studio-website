@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Harmonia moderna aplicada"
 level: 2
-seq: 81
+seq: 79
 slug: "harmonia-modal-vamps"
 path: "/resources/harmonia/ha-24-harmonia-modal-vamps"
 prereqIds: ["HA-17"]

@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Modulació i moviment"
 level: 1
-seq: 223
+seq: 221
 slug: "fm-introduccio-index-carriers-i-moduladors"
 path: "/resources/disseny-de-so/ds-12-fm-introduccio-index-carriers-i-moduladors"
 prereqIds: ["DS-01", "DS-11"]

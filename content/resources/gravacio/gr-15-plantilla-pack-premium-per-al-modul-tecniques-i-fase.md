@@ -6,7 +6,7 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Tècniques i fase"
 level: 1
-seq: 131
+seq: 129
 slug: "plantilla-pack-premium-per-al-modul-tecniques-i-fase"
 path: "/resources/gravacio/gr-15-plantilla-pack-premium-per-al-modul-tecniques-i-fase"
 prereqIds: ["GR-14"]

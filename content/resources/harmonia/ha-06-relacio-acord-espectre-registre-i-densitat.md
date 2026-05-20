@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Construcció d'acords"
 level: 0
-seq: 63
+seq: 61
 slug: "relacio-acord-espectre-registre-i-densitat"
 path: "/resources/harmonia/ha-06-relacio-acord-espectre-registre-i-densitat"
 prereqIds: ["LM-03", "HA-05"]

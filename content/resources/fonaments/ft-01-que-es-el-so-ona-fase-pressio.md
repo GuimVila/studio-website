@@ -1,6 +1,6 @@
 ---
 id: "FT-01"
-title: "Què és el so (ona, fase, pressió)"
+title: "El so: propagació, freqüència i representació."
 excerpt: "Entendre el so com una ona i què implica fase i polaritat."
 category: "Fonaments transversals"
 categorySlug: "fonaments"

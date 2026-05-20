@@ -6,7 +6,7 @@ category: "Producció"
 categorySlug: "produccio"
 module: "Arranjament"
 level: 1
-seq: 98
+seq: 96
 slug: "hooks-i-motius-melodics-ritmics-sonors"
 path: "/resources/produccio/pr-11-hooks-i-motius-melodics-ritmics-sonors"
 prereqIds: ["PR-01", "HA-01", "PR-10"]

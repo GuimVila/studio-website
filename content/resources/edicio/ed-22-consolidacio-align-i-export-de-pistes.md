@@ -6,10 +6,10 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Preparació per mescla"
 level: 2
-seq: 166
+seq: 164
 slug: "consolidacio-align-i-export-de-pistes"
 path: "/resources/edicio/ed-22-consolidacio-align-i-export-de-pistes"
-prereqIds: ["ED-15", "FT-08"]
+prereqIds: ["ED-15", "FT-06"]
 resourceType: "Checklist"
 estMinutes: 35
 tags: "edició, preparació, per, mescla, consolidació, align, export, pistes"

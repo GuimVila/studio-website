@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "FX i resampling"
 level: 1
-seq: 228
+seq: 226
 slug: "resampling-imprimir-tallar-i-reprocessar"
 path: "/resources/disseny-de-so/ds-17-resampling-imprimir-tallar-i-reprocessar"
 prereqIds: ["DS-09", "DS-16"]

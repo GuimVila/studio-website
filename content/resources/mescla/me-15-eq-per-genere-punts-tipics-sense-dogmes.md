@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "EQ"
 level: 1
-seq: 186
+seq: 184
 slug: "eq-per-genere-punts-tipics-sense-dogmes"
 path: "/resources/mescla/me-15-eq-per-genere-punts-tipics-sense-dogmes"
 prereqIds: ["ME-01", "ME-14"]

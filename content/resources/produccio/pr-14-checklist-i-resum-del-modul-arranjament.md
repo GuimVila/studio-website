@@ -6,7 +6,7 @@ category: "Producció"
 categorySlug: "produccio"
 module: "Arranjament"
 level: 1
-seq: 101
+seq: 99
 slug: "checklist-i-resum-del-modul-arranjament"
 path: "/resources/produccio/pr-14-checklist-i-resum-del-modul-arranjament"
 prereqIds: ["PR-13"]

@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Ritme i temps"
 level: 0
-seq: 46
+seq: 44
 slug: "figures-ritmiques-i-subdivisions"
 path: "/resources/llenguatge-musical/lm-18-figures-ritmiques-i-subdivisions"
 prereqIds: ["LM-08", "LM-17"]

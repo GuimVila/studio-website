@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Espai i estèreo"
 level: 1
-seq: 204
+seq: 202
 slug: "plantilla-pack-premium-per-al-modul-espai-i-estereo"
 path: "/resources/mescla/me-33-plantilla-pack-premium-per-al-modul-espai-i-estereo"
 prereqIds: ["ME-32"]

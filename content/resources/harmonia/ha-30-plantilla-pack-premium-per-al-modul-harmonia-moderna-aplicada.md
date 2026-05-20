@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Harmonia moderna aplicada"
 level: 2
-seq: 87
+seq: 85
 slug: "plantilla-pack-premium-per-al-modul-harmonia-moderna-aplicada"
 path: "/resources/harmonia/ha-30-plantilla-pack-premium-per-al-modul-harmonia-moderna-aplicada"
 prereqIds: ["HA-29"]

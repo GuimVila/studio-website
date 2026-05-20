@@ -6,7 +6,7 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Edició temporal"
 level: 1
-seq: 158
+seq: 156
 slug: "plantilla-pack-premium-per-al-modul-edicio-temporal"
 path: "/resources/edicio/ed-14-plantilla-pack-premium-per-al-modul-edicio-temporal"
 prereqIds: ["ED-13"]

@@ -6,7 +6,7 @@ category: "Producció"
 categorySlug: "produccio"
 module: "Preproducció i visió"
 level: 0
-seq: 94
+seq: 92
 slug: "plantilla-pack-premium-per-al-modul-preproduccio-i-visio"
 path: "/resources/produccio/pr-07-plantilla-pack-premium-per-al-modul-preproduccio-i-visio"
 prereqIds: ["PR-06"]

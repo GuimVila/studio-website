@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Voice leading i arranjament"
 level: 1
-seq: 76
+seq: 74
 slug: "inversions-per-evitar-enmascarament"
 path: "/resources/harmonia/ha-19-inversions-per-evitar-enmascarament"
 prereqIds: ["HA-09", "HA-18"]

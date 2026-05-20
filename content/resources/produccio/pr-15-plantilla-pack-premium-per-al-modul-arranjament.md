@@ -6,7 +6,7 @@ category: "Producció"
 categorySlug: "produccio"
 module: "Arranjament"
 level: 1
-seq: 102
+seq: 100
 slug: "plantilla-pack-premium-per-al-modul-arranjament"
 path: "/resources/produccio/pr-15-plantilla-pack-premium-per-al-modul-arranjament"
 prereqIds: ["PR-14"]

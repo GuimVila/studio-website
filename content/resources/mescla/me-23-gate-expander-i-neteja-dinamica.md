@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Dinàmica"
 level: 1
-seq: 194
+seq: 192
 slug: "gate-expander-i-neteja-dinamica"
 path: "/resources/mescla/me-23-gate-expander-i-neteja-dinamica"
 prereqIds: ["ME-09", "ME-22"]

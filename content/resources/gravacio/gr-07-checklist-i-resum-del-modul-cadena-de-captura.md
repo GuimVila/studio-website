@@ -6,7 +6,7 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Cadena de captura"
 level: 0
-seq: 123
+seq: 121
 slug: "checklist-i-resum-del-modul-cadena-de-captura"
 path: "/resources/gravacio/gr-07-checklist-i-resum-del-modul-cadena-de-captura"
 prereqIds: ["GR-06"]

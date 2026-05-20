@@ -6,7 +6,7 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Comping i neteja"
 level: 0
-seq: 146
+seq: 144
 slug: "comping-seleccio-de-takes-i-coherencia"
 path: "/resources/edicio/ed-02-comping-seleccio-de-takes-i-coherencia"
 prereqIds: ["GR-22", "ED-01"]

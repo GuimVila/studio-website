@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Modulació i moviment"
 level: 1
-seq: 226
+seq: 224
 slug: "plantilla-pack-premium-per-al-modul-modulacio-i-moviment"
 path: "/resources/disseny-de-so/ds-15-plantilla-pack-premium-per-al-modul-modulacio-i-moviment"
 prereqIds: ["DS-14"]

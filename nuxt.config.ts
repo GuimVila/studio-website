@@ -1,3 +1,22 @@
+import { readFileSync } from "node:fs";
+
+const roadmap = JSON.parse(
+  readFileSync(new URL("./data/roadmap.json", import.meta.url), "utf8")
+);
+
+const resourceRoutes = Array.from(
+  new Set([
+    "/resources",
+    "/resources/roadmap",
+    ...(roadmap.nodes || []).map((node) => `/resources/${node.categorySlug}`),
+    ...(roadmap.nodes || []).map((node) => node.path).filter(Boolean),
+  ])
+);
+
+const prerenderRoutes = ["", "/es", "/en"].flatMap((localePrefix) =>
+  resourceRoutes.map((route) => `${localePrefix}${route}`)
+);
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
@@ -9,6 +28,9 @@ export default defineNuxtConfig({
   ssr: true,
   nitro: {
     preset: "vercel",
+    prerender: {
+      routes: prerenderRoutes,
+    },
   },
 
   runtimeConfig: {

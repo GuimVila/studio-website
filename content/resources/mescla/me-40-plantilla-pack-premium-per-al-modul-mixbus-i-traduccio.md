@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Mixbus i traducció"
 level: 2
-seq: 211
+seq: 209
 slug: "plantilla-pack-premium-per-al-modul-mixbus-i-traduccio"
 path: "/resources/mescla/me-40-plantilla-pack-premium-per-al-modul-mixbus-i-traduccio"
 prereqIds: ["ME-39"]

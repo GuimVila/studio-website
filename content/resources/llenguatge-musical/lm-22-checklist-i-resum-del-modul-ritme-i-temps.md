@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Ritme i temps"
 level: 0
-seq: 50
+seq: 48
 slug: "checklist-i-resum-del-modul-ritme-i-temps"
 path: "/resources/llenguatge-musical/lm-22-checklist-i-resum-del-modul-ritme-i-temps"
 prereqIds: ["LM-21"]

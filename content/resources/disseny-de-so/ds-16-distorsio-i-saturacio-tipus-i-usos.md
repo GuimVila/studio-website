@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "FX i resampling"
 level: 1
-seq: 227
+seq: 225
 slug: "distorsio-i-saturacio-tipus-i-usos"
 path: "/resources/disseny-de-so/ds-16-distorsio-i-saturacio-tipus-i-usos"
 prereqIds: ["DS-09"]

@@ -6,10 +6,10 @@ category: "Producció"
 categorySlug: "produccio"
 module: "MIDI i instruments"
 level: 1
-seq: 105
+seq: 103
 slug: "baix-sub-mid-bass-i-articulacio"
 path: "/resources/produccio/pr-18-baix-sub-mid-bass-i-articulacio"
-prereqIds: ["PR-08", "FT-15", "PR-17"]
+prereqIds: ["PR-08", "FT-13", "PR-17"]
 resourceType: "Tutorial"
 estMinutes: 45
 tags: "producció, midi, instruments, baix, sub, mid-bass, articulació"

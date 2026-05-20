@@ -125,7 +125,8 @@ function toggleRead() {
 const { data: doc } = await useAsyncData(
   () => `resources-doc-${contentPath}`,
   async () => {
-    return await queryCollection("resources").path(contentPath).first();
+    const resource = await queryCollection("resources").path(contentPath).first();
+    return restoreNumericCitations(resource);
   }
 );
 
@@ -136,6 +137,51 @@ if (!doc.value) {
 const articleSubtitle = computed(() =>
   String(doc.value?.subtitle || doc.value?.excerpt || "").trim()
 );
+
+function restoreNumericCitations(resource) {
+  if (!resource?.body?.value) return resource;
+
+  return {
+    ...resource,
+    body: {
+      ...resource.body,
+      value: restoreNumericCitationNodes(resource.body.value, new WeakSet()),
+    },
+  };
+}
+
+function restoreNumericCitationNodes(value, seen) {
+  if (!Array.isArray(value)) return value;
+  if (seen.has(value)) return value;
+
+  seen.add(value);
+
+  if (isNumericCitationSpan(value)) {
+    return `[${value[2].trim()}]`;
+  }
+
+  return value.map((item) => restoreNumericCitationNodes(item, seen));
+}
+
+function isNumericCitationSpan(value) {
+  return (
+    Array.isArray(value) &&
+    value[0] === "span" &&
+    value.length === 3 &&
+    isEmptyPlainObject(value[1]) &&
+    typeof value[2] === "string" &&
+    /^\d+$/.test(value[2].trim())
+  );
+}
+
+function isEmptyPlainObject(value) {
+  return (
+    value &&
+    typeof value === "object" &&
+    Object.getPrototypeOf(value) === Object.prototype &&
+    Object.keys(value).length === 0
+  );
+}
 
 const roadmapNodes = computed(() =>
   [...(roadmap.nodes || [])].sort((a, b) => {

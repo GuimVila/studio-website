@@ -6,7 +6,7 @@
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Acústica i percepció",
-      "title": "Què és el so (ona, fase, pressió)",
+      "title": "El so: propagació, freqüència i representació.",
       "prereqIds": [],
       "categorySlug": "fonaments",
       "slug": "que-es-el-so-ona-fase-pressio",
@@ -26,35 +26,13 @@
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Acústica i percepció",
-      "title": "Freqüència, longitud d'ona i registres",
+      "title": "Decibels: dB SPL vs dBFS vs dBu/dBV",
       "prereqIds": [
         "FT-01"
       ],
       "categorySlug": "fonaments",
-      "slug": "frequencia-longitud-d-ona-i-registres",
-      "path": "/resources/fonaments/ft-02-frequencia-longitud-d-ona-i-registres",
-      "objective": "Relacionar Hz amb longitud d'ona i registres musicals.",
-      "resourceType": "Tutorial",
-      "monetization": "Free",
-      "cta": "",
-      "tags": "fonaments, transversals, acústica, percepció, freqüència, longitud, d'ona, registres",
-      "estMinutes": 25,
-      "measurable": "Estima longitud d'ona de memòria (±20%)",
-      "notes": ""
-    },
-    {
-      "id": "FT-03",
-      "seq": 3,
-      "category": "Fonaments transversals",
-      "level": 0,
-      "module": "Acústica i percepció",
-      "title": "Decibels: dB SPL vs dBFS vs dBu/dBV",
-      "prereqIds": [
-        "FT-02"
-      ],
-      "categorySlug": "fonaments",
       "slug": "decibels-db-spl-vs-dbfs-vs-dbu-dbv",
-      "path": "/resources/fonaments/ft-03-decibels-db-spl-vs-dbfs-vs-dbu-dbv",
+      "path": "/resources/fonaments/ft-02-decibels-db-spl-vs-dbfs-vs-dbu-dbv",
       "objective": "No barrejar escales de nivell i entendre què mesura cadascuna.",
       "resourceType": "Article",
       "monetization": "Free",
@@ -65,18 +43,18 @@
       "notes": ""
     },
     {
-      "id": "FT-04",
-      "seq": 4,
+      "id": "FT-03",
+      "seq": 3,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Acústica i percepció",
       "title": "Percepció de volum i corbes d'igual sonoritat",
       "prereqIds": [
-        "FT-03"
+        "FT-02"
       ],
       "categorySlug": "fonaments",
       "slug": "percepcio-de-volum-i-corbes-d-igual-sonoritat",
-      "path": "/resources/fonaments/ft-04-percepcio-de-volum-i-corbes-d-igual-sonoritat",
+      "path": "/resources/fonaments/ft-03-percepcio-de-volum-i-corbes-d-igual-sonoritat",
       "objective": "Entendre per què el balanç canvia amb el volum d'escolta.",
       "resourceType": "Article",
       "monetization": "Free",
@@ -87,18 +65,18 @@
       "notes": ""
     },
     {
-      "id": "FT-05",
-      "seq": 5,
+      "id": "FT-04",
+      "seq": 4,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Acústica i percepció",
       "title": "Timbre: harmònics, formants i brillantor",
       "prereqIds": [
-        "FT-04"
+        "FT-03"
       ],
       "categorySlug": "fonaments",
       "slug": "timbre-harmonics-formants-i-brillantor",
-      "path": "/resources/fonaments/ft-05-timbre-harmonics-formants-i-brillantor",
+      "path": "/resources/fonaments/ft-04-timbre-harmonics-formants-i-brillantor",
       "objective": "Connectar timbre amb espectre per prendre decisions tècniques.",
       "resourceType": "Article",
       "monetization": "Free",
@@ -109,40 +87,18 @@
       "notes": ""
     },
     {
-      "id": "FT-06",
-      "seq": 6,
-      "category": "Fonaments transversals",
-      "level": 0,
-      "module": "Acústica i percepció",
-      "title": "Fase, cancel·lació i comb filtering (intuïtiu)",
-      "prereqIds": [
-        "FT-05"
-      ],
-      "categorySlug": "fonaments",
-      "slug": "fase-cancel-lacio-i-comb-filtering-intuitiu",
-      "path": "/resources/fonaments/ft-06-fase-cancel-lacio-i-comb-filtering-intuitiu",
-      "objective": "Reconèixer problemes de fase abans de gravar/mesclar.",
-      "resourceType": "Tutorial",
-      "monetization": "Free",
-      "cta": "",
-      "tags": "fonaments, transversals, acústica, percepció, fase, cancellació, comb, filtering, intuïtiu",
-      "estMinutes": 30,
-      "measurable": "Detecta cancel·lació en un exemple real",
-      "notes": ""
-    },
-    {
-      "id": "FT-07",
-      "seq": 7,
+      "id": "FT-05",
+      "seq": 5,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Acústica i percepció",
       "title": "Checklist i resum del mòdul: Acústica i percepció",
       "prereqIds": [
-        "FT-06"
+        "FT-04"
       ],
       "categorySlug": "fonaments",
       "slug": "checklist-i-resum-del-modul-acustica-i-percepcio",
-      "path": "/resources/fonaments/ft-07-checklist-i-resum-del-modul-acustica-i-percepcio",
+      "path": "/resources/fonaments/ft-05-checklist-i-resum-del-modul-acustica-i-percepcio",
       "objective": "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.",
       "resourceType": "Checklist",
       "monetization": "Lead magnet",
@@ -153,8 +109,8 @@
       "notes": "Ideal per captar email i segmentar interessos."
     },
     {
-      "id": "FT-08",
-      "seq": 8,
+      "id": "FT-06",
+      "seq": 6,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Àudio digital",
@@ -164,7 +120,7 @@
       ],
       "categorySlug": "fonaments",
       "slug": "mostreig-i-nyquist-aliasing",
-      "path": "/resources/fonaments/ft-08-mostreig-i-nyquist-aliasing",
+      "path": "/resources/fonaments/ft-06-mostreig-i-nyquist-aliasing",
       "objective": "Entendre el mostreig i per què apareix l'aliasing.",
       "resourceType": "Article",
       "monetization": "Free",
@@ -175,19 +131,19 @@
       "notes": ""
     },
     {
-      "id": "FT-09",
-      "seq": 9,
+      "id": "FT-07",
+      "seq": 7,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Àudio digital",
       "title": "Bit depth, quantització i rang dinàmic",
       "prereqIds": [
         "FT-01",
-        "FT-08"
+        "FT-06"
       ],
       "categorySlug": "fonaments",
       "slug": "bit-depth-quantitzacio-i-rang-dinamic",
-      "path": "/resources/fonaments/ft-09-bit-depth-quantitzacio-i-rang-dinamic",
+      "path": "/resources/fonaments/ft-07-bit-depth-quantitzacio-i-rang-dinamic",
       "objective": "Relacionar bit depth amb soroll de quantització i rang dinàmic.",
       "resourceType": "Article",
       "monetization": "Free",
@@ -198,19 +154,19 @@
       "notes": ""
     },
     {
-      "id": "FT-10",
-      "seq": 10,
+      "id": "FT-08",
+      "seq": 8,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Àudio digital",
       "title": "Dither: quan i com aplicar-lo",
       "prereqIds": [
         "FT-01",
-        "FT-09"
+        "FT-07"
       ],
       "categorySlug": "fonaments",
       "slug": "dither-quan-i-com-aplicar-lo",
-      "path": "/resources/fonaments/ft-10-dither-quan-i-com-aplicar-lo",
+      "path": "/resources/fonaments/ft-08-dither-quan-i-com-aplicar-lo",
       "objective": "Evitar degradació en reduir bit depth i exportar.",
       "resourceType": "Tutorial",
       "monetization": "Free",
@@ -221,19 +177,19 @@
       "notes": ""
     },
     {
-      "id": "FT-11",
-      "seq": 11,
+      "id": "FT-09",
+      "seq": 9,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Àudio digital",
       "title": "Clock, jitter i mites habituals",
       "prereqIds": [
         "FT-01",
-        "FT-10"
+        "FT-08"
       ],
       "categorySlug": "fonaments",
       "slug": "clock-jitter-i-mites-habituals",
-      "path": "/resources/fonaments/ft-11-clock-jitter-i-mites-habituals",
+      "path": "/resources/fonaments/ft-09-clock-jitter-i-mites-habituals",
       "objective": "Separar el que és crític del que és màrqueting.",
       "resourceType": "Article",
       "monetization": "Free",
@@ -244,19 +200,19 @@
       "notes": ""
     },
     {
-      "id": "FT-12",
-      "seq": 12,
+      "id": "FT-10",
+      "seq": 10,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Àudio digital",
       "title": "Formats d'arxiu i còdecs (WAV/AIFF/FLAC/MP3/AAC)",
       "prereqIds": [
         "FT-01",
-        "FT-11"
+        "FT-09"
       ],
       "categorySlug": "fonaments",
       "slug": "formats-d-arxiu-i-codecs-wav-aiff-flac-mp3-aac",
-      "path": "/resources/fonaments/ft-12-formats-d-arxiu-i-codecs-wav-aiff-flac-mp3-aac",
+      "path": "/resources/fonaments/ft-10-formats-d-arxiu-i-codecs-wav-aiff-flac-mp3-aac",
       "objective": "Escollir format segons edició, arxiu i distribució.",
       "resourceType": "Checklist",
       "monetization": "Free",
@@ -267,18 +223,18 @@
       "notes": ""
     },
     {
-      "id": "FT-13",
-      "seq": 13,
+      "id": "FT-11",
+      "seq": 11,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Àudio digital",
       "title": "Checklist i resum del mòdul: Àudio digital",
       "prereqIds": [
-        "FT-12"
+        "FT-10"
       ],
       "categorySlug": "fonaments",
       "slug": "checklist-i-resum-del-modul-audio-digital",
-      "path": "/resources/fonaments/ft-13-checklist-i-resum-del-modul-audio-digital",
+      "path": "/resources/fonaments/ft-11-checklist-i-resum-del-modul-audio-digital",
       "objective": "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.",
       "resourceType": "Checklist",
       "monetization": "Lead magnet",
@@ -289,18 +245,18 @@
       "notes": "Ideal per captar email i segmentar interessos."
     },
     {
-      "id": "FT-14",
-      "seq": 14,
+      "id": "FT-12",
+      "seq": 12,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Àudio digital",
       "title": "Plantilla / pack premium per al mòdul: Àudio digital",
       "prereqIds": [
-        "FT-13"
+        "FT-11"
       ],
       "categorySlug": "fonaments",
       "slug": "plantilla-pack-premium-per-al-modul-audio-digital",
-      "path": "/resources/fonaments/ft-14-plantilla-pack-premium-per-al-modul-audio-digital",
+      "path": "/resources/fonaments/ft-12-plantilla-pack-premium-per-al-modul-audio-digital",
       "objective": "Accelerar el workflow amb recursos reutilitzables i consistents.",
       "resourceType": "Plantilla",
       "monetization": "Producte digital",
@@ -311,18 +267,18 @@
       "notes": "Punt natural per ingressos passius; afegeix upsell a consultoria."
     },
     {
-      "id": "FT-15",
-      "seq": 15,
+      "id": "FT-13",
+      "seq": 13,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Flux de senyal",
       "title": "Nivells: mic/line/instrument i impedància (pràctic)",
       "prereqIds": [
-        "FT-08"
+        "FT-06"
       ],
       "categorySlug": "fonaments",
       "slug": "nivells-mic-line-instrument-i-impedancia-practic",
-      "path": "/resources/fonaments/ft-15-nivells-mic-line-instrument-i-impedancia-practic",
+      "path": "/resources/fonaments/ft-13-nivells-mic-line-instrument-i-impedancia-practic",
       "objective": "Evitar errors de connexió i guany a l'entrada.",
       "resourceType": "Article",
       "monetization": "Free",
@@ -333,19 +289,19 @@
       "notes": ""
     },
     {
-      "id": "FT-16",
-      "seq": 16,
+      "id": "FT-14",
+      "seq": 14,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Flux de senyal",
       "title": "Gain staging a la cadena (entrada→plugins→bus)",
       "prereqIds": [
-        "FT-08",
-        "FT-15"
+        "FT-06",
+        "FT-13"
       ],
       "categorySlug": "fonaments",
       "slug": "gain-staging-a-la-cadena-entrada-plugins-bus",
-      "path": "/resources/fonaments/ft-16-gain-staging-a-la-cadena-entrada-plugins-bus",
+      "path": "/resources/fonaments/ft-14-gain-staging-a-la-cadena-entrada-plugins-bus",
       "objective": "Mantenir headroom i coherència de nivells.",
       "resourceType": "Tutorial",
       "monetization": "Free",
@@ -356,19 +312,19 @@
       "notes": ""
     },
     {
-      "id": "FT-17",
-      "seq": 17,
+      "id": "FT-15",
+      "seq": 15,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Flux de senyal",
       "title": "Routing: inserts, sends, buses i subgrups",
       "prereqIds": [
-        "FT-08",
-        "FT-16"
+        "FT-06",
+        "FT-14"
       ],
       "categorySlug": "fonaments",
       "slug": "routing-inserts-sends-buses-i-subgrups",
-      "path": "/resources/fonaments/ft-17-routing-inserts-sends-buses-i-subgrups",
+      "path": "/resources/fonaments/ft-15-routing-inserts-sends-buses-i-subgrups",
       "objective": "Construir rutes per reverb, paral·lel i grups sense embolics.",
       "resourceType": "Tutorial",
       "monetization": "Free",
@@ -379,19 +335,19 @@
       "notes": ""
     },
     {
-      "id": "FT-18",
-      "seq": 18,
+      "id": "FT-16",
+      "seq": 16,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Flux de senyal",
       "title": "Latència, buffer i monitoratge",
       "prereqIds": [
-        "FT-08",
-        "FT-17"
+        "FT-06",
+        "FT-15"
       ],
       "categorySlug": "fonaments",
       "slug": "latencia-buffer-i-monitoratge",
-      "path": "/resources/fonaments/ft-18-latencia-buffer-i-monitoratge",
+      "path": "/resources/fonaments/ft-16-latencia-buffer-i-monitoratge",
       "objective": "Optimitzar latència per gravar i potència per mesclar.",
       "resourceType": "Article",
       "monetization": "Free",
@@ -402,19 +358,19 @@
       "notes": ""
     },
     {
-      "id": "FT-19",
-      "seq": 19,
+      "id": "FT-17",
+      "seq": 17,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Flux de senyal",
       "title": "PDC, lookahead i compensacions (què pot fallar)",
       "prereqIds": [
-        "FT-08",
-        "FT-18"
+        "FT-06",
+        "FT-16"
       ],
       "categorySlug": "fonaments",
       "slug": "pdc-lookahead-i-compensacions-que-pot-fallar",
-      "path": "/resources/fonaments/ft-19-pdc-lookahead-i-compensacions-que-pot-fallar",
+      "path": "/resources/fonaments/ft-17-pdc-lookahead-i-compensacions-que-pot-fallar",
       "objective": "Detectar desajustos temporals per plugins i rutes.",
       "resourceType": "Tutorial",
       "monetization": "Free",
@@ -425,18 +381,18 @@
       "notes": ""
     },
     {
-      "id": "FT-20",
-      "seq": 20,
+      "id": "FT-18",
+      "seq": 18,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Flux de senyal",
       "title": "Checklist i resum del mòdul: Flux de senyal",
       "prereqIds": [
-        "FT-19"
+        "FT-17"
       ],
       "categorySlug": "fonaments",
       "slug": "checklist-i-resum-del-modul-flux-de-senyal",
-      "path": "/resources/fonaments/ft-20-checklist-i-resum-del-modul-flux-de-senyal",
+      "path": "/resources/fonaments/ft-18-checklist-i-resum-del-modul-flux-de-senyal",
       "objective": "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.",
       "resourceType": "Checklist",
       "monetization": "Lead magnet",
@@ -447,18 +403,18 @@
       "notes": "Ideal per captar email i segmentar interessos."
     },
     {
-      "id": "FT-21",
-      "seq": 21,
+      "id": "FT-19",
+      "seq": 19,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Flux de senyal",
       "title": "Plantilla / pack premium per al mòdul: Flux de senyal",
       "prereqIds": [
-        "FT-20"
+        "FT-18"
       ],
       "categorySlug": "fonaments",
       "slug": "plantilla-pack-premium-per-al-modul-flux-de-senyal",
-      "path": "/resources/fonaments/ft-21-plantilla-pack-premium-per-al-modul-flux-de-senyal",
+      "path": "/resources/fonaments/ft-19-plantilla-pack-premium-per-al-modul-flux-de-senyal",
       "objective": "Accelerar el workflow amb recursos reutilitzables i consistents.",
       "resourceType": "Plantilla",
       "monetization": "Producte digital",
@@ -469,18 +425,18 @@
       "notes": "Punt natural per ingressos passius; afegeix upsell a consultoria."
     },
     {
-      "id": "FT-22",
-      "seq": 22,
+      "id": "FT-20",
+      "seq": 20,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Escolta crítica i workflow",
       "title": "Calibratge bàsic de volum d'escolta",
       "prereqIds": [
-        "FT-15"
+        "FT-13"
       ],
       "categorySlug": "fonaments",
       "slug": "calibratge-basic-de-volum-d-escolta",
-      "path": "/resources/fonaments/ft-22-calibratge-basic-de-volum-d-escolta",
+      "path": "/resources/fonaments/ft-20-calibratge-basic-de-volum-d-escolta",
       "objective": "Establir un punt de treball consistent per decisions repetibles.",
       "resourceType": "Checklist",
       "monetization": "Free",
@@ -491,19 +447,19 @@
       "notes": ""
     },
     {
-      "id": "FT-23",
-      "seq": 23,
+      "id": "FT-21",
+      "seq": 21,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Escolta crítica i workflow",
       "title": "Referències A/B (sense enganyar-te pel volum)",
       "prereqIds": [
-        "FT-15",
-        "FT-22"
+        "FT-13",
+        "FT-20"
       ],
       "categorySlug": "fonaments",
       "slug": "referencies-a-b-sense-enganyar-te-pel-volum",
-      "path": "/resources/fonaments/ft-23-referencies-a-b-sense-enganyar-te-pel-volum",
+      "path": "/resources/fonaments/ft-21-referencies-a-b-sense-enganyar-te-pel-volum",
       "objective": "Comparar amb criteri: nivell, temps, seccions.",
       "resourceType": "Tutorial",
       "monetization": "Free",
@@ -514,19 +470,19 @@
       "notes": ""
     },
     {
-      "id": "FT-24",
-      "seq": 24,
+      "id": "FT-22",
+      "seq": 22,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Escolta crítica i workflow",
       "title": "Vocabulari de timbre i traducció a accions",
       "prereqIds": [
-        "FT-15",
-        "FT-23"
+        "FT-13",
+        "FT-21"
       ],
       "categorySlug": "fonaments",
       "slug": "vocabulari-de-timbre-i-traduccio-a-accions",
-      "path": "/resources/fonaments/ft-24-vocabulari-de-timbre-i-traduccio-a-accions",
+      "path": "/resources/fonaments/ft-22-vocabulari-de-timbre-i-traduccio-a-accions",
       "objective": "Convertir adjectius en moviments (EQ, dinàmica, espai).",
       "resourceType": "Article",
       "monetization": "Free",
@@ -537,19 +493,19 @@
       "notes": ""
     },
     {
-      "id": "FT-25",
-      "seq": 25,
+      "id": "FT-23",
+      "seq": 23,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Escolta crítica i workflow",
       "title": "Organització: versions, backups i arxiu",
       "prereqIds": [
-        "FT-15",
-        "FT-24"
+        "FT-13",
+        "FT-22"
       ],
       "categorySlug": "fonaments",
       "slug": "organitzacio-versions-backups-i-arxiu",
-      "path": "/resources/fonaments/ft-25-organitzacio-versions-backups-i-arxiu",
+      "path": "/resources/fonaments/ft-23-organitzacio-versions-backups-i-arxiu",
       "objective": "Evitar pèrdues i caos amb un sistema 3-2-1 i versions.",
       "resourceType": "Checklist",
       "monetization": "Free",
@@ -560,19 +516,19 @@
       "notes": ""
     },
     {
-      "id": "FT-26",
-      "seq": 26,
+      "id": "FT-24",
+      "seq": 24,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Escolta crítica i workflow",
       "title": "Salut auditiva i ergonomia de sessions",
       "prereqIds": [
-        "FT-15",
-        "FT-25"
+        "FT-13",
+        "FT-23"
       ],
       "categorySlug": "fonaments",
       "slug": "salut-auditiva-i-ergonomia-de-sessions",
-      "path": "/resources/fonaments/ft-26-salut-auditiva-i-ergonomia-de-sessions",
+      "path": "/resources/fonaments/ft-24-salut-auditiva-i-ergonomia-de-sessions",
       "objective": "Treballar segur i mantenir criteri d'escolta a llarg termini.",
       "resourceType": "Article",
       "monetization": "Free",
@@ -583,18 +539,18 @@
       "notes": ""
     },
     {
-      "id": "FT-27",
-      "seq": 27,
+      "id": "FT-25",
+      "seq": 25,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Escolta crítica i workflow",
       "title": "Checklist i resum del mòdul: Escolta crítica i workflow",
       "prereqIds": [
-        "FT-26"
+        "FT-24"
       ],
       "categorySlug": "fonaments",
       "slug": "checklist-i-resum-del-modul-escolta-critica-i-workflow",
-      "path": "/resources/fonaments/ft-27-checklist-i-resum-del-modul-escolta-critica-i-workflow",
+      "path": "/resources/fonaments/ft-25-checklist-i-resum-del-modul-escolta-critica-i-workflow",
       "objective": "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.",
       "resourceType": "Checklist",
       "monetization": "Lead magnet",
@@ -605,18 +561,18 @@
       "notes": "Ideal per captar email i segmentar interessos."
     },
     {
-      "id": "FT-28",
-      "seq": 28,
+      "id": "FT-26",
+      "seq": 26,
       "category": "Fonaments transversals",
       "level": 0,
       "module": "Escolta crítica i workflow",
       "title": "Plantilla / pack premium per al mòdul: Escolta crítica i workflow",
       "prereqIds": [
-        "FT-27"
+        "FT-25"
       ],
       "categorySlug": "fonaments",
       "slug": "plantilla-pack-premium-per-al-modul-escolta-critica-i-workflow",
-      "path": "/resources/fonaments/ft-28-plantilla-pack-premium-per-al-modul-escolta-critica-i-workflow",
+      "path": "/resources/fonaments/ft-26-plantilla-pack-premium-per-al-modul-escolta-critica-i-workflow",
       "objective": "Accelerar el workflow amb recursos reutilitzables i consistents.",
       "resourceType": "Plantilla",
       "monetization": "Producte digital",
@@ -628,7 +584,7 @@
     },
     {
       "id": "LM-01",
-      "seq": 29,
+      "seq": 27,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Pitch i intervals",
@@ -650,7 +606,7 @@
     },
     {
       "id": "LM-02",
-      "seq": 30,
+      "seq": 28,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Pitch i intervals",
@@ -673,7 +629,7 @@
     },
     {
       "id": "LM-03",
-      "seq": 31,
+      "seq": 29,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Pitch i intervals",
@@ -696,7 +652,7 @@
     },
     {
       "id": "LM-04",
-      "seq": 32,
+      "seq": 30,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Pitch i intervals",
@@ -719,7 +675,7 @@
     },
     {
       "id": "LM-05",
-      "seq": 33,
+      "seq": 31,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Pitch i intervals",
@@ -742,7 +698,7 @@
     },
     {
       "id": "LM-06",
-      "seq": 34,
+      "seq": 32,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Pitch i intervals",
@@ -765,7 +721,7 @@
     },
     {
       "id": "LM-07",
-      "seq": 35,
+      "seq": 33,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Pitch i intervals",
@@ -779,7 +735,7 @@
       "objective": "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.",
       "resourceType": "Checklist",
       "monetization": "Lead magnet",
-      "cta": "PDF 'Intervals: taula + recursos'",
+      "cta": "PDF 'Intervals: taula + exercicis'",
       "tags": "llenguatge, musical, pitch, intervals, checklist, resum, del, mòdul",
       "estMinutes": 15,
       "measurable": "Completa checklist i obté ≥80% al quiz",
@@ -787,7 +743,7 @@
     },
     {
       "id": "LM-08",
-      "seq": 36,
+      "seq": 34,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Escales i modes",
@@ -809,7 +765,7 @@
     },
     {
       "id": "LM-09",
-      "seq": 37,
+      "seq": 35,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Escales i modes",
@@ -832,7 +788,7 @@
     },
     {
       "id": "LM-10",
-      "seq": 38,
+      "seq": 36,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Escales i modes",
@@ -855,7 +811,7 @@
     },
     {
       "id": "LM-11",
-      "seq": 39,
+      "seq": 37,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Escales i modes",
@@ -878,7 +834,7 @@
     },
     {
       "id": "LM-12",
-      "seq": 40,
+      "seq": 38,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Escales i modes",
@@ -901,7 +857,7 @@
     },
     {
       "id": "LM-13",
-      "seq": 41,
+      "seq": 39,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Escales i modes",
@@ -924,7 +880,7 @@
     },
     {
       "id": "LM-14",
-      "seq": 42,
+      "seq": 40,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Escales i modes",
@@ -946,7 +902,7 @@
     },
     {
       "id": "LM-15",
-      "seq": 43,
+      "seq": 41,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Escales i modes",
@@ -968,7 +924,7 @@
     },
     {
       "id": "LM-16",
-      "seq": 44,
+      "seq": 42,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Ritme i temps",
@@ -990,7 +946,7 @@
     },
     {
       "id": "LM-17",
-      "seq": 45,
+      "seq": 43,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Ritme i temps",
@@ -1013,7 +969,7 @@
     },
     {
       "id": "LM-18",
-      "seq": 46,
+      "seq": 44,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Ritme i temps",
@@ -1036,7 +992,7 @@
     },
     {
       "id": "LM-19",
-      "seq": 47,
+      "seq": 45,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Ritme i temps",
@@ -1059,7 +1015,7 @@
     },
     {
       "id": "LM-20",
-      "seq": 48,
+      "seq": 46,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Ritme i temps",
@@ -1082,7 +1038,7 @@
     },
     {
       "id": "LM-21",
-      "seq": 49,
+      "seq": 47,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Ritme i temps",
@@ -1105,7 +1061,7 @@
     },
     {
       "id": "LM-22",
-      "seq": 50,
+      "seq": 48,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Ritme i temps",
@@ -1127,7 +1083,7 @@
     },
     {
       "id": "LM-23",
-      "seq": 51,
+      "seq": 49,
       "category": "Llenguatge Musical",
       "level": 0,
       "module": "Ritme i temps",
@@ -1149,7 +1105,7 @@
     },
     {
       "id": "LM-24",
-      "seq": 52,
+      "seq": 50,
       "category": "Llenguatge Musical",
       "level": 1,
       "module": "Expressió i anàlisi",
@@ -1171,7 +1127,7 @@
     },
     {
       "id": "LM-25",
-      "seq": 53,
+      "seq": 51,
       "category": "Llenguatge Musical",
       "level": 1,
       "module": "Expressió i anàlisi",
@@ -1194,7 +1150,7 @@
     },
     {
       "id": "LM-26",
-      "seq": 54,
+      "seq": 52,
       "category": "Llenguatge Musical",
       "level": 1,
       "module": "Expressió i anàlisi",
@@ -1217,7 +1173,7 @@
     },
     {
       "id": "LM-27",
-      "seq": 55,
+      "seq": 53,
       "category": "Llenguatge Musical",
       "level": 1,
       "module": "Expressió i anàlisi",
@@ -1240,7 +1196,7 @@
     },
     {
       "id": "LM-28",
-      "seq": 56,
+      "seq": 54,
       "category": "Llenguatge Musical",
       "level": 1,
       "module": "Expressió i anàlisi",
@@ -1262,7 +1218,7 @@
     },
     {
       "id": "LM-29",
-      "seq": 57,
+      "seq": 55,
       "category": "Llenguatge Musical",
       "level": 1,
       "module": "Expressió i anàlisi",
@@ -1284,7 +1240,7 @@
     },
     {
       "id": "HA-01",
-      "seq": 58,
+      "seq": 56,
       "category": "Harmonia",
       "level": 0,
       "module": "Construcció d'acords",
@@ -1306,7 +1262,7 @@
     },
     {
       "id": "HA-02",
-      "seq": 59,
+      "seq": 57,
       "category": "Harmonia",
       "level": 0,
       "module": "Construcció d'acords",
@@ -1329,7 +1285,7 @@
     },
     {
       "id": "HA-03",
-      "seq": 60,
+      "seq": 58,
       "category": "Harmonia",
       "level": 0,
       "module": "Construcció d'acords",
@@ -1352,7 +1308,7 @@
     },
     {
       "id": "HA-04",
-      "seq": 61,
+      "seq": 59,
       "category": "Harmonia",
       "level": 0,
       "module": "Construcció d'acords",
@@ -1375,7 +1331,7 @@
     },
     {
       "id": "HA-05",
-      "seq": 62,
+      "seq": 60,
       "category": "Harmonia",
       "level": 0,
       "module": "Construcció d'acords",
@@ -1398,7 +1354,7 @@
     },
     {
       "id": "HA-06",
-      "seq": 63,
+      "seq": 61,
       "category": "Harmonia",
       "level": 0,
       "module": "Construcció d'acords",
@@ -1421,7 +1377,7 @@
     },
     {
       "id": "HA-07",
-      "seq": 64,
+      "seq": 62,
       "category": "Harmonia",
       "level": 0,
       "module": "Construcció d'acords",
@@ -1443,7 +1399,7 @@
     },
     {
       "id": "HA-08",
-      "seq": 65,
+      "seq": 63,
       "category": "Harmonia",
       "level": 0,
       "module": "Construcció d'acords",
@@ -1465,7 +1421,7 @@
     },
     {
       "id": "HA-09",
-      "seq": 66,
+      "seq": 64,
       "category": "Harmonia",
       "level": 1,
       "module": "Funcions harmòniques",
@@ -1487,7 +1443,7 @@
     },
     {
       "id": "HA-10",
-      "seq": 67,
+      "seq": 65,
       "category": "Harmonia",
       "level": 1,
       "module": "Funcions harmòniques",
@@ -1510,7 +1466,7 @@
     },
     {
       "id": "HA-11",
-      "seq": 68,
+      "seq": 66,
       "category": "Harmonia",
       "level": 1,
       "module": "Funcions harmòniques",
@@ -1533,7 +1489,7 @@
     },
     {
       "id": "HA-12",
-      "seq": 69,
+      "seq": 67,
       "category": "Harmonia",
       "level": 1,
       "module": "Funcions harmòniques",
@@ -1556,7 +1512,7 @@
     },
     {
       "id": "HA-13",
-      "seq": 70,
+      "seq": 68,
       "category": "Harmonia",
       "level": 1,
       "module": "Funcions harmòniques",
@@ -1579,7 +1535,7 @@
     },
     {
       "id": "HA-14",
-      "seq": 71,
+      "seq": 69,
       "category": "Harmonia",
       "level": 1,
       "module": "Funcions harmòniques",
@@ -1602,7 +1558,7 @@
     },
     {
       "id": "HA-15",
-      "seq": 72,
+      "seq": 70,
       "category": "Harmonia",
       "level": 1,
       "module": "Funcions harmòniques",
@@ -1624,7 +1580,7 @@
     },
     {
       "id": "HA-16",
-      "seq": 73,
+      "seq": 71,
       "category": "Harmonia",
       "level": 1,
       "module": "Funcions harmòniques",
@@ -1646,7 +1602,7 @@
     },
     {
       "id": "HA-17",
-      "seq": 74,
+      "seq": 72,
       "category": "Harmonia",
       "level": 1,
       "module": "Voice leading i arranjament",
@@ -1668,7 +1624,7 @@
     },
     {
       "id": "HA-18",
-      "seq": 75,
+      "seq": 73,
       "category": "Harmonia",
       "level": 1,
       "module": "Voice leading i arranjament",
@@ -1691,7 +1647,7 @@
     },
     {
       "id": "HA-19",
-      "seq": 76,
+      "seq": 74,
       "category": "Harmonia",
       "level": 1,
       "module": "Voice leading i arranjament",
@@ -1714,7 +1670,7 @@
     },
     {
       "id": "HA-20",
-      "seq": 77,
+      "seq": 75,
       "category": "Harmonia",
       "level": 1,
       "module": "Voice leading i arranjament",
@@ -1737,7 +1693,7 @@
     },
     {
       "id": "HA-21",
-      "seq": 78,
+      "seq": 76,
       "category": "Harmonia",
       "level": 1,
       "module": "Voice leading i arranjament",
@@ -1760,7 +1716,7 @@
     },
     {
       "id": "HA-22",
-      "seq": 79,
+      "seq": 77,
       "category": "Harmonia",
       "level": 1,
       "module": "Voice leading i arranjament",
@@ -1782,7 +1738,7 @@
     },
     {
       "id": "HA-23",
-      "seq": 80,
+      "seq": 78,
       "category": "Harmonia",
       "level": 1,
       "module": "Voice leading i arranjament",
@@ -1804,7 +1760,7 @@
     },
     {
       "id": "HA-24",
-      "seq": 81,
+      "seq": 79,
       "category": "Harmonia",
       "level": 2,
       "module": "Harmonia moderna aplicada",
@@ -1826,7 +1782,7 @@
     },
     {
       "id": "HA-25",
-      "seq": 82,
+      "seq": 80,
       "category": "Harmonia",
       "level": 2,
       "module": "Harmonia moderna aplicada",
@@ -1849,7 +1805,7 @@
     },
     {
       "id": "HA-26",
-      "seq": 83,
+      "seq": 81,
       "category": "Harmonia",
       "level": 2,
       "module": "Harmonia moderna aplicada",
@@ -1872,7 +1828,7 @@
     },
     {
       "id": "HA-27",
-      "seq": 84,
+      "seq": 82,
       "category": "Harmonia",
       "level": 2,
       "module": "Harmonia moderna aplicada",
@@ -1895,7 +1851,7 @@
     },
     {
       "id": "HA-28",
-      "seq": 85,
+      "seq": 83,
       "category": "Harmonia",
       "level": 2,
       "module": "Harmonia moderna aplicada",
@@ -1918,7 +1874,7 @@
     },
     {
       "id": "HA-29",
-      "seq": 86,
+      "seq": 84,
       "category": "Harmonia",
       "level": 2,
       "module": "Harmonia moderna aplicada",
@@ -1940,7 +1896,7 @@
     },
     {
       "id": "HA-30",
-      "seq": 87,
+      "seq": 85,
       "category": "Harmonia",
       "level": 2,
       "module": "Harmonia moderna aplicada",
@@ -1962,36 +1918,36 @@
     },
     {
       "id": "PR-01",
-      "seq": 88,
+      "seq": 86,
       "category": "Producció",
       "level": 0,
       "module": "Preproducció i visió",
-      "title": "Rol del productor (visió i criteri)",
+      "title": "Rol del productor (visió, criteri, entregables)",
       "prereqIds": [
-        "FT-28",
+        "FT-26",
         "LM-20"
       ],
       "categorySlug": "produccio",
-      "slug": "rol-del-productor-visio-i-criteri",
-      "path": "/resources/produccio/pr-01-rol-del-productor-visio-i-criteri",
+      "slug": "rol-del-productor-visio-criteri-entregables",
+      "path": "/resources/produccio/pr-01-rol-del-productor-visio-criteri-entregables",
       "objective": "Definir responsabilitats i com es mesura l'èxit d'un tema.",
       "resourceType": "Article",
       "monetization": "Free",
       "cta": "",
-      "tags": "producció, preproducció, visió, rol, del, productor, criteri, workflow",
+      "tags": "producció, preproducció, visió, rol, del, productor, criteri, entregables",
       "estMinutes": 25,
       "measurable": "Brief amb objectius i referències",
       "notes": ""
     },
     {
       "id": "PR-02",
-      "seq": 89,
+      "seq": 87,
       "category": "Producció",
       "level": 0,
       "module": "Preproducció i visió",
       "title": "Anàlisi de referències (estructura, timbre, energia)",
       "prereqIds": [
-        "FT-28",
+        "FT-26",
         "LM-20",
         "PR-01"
       ],
@@ -2009,13 +1965,13 @@
     },
     {
       "id": "PR-03",
-      "seq": 90,
+      "seq": 88,
       "category": "Producció",
       "level": 0,
       "module": "Preproducció i visió",
       "title": "Decidir tempo, tonalitat i centre emocional",
       "prereqIds": [
-        "FT-28",
+        "FT-26",
         "LM-20",
         "PR-02"
       ],
@@ -2033,13 +1989,13 @@
     },
     {
       "id": "PR-04",
-      "seq": 91,
+      "seq": 89,
       "category": "Producció",
       "level": 0,
       "module": "Preproducció i visió",
       "title": "Mapa d'energia (builds, drops, descansos)",
       "prereqIds": [
-        "FT-28",
+        "FT-26",
         "LM-20",
         "PR-03"
       ],
@@ -2057,13 +2013,13 @@
     },
     {
       "id": "PR-05",
-      "seq": 92,
+      "seq": 90,
       "category": "Producció",
       "level": 0,
       "module": "Preproducció i visió",
       "title": "Sound palette (elecció de sons)",
       "prereqIds": [
-        "FT-28",
+        "FT-26",
         "LM-20",
         "PR-04"
       ],
@@ -2081,7 +2037,7 @@
     },
     {
       "id": "PR-06",
-      "seq": 93,
+      "seq": 91,
       "category": "Producció",
       "level": 0,
       "module": "Preproducció i visió",
@@ -2103,7 +2059,7 @@
     },
     {
       "id": "PR-07",
-      "seq": 94,
+      "seq": 92,
       "category": "Producció",
       "level": 0,
       "module": "Preproducció i visió",
@@ -2125,7 +2081,7 @@
     },
     {
       "id": "PR-08",
-      "seq": 95,
+      "seq": 93,
       "category": "Producció",
       "level": 1,
       "module": "Arranjament",
@@ -2148,7 +2104,7 @@
     },
     {
       "id": "PR-09",
-      "seq": 96,
+      "seq": 94,
       "category": "Producció",
       "level": 1,
       "module": "Arranjament",
@@ -2172,7 +2128,7 @@
     },
     {
       "id": "PR-10",
-      "seq": 97,
+      "seq": 95,
       "category": "Producció",
       "level": 1,
       "module": "Arranjament",
@@ -2196,7 +2152,7 @@
     },
     {
       "id": "PR-11",
-      "seq": 98,
+      "seq": 96,
       "category": "Producció",
       "level": 1,
       "module": "Arranjament",
@@ -2220,7 +2176,7 @@
     },
     {
       "id": "PR-12",
-      "seq": 99,
+      "seq": 97,
       "category": "Producció",
       "level": 1,
       "module": "Arranjament",
@@ -2244,7 +2200,7 @@
     },
     {
       "id": "PR-13",
-      "seq": 100,
+      "seq": 98,
       "category": "Producció",
       "level": 1,
       "module": "Arranjament",
@@ -2268,7 +2224,7 @@
     },
     {
       "id": "PR-14",
-      "seq": 101,
+      "seq": 99,
       "category": "Producció",
       "level": 1,
       "module": "Arranjament",
@@ -2290,7 +2246,7 @@
     },
     {
       "id": "PR-15",
-      "seq": 102,
+      "seq": 100,
       "category": "Producció",
       "level": 1,
       "module": "Arranjament",
@@ -2312,14 +2268,14 @@
     },
     {
       "id": "PR-16",
-      "seq": 103,
+      "seq": 101,
       "category": "Producció",
       "level": 1,
       "module": "MIDI i instruments",
       "title": "MIDI: notes, velocitat, CC i expressió",
       "prereqIds": [
         "PR-08",
-        "FT-15"
+        "FT-13"
       ],
       "categorySlug": "produccio",
       "slug": "midi-notes-velocitat-cc-i-expressio",
@@ -2335,14 +2291,14 @@
     },
     {
       "id": "PR-17",
-      "seq": 104,
+      "seq": 102,
       "category": "Producció",
       "level": 1,
       "module": "MIDI i instruments",
       "title": "Programació de bateria: layers i velocity maps",
       "prereqIds": [
         "PR-08",
-        "FT-15",
+        "FT-13",
         "PR-16"
       ],
       "categorySlug": "produccio",
@@ -2359,14 +2315,14 @@
     },
     {
       "id": "PR-18",
-      "seq": 105,
+      "seq": 103,
       "category": "Producció",
       "level": 1,
       "module": "MIDI i instruments",
       "title": "Baix: sub, mid-bass i articulació",
       "prereqIds": [
         "PR-08",
-        "FT-15",
+        "FT-13",
         "PR-17"
       ],
       "categorySlug": "produccio",
@@ -2383,14 +2339,14 @@
     },
     {
       "id": "PR-19",
-      "seq": 106,
+      "seq": 104,
       "category": "Producció",
       "level": 1,
       "module": "MIDI i instruments",
       "title": "Selecció de plugins i limitació del 'toolset'",
       "prereqIds": [
         "PR-08",
-        "FT-15",
+        "FT-13",
         "PR-18"
       ],
       "categorySlug": "produccio",
@@ -2407,14 +2363,14 @@
     },
     {
       "id": "PR-20",
-      "seq": 107,
+      "seq": 105,
       "category": "Producció",
       "level": 1,
       "module": "MIDI i instruments",
       "title": "Commit decisions: printing, resampling i congelar",
       "prereqIds": [
         "PR-08",
-        "FT-15",
+        "FT-13",
         "PR-19"
       ],
       "categorySlug": "produccio",
@@ -2431,7 +2387,7 @@
     },
     {
       "id": "PR-21",
-      "seq": 108,
+      "seq": 106,
       "category": "Producció",
       "level": 1,
       "module": "MIDI i instruments",
@@ -2453,7 +2409,7 @@
     },
     {
       "id": "PR-22",
-      "seq": 109,
+      "seq": 107,
       "category": "Producció",
       "level": 1,
       "module": "MIDI i instruments",
@@ -2475,14 +2431,14 @@
     },
     {
       "id": "PR-23",
-      "seq": 110,
+      "seq": 108,
       "category": "Producció",
       "level": 2,
-      "module": "Workflow de producció",
+      "module": "Workflow i entregables",
       "title": "Preparació per gravació: guia per artistes",
       "prereqIds": [
         "PR-16",
-        "FT-14"
+        "FT-12"
       ],
       "categorySlug": "produccio",
       "slug": "preparacio-per-gravacio-guia-per-artistes",
@@ -2491,22 +2447,22 @@
       "resourceType": "Checklist",
       "monetization": "Free",
       "cta": "",
-      "tags": "producció, workflow, workflow, preparació, per, gravació, guia, artistes",
+      "tags": "producció, workflow, entregables, preparació, per, gravació, guia, artistes",
       "estMinutes": 30,
       "measurable": "Guia reutilitzable",
       "notes": ""
     },
     {
       "id": "PR-24",
-      "seq": 111,
+      "seq": 109,
       "category": "Producció",
       "level": 2,
-      "module": "Workflow de producció",
+      "module": "Workflow i entregables",
       "title": "Produir pensant en la mescla (arranjament→mix)",
       "prereqIds": [
         "PR-16",
         "PR-23",
-        "FT-14"
+        "FT-12"
       ],
       "categorySlug": "produccio",
       "slug": "produir-pensant-en-la-mescla-arranjament-mix",
@@ -2515,46 +2471,46 @@
       "resourceType": "Checklist",
       "monetization": "Free",
       "cta": "",
-      "tags": "producció, workflow, workflow, produir, pensant, mescla, arranjament→mix",
+      "tags": "producció, workflow, entregables, produir, pensant, mescla, arranjament→mix",
       "estMinutes": 35,
       "measurable": "Demo amb menys enmascarament",
       "notes": ""
     },
     {
       "id": "PR-25",
-      "seq": 112,
+      "seq": 110,
       "category": "Producció",
       "level": 2,
-      "module": "Workflow de producció",
+      "module": "Workflow i entregables",
       "title": "Export de stems i versions (instrumental, acapella...)",
       "prereqIds": [
         "PR-16",
         "PR-24",
-        "FT-14"
+        "FT-12"
       ],
       "categorySlug": "produccio",
       "slug": "export-de-stems-i-versions-instrumental-acapella",
       "path": "/resources/produccio/pr-25-export-de-stems-i-versions-instrumental-acapella",
-      "objective": "Preparar versions per col·laboració i distribució.",
+      "objective": "Preparar entregables per col·laboració i distribució.",
       "resourceType": "Tutorial",
       "monetization": "Free",
       "cta": "",
-      "tags": "producció, workflow, workflow, export, stems, versions, instrumental, acapella",
+      "tags": "producció, workflow, entregables, export, stems, versions, instrumental, acapella",
       "estMinutes": 35,
       "measurable": "Stems alineats i etiquetats",
       "notes": ""
     },
     {
       "id": "PR-26",
-      "seq": 113,
+      "seq": 111,
       "category": "Producció",
       "level": 2,
-      "module": "Workflow de producció",
+      "module": "Workflow i entregables",
       "title": "Gestió de feedback (versions i decisions)",
       "prereqIds": [
         "PR-16",
         "PR-25",
-        "FT-14"
+        "FT-12"
       ],
       "categorySlug": "produccio",
       "slug": "gestio-de-feedback-versions-i-decisions",
@@ -2563,90 +2519,90 @@
       "resourceType": "Article",
       "monetization": "Free",
       "cta": "",
-      "tags": "producció, workflow, workflow, gestió, feedback, versions, decisions",
+      "tags": "producció, workflow, entregables, gestió, feedback, versions, decisions",
       "estMinutes": 25,
       "measurable": "Changelog clar i traçable",
       "notes": ""
     },
     {
       "id": "PR-27",
-      "seq": 114,
+      "seq": 112,
       "category": "Producció",
       "level": 2,
-      "module": "Workflow de producció",
+      "module": "Workflow i entregables",
       "title": "Projecte: demo completa de 60–90s (brief→stems)",
       "prereqIds": [
         "PR-16",
         "PR-26",
-        "FT-14"
+        "FT-12"
       ],
       "categorySlug": "produccio",
       "slug": "projecte-demo-completa-de-60-90s-brief-stems",
       "path": "/resources/produccio/pr-27-projecte-demo-completa-de-60-90s-brief-stems",
-      "objective": "Aplicar tot el flux fins a un resultat usable.",
+      "objective": "Aplicar tot el flux fins a un entregable usable.",
       "resourceType": "Projecte",
       "monetization": "Free",
       "cta": "",
-      "tags": "producció, workflow, workflow, projecte, demo, completa, 60–90s, brief→stems",
+      "tags": "producció, workflow, entregables, projecte, demo, completa, 60–90s, brief→stems",
       "estMinutes": 120,
       "measurable": "Demo exportable amb documentació",
       "notes": ""
     },
     {
       "id": "PR-28",
-      "seq": 115,
+      "seq": 113,
       "category": "Producció",
       "level": 2,
-      "module": "Workflow de producció",
-      "title": "Checklist i resum del mòdul: Workflow de producció",
+      "module": "Workflow i entregables",
+      "title": "Checklist i resum del mòdul: Workflow i entregables",
       "prereqIds": [
         "PR-27",
-        "FT-14"
+        "FT-12"
       ],
       "categorySlug": "produccio",
-      "slug": "checklist-i-resum-del-modul-workflow-de-produccio",
-      "path": "/resources/produccio/pr-28-checklist-i-resum-del-modul-workflow-de-produccio",
+      "slug": "checklist-i-resum-del-modul-workflow-i-entregables",
+      "path": "/resources/produccio/pr-28-checklist-i-resum-del-modul-workflow-i-entregables",
       "objective": "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.",
       "resourceType": "Checklist",
       "monetization": "Lead magnet",
-      "cta": "Plantilla 'versions i arxiu' (PDF)",
-      "tags": "producció, workflow, workflow, checklist, resum, del, mòdul",
+      "cta": "Plantilla 'entregables i versions' (PDF)",
+      "tags": "producció, workflow, entregables, checklist, resum, del, mòdul",
       "estMinutes": 15,
       "measurable": "Completa checklist i obté ≥80% al quiz",
       "notes": "Ideal per captar email i segmentar interessos."
     },
     {
       "id": "PR-29",
-      "seq": 116,
+      "seq": 114,
       "category": "Producció",
       "level": 2,
-      "module": "Workflow de producció",
-      "title": "Plantilla / pack premium per al mòdul: Workflow de producció",
+      "module": "Workflow i entregables",
+      "title": "Plantilla / pack premium per al mòdul: Workflow i entregables",
       "prereqIds": [
         "PR-28",
-        "FT-14"
+        "FT-12"
       ],
       "categorySlug": "produccio",
-      "slug": "plantilla-pack-premium-per-al-modul-workflow-de-produccio",
-      "path": "/resources/produccio/pr-29-plantilla-pack-premium-per-al-modul-workflow-de-produccio",
+      "slug": "plantilla-pack-premium-per-al-modul-workflow-i-entregables",
+      "path": "/resources/produccio/pr-29-plantilla-pack-premium-per-al-modul-workflow-i-entregables",
       "objective": "Accelerar el workflow amb recursos reutilitzables i consistents.",
       "resourceType": "Plantilla",
       "monetization": "Producte digital",
       "cta": "Servei: revisió de producció + roadmap personalitzat",
-      "tags": "producció, workflow, workflow, plantilla, pack, premium, per, mòdul",
+      "tags": "producció, workflow, entregables, plantilla, pack, premium, per, mòdul",
       "estMinutes": 10,
       "measurable": "Implementa el pack en una sessió real",
       "notes": "Punt natural per ingressos passius; afegeix upsell a consultoria."
     },
     {
       "id": "GR-01",
-      "seq": 117,
+      "seq": 115,
       "category": "Gravació",
       "level": 0,
       "module": "Cadena de captura",
       "title": "Micròfons: dinàmic, condensador, cinta",
       "prereqIds": [
-        "FT-15"
+        "FT-13"
       ],
       "categorySlug": "gravacio",
       "slug": "microfons-dinamic-condensador-cinta",
@@ -2662,13 +2618,13 @@
     },
     {
       "id": "GR-02",
-      "seq": 118,
+      "seq": 116,
       "category": "Gravació",
       "level": 0,
       "module": "Cadena de captura",
       "title": "Patrons polars i efecte proximitat",
       "prereqIds": [
-        "FT-15",
+        "FT-13",
         "GR-01"
       ],
       "categorySlug": "gravacio",
@@ -2685,13 +2641,13 @@
     },
     {
       "id": "GR-03",
-      "seq": 119,
+      "seq": 117,
       "category": "Gravació",
       "level": 0,
       "module": "Cadena de captura",
       "title": "Preamps i guany: soroll, headroom, color",
       "prereqIds": [
-        "FT-15",
+        "FT-13",
         "GR-02"
       ],
       "categorySlug": "gravacio",
@@ -2708,13 +2664,13 @@
     },
     {
       "id": "GR-04",
-      "seq": 120,
+      "seq": 118,
       "category": "Gravació",
       "level": 0,
       "module": "Cadena de captura",
       "title": "Convertidors i drivers: configuració estable",
       "prereqIds": [
-        "FT-15",
+        "FT-13",
         "GR-03"
       ],
       "categorySlug": "gravacio",
@@ -2731,13 +2687,13 @@
     },
     {
       "id": "GR-05",
-      "seq": 121,
+      "seq": 119,
       "category": "Gravació",
       "level": 0,
       "module": "Cadena de captura",
       "title": "DI, reamp i instrument level",
       "prereqIds": [
-        "FT-15",
+        "FT-13",
         "GR-04"
       ],
       "categorySlug": "gravacio",
@@ -2754,13 +2710,13 @@
     },
     {
       "id": "GR-06",
-      "seq": 122,
+      "seq": 120,
       "category": "Gravació",
       "level": 0,
       "module": "Cadena de captura",
       "title": "Control de plosives, sibilància i pops (a la font)",
       "prereqIds": [
-        "FT-15",
+        "FT-13",
         "GR-05"
       ],
       "categorySlug": "gravacio",
@@ -2777,7 +2733,7 @@
     },
     {
       "id": "GR-07",
-      "seq": 123,
+      "seq": 121,
       "category": "Gravació",
       "level": 0,
       "module": "Cadena de captura",
@@ -2799,7 +2755,7 @@
     },
     {
       "id": "GR-08",
-      "seq": 124,
+      "seq": 122,
       "category": "Gravació",
       "level": 0,
       "module": "Cadena de captura",
@@ -2821,14 +2777,14 @@
     },
     {
       "id": "GR-09",
-      "seq": 125,
+      "seq": 123,
       "category": "Gravació",
       "level": 1,
       "module": "Tècniques i fase",
       "title": "Mono vs estèreo: quan i per què",
       "prereqIds": [
         "GR-01",
-        "FT-05"
+        "FT-04"
       ],
       "categorySlug": "gravacio",
       "slug": "mono-vs-estereo-quan-i-per-que",
@@ -2844,14 +2800,14 @@
     },
     {
       "id": "GR-10",
-      "seq": 126,
+      "seq": 124,
       "category": "Gravació",
       "level": 1,
       "module": "Tècniques i fase",
       "title": "Tècniques estèreo (XY, ORTF, AB, MS)",
       "prereqIds": [
         "GR-01",
-        "FT-05",
+        "FT-04",
         "GR-09"
       ],
       "categorySlug": "gravacio",
@@ -2868,14 +2824,14 @@
     },
     {
       "id": "GR-11",
-      "seq": 127,
+      "seq": 125,
       "category": "Gravació",
       "level": 1,
       "module": "Tècniques i fase",
       "title": "Fase en multi-mic i regla 3:1",
       "prereqIds": [
         "GR-01",
-        "FT-05",
+        "FT-04",
         "GR-10"
       ],
       "categorySlug": "gravacio",
@@ -2892,14 +2848,14 @@
     },
     {
       "id": "GR-12",
-      "seq": 128,
+      "seq": 126,
       "category": "Gravació",
       "level": 1,
       "module": "Tècniques i fase",
       "title": "Microfonia de bateria (overview)",
       "prereqIds": [
         "GR-01",
-        "FT-05",
+        "FT-04",
         "GR-11"
       ],
       "categorySlug": "gravacio",
@@ -2916,14 +2872,14 @@
     },
     {
       "id": "GR-13",
-      "seq": 129,
+      "seq": 127,
       "category": "Gravació",
       "level": 1,
       "module": "Tècniques i fase",
       "title": "Vocals: posició, distància, i take strategy",
       "prereqIds": [
         "GR-01",
-        "FT-05",
+        "FT-04",
         "GR-12"
       ],
       "categorySlug": "gravacio",
@@ -2940,7 +2896,7 @@
     },
     {
       "id": "GR-14",
-      "seq": 130,
+      "seq": 128,
       "category": "Gravació",
       "level": 1,
       "module": "Tècniques i fase",
@@ -2962,7 +2918,7 @@
     },
     {
       "id": "GR-15",
-      "seq": 131,
+      "seq": 129,
       "category": "Gravació",
       "level": 1,
       "module": "Tècniques i fase",
@@ -2984,7 +2940,7 @@
     },
     {
       "id": "GR-16",
-      "seq": 132,
+      "seq": 130,
       "category": "Gravació",
       "level": 1,
       "module": "Sala i acústica",
@@ -3006,7 +2962,7 @@
     },
     {
       "id": "GR-17",
-      "seq": 133,
+      "seq": 131,
       "category": "Gravació",
       "level": 1,
       "module": "Sala i acústica",
@@ -3029,7 +2985,7 @@
     },
     {
       "id": "GR-18",
-      "seq": 134,
+      "seq": 132,
       "category": "Gravació",
       "level": 1,
       "module": "Sala i acústica",
@@ -3052,7 +3008,7 @@
     },
     {
       "id": "GR-19",
-      "seq": 135,
+      "seq": 133,
       "category": "Gravació",
       "level": 1,
       "module": "Sala i acústica",
@@ -3075,7 +3031,7 @@
     },
     {
       "id": "GR-20",
-      "seq": 136,
+      "seq": 134,
       "category": "Gravació",
       "level": 1,
       "module": "Sala i acústica",
@@ -3097,7 +3053,7 @@
     },
     {
       "id": "GR-21",
-      "seq": 137,
+      "seq": 135,
       "category": "Gravació",
       "level": 1,
       "module": "Sala i acústica",
@@ -3119,7 +3075,7 @@
     },
     {
       "id": "GR-22",
-      "seq": 138,
+      "seq": 136,
       "category": "Gravació",
       "level": 2,
       "module": "Gestió de sessions",
@@ -3141,7 +3097,7 @@
     },
     {
       "id": "GR-23",
-      "seq": 139,
+      "seq": 137,
       "category": "Gravació",
       "level": 2,
       "module": "Gestió de sessions",
@@ -3164,7 +3120,7 @@
     },
     {
       "id": "GR-24",
-      "seq": 140,
+      "seq": 138,
       "category": "Gravació",
       "level": 2,
       "module": "Gestió de sessions",
@@ -3187,7 +3143,7 @@
     },
     {
       "id": "GR-25",
-      "seq": 141,
+      "seq": 139,
       "category": "Gravació",
       "level": 2,
       "module": "Gestió de sessions",
@@ -3210,7 +3166,7 @@
     },
     {
       "id": "GR-26",
-      "seq": 142,
+      "seq": 140,
       "category": "Gravació",
       "level": 2,
       "module": "Gestió de sessions",
@@ -3233,7 +3189,7 @@
     },
     {
       "id": "GR-27",
-      "seq": 143,
+      "seq": 141,
       "category": "Gravació",
       "level": 2,
       "module": "Gestió de sessions",
@@ -3255,7 +3211,7 @@
     },
     {
       "id": "GR-28",
-      "seq": 144,
+      "seq": 142,
       "category": "Gravació",
       "level": 2,
       "module": "Gestió de sessions",
@@ -3277,7 +3233,7 @@
     },
     {
       "id": "ED-01",
-      "seq": 145,
+      "seq": 143,
       "category": "Edició",
       "level": 0,
       "module": "Comping i neteja",
@@ -3299,7 +3255,7 @@
     },
     {
       "id": "ED-02",
-      "seq": 146,
+      "seq": 144,
       "category": "Edició",
       "level": 0,
       "module": "Comping i neteja",
@@ -3322,7 +3278,7 @@
     },
     {
       "id": "ED-03",
-      "seq": 147,
+      "seq": 145,
       "category": "Edició",
       "level": 0,
       "module": "Comping i neteja",
@@ -3345,7 +3301,7 @@
     },
     {
       "id": "ED-04",
-      "seq": 148,
+      "seq": 146,
       "category": "Edició",
       "level": 0,
       "module": "Comping i neteja",
@@ -3368,7 +3324,7 @@
     },
     {
       "id": "ED-05",
-      "seq": 149,
+      "seq": 147,
       "category": "Edició",
       "level": 0,
       "module": "Comping i neteja",
@@ -3391,7 +3347,7 @@
     },
     {
       "id": "ED-06",
-      "seq": 150,
+      "seq": 148,
       "category": "Edició",
       "level": 0,
       "module": "Comping i neteja",
@@ -3413,7 +3369,7 @@
     },
     {
       "id": "ED-07",
-      "seq": 151,
+      "seq": 149,
       "category": "Edició",
       "level": 0,
       "module": "Comping i neteja",
@@ -3435,7 +3391,7 @@
     },
     {
       "id": "ED-08",
-      "seq": 152,
+      "seq": 150,
       "category": "Edició",
       "level": 1,
       "module": "Edició temporal",
@@ -3458,7 +3414,7 @@
     },
     {
       "id": "ED-09",
-      "seq": 153,
+      "seq": 151,
       "category": "Edició",
       "level": 1,
       "module": "Edició temporal",
@@ -3482,7 +3438,7 @@
     },
     {
       "id": "ED-10",
-      "seq": 154,
+      "seq": 152,
       "category": "Edició",
       "level": 1,
       "module": "Edició temporal",
@@ -3506,7 +3462,7 @@
     },
     {
       "id": "ED-11",
-      "seq": 155,
+      "seq": 153,
       "category": "Edició",
       "level": 1,
       "module": "Edició temporal",
@@ -3530,7 +3486,7 @@
     },
     {
       "id": "ED-12",
-      "seq": 156,
+      "seq": 154,
       "category": "Edició",
       "level": 1,
       "module": "Edició temporal",
@@ -3554,7 +3510,7 @@
     },
     {
       "id": "ED-13",
-      "seq": 157,
+      "seq": 155,
       "category": "Edició",
       "level": 1,
       "module": "Edició temporal",
@@ -3576,7 +3532,7 @@
     },
     {
       "id": "ED-14",
-      "seq": 158,
+      "seq": 156,
       "category": "Edició",
       "level": 1,
       "module": "Edició temporal",
@@ -3598,7 +3554,7 @@
     },
     {
       "id": "ED-15",
-      "seq": 159,
+      "seq": 157,
       "category": "Edició",
       "level": 1,
       "module": "Edició tonal",
@@ -3621,7 +3577,7 @@
     },
     {
       "id": "ED-16",
-      "seq": 160,
+      "seq": 158,
       "category": "Edició",
       "level": 1,
       "module": "Edició tonal",
@@ -3645,7 +3601,7 @@
     },
     {
       "id": "ED-17",
-      "seq": 161,
+      "seq": 159,
       "category": "Edició",
       "level": 1,
       "module": "Edició tonal",
@@ -3669,7 +3625,7 @@
     },
     {
       "id": "ED-18",
-      "seq": 162,
+      "seq": 160,
       "category": "Edició",
       "level": 1,
       "module": "Edició tonal",
@@ -3693,7 +3649,7 @@
     },
     {
       "id": "ED-19",
-      "seq": 163,
+      "seq": 161,
       "category": "Edició",
       "level": 1,
       "module": "Edició tonal",
@@ -3717,7 +3673,7 @@
     },
     {
       "id": "ED-20",
-      "seq": 164,
+      "seq": 162,
       "category": "Edició",
       "level": 1,
       "module": "Edició tonal",
@@ -3739,7 +3695,7 @@
     },
     {
       "id": "ED-21",
-      "seq": 165,
+      "seq": 163,
       "category": "Edició",
       "level": 1,
       "module": "Edició tonal",
@@ -3761,14 +3717,14 @@
     },
     {
       "id": "ED-22",
-      "seq": 166,
+      "seq": 164,
       "category": "Edició",
       "level": 2,
       "module": "Preparació per mescla",
       "title": "Consolidació, align i export de pistes",
       "prereqIds": [
         "ED-15",
-        "FT-08"
+        "FT-06"
       ],
       "categorySlug": "edicio",
       "slug": "consolidacio-align-i-export-de-pistes",
@@ -3784,7 +3740,7 @@
     },
     {
       "id": "ED-23",
-      "seq": 167,
+      "seq": 165,
       "category": "Edició",
       "level": 2,
       "module": "Preparació per mescla",
@@ -3792,7 +3748,7 @@
       "prereqIds": [
         "ED-15",
         "ED-22",
-        "FT-08"
+        "FT-06"
       ],
       "categorySlug": "edicio",
       "slug": "edicio-de-respiracions-per-a-compressio-futura",
@@ -3808,7 +3764,7 @@
     },
     {
       "id": "ED-24",
-      "seq": 168,
+      "seq": 166,
       "category": "Edició",
       "level": 2,
       "module": "Preparació per mescla",
@@ -3816,7 +3772,7 @@
       "prereqIds": [
         "ED-15",
         "ED-23",
-        "FT-08"
+        "FT-06"
       ],
       "categorySlug": "edicio",
       "slug": "naming-colors-groups-i-markers-per-mixer",
@@ -3832,7 +3788,7 @@
     },
     {
       "id": "ED-25",
-      "seq": 169,
+      "seq": 167,
       "category": "Edició",
       "level": 2,
       "module": "Preparació per mescla",
@@ -3840,7 +3796,7 @@
       "prereqIds": [
         "ED-15",
         "ED-24",
-        "FT-08"
+        "FT-06"
       ],
       "categorySlug": "edicio",
       "slug": "projecte-edicio-completa-d-una-canco-curta-30-60-pistes",
@@ -3856,14 +3812,14 @@
     },
     {
       "id": "ED-26",
-      "seq": 170,
+      "seq": 168,
       "category": "Edició",
       "level": 2,
       "module": "Preparació per mescla",
       "title": "Checklist i resum del mòdul: Preparació per mescla",
       "prereqIds": [
         "ED-25",
-        "FT-08"
+        "FT-06"
       ],
       "categorySlug": "edicio",
       "slug": "checklist-i-resum-del-modul-preparacio-per-mescla",
@@ -3879,14 +3835,14 @@
     },
     {
       "id": "ED-27",
-      "seq": 171,
+      "seq": 169,
       "category": "Edició",
       "level": 2,
       "module": "Preparació per mescla",
       "title": "Plantilla / pack premium per al mòdul: Preparació per mescla",
       "prereqIds": [
         "ED-26",
-        "FT-08"
+        "FT-06"
       ],
       "categorySlug": "edicio",
       "slug": "plantilla-pack-premium-per-al-modul-preparacio-per-mescla",
@@ -3902,14 +3858,14 @@
     },
     {
       "id": "ME-01",
-      "seq": 172,
+      "seq": 170,
       "category": "Mescla",
       "level": 0,
       "module": "Preparació i static mix",
       "title": "Objectius de mescla: traducció i intenció",
       "prereqIds": [
         "ED-27",
-        "FT-28"
+        "FT-26"
       ],
       "categorySlug": "mescla",
       "slug": "objectius-de-mescla-traduccio-i-intencio",
@@ -3925,14 +3881,14 @@
     },
     {
       "id": "ME-02",
-      "seq": 173,
+      "seq": 171,
       "category": "Mescla",
       "level": 0,
       "module": "Preparació i static mix",
       "title": "Preparar sessió: gain staging, groups i routing",
       "prereqIds": [
         "ED-27",
-        "FT-28",
+        "FT-26",
         "ME-01"
       ],
       "categorySlug": "mescla",
@@ -3949,14 +3905,14 @@
     },
     {
       "id": "ME-03",
-      "seq": 174,
+      "seq": 172,
       "category": "Mescla",
       "level": 0,
       "module": "Preparació i static mix",
       "title": "Static mix: volum i pan primer",
       "prereqIds": [
         "ED-27",
-        "FT-28",
+        "FT-26",
         "ME-02"
       ],
       "categorySlug": "mescla",
@@ -3973,14 +3929,14 @@
     },
     {
       "id": "ME-04",
-      "seq": 175,
+      "seq": 173,
       "category": "Mescla",
       "level": 0,
       "module": "Preparació i static mix",
       "title": "Referències i nivell d'escolta (A/B)",
       "prereqIds": [
         "ED-27",
-        "FT-28",
+        "FT-26",
         "ME-03"
       ],
       "categorySlug": "mescla",
@@ -3997,14 +3953,14 @@
     },
     {
       "id": "ME-05",
-      "seq": 176,
+      "seq": 174,
       "category": "Mescla",
       "level": 0,
       "module": "Preparació i static mix",
       "title": "Workflow: ordre d'operacions (macro→micro)",
       "prereqIds": [
         "ED-27",
-        "FT-28",
+        "FT-26",
         "ME-04"
       ],
       "categorySlug": "mescla",
@@ -4021,14 +3977,14 @@
     },
     {
       "id": "ME-06",
-      "seq": 177,
+      "seq": 175,
       "category": "Mescla",
       "level": 0,
       "module": "Preparació i static mix",
       "title": "Automatització bàsica de balances",
       "prereqIds": [
         "ED-27",
-        "FT-28",
+        "FT-26",
         "ME-05"
       ],
       "categorySlug": "mescla",
@@ -4045,7 +4001,7 @@
     },
     {
       "id": "ME-07",
-      "seq": 178,
+      "seq": 176,
       "category": "Mescla",
       "level": 0,
       "module": "Preparació i static mix",
@@ -4067,7 +4023,7 @@
     },
     {
       "id": "ME-08",
-      "seq": 179,
+      "seq": 177,
       "category": "Mescla",
       "level": 0,
       "module": "Preparació i static mix",
@@ -4089,7 +4045,7 @@
     },
     {
       "id": "ME-09",
-      "seq": 180,
+      "seq": 178,
       "category": "Mescla",
       "level": 1,
       "module": "EQ",
@@ -4111,7 +4067,7 @@
     },
     {
       "id": "ME-10",
-      "seq": 181,
+      "seq": 179,
       "category": "Mescla",
       "level": 1,
       "module": "EQ",
@@ -4134,7 +4090,7 @@
     },
     {
       "id": "ME-11",
-      "seq": 182,
+      "seq": 180,
       "category": "Mescla",
       "level": 1,
       "module": "EQ",
@@ -4157,7 +4113,7 @@
     },
     {
       "id": "ME-12",
-      "seq": 183,
+      "seq": 181,
       "category": "Mescla",
       "level": 1,
       "module": "EQ",
@@ -4180,7 +4136,7 @@
     },
     {
       "id": "ME-13",
-      "seq": 184,
+      "seq": 182,
       "category": "Mescla",
       "level": 1,
       "module": "EQ",
@@ -4203,7 +4159,7 @@
     },
     {
       "id": "ME-14",
-      "seq": 185,
+      "seq": 183,
       "category": "Mescla",
       "level": 1,
       "module": "EQ",
@@ -4226,7 +4182,7 @@
     },
     {
       "id": "ME-15",
-      "seq": 186,
+      "seq": 184,
       "category": "Mescla",
       "level": 1,
       "module": "EQ",
@@ -4249,7 +4205,7 @@
     },
     {
       "id": "ME-16",
-      "seq": 187,
+      "seq": 185,
       "category": "Mescla",
       "level": 1,
       "module": "EQ",
@@ -4271,7 +4227,7 @@
     },
     {
       "id": "ME-17",
-      "seq": 188,
+      "seq": 186,
       "category": "Mescla",
       "level": 1,
       "module": "EQ",
@@ -4293,7 +4249,7 @@
     },
     {
       "id": "ME-18",
-      "seq": 189,
+      "seq": 187,
       "category": "Mescla",
       "level": 1,
       "module": "Dinàmica",
@@ -4315,7 +4271,7 @@
     },
     {
       "id": "ME-19",
-      "seq": 190,
+      "seq": 188,
       "category": "Mescla",
       "level": 1,
       "module": "Dinàmica",
@@ -4338,7 +4294,7 @@
     },
     {
       "id": "ME-20",
-      "seq": 191,
+      "seq": 189,
       "category": "Mescla",
       "level": 1,
       "module": "Dinàmica",
@@ -4361,7 +4317,7 @@
     },
     {
       "id": "ME-21",
-      "seq": 192,
+      "seq": 190,
       "category": "Mescla",
       "level": 1,
       "module": "Dinàmica",
@@ -4384,7 +4340,7 @@
     },
     {
       "id": "ME-22",
-      "seq": 193,
+      "seq": 191,
       "category": "Mescla",
       "level": 1,
       "module": "Dinàmica",
@@ -4407,7 +4363,7 @@
     },
     {
       "id": "ME-23",
-      "seq": 194,
+      "seq": 192,
       "category": "Mescla",
       "level": 1,
       "module": "Dinàmica",
@@ -4430,7 +4386,7 @@
     },
     {
       "id": "ME-24",
-      "seq": 195,
+      "seq": 193,
       "category": "Mescla",
       "level": 1,
       "module": "Dinàmica",
@@ -4453,7 +4409,7 @@
     },
     {
       "id": "ME-25",
-      "seq": 196,
+      "seq": 194,
       "category": "Mescla",
       "level": 1,
       "module": "Dinàmica",
@@ -4475,7 +4431,7 @@
     },
     {
       "id": "ME-26",
-      "seq": 197,
+      "seq": 195,
       "category": "Mescla",
       "level": 1,
       "module": "Dinàmica",
@@ -4497,7 +4453,7 @@
     },
     {
       "id": "ME-27",
-      "seq": 198,
+      "seq": 196,
       "category": "Mescla",
       "level": 1,
       "module": "Espai i estèreo",
@@ -4519,7 +4475,7 @@
     },
     {
       "id": "ME-28",
-      "seq": 199,
+      "seq": 197,
       "category": "Mescla",
       "level": 1,
       "module": "Espai i estèreo",
@@ -4542,7 +4498,7 @@
     },
     {
       "id": "ME-29",
-      "seq": 200,
+      "seq": 198,
       "category": "Mescla",
       "level": 1,
       "module": "Espai i estèreo",
@@ -4565,7 +4521,7 @@
     },
     {
       "id": "ME-30",
-      "seq": 201,
+      "seq": 199,
       "category": "Mescla",
       "level": 1,
       "module": "Espai i estèreo",
@@ -4588,7 +4544,7 @@
     },
     {
       "id": "ME-31",
-      "seq": 202,
+      "seq": 200,
       "category": "Mescla",
       "level": 1,
       "module": "Espai i estèreo",
@@ -4611,7 +4567,7 @@
     },
     {
       "id": "ME-32",
-      "seq": 203,
+      "seq": 201,
       "category": "Mescla",
       "level": 1,
       "module": "Espai i estèreo",
@@ -4633,7 +4589,7 @@
     },
     {
       "id": "ME-33",
-      "seq": 204,
+      "seq": 202,
       "category": "Mescla",
       "level": 1,
       "module": "Espai i estèreo",
@@ -4655,7 +4611,7 @@
     },
     {
       "id": "ME-34",
-      "seq": 205,
+      "seq": 203,
       "category": "Mescla",
       "level": 2,
       "module": "Mixbus i traducció",
@@ -4677,7 +4633,7 @@
     },
     {
       "id": "ME-35",
-      "seq": 206,
+      "seq": 204,
       "category": "Mescla",
       "level": 2,
       "module": "Mixbus i traducció",
@@ -4700,7 +4656,7 @@
     },
     {
       "id": "ME-36",
-      "seq": 207,
+      "seq": 205,
       "category": "Mescla",
       "level": 2,
       "module": "Mixbus i traducció",
@@ -4723,7 +4679,7 @@
     },
     {
       "id": "ME-37",
-      "seq": 208,
+      "seq": 206,
       "category": "Mescla",
       "level": 2,
       "module": "Mixbus i traducció",
@@ -4746,7 +4702,7 @@
     },
     {
       "id": "ME-38",
-      "seq": 209,
+      "seq": 207,
       "category": "Mescla",
       "level": 2,
       "module": "Mixbus i traducció",
@@ -4769,7 +4725,7 @@
     },
     {
       "id": "ME-39",
-      "seq": 210,
+      "seq": 208,
       "category": "Mescla",
       "level": 2,
       "module": "Mixbus i traducció",
@@ -4791,7 +4747,7 @@
     },
     {
       "id": "ME-40",
-      "seq": 211,
+      "seq": 209,
       "category": "Mescla",
       "level": 2,
       "module": "Mixbus i traducció",
@@ -4813,7 +4769,7 @@
     },
     {
       "id": "DS-01",
-      "seq": 212,
+      "seq": 210,
       "category": "Disseny de so",
       "level": 0,
       "module": "Síntesi bàsica",
@@ -4835,7 +4791,7 @@
     },
     {
       "id": "DS-02",
-      "seq": 213,
+      "seq": 211,
       "category": "Disseny de so",
       "level": 0,
       "module": "Síntesi bàsica",
@@ -4858,7 +4814,7 @@
     },
     {
       "id": "DS-03",
-      "seq": 214,
+      "seq": 212,
       "category": "Disseny de so",
       "level": 0,
       "module": "Síntesi bàsica",
@@ -4881,7 +4837,7 @@
     },
     {
       "id": "DS-04",
-      "seq": 215,
+      "seq": 213,
       "category": "Disseny de so",
       "level": 0,
       "module": "Síntesi bàsica",
@@ -4904,7 +4860,7 @@
     },
     {
       "id": "DS-05",
-      "seq": 216,
+      "seq": 214,
       "category": "Disseny de so",
       "level": 0,
       "module": "Síntesi bàsica",
@@ -4927,7 +4883,7 @@
     },
     {
       "id": "DS-06",
-      "seq": 217,
+      "seq": 215,
       "category": "Disseny de so",
       "level": 0,
       "module": "Síntesi bàsica",
@@ -4950,7 +4906,7 @@
     },
     {
       "id": "DS-07",
-      "seq": 218,
+      "seq": 216,
       "category": "Disseny de so",
       "level": 0,
       "module": "Síntesi bàsica",
@@ -4972,7 +4928,7 @@
     },
     {
       "id": "DS-08",
-      "seq": 219,
+      "seq": 217,
       "category": "Disseny de so",
       "level": 0,
       "module": "Síntesi bàsica",
@@ -4994,7 +4950,7 @@
     },
     {
       "id": "DS-09",
-      "seq": 220,
+      "seq": 218,
       "category": "Disseny de so",
       "level": 1,
       "module": "Modulació i moviment",
@@ -5016,7 +4972,7 @@
     },
     {
       "id": "DS-10",
-      "seq": 221,
+      "seq": 219,
       "category": "Disseny de so",
       "level": 1,
       "module": "Modulació i moviment",
@@ -5039,7 +4995,7 @@
     },
     {
       "id": "DS-11",
-      "seq": 222,
+      "seq": 220,
       "category": "Disseny de so",
       "level": 1,
       "module": "Modulació i moviment",
@@ -5062,7 +5018,7 @@
     },
     {
       "id": "DS-12",
-      "seq": 223,
+      "seq": 221,
       "category": "Disseny de so",
       "level": 1,
       "module": "Modulació i moviment",
@@ -5085,7 +5041,7 @@
     },
     {
       "id": "DS-13",
-      "seq": 224,
+      "seq": 222,
       "category": "Disseny de so",
       "level": 1,
       "module": "Modulació i moviment",
@@ -5108,7 +5064,7 @@
     },
     {
       "id": "DS-14",
-      "seq": 225,
+      "seq": 223,
       "category": "Disseny de so",
       "level": 1,
       "module": "Modulació i moviment",
@@ -5130,7 +5086,7 @@
     },
     {
       "id": "DS-15",
-      "seq": 226,
+      "seq": 224,
       "category": "Disseny de so",
       "level": 1,
       "module": "Modulació i moviment",
@@ -5152,7 +5108,7 @@
     },
     {
       "id": "DS-16",
-      "seq": 227,
+      "seq": 225,
       "category": "Disseny de so",
       "level": 1,
       "module": "FX i resampling",
@@ -5174,7 +5130,7 @@
     },
     {
       "id": "DS-17",
-      "seq": 228,
+      "seq": 226,
       "category": "Disseny de so",
       "level": 1,
       "module": "FX i resampling",
@@ -5197,7 +5153,7 @@
     },
     {
       "id": "DS-18",
-      "seq": 229,
+      "seq": 227,
       "category": "Disseny de so",
       "level": 1,
       "module": "FX i resampling",
@@ -5220,7 +5176,7 @@
     },
     {
       "id": "DS-19",
-      "seq": 230,
+      "seq": 228,
       "category": "Disseny de so",
       "level": 1,
       "module": "FX i resampling",
@@ -5243,7 +5199,7 @@
     },
     {
       "id": "DS-20",
-      "seq": 231,
+      "seq": 229,
       "category": "Disseny de so",
       "level": 1,
       "module": "FX i resampling",
@@ -5266,7 +5222,7 @@
     },
     {
       "id": "DS-21",
-      "seq": 232,
+      "seq": 230,
       "category": "Disseny de so",
       "level": 1,
       "module": "FX i resampling",
@@ -5288,7 +5244,7 @@
     },
     {
       "id": "DS-22",
-      "seq": 233,
+      "seq": 231,
       "category": "Disseny de so",
       "level": 1,
       "module": "FX i resampling",
@@ -5310,7 +5266,7 @@
     },
     {
       "id": "DS-23",
-      "seq": 234,
+      "seq": 232,
       "category": "Disseny de so",
       "level": 2,
       "module": "Foley i field recording",
@@ -5333,7 +5289,7 @@
     },
     {
       "id": "DS-24",
-      "seq": 235,
+      "seq": 233,
       "category": "Disseny de so",
       "level": 2,
       "module": "Foley i field recording",
@@ -5357,7 +5313,7 @@
     },
     {
       "id": "DS-25",
-      "seq": 236,
+      "seq": 234,
       "category": "Disseny de so",
       "level": 2,
       "module": "Foley i field recording",
@@ -5381,7 +5337,7 @@
     },
     {
       "id": "DS-26",
-      "seq": 237,
+      "seq": 235,
       "category": "Disseny de so",
       "level": 2,
       "module": "Foley i field recording",
@@ -5405,7 +5361,7 @@
     },
     {
       "id": "DS-27",
-      "seq": 238,
+      "seq": 236,
       "category": "Disseny de so",
       "level": 2,
       "module": "Foley i field recording",
@@ -5427,7 +5383,7 @@
     },
     {
       "id": "DS-28",
-      "seq": 239,
+      "seq": 237,
       "category": "Disseny de so",
       "level": 2,
       "module": "Foley i field recording",
@@ -5449,10 +5405,10 @@
     },
     {
       "id": "DS-29",
-      "seq": 240,
+      "seq": 238,
       "category": "Disseny de so",
       "level": 2,
-      "module": "Biblioteques i integració",
+      "module": "Entregables i integració",
       "title": "Loudness i headroom per SFX (jocs/vídeo)",
       "prereqIds": [
         "DS-23",
@@ -5465,17 +5421,17 @@
       "resourceType": "Article",
       "monetization": "Free",
       "cta": "",
-      "tags": "disseny, workflow, integració, loudness, headroom, per, sfx, jocs/vídeo",
+      "tags": "disseny, entregables, integració, loudness, headroom, per, sfx, jocs/vídeo",
       "estMinutes": 35,
       "measurable": "Exports que compleixen especificació",
       "notes": ""
     },
     {
       "id": "DS-30",
-      "seq": 241,
+      "seq": 239,
       "category": "Disseny de so",
       "level": 2,
-      "module": "Biblioteques i integració",
+      "module": "Entregables i integració",
       "title": "Integració amb música: espai i prioritat",
       "prereqIds": [
         "DS-23",
@@ -5489,17 +5445,17 @@
       "resourceType": "Projecte",
       "monetization": "Free",
       "cta": "",
-      "tags": "disseny, workflow, integració, amb, música, espai, prioritat",
+      "tags": "disseny, entregables, integració, amb, música, espai, prioritat",
       "estMinutes": 90,
       "measurable": "Clip final coherent i clar",
       "notes": ""
     },
     {
       "id": "DS-31",
-      "seq": 242,
+      "seq": 240,
       "category": "Disseny de so",
       "level": 2,
-      "module": "Biblioteques i integració",
+      "module": "Entregables i integració",
       "title": "Entrega de biblioteques: naming, metadata, formats",
       "prereqIds": [
         "DS-23",
@@ -5513,51 +5469,51 @@
       "resourceType": "Checklist",
       "monetization": "Free",
       "cta": "",
-      "tags": "disseny, workflow, integració, entrega, biblioteques, naming, metadata, formats",
+      "tags": "disseny, entregables, integració, entrega, biblioteques, naming, metadata, formats",
       "estMinutes": 60,
       "measurable": "Pack preparat per venda",
       "notes": ""
     },
     {
       "id": "DS-32",
-      "seq": 243,
+      "seq": 241,
       "category": "Disseny de so",
       "level": 2,
-      "module": "Biblioteques i integració",
-      "title": "Checklist i resum del mòdul: Biblioteques i integració",
+      "module": "Entregables i integració",
+      "title": "Checklist i resum del mòdul: Entregables i integració",
       "prereqIds": [
         "DS-31"
       ],
       "categorySlug": "disseny-de-so",
-      "slug": "checklist-i-resum-del-modul-biblioteques-i-integracio",
-      "path": "/resources/disseny-de-so/ds-32-checklist-i-resum-del-modul-biblioteques-i-integracio",
+      "slug": "checklist-i-resum-del-modul-entregables-i-integracio",
+      "path": "/resources/disseny-de-so/ds-32-checklist-i-resum-del-modul-entregables-i-integracio",
       "objective": "Consolidar els conceptes clau i evitar errors típics abans de passar al següent bloc.",
       "resourceType": "Checklist",
       "monetization": "Lead magnet",
       "cta": "Guia 'publicar un sample pack' (PDF)",
-      "tags": "disseny, workflow, integració, checklist, resum, del, mòdul",
+      "tags": "disseny, entregables, integració, checklist, resum, del, mòdul",
       "estMinutes": 15,
       "measurable": "Completa checklist i obté ≥80% al quiz",
       "notes": "Ideal per captar email i segmentar interessos."
     },
     {
       "id": "DS-33",
-      "seq": 244,
+      "seq": 242,
       "category": "Disseny de so",
       "level": 2,
-      "module": "Biblioteques i integració",
-      "title": "Plantilla / pack premium per al mòdul: Biblioteques i integració",
+      "module": "Entregables i integració",
+      "title": "Plantilla / pack premium per al mòdul: Entregables i integració",
       "prereqIds": [
         "DS-32"
       ],
       "categorySlug": "disseny-de-so",
-      "slug": "plantilla-pack-premium-per-al-modul-biblioteques-i-integracio",
-      "path": "/resources/disseny-de-so/ds-33-plantilla-pack-premium-per-al-modul-biblioteques-i-integracio",
+      "slug": "plantilla-pack-premium-per-al-modul-entregables-i-integracio",
+      "path": "/resources/disseny-de-so/ds-33-plantilla-pack-premium-per-al-modul-entregables-i-integracio",
       "objective": "Accelerar el workflow amb recursos reutilitzables i consistents.",
       "resourceType": "Plantilla",
       "monetization": "Producte digital",
       "cta": "Servei: disseny de pack + estratègia de venda",
-      "tags": "disseny, workflow, integració, plantilla, pack, premium, per, mòdul",
+      "tags": "disseny, entregables, integració, plantilla, pack, premium, per, mòdul",
       "estMinutes": 10,
       "measurable": "Implementa el pack en una sessió real",
       "notes": "Punt natural per ingressos passius; afegeix upsell a consultoria."

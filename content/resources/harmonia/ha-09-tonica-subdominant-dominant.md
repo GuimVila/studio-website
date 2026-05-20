@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Funcions harmòniques"
 level: 1
-seq: 66
+seq: 64
 slug: "tonica-subdominant-dominant"
 path: "/resources/harmonia/ha-09-tonica-subdominant-dominant"
 prereqIds: ["HA-01"]

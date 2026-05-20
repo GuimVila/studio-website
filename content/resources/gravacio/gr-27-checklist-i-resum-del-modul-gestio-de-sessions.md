@@ -6,7 +6,7 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Gestió de sessions"
 level: 2
-seq: 143
+seq: 141
 slug: "checklist-i-resum-del-modul-gestio-de-sessions"
 path: "/resources/gravacio/gr-27-checklist-i-resum-del-modul-gestio-de-sessions"
 prereqIds: ["GR-26"]

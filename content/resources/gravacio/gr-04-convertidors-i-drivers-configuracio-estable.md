@@ -6,10 +6,10 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Cadena de captura"
 level: 0
-seq: 120
+seq: 118
 slug: "convertidors-i-drivers-configuracio-estable"
 path: "/resources/gravacio/gr-04-convertidors-i-drivers-configuracio-estable"
-prereqIds: ["FT-15", "GR-03"]
+prereqIds: ["FT-13", "GR-03"]
 resourceType: "Checklist"
 estMinutes: 25
 tags: "gravació, cadena, captura, convertidors, drivers, configuració, estable"

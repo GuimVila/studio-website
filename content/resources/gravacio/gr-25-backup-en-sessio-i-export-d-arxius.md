@@ -6,7 +6,7 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Gestió de sessions"
 level: 2
-seq: 141
+seq: 139
 slug: "backup-en-sessio-i-export-d-arxius"
 path: "/resources/gravacio/gr-25-backup-en-sessio-i-export-d-arxius"
 prereqIds: ["GR-16", "GR-24"]

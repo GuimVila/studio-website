@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Funcions harmòniques"
 level: 1
-seq: 72
+seq: 70
 slug: "checklist-i-resum-del-modul-funcions-harmoniques"
 path: "/resources/harmonia/ha-15-checklist-i-resum-del-modul-funcions-harmoniques"
 prereqIds: ["HA-14"]

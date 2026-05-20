@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Funcions harmòniques"
 level: 1
-seq: 67
+seq: 65
 slug: "cadencies-autentica-plagal-trencada"
 path: "/resources/harmonia/ha-10-cadencies-autentica-plagal-trencada"
 prereqIds: ["HA-01", "HA-09"]

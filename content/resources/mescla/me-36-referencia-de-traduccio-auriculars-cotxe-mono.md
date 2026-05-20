@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Mixbus i traducció"
 level: 2
-seq: 207
+seq: 205
 slug: "referencia-de-traduccio-auriculars-cotxe-mono"
 path: "/resources/mescla/me-36-referencia-de-traduccio-auriculars-cotxe-mono"
 prereqIds: ["ME-27", "ME-35"]

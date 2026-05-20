@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Ritme i temps"
 level: 0
-seq: 49
+seq: 47
 slug: "polirritmes-i-polimetria-introduccio"
 path: "/resources/llenguatge-musical/lm-21-polirritmes-i-polimetria-introduccio"
 prereqIds: ["LM-08", "LM-20"]

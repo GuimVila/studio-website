@@ -6,7 +6,7 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Edició temporal"
 level: 1
-seq: 155
+seq: 153
 slug: "slip-editing-nudge-i-shortcuts"
 path: "/resources/edicio/ed-11-slip-editing-nudge-i-shortcuts"
 prereqIds: ["ED-01", "LM-23", "ED-10"]

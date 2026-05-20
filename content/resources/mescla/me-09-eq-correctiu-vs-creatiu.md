@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "EQ"
 level: 1
-seq: 180
+seq: 178
 slug: "eq-correctiu-vs-creatiu"
 path: "/resources/mescla/me-09-eq-correctiu-vs-creatiu"
 prereqIds: ["ME-01"]

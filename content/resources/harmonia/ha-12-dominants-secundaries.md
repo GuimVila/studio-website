@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Funcions harmòniques"
 level: 1
-seq: 69
+seq: 67
 slug: "dominants-secundaries"
 path: "/resources/harmonia/ha-12-dominants-secundaries"
 prereqIds: ["HA-01", "HA-11"]

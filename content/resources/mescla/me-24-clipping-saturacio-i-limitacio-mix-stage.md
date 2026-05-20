@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Dinàmica"
 level: 1
-seq: 195
+seq: 193
 slug: "clipping-saturacio-i-limitacio-mix-stage"
 path: "/resources/mescla/me-24-clipping-saturacio-i-limitacio-mix-stage"
 prereqIds: ["ME-09", "ME-23"]

@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Pitch i intervals"
 level: 0
-seq: 30
+seq: 28
 slug: "tons-i-semitons-distancies"
 path: "/resources/llenguatge-musical/lm-02-tons-i-semitons-distancies"
 prereqIds: ["FT-01", "LM-01"]

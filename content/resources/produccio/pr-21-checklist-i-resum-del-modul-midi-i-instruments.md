@@ -6,7 +6,7 @@ category: "Producció"
 categorySlug: "produccio"
 module: "MIDI i instruments"
 level: 1
-seq: 108
+seq: 106
 slug: "checklist-i-resum-del-modul-midi-i-instruments"
 path: "/resources/produccio/pr-21-checklist-i-resum-del-modul-midi-i-instruments"
 prereqIds: ["PR-20"]

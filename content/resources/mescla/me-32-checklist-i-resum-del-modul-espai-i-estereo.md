@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Espai i estèreo"
 level: 1
-seq: 203
+seq: 201
 slug: "checklist-i-resum-del-modul-espai-i-estereo"
 path: "/resources/mescla/me-32-checklist-i-resum-del-modul-espai-i-estereo"
 prereqIds: ["ME-31"]

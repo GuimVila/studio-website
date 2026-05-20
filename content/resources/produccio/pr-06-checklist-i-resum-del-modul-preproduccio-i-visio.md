@@ -6,7 +6,7 @@ category: "Producció"
 categorySlug: "produccio"
 module: "Preproducció i visió"
 level: 0
-seq: 93
+seq: 91
 slug: "checklist-i-resum-del-modul-preproduccio-i-visio"
 path: "/resources/produccio/pr-06-checklist-i-resum-del-modul-preproduccio-i-visio"
 prereqIds: ["PR-05"]

@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Mixbus i traducció"
 level: 2
-seq: 210
+seq: 208
 slug: "checklist-i-resum-del-modul-mixbus-i-traduccio"
 path: "/resources/mescla/me-39-checklist-i-resum-del-modul-mixbus-i-traduccio"
 prereqIds: ["ME-38"]

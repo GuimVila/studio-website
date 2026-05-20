@@ -6,7 +6,7 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Edició temporal"
 level: 1
-seq: 154
+seq: 152
 slug: "edicio-de-bateria-multitrack-i-fase"
 path: "/resources/edicio/ed-10-edicio-de-bateria-multitrack-i-fase"
 prereqIds: ["ED-01", "LM-23", "ED-09"]

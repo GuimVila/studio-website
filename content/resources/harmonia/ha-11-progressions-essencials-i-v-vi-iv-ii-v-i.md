@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Funcions harmòniques"
 level: 1
-seq: 68
+seq: 66
 slug: "progressions-essencials-i-v-vi-iv-ii-v-i"
 path: "/resources/harmonia/ha-11-progressions-essencials-i-v-vi-iv-ii-v-i"
 prereqIds: ["HA-01", "HA-10"]

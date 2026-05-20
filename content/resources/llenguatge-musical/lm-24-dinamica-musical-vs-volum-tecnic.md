@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Expressió i anàlisi"
 level: 1
-seq: 52
+seq: 50
 slug: "dinamica-musical-vs-volum-tecnic"
 path: "/resources/llenguatge-musical/lm-24-dinamica-musical-vs-volum-tecnic"
 prereqIds: ["LM-16"]

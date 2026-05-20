@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "EQ"
 level: 1
-seq: 187
+seq: 185
 slug: "checklist-i-resum-del-modul-eq"
 path: "/resources/mescla/me-16-checklist-i-resum-del-modul-eq"
 prereqIds: ["ME-15"]

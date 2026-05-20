@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Construcció d'acords"
 level: 0
-seq: 59
+seq: 57
 slug: "inversions-i-voicings-basics"
 path: "/resources/harmonia/ha-02-inversions-i-voicings-basics"
 prereqIds: ["LM-03", "HA-01"]

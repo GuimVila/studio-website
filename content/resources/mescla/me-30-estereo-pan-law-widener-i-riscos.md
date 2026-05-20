@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Espai i estèreo"
 level: 1
-seq: 201
+seq: 199
 slug: "estereo-pan-law-widener-i-riscos"
 path: "/resources/mescla/me-30-estereo-pan-law-widener-i-riscos"
 prereqIds: ["ME-18", "ME-29"]

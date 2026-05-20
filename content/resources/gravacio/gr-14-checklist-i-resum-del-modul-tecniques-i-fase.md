@@ -6,7 +6,7 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Tècniques i fase"
 level: 1
-seq: 130
+seq: 128
 slug: "checklist-i-resum-del-modul-tecniques-i-fase"
 path: "/resources/gravacio/gr-14-checklist-i-resum-del-modul-tecniques-i-fase"
 prereqIds: ["GR-13"]

@@ -6,10 +6,10 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Preparació per mescla"
 level: 2
-seq: 171
+seq: 169
 slug: "plantilla-pack-premium-per-al-modul-preparacio-per-mescla"
 path: "/resources/edicio/ed-27-plantilla-pack-premium-per-al-modul-preparacio-per-mescla"
-prereqIds: ["ED-26", "FT-08"]
+prereqIds: ["ED-26", "FT-06"]
 resourceType: "Plantilla"
 estMinutes: 10
 tags: "edició, preparació, per, mescla, plantilla, pack, premium, mòdul"

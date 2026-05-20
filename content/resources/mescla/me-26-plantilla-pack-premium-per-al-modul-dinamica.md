@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Dinàmica"
 level: 1
-seq: 197
+seq: 195
 slug: "plantilla-pack-premium-per-al-modul-dinamica"
 path: "/resources/mescla/me-26-plantilla-pack-premium-per-al-modul-dinamica"
 prereqIds: ["ME-25"]

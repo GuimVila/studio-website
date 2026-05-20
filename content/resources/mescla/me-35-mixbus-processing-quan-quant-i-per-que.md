@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Mixbus i traducció"
 level: 2
-seq: 206
+seq: 204
 slug: "mixbus-processing-quan-quant-i-per-que"
 path: "/resources/mescla/me-35-mixbus-processing-quan-quant-i-per-que"
 prereqIds: ["ME-27", "ME-34"]

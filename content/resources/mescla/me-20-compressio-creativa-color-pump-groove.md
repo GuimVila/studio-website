@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Dinàmica"
 level: 1
-seq: 191
+seq: 189
 slug: "compressio-creativa-color-pump-groove"
 path: "/resources/mescla/me-20-compressio-creativa-color-pump-groove"
 prereqIds: ["ME-09", "ME-19"]

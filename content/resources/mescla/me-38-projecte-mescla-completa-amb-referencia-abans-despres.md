@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Mixbus i traducció"
 level: 2
-seq: 209
+seq: 207
 slug: "projecte-mescla-completa-amb-referencia-abans-despres"
 path: "/resources/mescla/me-38-projecte-mescla-completa-amb-referencia-abans-despres"
 prereqIds: ["ME-27", "ME-37"]

@@ -6,10 +6,10 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Preparació i static mix"
 level: 0
-seq: 175
+seq: 173
 slug: "referencies-i-nivell-d-escolta-a-b"
 path: "/resources/mescla/me-04-referencies-i-nivell-d-escolta-a-b"
-prereqIds: ["ED-27", "FT-28", "ME-03"]
+prereqIds: ["ED-27", "FT-26", "ME-03"]
 resourceType: "Tutorial"
 estMinutes: 35
 tags: "mescla, preparació, static, mix, referències, nivell, d'escolta, a/b"

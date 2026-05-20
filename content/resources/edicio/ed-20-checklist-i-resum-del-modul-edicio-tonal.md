@@ -6,7 +6,7 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Edició tonal"
 level: 1
-seq: 164
+seq: 162
 slug: "checklist-i-resum-del-modul-edicio-tonal"
 path: "/resources/edicio/ed-20-checklist-i-resum-del-modul-edicio-tonal"
 prereqIds: ["ED-19"]

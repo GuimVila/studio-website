@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "EQ"
 level: 1
-seq: 184
+seq: 182
 slug: "eq-en-context-decisions-amb-la-pista-sencera"
 path: "/resources/mescla/me-13-eq-en-context-decisions-amb-la-pista-sencera"
 prereqIds: ["ME-01", "ME-12"]

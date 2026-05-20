@@ -6,7 +6,7 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Sala i acústica"
 level: 1
-seq: 132
+seq: 130
 slug: "reflexions-primerenques-i-tractament-basic"
 path: "/resources/gravacio/gr-16-reflexions-primerenques-i-tractament-basic"
 prereqIds: ["GR-09"]

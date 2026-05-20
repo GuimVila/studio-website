@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Harmonia moderna aplicada"
 level: 2
-seq: 84
+seq: 82
 slug: "harmonia-i-mescla-enmascarament-per-notes"
 path: "/resources/harmonia/ha-27-harmonia-i-mescla-enmascarament-per-notes"
 prereqIds: ["HA-17", "HA-26"]

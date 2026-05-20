@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Modulació i moviment"
 level: 1
-seq: 225
+seq: 223
 slug: "checklist-i-resum-del-modul-modulacio-i-moviment"
 path: "/resources/disseny-de-so/ds-14-checklist-i-resum-del-modul-modulacio-i-moviment"
 prereqIds: ["DS-13"]

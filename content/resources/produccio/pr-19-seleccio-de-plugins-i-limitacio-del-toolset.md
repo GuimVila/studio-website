@@ -6,10 +6,10 @@ category: "Producció"
 categorySlug: "produccio"
 module: "MIDI i instruments"
 level: 1
-seq: 106
+seq: 104
 slug: "seleccio-de-plugins-i-limitacio-del-toolset"
 path: "/resources/produccio/pr-19-seleccio-de-plugins-i-limitacio-del-toolset"
-prereqIds: ["PR-08", "FT-15", "PR-18"]
+prereqIds: ["PR-08", "FT-13", "PR-18"]
 resourceType: "Article"
 estMinutes: 25
 tags: "producció, midi, instruments, selecció, plugins, limitació, del, toolset"

@@ -6,7 +6,7 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Sala i acústica"
 level: 1
-seq: 137
+seq: 135
 slug: "plantilla-pack-premium-per-al-modul-sala-i-acustica"
 path: "/resources/gravacio/gr-21-plantilla-pack-premium-per-al-modul-sala-i-acustica"
 prereqIds: ["GR-20"]

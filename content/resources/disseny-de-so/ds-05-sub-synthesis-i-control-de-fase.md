@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Síntesi bàsica"
 level: 0
-seq: 216
+seq: 214
 slug: "sub-synthesis-i-control-de-fase"
 path: "/resources/disseny-de-so/ds-05-sub-synthesis-i-control-de-fase"
 prereqIds: ["FT-01", "DS-04"]

@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "FX i resampling"
 level: 1
-seq: 233
+seq: 231
 slug: "plantilla-pack-premium-per-al-modul-fx-i-resampling"
 path: "/resources/disseny-de-so/ds-22-plantilla-pack-premium-per-al-modul-fx-i-resampling"
 prereqIds: ["DS-21"]

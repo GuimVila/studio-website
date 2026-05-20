@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Voice leading i arranjament"
 level: 1
-seq: 79
+seq: 77
 slug: "checklist-i-resum-del-modul-voice-leading-i-arranjament"
 path: "/resources/harmonia/ha-22-checklist-i-resum-del-modul-voice-leading-i-arranjament"
 prereqIds: ["HA-21"]

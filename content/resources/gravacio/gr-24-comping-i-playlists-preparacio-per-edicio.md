@@ -6,7 +6,7 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Gestió de sessions"
 level: 2
-seq: 140
+seq: 138
 slug: "comping-i-playlists-preparacio-per-edicio"
 path: "/resources/gravacio/gr-24-comping-i-playlists-preparacio-per-edicio"
 prereqIds: ["GR-16", "GR-23"]

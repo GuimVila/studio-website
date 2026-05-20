@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Mixbus i traducció"
 level: 2
-seq: 208
+seq: 206
 slug: "prints-versions-stems-i-documentacio"
 path: "/resources/mescla/me-37-prints-versions-stems-i-documentacio"
 prereqIds: ["ME-27", "ME-36"]

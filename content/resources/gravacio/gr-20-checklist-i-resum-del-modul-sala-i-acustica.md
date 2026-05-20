@@ -6,7 +6,7 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Sala i acústica"
 level: 1
-seq: 136
+seq: 134
 slug: "checklist-i-resum-del-modul-sala-i-acustica"
 path: "/resources/gravacio/gr-20-checklist-i-resum-del-modul-sala-i-acustica"
 prereqIds: ["GR-19"]

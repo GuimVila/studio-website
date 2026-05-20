@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "Síntesi bàsica"
 level: 0
-seq: 215
+seq: 213
 slug: "unison-detune-i-batiments"
 path: "/resources/disseny-de-so/ds-04-unison-detune-i-batiments"
 prereqIds: ["FT-01", "DS-03"]

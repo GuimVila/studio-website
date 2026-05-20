@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Expressió i anàlisi"
 level: 1
-seq: 54
+seq: 52
 slug: "estructura-de-canco-intro-vers-chorus-bridge"
 path: "/resources/llenguatge-musical/lm-26-estructura-de-canco-intro-vers-chorus-bridge"
 prereqIds: ["LM-16", "LM-25"]

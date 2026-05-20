@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Espai i estèreo"
 level: 1
-seq: 198
+seq: 196
 slug: "reverb-tipus-pre-delay-i-decay"
 path: "/resources/mescla/me-27-reverb-tipus-pre-delay-i-decay"
 prereqIds: ["ME-18"]

@@ -6,10 +6,10 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Tècniques i fase"
 level: 1
-seq: 129
+seq: 127
 slug: "vocals-posicio-distancia-i-take-strategy"
 path: "/resources/gravacio/gr-13-vocals-posicio-distancia-i-take-strategy"
-prereqIds: ["GR-01", "FT-05", "GR-12"]
+prereqIds: ["GR-01", "FT-04", "GR-12"]
 resourceType: "Tutorial"
 estMinutes: 35
 tags: "gravació, tècniques, fase, vocals, posició, distància, take, strategy"

@@ -6,7 +6,7 @@ category: "Disseny de so"
 categorySlug: "disseny-de-so"
 module: "FX i resampling"
 level: 1
-seq: 229
+seq: 227
 slug: "granular-introduccio"
 path: "/resources/disseny-de-so/ds-18-granular-introduccio"
 prereqIds: ["DS-09", "DS-17"]

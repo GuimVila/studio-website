@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Pitch i intervals"
 level: 0
-seq: 35
+seq: 33
 slug: "checklist-i-resum-del-modul-pitch-i-intervals"
 path: "/resources/llenguatge-musical/lm-07-checklist-i-resum-del-modul-pitch-i-intervals"
 prereqIds: ["LM-06"]
@@ -14,5 +14,5 @@ resourceType: "Checklist"
 estMinutes: 15
 tags: "llenguatge, musical, pitch, intervals, checklist, resum, del, mòdul"
 monetization: "Lead magnet"
-cta: "PDF 'Intervals: taula + recursos'"
+cta: "PDF 'Intervals: taula + exercicis'"
 ---

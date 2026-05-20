@@ -6,7 +6,7 @@ category: "Producció"
 categorySlug: "produccio"
 module: "Arranjament"
 level: 1
-seq: 95
+seq: 93
 slug: "rols-d-instruments-fonament-ritme-harmonia-hooks"
 path: "/resources/produccio/pr-08-rols-d-instruments-fonament-ritme-harmonia-hooks"
 prereqIds: ["PR-01", "HA-01"]

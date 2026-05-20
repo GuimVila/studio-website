@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Dinàmica"
 level: 1
-seq: 192
+seq: 190
 slug: "paral-lel-drums-i-vocals"
 path: "/resources/mescla/me-21-paral-lel-drums-i-vocals"
 prereqIds: ["ME-09", "ME-20"]

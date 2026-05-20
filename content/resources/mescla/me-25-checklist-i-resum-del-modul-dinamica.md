@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Dinàmica"
 level: 1
-seq: 196
+seq: 194
 slug: "checklist-i-resum-del-modul-dinamica"
 path: "/resources/mescla/me-25-checklist-i-resum-del-modul-dinamica"
 prereqIds: ["ME-24"]

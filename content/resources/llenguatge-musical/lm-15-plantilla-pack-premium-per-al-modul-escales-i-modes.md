@@ -6,7 +6,7 @@ category: "Llenguatge Musical"
 categorySlug: "llenguatge-musical"
 module: "Escales i modes"
 level: 0
-seq: 43
+seq: 41
 slug: "plantilla-pack-premium-per-al-modul-escales-i-modes"
 path: "/resources/llenguatge-musical/lm-15-plantilla-pack-premium-per-al-modul-escales-i-modes"
 prereqIds: ["LM-14"]

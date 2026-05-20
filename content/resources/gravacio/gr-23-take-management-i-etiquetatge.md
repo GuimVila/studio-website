@@ -6,7 +6,7 @@ category: "Gravació"
 categorySlug: "gravacio"
 module: "Gestió de sessions"
 level: 2
-seq: 139
+seq: 137
 slug: "take-management-i-etiquetatge"
 path: "/resources/gravacio/gr-23-take-management-i-etiquetatge"
 prereqIds: ["GR-16", "GR-22"]

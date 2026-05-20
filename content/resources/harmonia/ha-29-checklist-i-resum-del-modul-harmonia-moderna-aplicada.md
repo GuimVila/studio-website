@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Harmonia moderna aplicada"
 level: 2
-seq: 86
+seq: 84
 slug: "checklist-i-resum-del-modul-harmonia-moderna-aplicada"
 path: "/resources/harmonia/ha-29-checklist-i-resum-del-modul-harmonia-moderna-aplicada"
 prereqIds: ["HA-28"]

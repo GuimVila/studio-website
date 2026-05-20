@@ -6,10 +6,10 @@ category: "Edició"
 categorySlug: "edicio"
 module: "Preparació per mescla"
 level: 2
-seq: 169
+seq: 167
 slug: "projecte-edicio-completa-d-una-canco-curta-30-60-pistes"
 path: "/resources/edicio/ed-25-projecte-edicio-completa-d-una-canco-curta-30-60-pistes"
-prereqIds: ["ED-15", "ED-24", "FT-08"]
+prereqIds: ["ED-15", "ED-24", "FT-06"]
 resourceType: "Projecte"
 estMinutes: 180
 tags: "edició, preparació, per, mescla, projecte, completa, d'una, cançó, curta, 30–60"

@@ -6,10 +6,10 @@ category: "Producció"
 categorySlug: "produccio"
 module: "Preproducció i visió"
 level: 0
-seq: 92
+seq: 90
 slug: "sound-palette-eleccio-de-sons"
 path: "/resources/produccio/pr-05-sound-palette-eleccio-de-sons"
-prereqIds: ["FT-28", "LM-20", "PR-04"]
+prereqIds: ["FT-26", "LM-20", "PR-04"]
 resourceType: "Article"
 estMinutes: 35
 tags: "producció, preproducció, visió, sound, palette, elecció, sons"

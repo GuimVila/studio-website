@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Dinàmica"
 level: 1
-seq: 193
+seq: 191
 slug: "de-essing-i-control-de-sibilancia"
 path: "/resources/mescla/me-22-de-essing-i-control-de-sibilancia"
 prereqIds: ["ME-09", "ME-21"]

@@ -6,7 +6,7 @@ category: "Harmonia"
 categorySlug: "harmonia"
 module: "Construcció d'acords"
 level: 0
-seq: 65
+seq: 63
 slug: "plantilla-pack-premium-per-al-modul-construccio-d-acords"
 path: "/resources/harmonia/ha-08-plantilla-pack-premium-per-al-modul-construccio-d-acords"
 prereqIds: ["HA-07"]

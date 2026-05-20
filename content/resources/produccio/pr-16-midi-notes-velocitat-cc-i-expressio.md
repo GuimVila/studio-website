@@ -6,10 +6,10 @@ category: "Producció"
 categorySlug: "produccio"
 module: "MIDI i instruments"
 level: 1
-seq: 103
+seq: 101
 slug: "midi-notes-velocitat-cc-i-expressio"
 path: "/resources/produccio/pr-16-midi-notes-velocitat-cc-i-expressio"
-prereqIds: ["PR-08", "FT-15"]
+prereqIds: ["PR-08", "FT-13"]
 resourceType: "Tutorial"
 estMinutes: 35
 tags: "producció, midi, instruments, notes, velocitat, expressió"

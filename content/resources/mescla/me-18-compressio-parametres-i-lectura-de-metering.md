@@ -6,7 +6,7 @@ category: "Mescla"
 categorySlug: "mescla"
 module: "Dinàmica"
 level: 1
-seq: 189
+seq: 187
 slug: "compressio-parametres-i-lectura-de-metering"
 path: "/resources/mescla/me-18-compressio-parametres-i-lectura-de-metering"
 prereqIds: ["ME-09"]
